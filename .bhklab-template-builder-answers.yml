@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier
+_commit: 0.14.2
+_src_path: gh:bhklab/bhklab-project-template
+author_email: bhklab.farnooshabbasaghababazadeh@gmail.com
+author_full_name: Farnoosh Abbas Aghababazadeh
+github_username: RibaA
+has_additional_authors: false
+project_description: Data standardization, harmonization, SOP development, quality
+    control, and reproducible Snakemake workflows supporting MAR-40 Milestone 1.
+project_name: MAR-40 data harmonization and standardization
+project_slug: mar-40-data-harmonization-and-standardization
+publish_to_github: true
+python_version: '3.12'
+repo_location: bhklab
