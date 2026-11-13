@@ -4,7 +4,7 @@
 
 **Contact:** [farnoosh.abbasaghababazadeh@uhn.ca](mailto:farnoosh.abbasaghababazadeh@uhn.ca) and [roc.duran.23@ucl.ac.uk](mailto:roc.duran.23@ucl.ac.uk)
 
-**Description:** Data standardization, harmonization, SOP development, quality control, and reproducible Snakemake workflows supporting MAR-40 Milestone 1.
+**Description:** Development of standardized data processing and harmonization procedures, standard operating procedures (SOPs), quality control frameworks, and reproducible Snakemake workflows.
 
 --------------------------------------
 
