@@ -1,6 +1,6 @@
 # MAR-40 data harmonization and standardization
 
-**Authors:** [Farnoosh Abbas Aghababazadeh](https://github.com/RibaA) and [Roc Farriol Duran <>](https://github.com/rocfd)
+**Authors:** [Farnoosh Abbas Aghababazadeh](https://github.com/RibaA) and [Roc Farriol Duran](https://github.com/rocfd)
 
 **Contact:** [farnoosh.abbasaghababazadeh@uhn.ca](mailto:farnoosh.abbasaghababazadeh@uhn.ca) and [roc.duran.23@ucl.ac.uk](mailto:roc.duran.23@ucl.ac.uk)
 
