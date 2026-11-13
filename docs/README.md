@@ -1,8 +1,8 @@
 # MAR-40 data harmonization and standardization
 
-**Authors:** [Farnoosh Abbas Aghababazadeh](https://github.com/RibaA)
+**Authors:** [Farnoosh Abbas Aghababazadeh](https://github.com/RibaA) and [Roc Farriol Duran <>](https://github.com/rocfd)
 
-**Contact:** [bhklab.farnooshabbasaghababazadeh@gmail.com](mailto:bhklab.farnooshabbasaghababazadeh@gmail.com)
+**Contact:** [farnoosh.abbasaghababazadeh@uhn.ca](mailto:farnoosh.abbasaghababazadeh@uhn.ca) and [roc.duran.23@ucl.ac.uk](mailto:roc.duran.23@ucl.ac.uk)
 
 **Description:** Data standardization, harmonization, SOP development, quality control, and reproducible Snakemake workflows supporting MAR-40 Milestone 1.
 
