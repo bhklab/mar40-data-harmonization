@@ -37,24 +37,20 @@ The project aims to:
 
 ### Installation
 
-1. Clone the repository:
+1. Clone the repository and navigate to the project directory:
 
    ```bash
    git clone https://github.com/bhklab/mar40-data-harmonization.git
-   ```
-
-2. Navigate to the repository:
-
-   ```bash
    cd mar40-data-harmonization
+
    ```
 
-3. Install the project environment:
+2. Set up the project environment:
 
    ```bash
    pixi install
    ```
-For commands to run the available workflows, see [Usage](docs/usage.md).
+For detailed setup instructions and reproducible workflows, see the [Usage](docs/usage.md).
 
 ## Documentation
 
