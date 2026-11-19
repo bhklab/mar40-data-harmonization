@@ -1,6 +1,7 @@
 # MAR-40 data harmonization and standardization
 
 **Authors:** [Farnoosh Abbas Aghababazadeh](https://github.com/RibaA) 
+
 **Contact:** [farnoosh.abbasaghababazadeh@uhn.ca](mailto:farnoosh.abbasaghababazadeh@uhn.ca) 
 
 **Description:** Development of standardized data processing and harmonization procedures, standard operating procedures (SOPs), quality control frameworks, and reproducible Snakemake workflows for clinical and molecular data in the MAR-40 immuno-oncology research program.
@@ -39,13 +40,13 @@ The project aims to:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/bhklab/mar-40-data-harmonization-and-standardization.git
+   git clone https://github.com/bhklab/mar40-data-harmonization.git
    ```
 
 2. Navigate to the repository:
 
    ```bash
-   cd mar-40-data-harmonization-and-standardization
+   cd mar40-data-harmonization
    ```
 
 3. Install the project environment:
@@ -53,12 +54,11 @@ The project aims to:
    ```bash
    pixi install
    ```
-
 For commands to run the available workflows, see [Usage](docs/usage.md).
 
 ## Documentation
 
-View the full documentation at [MAR-40 data harmonization and standardization](https://bhklab.github.io/mar-40-data-harmonization-and-standardization/).
+View the full documentation at [MAR-40 data harmonization](https://bhklab.github.io/mar40-data-harmonization/).
 
 | Document | Purpose |
 | --- | --- |
