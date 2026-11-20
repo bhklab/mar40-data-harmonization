@@ -109,9 +109,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#10-handling-exceptions-and-sop-changes">10. Handling exceptions and SOP changes</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#11-open-decisions-for-mar-40-cross-site-approval">11. Open decisions for MAR-40 cross-site approval</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#12-references-and-project-documentation">12. References and project documentation</a>
+    <li class="toctree-l2"><a class="reference internal" href="#11-maintaining-cross-site-consistency">11. Maintaining cross-site consistency</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#document-history">Document history</a>
     </li>
@@ -160,14 +158,14 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="mar-40-data-curation-and-harmonization-sop">MAR-40 Data Curation and Harmonization SOP</h1>
-<p><strong>Version:</strong> v0.1</p>
-<p><strong>Scope:</strong> Participating MAR-40 teams curating clinical and molecular immuno-oncology cohorts<br />
-<strong>Document owner(s):</strong> Farnoosh Abbas Aghababazadeh <br />
-<strong>Effective date:</strong> November 20, 2026<br />
-<strong>Repository location:</strong> <code>docs/data_curation_SOP.md</code><br />
-<strong>Related documents:</strong> <a href="../data_dictionary/">Data dictionary</a> · <a href="../data_sources/">Data sources</a> · <a href="../quality_control/">Quality control</a> · <a href="../usage/">Usage</a></p>
+<p><strong>Version:</strong> v1.0</p>
+<p><strong>Scope:</strong> Participating MAR-40 teams curating clinical and molecular immuno-oncology cohorts  </p>
+<p><strong>Document owner(s):</strong> Farnoosh Abbas Aghababazadeh  </p>
+<p><strong>Effective date:</strong> November 20, 2026  </p>
+<p><strong>Repository location:</strong> <code>docs/data_curation_SOP.md</code>  </p>
+<p><strong>Related documents:</strong> <a href="../data_dictionary/">Data dictionary</a> · <a href="../data_sources/">Data sources</a> · <a href="../quality_control/">Quality control</a> · <a href="../usage/">Usage</a></p>
 <blockquote>
-<p><strong>Important:</strong> This SOP is adapted from the <em>Immuno-Oncology Clinical Trial Curation</em> guide and reflects the data curation and harmonization framework agreed upon by the MAR-40 collaborating teams at UCL, McGill University, and University Health Network (UHN). This version serves as the initial documented implementation of the agreed framework. Future updates and cohort-specific deviations will be documented through version control.</p>
+<p><strong>Status:</strong> Version 1.0 establishes the MAR-40 data curation and harmonization procedures agreed upon by the collaborating teams at UCL, McGill University, and University Health Network (UHN). Changes and cohort-specific deviations are documented through version control and the review process described below.</p>
 </blockquote>
 <h2 id="1-purpose-and-expected-outcome">1. Purpose and expected outcome</h2>
 <p>Establish a transparent, reproducible procedure for acquiring, curating, harmonizing, validating, and documenting clinical and molecular data contributed to MAR-40. Apply common data definitions across institutions while retaining the meaning and provenance of the original source records.</p>
@@ -208,7 +206,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Proposed review rule:</strong> A curator must not independently resolve a clinically consequential ambiguity by guesswork. Record it as <strong>Needs review</strong> and escalate to the site's designated reviewer. Maintain a change log for decisions applied across cohorts.</p>
+<p><strong>Review rule:</strong> A curator must not independently resolve a clinically consequential ambiguity by guesswork. Record it as <strong>Needs review</strong> and escalate to the site's designated reviewer. Maintain a change log for decisions applied across cohorts.</p>
 <h3 id="21-data-protection-and-permitted-sharing">2.1 Data protection and permitted sharing</h3>
 <ul>
 <li>Classify data as <strong>Public</strong>, <strong>Controlled access</strong>, or <strong>Private</strong>, based on actual source permissions and institutional agreements. These labels describe access arrangements, not data completeness.</li>
@@ -219,14 +217,30 @@
 </ul>
 <h2 id="3-overall-workflow">3. Overall workflow</h2>
 <ol>
-<li><strong>Register a cohort and verify access.</strong> Establish source, citation, scope, permissions, and local contact.</li>
-<li><strong>Inventory source files.</strong> Preserve raw inputs; record file versions, assays, units, and identifiers.</li>
-<li><strong>Curate clinical metadata.</strong> Standardize identifiers, demographics, disease, therapy, response, and survival fields.</li>
-<li><strong>Process or import molecular profiles.</strong> Document RNA and DNA methods and preserve assay-specific information.</li>
-<li><strong>Harmonize annotations and vocabularies.</strong> Apply versioned mappings for tumor types, drugs, endpoints, and features.</li>
-<li><strong>Integrate sample-to-patient relationships.</strong> Produce interoperable tables and MAE components, when applicable.</li>
-<li><strong>Perform automated QC and scientific review.</strong> Resolve or explicitly flag inconsistencies.</li>
-<li><strong>Release curated outputs.</strong> Version outputs and record input provenance, code commit, software environment, and reviewer decisions.</li>
+<li>
+<p><strong>Register a cohort and verify access.</strong> Establish source, citation, scope, permissions, and local contact.</p>
+</li>
+<li>
+<p><strong>Inventory source files.</strong> Preserve raw inputs; record file versions, assays, units, and identifiers.</p>
+</li>
+<li>
+<p><strong>Curate clinical metadata.</strong> Standardize identifiers, demographics, disease, therapy, response, and survival fields.</p>
+</li>
+<li>
+<p><strong>Process or import molecular profiles.</strong> Document RNA and DNA methods and preserve assay-specific information.</p>
+</li>
+<li>
+<p><strong>Harmonize annotations and vocabularies.</strong> Apply versioned mappings for tumor types, drugs, endpoints, and features.</p>
+</li>
+<li>
+<p><strong>Integrate sample-to-patient relationships.</strong> Produce interoperable tables and MAE components, when applicable.</p>
+</li>
+<li>
+<p><strong>Perform automated QC and scientific review.</strong> Resolve or explicitly flag inconsistencies.</p>
+</li>
+<li>
+<p><strong>Release curated outputs.</strong> Version outputs and record input provenance, code commit, software environment, and reviewer decisions.</p>
+</li>
 </ol>
 <h2 id="4-cohort-registration-and-source-inventory">4. Cohort registration and source inventory</h2>
 <p>Create one entry per cohort in the registry described in <a href="../data_sources/">Data sources</a>. Record at least:</p>
@@ -285,7 +299,7 @@
 </ul>
 <p><strong>Check:</strong> One molecular sample should resolve to an appropriate clinical patient record; any many-to-many or uncertain match requires documented review.</p>
 <h3 id="52-required-fields-versus-unavailable-fields">5.2 Required fields versus unavailable fields</h3>
-<p>The supplied IO guide identifies common standardized fields including <code>patientid</code>, <code>treatmentid</code>, <code>response</code>, <code>tissueid</code>, <code>survival_time_os</code>, <code>survival_time_pfs</code>, <code>survival_unit</code>, and the corresponding event indicators. Preserve these as the <strong>target schema</strong> where relevant; a cohort is not automatically ineligible because the source lacks a field.</p>
+<p>The MAR-40 target schema includes standardized fields such as <code>patientid</code>, <code>treatmentid</code>, <code>response</code>, <code>tissueid</code>, <code>survival_time_os</code>, <code>survival_time_pfs</code>, <code>survival_unit</code>, and the corresponding event indicators. Preserve these as the <strong>target schema</strong> where relevant; a cohort is not automatically ineligible because the source lacks a field.</p>
 <table>
 <thead>
 <tr>
@@ -336,36 +350,50 @@
 <h3 id="53-harmonization-decision-procedure">5.3 Harmonization decision procedure</h3>
 <p>For each source column:</p>
 <ol>
-<li>Retain the source column name and original values in a source-to-target mapping record.</li>
-<li>Confirm the source definition from the publication, metadata file, protocol, or data provider.</li>
-<li>Select a target MAR-40 variable only where the meanings align.</li>
-<li>Specify the transformation (rename, recode, unit conversion, join, derived value, or no mapping).</li>
-<li>Record the decision status: <strong>Direct</strong>, <strong>Conditional</strong>, <strong>Needs review</strong>, or <strong>Unmapped</strong>.</li>
-<li>Document the reviewer, date, and evidence for clinical/biological interpretation changes.</li>
-<li>Re-run checks after updating a mapping rule; never edit only the final exported table.</li>
+<li>
+<p>Retain the source column name and original values in a source-to-target mapping record.</p>
+</li>
+<li>
+<p>Confirm the source definition from the publication, metadata file, protocol, or data provider.</p>
+</li>
+<li>
+<p>Select a target MAR-40 variable only where the meanings align.</p>
+</li>
+<li>
+<p>Specify the transformation (rename, recode, unit conversion, join, derived value, or no mapping).</p>
+</li>
+<li>
+<p>Record the decision status: <strong>Direct</strong>, <strong>Conditional</strong>, <strong>Needs review</strong>, or <strong>Unmapped</strong>.</p>
+</li>
+<li>
+<p>Document the reviewer, date, and evidence for clinical/biological interpretation changes.</p>
+</li>
+<li>
+<p>Re-run checks after updating a mapping rule; never edit only the final exported table.</p>
+</li>
 </ol>
 <p><strong>Suggested mapping-log fields:</strong> <code>cohort</code>, <code>source_file</code>, <code>source_variable</code>, <code>source_definition</code>, <code>target_variable</code>, <code>rule_id</code>, <code>transformation</code>, <code>mapping_status</code>, <code>evidence</code>, <code>reviewer</code>, <code>review_date</code>, <code>notes</code>.</p>
 <h3 id="54-cancer-taxonomy-and-disease-annotations">5.4 Cancer taxonomy and disease annotations</h3>
-<p>Map source disease labels to the agreed <a href="https://oncotree.mskcc.org/">OncoTree</a> version. Maintain <strong>Level 1 cancer type</strong> as the shared broad classification and <strong>Level 2 subtype</strong> when known and supported. Retain the unmodified original tumor label and the exact mapping code/version.</p>
+<p>Map source disease labels to the agreed <a href="https\://oncotree.mskcc.org/">OncoTree</a> version. Maintain <strong>Level 1 cancer type</strong> as the shared broad classification and <strong>Level 2 subtype</strong> when known and supported. Retain the unmodified original tumor label and the exact mapping code/version.</p>
 <p>Ambiguous histology, multiple primaries, metastatic specimen labels, or unsupported subtype assignments must be flagged rather than inferred.</p>
 <h3 id="55-treatment-and-response">5.5 Treatment and response</h3>
-<p>The source IO guide describes grouped immunotherapy categories: <strong>PD-1/PD-L1</strong>, <strong>CTLA4</strong>, <strong>IO+combo</strong>, <strong>IO+chemo</strong>, and <strong>IO+targeted</strong>. Preserve original regimen and component drug names; use agreed MAR-40 categories only after recording a documented mapping. Combination categories require an explicit precedence or multi-label rule agreed by participating teams.</p>
+<p>Immunotherapy categories include: <strong>PD-1/PD-L1</strong>, <strong>CTLA4</strong>, <strong>IO+combo</strong>, <strong>IO+chemo</strong>, and <strong>IO+targeted</strong>. Preserve original regimen and component drug names; use agreed MAR-40 categories only after recording a documented mapping. Combination categories require an explicit precedence or multi-label rule agreed by participating teams.</p>
 <p>Keep <strong>RECIST best response</strong> (<code>CR</code>, <code>PR</code>, <code>SD</code>, <code>PD</code>, or evaluability status when supported) separate from <strong>binary responder/non-responder</strong> outcome. Do not derive binary response from RECIST unless the study-specific response definition and threshold are documented. Record the assessment system/version and response timepoint when available.</p>
 <h3 id="56-survival-endpoints">5.6 Survival endpoints</h3>
 <ul>
 <li>Store OS and PFS times separately from their event indicators.</li>
 <li>Represent event values only after verifying the source's event/censoring convention (e.g. 1 = event, 0 = censored); never assume a coding direction.</li>
-<li>The source guide standardizes survival duration to <strong>months</strong>; preserve original units, the conversion method, and the agreed precision.</li>
+<li>Use <strong>months</strong> for harmonized survival duration; preserve original units, the conversion method, and the agreed precision.</li>
 <li>Verify the <strong>time origin</strong> (diagnosis, treatment initiation, randomization, etc.). Do not pool survival measurements with incompatible or unknown origins without explicit analytical justification.</li>
-<li>Distinguish <strong>metadata availability</strong> (at least one nonmissing time <em>or</em> event field) from <strong>analysis readiness</strong> (a valid paired time/event record and a known endpoint definition).</li>
+<li>Distinguish <strong>metadata availability</strong> (at least one nonmissing time <strong>or</strong> event field) from <strong>analysis readiness</strong> (a valid paired time/event record and a known endpoint definition).</li>
 </ul>
 <h2 id="6-molecular-data-curation">6. Molecular data curation</h2>
 <h3 id="61-inventory-available-assay-data">6.1 Inventory available assay data</h3>
-<p>The supplied IO guide covers processed RNA-seq counts/TPM, microarray expression, RNA-seq FASTQ, SNV mutation files and CNA segment or matrix data. For each assay record the originating platform, sample IDs, reference genome, gene annotation, pipeline/tool versions, normalization, filtering, and quality metrics where available.</p>
+<p>The curation workflow covers processed RNA-seq counts/TPM, microarray expression, RNA-seq FASTQ, SNV mutation files, and CNA segment or matrix data. For each assay record the originating platform, sample IDs, reference genome, gene annotation, pipeline/tool versions, normalization, filtering, and quality metrics where available.</p>
 <h3 id="62-rna-expression">6.2 RNA expression</h3>
 <ul>
 <li>Prefer source-supported normalized expression values and record their measurement scale.</li>
-<li>The supplied guide describes TPM and an example transformation <strong><code>log2(TPM + 0.001)</code></strong>. This is a <em>reference workflow choice</em>, not a universal conversion rule: confirm applicability and document the pseudocount, normalization method, and whether the values were already transformed.</li>
+<li>An example expression transformation is <strong><code>log2(TPM + 0.001)</code></strong>. This is an assay-specific processing option, not a universal conversion rule: confirm applicability and document the pseudocount, normalization method, and whether the values were already transformed.</li>
 <li>If deriving TPM from counts, use documented feature lengths appropriate to the quantification level and record the source of lengths. Do not apply the illustrative conversion without validating gene-length definitions and the input's count type.</li>
 <li>For microarrays, retain the platform, probe-to-gene mapping, and source normalization information; do not label microarray values as TPM.</li>
 </ul>
@@ -376,9 +404,9 @@
 <li>Where a binary gene-by-sample matrix is generated, preserve the logic converting raw calls to binary values and retain exclusions/uncertainties.</li>
 </ul>
 <h3 id="64-annotation-versions">6.4 Annotation versions</h3>
-<p>The source guide recommends retaining annotations that match the source dataset (e.g. GENCODE release) and using established gene, drug and tumor annotation resources. Record the release/version for each mapping. Do not mix gene identifiers or genome builds without an explicit conversion step and an audit trail.</p>
+<p>Retain annotations that match the source dataset (e.g. GENCODE release) and using established gene, drug and tumor annotation resources. Record the release/version for each mapping. Do not mix gene identifiers or genome builds without an explicit conversion step and an audit trail.</p>
 <h2 id="7-build-harmonized-objects-and-link-clinicalmolecular-data">7. Build harmonized objects and link clinical/molecular data</h2>
-<p>For R/Bioconductor workflows, the reference guide uses:</p>
+<p>For R/Bioconductor workflows, supported integration objects include:</p>
 <ul>
 <li><code>SummarizedExperiment</code> for expression or suitable feature-by-sample matrices.</li>
 <li><code>RangedSummarizedExperiment</code> when genomic feature ranges are required.</li>
@@ -426,7 +454,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Proposed release dispositions:</strong></p>
+<p><strong>QC review dispositions:</strong></p>
 <ul>
 <li><strong>Pass:</strong> QC checks satisfied; all required provenance supplied.</li>
 <li><strong>Pass with documented limitations:</strong> Missing or noncritical issues disclosed and approved by a reviewer.</li>
@@ -435,16 +463,25 @@
 <p>Do <strong>not</strong> treat a simple cohort-level presence/absence heatmap as a full QC or survival-analysis readiness assessment.</p>
 <h2 id="9-outputs-reproducibility-and-handoff">9. Outputs, reproducibility, and handoff</h2>
 <p>Suggested cohort handoff contents, subject to institutional permissions:</p>
-<pre><code class="language-text">&lt;cohort_id&gt;/
+<pre><code class="language-text">
+\&lt;cohort_id&gt;/
+
 ├── source_manifest.tsv           # Source inventory, versions, permitted paths/checksums
+
 ├── mapping_log.tsv               # Source -&gt; MAR-40 transformations and decisions
+
 ├── clinical_harmonized.csv       # Approved de-identified clinical metadata, if shareable
+
 ├── assay_manifest.tsv            # Available assays and processing parameters
+
 ├── qc_summary.tsv                # QC checks, results, exceptions
+
 ├── unresolved_issues.tsv         # Items requiring reviewer decisions
+
 └── run_manifest.txt              # Git commit, environment, execution parameters, date
+
 </code></pre>
-<p>A molecular-data object (e.g. <code>.rds</code> MAE) may be produced in an approved destination when supported by the cohort and workflow. <strong>This folder structure is proposed for discussion</strong>, not a statement that these files currently exist in the repository.</p>
+<p>A molecular-data object (e.g. <code>.rds</code> MAE) may be produced in an approved destination when supported by the cohort and workflow. This is the recommended cohort handoff structure; include only files supported by the cohort and permitted by institutional access requirements.</p>
 <p>Capture the following run details: source file versions/checksums, approved execution location, Git commit, Pixi/other environment lockfile, workflow command, tool versions, mapping version, start date, curator and reviewer. Scripts should be rerunnable without hard-coded local machine paths; use paths/configuration described in <a href="../usage/">Usage</a>.</p>
 <h3 id="suggested-submission-review-checklist">Suggested submission review checklist</h3>
 <ul>
@@ -460,27 +497,10 @@
 </ul>
 <h2 id="10-handling-exceptions-and-sop-changes">10. Handling exceptions and SOP changes</h2>
 <p>When a source requires a deviation, document the affected cohort, reason, alternative procedure, scientific impact, decision owner and approval date. Reusable deviations should be proposed as a versioned SOP or harmonization-rule update via repository review. Retain prior mapping versions so existing outputs remain interpretable.</p>
-<h2 id="11-open-decisions-for-mar-40-cross-site-approval">11. Open decisions for MAR-40 cross-site approval</h2>
-<p>Before approving this as SOP v1.0, collaborating teams should explicitly agree on:</p>
-<ol>
-<li><strong>The current canonical data dictionary and target schemas</strong>, including mandatory versus optional fields by cohort type.</li>
-<li><strong>Access governance</strong>: who authorizes processing, cross-institution sharing, and release of permitted aggregate outputs.</li>
-<li><strong>Cancer-type mapping</strong>: OncoTree release, Level 1/Level 2 terminology and handling of unmapped histologies.</li>
-<li><strong>Treatment mapping</strong>: overlapping combination categories, drug names, targets and multi-label/precedence decisions.</li>
-<li><strong>Outcome rules</strong>: harmonized RECIST/response definitions, OS/PFS time origins, censoring conventions and units.</li>
-<li><strong>Assay comparability</strong>: RNA preprocessing/normalization, annotation versions, mutation/CNA representations, and acceptable cross-study differences.</li>
-<li><strong>QC acceptance criteria and review responsibilities</strong>, including which issues block a dataset release.</li>
-<li><strong>Supported computational environments and output schemas</strong>, including reproducibility across sites with different storage and access controls.</li>
-</ol>
-<h2 id="12-references-and-project-documentation">12. References and project documentation</h2>
-<ul>
-<li><strong>Source guide:</strong> <em>Immuno-Oncology Clinical Trial Curation</em>, supplied nine-page guide, dated July 22, 2025. It describes data acquisition, clinical/molecular curation, RNA processing, annotation, SE/RangeSE, MAE creation, and an ICB Van Allen example.</li>
-<li><a href="../data_dictionary/">Data dictionary</a></li>
-<li><a href="../data_sources/">Data sources</a></li>
-<li><a href="../quality_control/">Quality control</a></li>
-<li><a href="../usage/">Usage</a></li>
-<li><a href="https://oncotree.mskcc.org/">OncoTree</a></li>
-</ul>
+<h2 id="11-maintaining-cross-site-consistency">11. Maintaining cross-site consistency</h2>
+<p>The harmonization framework is shared across participating MAR-40 teams. Each site should use the current version of the <a href="../data_dictionary/">Data dictionary</a>, <a href="../data_sources/">Data sources</a>, <a href="../quality_control/">Quality control</a>, and <a href="../usage/">Usage</a> documentation when producing a cohort release.</p>
+<p>Changes to shared variable definitions, OncoTree classifications, treatment grouping, clinical endpoints, assay representations, QC criteria, or output formats must be recorded in version-controlled documentation and reviewed by the designated scientific/data leads before being applied across cohorts. Site-specific exceptions remain traceable in the mapping log and QC report.</p>
+<p>Changes affecting the interpretation of previously harmonized cohorts should trigger an assessment of whether existing outputs require regeneration. Preserve the source definitions, transformation rules, and previous output versions to support reproducibility.</p>
 <hr />
 <h3 id="document-history">Document history</h3>
 <table>
@@ -493,9 +513,9 @@
 </thead>
 <tbody>
 <tr>
-<td>0.1</td>
-<td>Draft — awaiting collaborating-site review</td>
-<td>Initial MAR-40 multicentre SOP structure based on the supplied IO curation guide; governance and specific thresholds not yet approved.</td>
+<td>1.0</td>
+<td>Active</td>
+<td>MAR-40 cross-site data curation and harmonization SOP for UCL, McGill University, and UHN; includes source provenance, clinical and molecular harmonization, QC, and reproducibility procedures.</td>
 </tr>
 </tbody>
 </table>
