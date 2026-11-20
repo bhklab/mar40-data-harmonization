@@ -47,9 +47,37 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation and Usage</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#project-configuration">Project Configuration</a>
+    <li class="toctree-l2"><a class="reference internal" href="#1-purpose">1. Purpose</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#running-your-analysis">Running Your Analysis</a>
+    <li class="toctree-l2"><a class="reference internal" href="#2-two-reference-examples">2. Two reference examples</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-prerequisites-and-environment">3. Prerequisites and environment</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-input-data-contract">4. Input data contract</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#41-clinical-metadata">4.1 Clinical metadata</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#42-rna-expression">4.2 RNA expression</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#43-dna-alterations-example-2-only">4.3 DNA alterations (Example 2 only)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#44-patient-to-sample-linkage">4.4 Patient-to-sample linkage</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-cohort-specific-configuration">5. Cohort-specific configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-workflow-stages">6. Workflow stages</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-running-snakemake">7. Running Snakemake</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8-expected-output-and-qc-records">8. Expected output and QC records</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#9-reproducibility-and-cross-site-collaboration">9. Reproducibility and cross-site collaboration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#10-troubleshooting-and-implementation-status">10. Troubleshooting and implementation status</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#document-history">Document history</a>
     </li>
     </ul>
                   </li>
@@ -103,13 +131,219 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="usage-guide">Usage Guide</h1>
-<h2 id="project-configuration">Project Configuration</h2>
-<p>TODO:: discuss how to edit the configuration files in the <code>config/</code> directory to match your research parameters</p>
-<p>TODO:: discuss how to add your input data to the <code>data/rawdata/</code> directory and document it properly in the <code>docs/data_sources/</code> directory</p>
-<p>TODO:: discuss how to manage and organize your data sources effectively</p>
-<h2 id="running-your-analysis">Running Your Analysis</h2>
-<p>TODO:: discuss using pixi tasks to run the analysis</p>
+                <h1 id="mar-40-usage-guide">MAR-40 Usage Guide</h1>
+<p><strong>Version:</strong> 1.0<br />
+<strong>Scope:</strong> Participating MAR-40 collaborators at UHN, UCL, and McGill University</p>
+<h2 id="1-purpose">1. Purpose</h2>
+<p>This guide describes how collaborators will prepare and run reproducible clinical and molecular data harmonization workflows for MAR-40. It complements the <a href="../data_curation_SOP/">Data Curation SOP</a>, <a href="../data_dictionary/">Data Dictionary</a>, <a href="../quality_control/">Quality Control Framework</a>, and <a href="../data_sources/">Data Sources Guide</a>.</p>
+<p>The repository uses <strong>Pixi</strong> for environment management and is intended to use <strong>Snakemake</strong> to coordinate data preparation, harmonization, quality control (QC), and integration. <strong>Commands shown as planned below must be validated against the repository's actual <code>pixi.toml</code>/<code>pixi.lock</code>, <code>Snakefile</code>, and rule definitions before they are treated as runnable.</strong></p>
+<p>The workflow must be executable inside each site's approved computing environment. The presence of code or documentation does not authorize the movement of controlled-access or private data between institutions.</p>
+<h2 id="2-two-reference-examples">2. Two reference examples</h2>
+<p>The repository will provide two approved, shareable example cohorts to demonstrate different assay configurations.</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Available inputs</th>
+<th>Intended outputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Example 1: Clinical + RNA</strong></td>
+<td>Clinical metadata, RNA expression, patient-to-sample mapping</td>
+<td>Harmonized clinical metadata and RNA matrix, QC reports, provenance, optional RNA MAE</td>
+</tr>
+<tr>
+<td><strong>Example 2: Clinical + RNA + DNA</strong></td>
+<td>Clinical metadata, RNA expression, DNA alteration data, patient-to-sample mapping</td>
+<td>Harmonized clinical metadata, RNA and DNA data, QC reports, provenance, optional multi-assay MAE</td>
+</tr>
+</tbody>
+</table>
+<p>Examples should contain <strong>synthetic data or data explicitly authorized for public redistribution</strong>. They should illustrate realistic source-specific variable names, missing values, and repeated patient samples. They must not contain direct patient identifiers.</p>
+<p><strong>Assay availability is explicit:</strong> Example 1 does not require or generate DNA files. DNA processing is enabled only for cohorts where DNA inputs are declared.</p>
+<h2 id="3-prerequisites-and-environment">3. Prerequisites and environment</h2>
+<ul>
+<li>Git, to obtain the repository and track code versions.</li>
+<li><a href="https://pixi.sh/latest/">Pixi</a>, to install the locked project environment.</li>
+<li>Snakemake, R, Python, and Bioconductor dependencies <strong>as declared by the project's environment configuration</strong>.</li>
+<li>Read/write permissions for the selected local input and output locations.</li>
+</ul>
+<p>From a terminal, clone the repository (or use an existing checkout):</p>
+<pre><code class="language-bash">git clone https://github.com/bhklab/mar40-data-harmonization.git
+cd mar40-data-harmonization
+pixi install
+</code></pre>
+<p><code>pixi install</code> assumes the checkout includes a valid Pixi manifest. Do not install additional untracked package versions as a substitute for the agreed project environment; document any site-specific changes.</p>
+<h2 id="4-input-data-contract">4. Input data contract</h2>
+<p>Provide a cohort-specific configuration that identifies all available data and their formats. <strong>The paths and filenames below illustrate a proposed example layout; they are not assertions that these files already exist.</strong></p>
+<pre><code class="language-text">data/
+  rawdata/
+    examples/
+      example_clinical_rna/
+        clinical.csv
+        rna_expression.tsv
+        sample_map.csv
+      example_clinical_rna_dna/
+        clinical.csv
+        rna_expression.tsv
+        dna_alterations.tsv
+        sample_map.csv
+  procdata/
+  results/
+</code></pre>
+<h3 id="41-clinical-metadata">4.1 Clinical metadata</h3>
+<p>The source file should contain a documented patient identifier, and any additional fields available for cancer type, histology, stage, age, sex, treatment, response, survival, and sampling timepoints. The source file <strong>does not need to use standardized column names</strong>: mappings to the MAR-40 target variables must be documented according to the <a href="../data_dictionary/">Data Dictionary</a>.</p>
+<ul>
+<li>Treat <code>(cohort, patientid)</code> as the unique patient key for cohort-level summaries unless a validated cross-cohort linkage exists.</li>
+<li>Preserve original source values in the approved environment; do not silently replace unrecognized codes.</li>
+<li>Document survival units, time origin, and event/censoring conventions before transformation.</li>
+<li>Missing optional clinical data are reported as missing, not treated as negative observations.</li>
+</ul>
+<h3 id="42-rna-expression">4.2 RNA expression</h3>
+<p>Document whether the input is counts, TPM, another normalized expression scale, or microarray data. Capture the platform, gene identifier system, genome build when relevant, normalization method, transformation, reference annotation release, and sample identifiers.</p>
+<p>MAR-40 generally uses <strong>GENCODE v19 for applicable published/processed datasets</strong> and <strong>GENCODE v40 for standardized reprocessing when raw data are available</strong>; when a publication or source supplies a specific annotation release, retain that documented information. Do <strong>not</strong> assume a dataset used v19 solely because it is published or its annotation is unknown. Any gene-ID or genome-build conversion must be traceable.</p>
+<h3 id="43-dna-alterations-example-2-only">4.3 DNA alterations (Example 2 only)</h3>
+<p>Document the actual assay and input representation (for example, SNV/indel calls, CNA segments, or a curated alteration matrix). Capture the genome build, variant annotation and filtering methods, sample IDs, and rules used to produce a gene-by-sample representation. <strong>Do not assume all DNA datasets contain both SNV and CNA data.</strong></p>
+<h3 id="44-patient-to-sample-linkage">4.4 Patient-to-sample linkage</h3>
+<p>A sample mapping file or equivalent verified linkage must associate each assay sample with its clinical patient. Multiple samples per patient and different sample availability across assays are permitted, but ambiguous or unmatched IDs must be reported by QC.</p>
+<h2 id="5-cohort-specific-configuration">5. Cohort-specific configuration</h2>
+<p>Use an explicit configuration rather than detecting DNA availability only by the presence of a filename. For example, a <em>proposed</em> YAML configuration is:</p>
+<pre><code class="language-yaml">cohorts:
+  example_clinical_rna:
+    clinical: data/rawdata/examples/example_clinical_rna/clinical.csv
+    sample_map: data/rawdata/examples/example_clinical_rna/sample_map.csv
+    rna:
+      enabled: true
+      file: data/rawdata/examples/example_clinical_rna/rna_expression.tsv
+      units: source_documented
+      annotation: source_documented
+    dna:
+      enabled: false
+
+  example_clinical_rna_dna:
+    clinical: data/rawdata/examples/example_clinical_rna_dna/clinical.csv
+    sample_map: data/rawdata/examples/example_clinical_rna_dna/sample_map.csv
+    rna:
+      enabled: true
+      file: data/rawdata/examples/example_clinical_rna_dna/rna_expression.tsv
+      units: source_documented
+      annotation: source_documented
+    dna:
+      enabled: true
+      file: data/rawdata/examples/example_clinical_rna_dna/dna_alterations.tsv
+      representation: source_documented
+      genome_build: source_documented
+</code></pre>
+<p>The final schema, mapping-file paths, and workflow target names must match the implemented <code>Snakefile</code> and shared config before execution.</p>
+<h2 id="6-workflow-stages">6. Workflow stages</h2>
+<p>For either example, the intended sequence is:</p>
+<ol>
+<li><strong>Register inputs:</strong> record cohort, provenance, access classification, source version, available assays, and input checksums where permitted.</li>
+<li><strong>Harmonize clinical data:</strong> apply versioned source-to-target mappings, controlled values, and unit conversions.</li>
+<li><strong>Prepare molecular assays:</strong> validate identifiers and measurement scales; process RNA and, only where declared, DNA.</li>
+<li><strong>Validate linkages:</strong> check clinical IDs, assay sample IDs, and patient-to-sample relationships.</li>
+<li><strong>Integrate data:</strong> construct appropriate harmonized tables and, where supported, a <code>MultiAssayExperiment</code> (MAE).</li>
+<li><strong>Run QC:</strong> generate missingness, mapping, consistency, assay, and integration checks.</li>
+<li><strong>Record provenance:</strong> capture input versions, code commit, environment, rule versions, exceptions, and output locations.</li>
+</ol>
+<p><strong>QC checks should flag uncertain mappings rather than silently dropping records.</strong> Final release or permitted sharing follows the access conditions and review process defined in the SOP.</p>
+<h2 id="7-running-snakemake">7. Running Snakemake</h2>
+<p>The commands below are <strong>illustrative targets for implementation</strong>, not currently verified executable commands. Before publishing them as operational instructions, confirm that <code>pixi.toml</code> includes Snakemake and that the repository contains a valid <code>Snakefile</code> with appropriate rules and targets.</p>
+<pre><code class="language-bash"># Example: inspect the workflow without executing it
+pixi run snakemake --cores 4 --dry-run
+
+# Example: execute the configured default targets
+pixi run snakemake --cores 4
+</code></pre>
+<p>For site-specific execution, the finalized workflow should support selecting a cohort and approved local input/output paths through configuration. Do not hard-code individual workstation paths or require controlled datasets to be copied into the Git repository.</p>
+<h2 id="8-expected-output-and-qc-records">8. Expected output and QC records</h2>
+<p>For each cohort, aim to produce the following artifacts <strong>where applicable and permitted</strong>:</p>
+<pre><code class="language-text">&lt;approved_output_root&gt;/&lt;cohort_id&gt;/
+  clinical_harmonized.csv
+  rna_harmonized.*
+  dna_harmonized.*             # Only if DNA is provided
+  sample_map_validated.csv
+  integrated_mae.rds          # If produced by the workflow
+  source_manifest.tsv
+  mapping_log.tsv
+  qc_summary.tsv
+  unresolved_issues.tsv
+  run_manifest.txt
+</code></pre>
+<p>The naming convention is a proposed output contract. The exact filenames, assays, and serialization formats should be fixed in the workflow implementation and reflected in the SOP and QC documentation.</p>
+<p>Record QC outcomes as <strong>Pass</strong>, <strong>Pass with documented limitations</strong>, or <strong>Hold for review</strong>, as defined by the <a href="../quality_control/">Quality Control Framework</a>. A cohort-level availability summary is not equivalent to analytical readiness.</p>
+<h2 id="9-reproducibility-and-cross-site-collaboration">9. Reproducibility and cross-site collaboration</h2>
+<p>For each run, preserve or reference:</p>
+<ul>
+<li>Source dataset version and approved location; checksums when allowed.</li>
+<li>Cohort configuration and applied mapping-rule version.</li>
+<li>Git commit and Pixi lockfile/environment details.</li>
+<li>RNA/DNA processing parameters, annotation resources, and software versions.</li>
+<li>QC results, unresolved mappings, permitted outputs, curator/reviewer information, and execution date.</li>
+</ul>
+<p>The same workflow should produce structurally comparable outputs at UHN, UCL, and McGill without requiring raw or controlled datasets to cross institutional boundaries.</p>
+<h2 id="10-troubleshooting-and-implementation-status">10. Troubleshooting and implementation status</h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Recommended action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required input missing</td>
+<td>Verify the cohort configuration and approved path.</td>
+</tr>
+<tr>
+<td>Unexpected clinical value</td>
+<td>Check source definition; record the unmapped value and request review.</td>
+</tr>
+<tr>
+<td>RNA gene IDs differ across datasets</td>
+<td>Verify gene-ID type, GENCODE release, and explicit conversion rules.</td>
+</tr>
+<tr>
+<td>Sample IDs fail to join</td>
+<td>Inspect sample mapping, duplicated IDs, and cohort-level namespaces.</td>
+</tr>
+<tr>
+<td>Missing DNA for Example 1</td>
+<td>Expected; confirm <code>dna.enabled: false</code>.</td>
+</tr>
+<tr>
+<td>Snakemake reports no <code>Snakefile</code> or missing rule</td>
+<td>The workflow is not yet implemented or the working directory is incorrect.</td>
+</tr>
+<tr>
+<td>Restricted input cannot be shared</td>
+<td>Execute locally within an approved environment; share only authorized outputs.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implementation checklist:</strong> Before calling the example workflows runnable, add approved example datasets, finalize the input/output contracts, implement and test Snakemake rules, validate the Pixi environment, and confirm expected QC reports for both assay configurations. Update this guide with the exact tested commands and expected results.</p>
+<hr />
+<h2 id="document-history">Document history</h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Status</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>November 20, 2026</td>
+<td>Active guide; workflow implementation pending</td>
+<td>Defines two example cohorts, input contracts, proposed Pixi/Snakemake execution, outputs, QC, and cross-site reproducibility requirements.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
