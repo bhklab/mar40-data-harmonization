@@ -60,6 +60,52 @@
                   <li class="toctree-l1"><a class="reference internal" href="../data_dictionary/">Standardized Data Dictionary</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Quality Control</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-purpose-and-guiding-principles">1. Purpose and guiding principles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-qc-stages-and-responsibilities">2. QC stages and responsibilities</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-qc-finding-severity-and-cohort-dispositions">3. QC finding severity and cohort dispositions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-source-files-access-and-provenance">4. Source files, access, and provenance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-clinical-and-sample-metadata-qc">5. Clinical and sample metadata QC</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#51-identifiers-and-record-structure">5.1 Identifiers and record structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#52-missingness-and-valid-values">5.2 Missingness and valid values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#53-response-and-survival-outcomes">5.3 Response and survival outcomes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-molecular-assay-and-annotation-qc">6. Molecular assay and annotation QC</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-mapping-quality-and-cross-cohort-comparability">7. Mapping quality and cross-cohort comparability</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8-standard-qc-reports-and-output-contract">8. Standard QC reports and output contract</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#81-qc_summarytsv-columns">8.1 qc_summary.tsv columns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#82-unresolved_issuestsv-columns">8.2 unresolved_issues.tsv columns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#83-run_manifesttxt-minimum-content">8.3 run_manifest.txt minimum content</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#9-review-and-release-procedure">9. Review and release procedure</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#curation-and-harmonization-qc-checklist">Curation and harmonization QC checklist</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#10-maintenance-and-change-control">10. Maintenance and change control</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#document-history">Document history</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Reproducible Workflow</span></p>
@@ -97,7 +143,565 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="mar-40-quality-control-framework">MAR-40 Quality Control Framework</h1>
+<p><strong>Version:</strong> 1.0<br />
+<strong>Scope:</strong> Clinical, sample, treatment, outcome, and molecular data curated by MAR-40 collaborating teams at UHN, UCL, McGill, and other authorized sites  </p>
+<h2 id="1-purpose-and-guiding-principles">1. Purpose and guiding principles</h2>
+<p>This document establishes <strong>consistent, traceable quality-control (QC) procedures</strong> for MAR-40 cohort curation and harmonization. Participating sites apply the same validation concepts and reporting conventions while processing restricted datasets inside authorized environments. The framework is <strong>variable- and analysis-oriented</strong>; conversion to OMOP is not required.</p>
+<p>The goal is to distinguish three questions:</p>
+<ol>
+<li><strong>Is the source documented?</strong> Can the source, access permissions, file versions, record grain, and relevant clinical/molecular definitions be verified?</li>
+<li><strong>Is the harmonization correct?</strong> Are identifiers, values, units, transformations, annotation releases, and sample links consistent with the <a href="../data_dictionary/">Data Dictionary</a>?</li>
+<li><strong>Is the result fit for its intended analysis?</strong> Are necessary values and endpoint/assay definitions sufficiently complete and comparable for the <em>specific</em> analysis being considered?</li>
+</ol>
+<p><strong>Guiding principles</strong></p>
+<ul>
+<li>Preserve source records in approved storage; never overwrite original values during harmonization.</li>
+<li>Do not convert <code>NA</code>, <code>Unknown</code>, or an absent assessment into <code>No</code>, <code>0</code>, non-response, or a censored event.</li>
+<li>Do not resolve clinical or biological ambiguity by guessing. Record evidence and flag unresolved cases.</li>
+<li>Assess QC at the <strong>correct record grain</strong> (cohort, patient, sample, treatment episode, response assessment, or assay).</li>
+<li>Report counts <strong>and denominators</strong>. Distinguish samples from unique cohort-patients.</li>
+<li>QC status describes the readiness of a <strong>particular output for a declared purpose</strong>, not a blanket judgment of cohort quality.</li>
+<li>Keep local, restricted row-level issue files separate from shareable summaries; release only what data permissions allow.</li>
+</ul>
+<h2 id="2-qc-stages-and-responsibilities">2. QC stages and responsibilities</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Input</th>
+<th>Main checks</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A. Source QC</strong></td>
+<td>Original source tables, files, publication/provider documentation</td>
+<td>Provenance, permissions, file integrity, source schema, identifiers, assay definitions</td>
+<td>Source manifest and source QC findings</td>
+</tr>
+<tr>
+<td><strong>B. Post-harmonization QC</strong></td>
+<td>Standardized clinical/sample/treatment tables and mapping log</td>
+<td>Target schema, transformations, controlled values, missingness, consistency, endpoint definitions</td>
+<td>Clinical QC and mapping-issue summaries</td>
+</tr>
+<tr>
+<td><strong>C. Integration QC</strong></td>
+<td>Molecular assay files, sample mappings, optional SE/MAE objects</td>
+<td>Sample linkage, feature IDs, annotation/build, matrix dimensions, assay provenance</td>
+<td>Molecular/integration QC summary</td>
+</tr>
+<tr>
+<td><strong>D. Release review</strong></td>
+<td>QC results, issues, manifests, outputs</td>
+<td>Outstanding blocking findings, documented limitations, authorized destination</td>
+<td>Cohort QC disposition and reviewer record</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Responsibilities:</strong> The contributing site's curator executes and documents checks. Site scientific/data leads review clinically important ambiguities and access restrictions. The MAR-40 harmonization team maintains shared rules and evaluates cross-cohort comparability. Changes to the shared rules follow the SOP's version-control process.</p>
+<h2 id="3-qc-finding-severity-and-cohort-dispositions">3. QC finding severity and cohort dispositions</h2>
+<p><strong>Finding severity</strong> and <strong>cohort disposition</strong> are different fields and must not be conflated.</p>
+<table>
+<thead>
+<tr>
+<th>Finding severity</th>
+<th>Meaning</th>
+<th>Typical action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Error</code></td>
+<td>Violates a required integrity, identity, security, or validated data-contract rule</td>
+<td>Correct or place the affected output on hold</td>
+</tr>
+<tr>
+<td><code>Review</code></td>
+<td>Scientific meaning, mapping, compatibility, or linkage is ambiguous</td>
+<td>Investigate; document interpretation and reviewer decision</td>
+</tr>
+<tr>
+<td><code>Info</code></td>
+<td>Expected missingness, study limitation, or nonblocking deviation</td>
+<td>Quantify and disclose; retain for analysis planning</td>
+</tr>
+</tbody>
+</table>
+<p>The final <strong>cohort/output disposition</strong> is one of:</p>
+<ul>
+<li><strong>Pass:</strong> Applicable checks completed without unresolved blocking findings; essential provenance is available.</li>
+<li><strong>Pass with documented limitations:</strong> Data are usable for a stated purpose but have nonblocking limitations that are recorded and reviewed.</li>
+<li><strong>Hold for review:</strong> Blocking integrity/access problems or material unresolved mapping/endpoint/assay conflicts remain.</li>
+</ul>
+<p>Do <strong>not</strong> set an arbitrary global missingness cutoff for all clinical variables. Relevance and acceptable completeness depend on the analysis, source design, and documented study requirements. Absence of a non-applicable or unreported optional field is not, by itself, a blocking error.</p>
+<h2 id="4-source-files-access-and-provenance">4. Source files, access, and provenance</h2>
+<table>
+<thead>
+<tr>
+<th>Rule ID</th>
+<th>Check</th>
+<th>Expected outcome</th>
+<th>Default severity if violated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SRC-01</td>
+<td>Cohort recorded in the cohort registry and source manifest</td>
+<td>Stable <code>cohort</code> identifier, source/provider, version, curator, and site</td>
+<td>Error</td>
+</tr>
+<tr>
+<td>SRC-02</td>
+<td>Access status verified</td>
+<td><code>Public</code>, <code>Controlled access</code>, or <code>Private</code>, with supporting permission/agreements</td>
+<td>Error</td>
+</tr>
+<tr>
+<td>SRC-03</td>
+<td>Inputs readable and traceable</td>
+<td>Filenames/locations, source revision, format, and checksums when permitted</td>
+<td>Error</td>
+</tr>
+<tr>
+<td>SRC-04</td>
+<td>Original data preserved</td>
+<td>Source inputs not silently edited or overwritten</td>
+<td>Error</td>
+</tr>
+<tr>
+<td>SRC-05</td>
+<td>Schema and record grain documented</td>
+<td>Each table identifies whether rows are patients, samples, visits, treatments, or assays</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>SRC-06</td>
+<td>Approved execution and output destination</td>
+<td>Restricted data remain in authorized institutional environments</td>
+<td>Error</td>
+</tr>
+</tbody>
+</table>
+<p>Record missing source documentation explicitly. Do not assert a version, license, approval, or source interpretation that cannot be verified.</p>
+<h2 id="5-clinical-and-sample-metadata-qc">5. Clinical and sample metadata QC</h2>
+<h3 id="51-identifiers-and-record-structure">5.1 Identifiers and record structure</h3>
+<table>
+<thead>
+<tr>
+<th>Rule ID</th>
+<th>Check</th>
+<th>Expected outcome</th>
+<th>Default severity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID-01</td>
+<td><code>cohort</code> and identifier availability</td>
+<td>Nonmissing identifiers required for each table's record grain</td>
+<td>Error</td>
+</tr>
+<tr>
+<td>ID-02</td>
+<td>Patient keys</td>
+<td><code>(cohort, patientid)</code> uniquely identifies patient-level records; repeats are permitted in sample/longitudinal tables</td>
+<td>Error for invalid grain</td>
+</tr>
+<tr>
+<td>ID-03</td>
+<td>Sample keys</td>
+<td><code>(cohort, sampleid)</code> uniquely identifies sample-level records; multiple assays per sample are allowed in an assay-grain table</td>
+<td>Error for invalid grain</td>
+</tr>
+<tr>
+<td>ID-04</td>
+<td>Patient–sample linkage</td>
+<td>Each sample resolves to a documented cohort-patient; missing or many-to-many relationships reviewed</td>
+<td>Error / Review</td>
+</tr>
+<tr>
+<td>ID-05</td>
+<td>Treatment and assessment episodes</td>
+<td>Distinct treatments/timepoints are not accidentally collapsed or counted as independent patients</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>ID-06</td>
+<td>Patient attributes across samples</td>
+<td>Conflicting nonmissing age/sex/disease values are identified and assessed in context of timepoint and record meaning</td>
+<td>Review</td>
+</tr>
+</tbody>
+</table>
+<p>Patient counts must be reported using <strong>distinct <code>(cohort, patientid)</code> keys</strong>. Do not assume <code>patientid</code> is globally unique across cohorts without verified identity linkage.</p>
+<h3 id="52-missingness-and-valid-values">5.2 Missingness and valid values</h3>
+<p>Assess missingness for every harmonized core variable at its correct grain. Use an explicit denominator: for example, <code>n_missing / n_patients</code> for a patient-level field and <code>n_missing / n_samples</code> for a sample-level field. When cohorts contain longitudinal assessments, report missingness by relevant timepoint/episode rather than only after flattening.</p>
+<p>Recognize documented missing representations (e.g., blank, <code>NA</code>, <code>N/A</code>, <code>Unknown</code>, <code>Not recorded</code>), but retain distinguishable missingness reasons where known (<code>Not assessed</code>, <code>Not reported</code>, <code>Not applicable</code>, <code>Restricted</code>, <code>Unresolved</code>). <strong>An observed negative value is not missing.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rule ID</th>
+<th>Check</th>
+<th>Expected outcome</th>
+<th>Default severity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLN-01</td>
+<td>Target schema</td>
+<td>Field names/types align with dictionary; approved aliases are mapped explicitly</td>
+<td>Error / Review</td>
+</tr>
+<tr>
+<td>CLN-02</td>
+<td>Missingness</td>
+<td>Counts and denominators reported per cohort, variable, grain, and relevant timepoint</td>
+<td>Info</td>
+</tr>
+<tr>
+<td>CLN-03</td>
+<td>Demographics</td>
+<td>Numeric age in years, plausible for study context; <code>sex</code> codes supported by source</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>CLN-04</td>
+<td>Cancer classification</td>
+<td><code>cancer_type</code> aligned to documented OncoTree Level 1; Level 2 <code>cancer_subtype</code> only where supported</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>CLN-05</td>
+<td>Stage/histology</td>
+<td>Original definition and applicable classification/version retained</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>CLN-06</td>
+<td>Treatment</td>
+<td>Regimen/components/targets support standardized category; combination rules traceable</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>CLN-07</td>
+<td>Sampling timing</td>
+<td><code>Pre</code>/<code>On</code>/<code>Post</code> only when source chronology or definition supports assignment</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>CLN-08</td>
+<td>Access metadata</td>
+<td>Canonical <code>access_type</code> documented; legacy <code>access type</code> mapped through explicit adapter</td>
+<td>Review</td>
+</tr>
+</tbody>
+</table>
+<p>Unrecognized values must be reported, not silently discarded, mapped to <code>Other</code>, or converted to missing. Use <code>Other</code> only where the dictionary and source evidence support that designation.</p>
+<h3 id="53-response-and-survival-outcomes">5.3 Response and survival outcomes</h3>
+<table>
+<thead>
+<tr>
+<th>Rule ID</th>
+<th>Check</th>
+<th>Expected outcome</th>
+<th>Default severity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OUT-01</td>
+<td>RECIST response</td>
+<td><code>recist</code> values/assessment criteria (e.g., CR/PR/SD/PD or evaluability status) documented with criteria version/timepoint</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>OUT-02</td>
+<td>Binary response</td>
+<td><code>response</code> definition documented; not automatically derived from RECIST or clinical benefit</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>OUT-03</td>
+<td>OS/PFS time</td>
+<td>Nonnegative numeric values in <strong>months</strong>, with source unit and conversion recorded</td>
+<td>Error / Review</td>
+</tr>
+<tr>
+<td>OUT-04</td>
+<td>Event indicator</td>
+<td><code>event_occurred_os</code> / <code>event_occurred_pfs</code> explicitly recoded to verified <code>1 = event</code>, <code>0 = censored</code></td>
+<td>Error / Review</td>
+</tr>
+<tr>
+<td>OUT-05</td>
+<td>Time/event pairing</td>
+<td>Count records with both valid duration and event indicator for each endpoint</td>
+<td>Info / Review</td>
+</tr>
+<tr>
+<td>OUT-06</td>
+<td>Endpoint definition</td>
+<td>Time origin, event definition, censoring and follow-up context documented; incompatible definitions flagged</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>OUT-07</td>
+<td>Longitudinal interpretation</td>
+<td>Ensure response/survival endpoints link to appropriate patient and, if applicable, treatment episode</td>
+<td>Review</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Two distinct metrics must be reported:</strong></p>
+<ul>
+<li><strong>Metadata availability:</strong> A cohort has OS/PFS metadata if at least one patient has a nonmissing duration <strong>or</strong> event field. This is the rule used in the existing clinical-availability heatmap.</li>
+<li><strong>Record-level endpoint completeness:</strong> A patient/episode has complete OS/PFS fields only when a valid duration <strong>and</strong> its corresponding verified event indicator are present. <strong>Analysis readiness requires additional checks</strong> for endpoint meaning, origin, and suitability of the analysis population.</li>
+</ul>
+<p>Avoid treating a cohort's observed median time as Kaplan–Meier median survival or median follow-up without the relevant statistical method.</p>
+<h2 id="6-molecular-assay-and-annotation-qc">6. Molecular assay and annotation QC</h2>
+<table>
+<thead>
+<tr>
+<th>Rule ID</th>
+<th>Check</th>
+<th>Expected outcome</th>
+<th>Default severity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MOL-01</td>
+<td>Assay inventory</td>
+<td>RNA/DNA presence (<code>rna</code>, <code>dna</code>) separate from assay description (<code>rna_info</code>, <code>dna_info</code>)</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>MOL-02</td>
+<td>Assay identity</td>
+<td>Sample IDs and assay IDs traceable to approved sample metadata</td>
+<td>Error / Review</td>
+</tr>
+<tr>
+<td>MOL-03</td>
+<td>Molecular format and scale</td>
+<td>Counts/TPM/microarray/variants/CNA data distinguished; normalization and transformations documented</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>MOL-04</td>
+<td>Reference and gene annotations</td>
+<td>Genome build, gene ID scheme, and GENCODE/other annotation releases recorded or explicitly <code>Unknown</code></td>
+<td>Review</td>
+</tr>
+<tr>
+<td>MOL-05</td>
+<td>Feature and sample integrity</td>
+<td>Matrix dimensions, duplicate feature/sample IDs, missing rows/columns, feature metadata and sample names checked</td>
+<td>Error / Review</td>
+</tr>
+<tr>
+<td>MOL-06</td>
+<td>Cross-assay compatibility</td>
+<td>Build/identifier/version differences explicitly reconciled; no implicit gene-ID or genome-build mixing</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>MOL-07</td>
+<td>Mutation/CNA representations</td>
+<td>Variant type, reference build, caller/filter versions, CNA representation and binary-call rules traceable</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>MOL-08</td>
+<td>SE/MAE validation where used</td>
+<td><code>assay</code> dimensions align with <code>rowData</code>/<code>colData</code>; <code>sampleMap</code> maps assays to correct cohort-patients</td>
+<td>Error / Review</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GENCODE policy:</strong> For applicable published processed datasets, GENCODE <strong>v19</strong> is the historical MAR-40 harmonization reference; <strong>do not assign v19 when the true source annotation is unverified</strong>. For available raw datasets that are reprocessed using MAR-40 standardized pipelines, prefer <strong>GENCODE v40</strong> with its compatible reference genome. Where a publication/provider specifies another release, retain the documented source version. Track the source release, genome build, pipeline, and any conversion or feature remapping. Different gene annotations or expression scales are not automatically comparable.</p>
+<p>For microarrays, retain the source platform, normalization, probe mapping and annotation release; do not describe normalized microarray signals as TPM. Clinical-only cohorts do not need an artificial assay or MAE object.</p>
+<h2 id="7-mapping-quality-and-cross-cohort-comparability">7. Mapping quality and cross-cohort comparability</h2>
+<p>The dictionary uses <strong><code>Direct</code></strong>, <strong><code>Conditional</code></strong>, <strong><code>Needs review</code></strong>, and <strong><code>Unmapped</code></strong> as mapping statuses. A status describes a <strong>mapping decision</strong>; it is not the same as a QC severity or a cohort disposition.</p>
+<table>
+<thead>
+<tr>
+<th>Rule ID</th>
+<th>Check</th>
+<th>Expected outcome</th>
+<th>Default severity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAP-01</td>
+<td>Source-to-target traceability</td>
+<td>Source name, original value/code, grain, definition, rule ID and target field retained</td>
+<td>Error / Review</td>
+</tr>
+<tr>
+<td>MAP-02</td>
+<td>Verified transformations</td>
+<td>Recode, merge, join, unit conversion or derived value documented and reproducible</td>
+<td>Error / Review</td>
+</tr>
+<tr>
+<td>MAP-03</td>
+<td>Unresolved mappings</td>
+<td><code>Needs review</code> / <code>Unmapped</code> values retained in issue log and excluded from unsupported derived interpretations</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>MAP-04</td>
+<td>Controlled vocabulary versioning</td>
+<td>OncoTree, treatment mappings, gene annotation and other resource releases recorded</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>MAP-05</td>
+<td>Cohort comparability</td>
+<td>Relevant endpoint definition, treatment context, assay scale, genome build and sampling design assessed for each analysis</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>MAP-06</td>
+<td>Rule consistency</td>
+<td>Common transformations have identical versions and semantics across contributing sites</td>
+<td>Review</td>
+</tr>
+</tbody>
+</table>
+<p>Cross-cohort comparability should be evaluated for <strong>the intended scientific use case</strong>. A variable can be syntactically standardized but remain biologically or clinically incomparable; the issue must be visible to analysts.</p>
+<h2 id="8-standard-qc-reports-and-output-contract">8. Standard QC reports and output contract</h2>
+<p>Each cohort should generate or document the following artifacts <strong>when applicable and permitted</strong>. These are recommended names consistent with the <a href="../data_curation_SOP/">SOP</a>; a shareable aggregate report can be substituted for restricted row-level outputs.</p>
+<pre><code class="language-text">&lt;cohort_id&gt;/
+├── source_manifest.tsv          # Sources, access, versions and authorized paths
+├── mapping_log.tsv              # Variable-/value-level mapping rules and decisions
+├── qc_summary.tsv              # One row per QC check, with findings and denominators
+├── unresolved_issues.tsv        # Issue details and decisions, in approved storage
+├── assay_manifest.tsv           # Assay types and processing/annotation provenance, if present
+└── run_manifest.txt             # Code/environment/input provenance
+</code></pre>
+<p>Additional recommended QC views may be produced from the same checks: <code>missingness_summary.tsv</code>, <code>patient_sample_validation.tsv</code>, <code>endpoint_completeness.tsv</code>, and <code>molecular_qc_summary.tsv</code>. Keep one canonical issue log, rather than conflicting copies with different statuses.</p>
+<h3 id="81-qc_summarytsv-columns">8.1 <code>qc_summary.tsv</code> columns</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cohort</code></td>
+<td>Cohort identifier</td>
+</tr>
+<tr>
+<td><code>qc_stage</code></td>
+<td><code>Source</code>, <code>Harmonized</code>, <code>Integration</code>, or <code>Release</code></td>
+</tr>
+<tr>
+<td><code>rule_id</code></td>
+<td>Stable identifier defined in this document or a versioned rule configuration</td>
+</tr>
+<tr>
+<td><code>domain</code></td>
+<td>Identity, clinical, outcome, molecular, provenance, mapping, etc.</td>
+</tr>
+<tr>
+<td><code>record_grain</code></td>
+<td>Cohort, patient, sample, assay, episode, etc.</td>
+</tr>
+<tr>
+<td><code>n_checked</code></td>
+<td>Number of eligible records checked</td>
+</tr>
+<tr>
+<td><code>n_flagged</code></td>
+<td>Number of records or instances flagged for this check</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td><code>Error</code>, <code>Review</code>, or <code>Info</code></td>
+</tr>
+<tr>
+<td><code>check_status</code></td>
+<td><code>Pass</code>, <code>Flagged</code>, or <code>Not applicable</code></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Concise finding/interpretation</td>
+</tr>
+<tr>
+<td><code>issue_log_ref</code></td>
+<td>Local pointer to issue record(s), where permitted</td>
+</tr>
+<tr>
+<td><code>rule_version</code></td>
+<td>QC-rule implementation version</td>
+</tr>
+<tr>
+<td><code>run_id</code></td>
+<td>Identifier linking the result to the run manifest</td>
+</tr>
+</tbody>
+</table>
+<p>For rules that apply once per cohort or file, use the appropriate grain and denominator; do not report percentages without explaining the checked population. A <strong>flagged</strong> finding does not necessarily mean the entire cohort is on hold.</p>
+<h3 id="82-unresolved_issuestsv-columns">8.2 <code>unresolved_issues.tsv</code> columns</h3>
+<p>Recommended fields: <code>issue_id</code>, <code>cohort</code>, <code>rule_id</code>, <code>affected_grain</code>, <code>affected_record_key</code> (local/restricted where needed), <code>description</code>, <code>severity</code>, <code>mapping_status</code> (if relevant), <code>evidence</code>, <code>proposed_action</code>, <code>owner</code>, <code>reviewer</code>, <code>review_date</code>, <code>resolution</code>, <code>issue_status</code>, <code>run_id</code>.</p>
+<p>Store patient-level identifiers or sensitive source values only in approved storage. Share sanitized aggregates or non-identifying issue summaries when authorized.</p>
+<h3 id="83-run_manifesttxt-minimum-content">8.3 <code>run_manifest.txt</code> minimum content</h3>
+<p>Record input source IDs and versions/checksums where permitted; workflow/script and Git commit; data dictionary and mapping versions; environment lockfile or package versions; configuration, run date, site/curator, authorized output path, and QC rule version. Re-running against the same permitted inputs and versions should regenerate the QC outputs without manual edits to the final tables.</p>
+<h2 id="9-review-and-release-procedure">9. Review and release procedure</h2>
+<ol>
+<li><strong>Execute</strong> the applicable QC checks on source, harmonized, and integrated data, as supported by the cohort's modalities.</li>
+<li><strong>Inspect</strong> every <code>Error</code> and clinically material <code>Review</code> finding; document fixes, scientific interpretation, or explicit limitations.</li>
+<li><strong>Re-run</strong> affected checks after code, mapping, or data corrections; preserve the run/version history.</li>
+<li><strong>Assign a disposition</strong> (<code>Pass</code>, <code>Pass with documented limitations</code>, or <code>Hold for review</code>) for the specific output and intended analysis.</li>
+<li><strong>Record the designated reviewer and decision</strong> consistent with site responsibilities in the SOP; confirm that sharing and destination are authorized before any cross-site release.</li>
+<li><strong>Release only approved outputs</strong> with their manifests and permissible QC summaries.</li>
+</ol>
+<p>A held cohort need not be discarded: the relevant issue may affect only a particular assay or endpoint. The release decision should specify what is usable, restricted, pending review, or excluded from a stated analysis.</p>
+<h3 id="curation-and-harmonization-qc-checklist">Curation and harmonization QC checklist</h3>
+<ul>
+<li>[ ] Source identity, provenance, access classification and permissions documented.</li>
+<li>[ ] Required identifiers valid at the correct grain; patient–sample links checked.</li>
+<li>[ ] Harmonized fields validated against the versioned dictionary.</li>
+<li>[ ] OncoTree cancer classification and treatment-group mappings reviewed.</li>
+<li>[ ] Response and OS/PFS definitions, units, event coding and completeness checked.</li>
+<li>[ ] RNA/DNA assay metadata, GENCODE/source annotation, genome build and processing provenance reviewed where applicable.</li>
+<li>[ ] SE/MAE and <code>sampleMap</code> validated if created.</li>
+<li>[ ] Missingness and mapping issues reported with counts, denominators and dispositions.</li>
+<li>[ ] QC outputs and run manifest saved in approved storage, with the correct version identifiers.</li>
+<li>[ ] Relevant site reviewer decision and permitted release destination documented.</li>
+</ul>
+<h2 id="10-maintenance-and-change-control">10. Maintenance and change control</h2>
+<p>The MAR-40 harmonization team maintains this framework alongside the <a href="../data_curation_SOP/">SOP</a> and <a href="../data_dictionary/">Data Dictionary</a>. New validation rules must include a stable <code>rule_id</code>, objective, input grain, expected result, severity, implementation version, and examples/test cases. Changes that alter clinical interpretations, mapping categories, endpoint comparability or assay processing require review by the relevant scientific/data leads.</p>
+<p>Record changes in Git; preserve enough version information to reproduce earlier QC results. If a rule change affects previously released cohorts, assess whether outputs should be regenerated and document that decision. This document defines the <strong>QC specification</strong>; executable implementations and configuration are maintained with the workflows described in <a href="../usage/">Usage</a>.</p>
+<h3 id="document-history">Document history</h3>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-11-20</td>
+<td>Active</td>
+<td>Initial MAR-40 cross-site QC specification aligned with Data Curation SOP v1.0 and Data Dictionary v1.0.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
