@@ -3,7 +3,6 @@
 **Version:** 1.0  
 **Scope:** Participating MAR-40 teams curating clinical and molecular immuno-oncology cohorts   
 **Document owner(s):** Farnoosh Abbas Aghababazadeh  
-**Effective date:** November 20, 2026  
 **Related documents:** [Data dictionary](data_dictionary.md) · [Data sources](data_sources.md) · [Quality control](quality_control.md) · [Usage](usage.md)
 
 > **Status:** Version 1.0 establishes the MAR-40 data curation and harmonization procedures agreed upon by the collaborating teams at UCL, McGill University, and University Health Network (UHN). Changes and cohort-specific deviations are documented through version control and the review process described below.
@@ -263,6 +262,6 @@ Changes affecting the interpretation of previously harmonized cohorts should tri
 
 ### Document history
 
-| Version | Status | Summary |
-| --- | --- | --- |
-| 1.0 | Active | MAR-40 cross-site data curation and harmonization SOP for UCL, McGill University, and UHN; includes source provenance, clinical and molecular harmonization, QC, and reproducibility procedures. |
+| Version | Date | Status | Summary |
+| --- | --- | --- | --- |
+| 1.0 | November 20, 2026 | Active | MAR-40 cross-site data curation and harmonization SOP for UCL, McGill University, and UHN; includes source provenance, clinical and molecular harmonization, QC, and reproducibility procedures. |
