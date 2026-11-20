@@ -4,7 +4,6 @@
 **Scope:** Participating MAR-40 teams curating clinical and molecular immuno-oncology cohorts   
 **Document owner(s):** Farnoosh Abbas Aghababazadeh  
 **Effective date:** November 20, 2026  
-**Repository location:** `docs/data_curation_SOP.md`  
 **Related documents:** [Data dictionary](data_dictionary.md) · [Data sources](data_sources.md) · [Quality control](quality_control.md) · [Usage](usage.md)
 
 > **Status:** Version 1.0 establishes the MAR-40 data curation and harmonization procedures agreed upon by the collaborating teams at UCL, McGill University, and University Health Network (UHN). Changes and cohort-specific deviations are documented through version control and the review process described below.
