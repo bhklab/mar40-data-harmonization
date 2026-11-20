@@ -492,15 +492,14 @@
 <p>Capture the following run details: source file versions/checksums, approved execution location, Git commit, Pixi/other environment lockfile, workflow command, tool versions, mapping version, start date, curator and reviewer. Scripts should be rerunnable without hard-coded local machine paths; use paths/configuration described in <a href="../usage/">Usage</a>.</p>
 <h3 id="suggested-submission-review-checklist">Suggested submission review checklist</h3>
 <ul>
-<li>[ ] Dataset source and access permissions recorded.</li>
-<li>[ ] Source files and versions preserved, or referenced in approved storage.</li>
-<li>[ ] Patient/sample identifiers and timepoints verified.</li>
-<li>[ ] Clinical fields mapped to the versioned dictionary; unresolvable cases flagged.</li>
-<li>[ ] Molecular assays and reference annotation versions documented.</li>
-<li>[ ] Sample-to-patient links checked; MAE validated if created.</li>
-<li>[ ] QC summary, conflict register and mapping log reviewed.</li>
-<li>[ ] Run manifest and approved output location recorded.</li>
-<li>[ ] Site reviewer sign-off documented before cross-site release.</li>
+<li>[ ] Data sources, access permissions, and provenance are documented.</li>
+<li>[ ] Clinical metadata follow the MAR-40 standardized data dictionary.</li>
+<li>[ ] Patient and sample identifiers are consistent and correctly linked.</li>
+<li>[ ] Cancer types, treatments, response, and survival variables are harmonized according to the agreed definitions.</li>
+<li>[ ] Molecular data processing and annotation versions (e.g., GENCODE v19/v40) are documented.</li>
+<li>[ ] Clinical and molecular data are correctly integrated, including MAE validation where applicable.</li>
+<li>[ ] Quality-control checks are completed, and unresolved issues are documented.</li>
+<li>[ ] Harmonized outputs and processing steps are reproducible using version-controlled scripts.</li>
 </ul>
 <h2 id="10-handling-exceptions-and-sop-changes">10. Handling exceptions and SOP changes</h2>
 <p>When a source requires a deviation, document the affected cohort, reason, alternative procedure, scientific impact, decision owner and approval date. Reusable deviations should be proposed as a versioned SOP or harmonization-rule update via repository review. Retain prior mapping versions so existing outputs remain interpretable.</p>
