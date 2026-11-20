@@ -244,15 +244,14 @@ Capture the following run details: source file versions/checksums, approved exec
 
 ### Suggested submission review checklist
 
-- [ ] Dataset source and access permissions recorded.
-- [ ] Source files and versions preserved, or referenced in approved storage.
-- [ ] Patient/sample identifiers and timepoints verified.
-- [ ] Clinical fields mapped to the versioned dictionary; unresolvable cases flagged.
-- [ ] Molecular assays and reference annotation versions documented.
-- [ ] Sample-to-patient links checked; MAE validated if created.
-- [ ] QC summary, conflict register and mapping log reviewed.
-- [ ] Run manifest and approved output location recorded.
-- [ ] Site reviewer sign-off documented before cross-site release.
+- [ ] Data sources, access permissions, and provenance are documented.
+- [ ] Clinical metadata follow the MAR-40 standardized data dictionary.
+- [ ] Patient and sample identifiers are consistent and correctly linked.
+- [ ] Cancer types, treatments, response, and survival variables are harmonized according to the agreed definitions.
+- [ ] Molecular data processing and annotation versions (e.g., GENCODE v19/v40) are documented.
+- [ ] Clinical and molecular data are correctly integrated, including MAE validation where applicable.
+- [ ] Quality-control checks are completed, and unresolved issues are documented.
+- [ ] Harmonized outputs and processing steps are reproducible using version-controlled scripts.
 
 ## 10. Handling exceptions and SOP changes
 
