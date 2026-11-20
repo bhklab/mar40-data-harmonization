@@ -1,13 +1,11 @@
 # MAR-40 Data Curation and Harmonization SOP
-
-**Document status:** Draft for cross-institutional review (v0.1)  
+**Version:** v0.1
 **Scope:** Participating MAR-40 teams curating clinical and molecular immuno-oncology cohorts  
 **Document owner(s):** Farnoosh Abbas Aghababazadeh   
 **Effective date:** November 20, 2026  
 **Repository location:** `docs/data_curation_SOP.md`  
 **Related documents:** [Data dictionary](data_dictionary.md) · [Data sources](data_sources.md) · [Quality control](quality_control.md) · [Usage](usage.md)
 
-> **Version:** v0.1
 > **Important:** This SOP is adapted from the *Immuno-Oncology Clinical Trial Curation* guide and reflects the data curation and harmonization framework agreed upon by the MAR-40 collaborating teams at UCL, McGill University, and University Health Network (UHN). This version serves as the initial documented implementation of the agreed framework. Future updates and cohort-specific deviations will be documented through version control.
 
 ## 1. Purpose and expected outcome
