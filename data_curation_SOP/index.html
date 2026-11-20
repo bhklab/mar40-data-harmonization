@@ -393,7 +393,7 @@
 <h3 id="62-rna-expression">6.2 RNA expression</h3>
 <ul>
 <li>Prefer source-supported normalized expression values and record their measurement scale.</li>
-<li>An example expression transformation is <strong><code>log2(TPM + 0.001)</code></strong>. This is an assay-specific processing option, not a universal conversion rule: confirm applicability and document the pseudocount, normalization method, and whether the values were already transformed.</li>
+<li>An example expression transformation is <strong><code>log2(TPM + 1)</code></strong>. This is an assay-specific processing option, not a universal conversion rule: confirm applicability and document the pseudocount, normalization method, and whether the values were already transformed.</li>
 <li>If deriving TPM from counts, use documented feature lengths appropriate to the quantification level and record the source of lengths. Do not apply the illustrative conversion without validating gene-length definitions and the input's count type.</li>
 <li>For microarrays, retain the platform, probe-to-gene mapping, and source normalization information; do not label microarray values as TPM.</li>
 </ul>
@@ -404,7 +404,20 @@
 <li>Where a binary gene-by-sample matrix is generated, preserve the logic converting raw calls to binary values and retain exclusions/uncertainties.</li>
 </ul>
 <h3 id="64-annotation-versions">6.4 Annotation versions</h3>
-<p>Retain annotations that match the source dataset (e.g. GENCODE release) and using established gene, drug and tumor annotation resources. Record the release/version for each mapping. Do not mix gene identifiers or genome builds without an explicit conversion step and an audit trail.</p>
+<p>Use consistent gene annotations across datasets whenever possible, following the MAR-40 harmonization strategy:</p>
+<ul>
+<li>
+<p><code>GENCODE v19</code>: Default reference for published datasets when reprocessing raw data is not possible and the original annotation version is not specified.</p>
+</li>
+<li>
+<p><code>GENCODE v40</code>: Preferred reference for datasets with accessible raw data that can be reprocessed through the standardized pipeline.</p>
+</li>
+<li>
+<p><code>Source-specific annotations</code>: When a publication or data provider explicitly reports the annotation version used, retain and document that version to preserve consistency with the original data.</p>
+</li>
+</ul>
+<p>Record the annotation release, reference genome, gene identifier format, and processing method for each dataset. Any conversion between annotation versions, gene identifiers, or genome builds must be explicitly documented and traceable.</p>
+<p>Established gene, drug, and tumor annotation resources should be used consistently, with the corresponding resource versions recorded.</p>
 <h2 id="7-build-harmonized-objects-and-link-clinicalmolecular-data">7. Build harmonized objects and link clinical/molecular data</h2>
 <p>For R/Bioconductor workflows, supported integration objects include:</p>
 <ul>
