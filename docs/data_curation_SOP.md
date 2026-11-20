@@ -162,7 +162,7 @@ The curation workflow covers processed RNA-seq counts/TPM, microarray expression
 ### 6.2 RNA expression
 
 - Prefer source-supported normalized expression values and record their measurement scale.
-- An example expression transformation is **`log2(TPM + 0.001)`**. This is an assay-specific processing option, not a universal conversion rule: confirm applicability and document the pseudocount, normalization method, and whether the values were already transformed.
+- An example expression transformation is **`log2(TPM + 1)`**. This is an assay-specific processing option, not a universal conversion rule: confirm applicability and document the pseudocount, normalization method, and whether the values were already transformed.
 - If deriving TPM from counts, use documented feature lengths appropriate to the quantification level and record the source of lengths. Do not apply the illustrative conversion without validating gene-length definitions and the input's count type.
 - For microarrays, retain the platform, probe-to-gene mapping, and source normalization information; do not label microarray values as TPM.
 
@@ -174,7 +174,17 @@ The curation workflow covers processed RNA-seq counts/TPM, microarray expression
 
 ### 6.4 Annotation versions
 
-Retain annotations that match the source dataset (e.g. GENCODE release) and using established gene, drug and tumor annotation resources. Record the release/version for each mapping. Do not mix gene identifiers or genome builds without an explicit conversion step and an audit trail.
+Use consistent gene annotations across datasets whenever possible, following the MAR-40 harmonization strategy:
+
+- `GENCODE v19`: Default reference for published datasets when reprocessing raw data is not possible and the original annotation version is not specified.
+
+- `GENCODE v40`: Preferred reference for datasets with accessible raw data that can be reprocessed through the standardized pipeline.
+
+- `Source-specific annotations`: When a publication or data provider explicitly reports the annotation version used, retain and document that version to preserve consistency with the original data.
+
+Record the annotation release, reference genome, gene identifier format, and processing method for each dataset. Any conversion between annotation versions, gene identifiers, or genome builds must be explicitly documented and traceable.
+
+Established gene, drug, and tumor annotation resources should be used consistently, with the corresponding resource versions recorded.
 
 ## 7. Build harmonized objects and link clinical/molecular data
 
