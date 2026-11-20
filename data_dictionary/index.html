@@ -58,6 +58,54 @@
                   <li class="toctree-l1"><a class="reference internal" href="../data_curation_SOP/">Data Curation SOP</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Standardized Data Dictionary</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-purpose-and-principles">1. Purpose and principles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-recommended-logical-data-structure">2. Recommended logical data structure</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-core-clinical-and-sample-variables">3. Core clinical and sample variables</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#31-distinguishing-clinical-entities">3.1 Distinguishing clinical entities</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-treatment-and-response-definitions">4. Treatment and response definitions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#41-treatment-classification">4.1 Treatment classification</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#42-response">4.2 Response</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#43-survival">4.3 Survival</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-molecular-variables-and-assay-documentation">5. Molecular variables and assay documentation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#51-gencode-annotation-strategy">5.1 GENCODE annotation strategy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#52-multi-assay-integration">5.2 Multi-assay integration</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-mapping-rules-and-statuses">6. Mapping rules and statuses</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#61-illustrative-mappings-not-blanket-approvals">6.1 Illustrative mappings (not blanket approvals)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#62-oncotree-and-tumor-taxonomy">6.2 OncoTree and tumor taxonomy</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-quality-control-and-completeness-reporting">7. Quality control and completeness reporting</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8-example-export-conventions-and-compatibility">8. Example export conventions and compatibility</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#9-cross-site-review-and-maintenance">9. Cross-site review and maintenance</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#dictionary-change-history">Dictionary change history</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../quality_control/">Quality Control</a>
                   </li>
@@ -97,7 +145,673 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="mar-40-data-dictionary-and-harmonization-guide">MAR-40 Data Dictionary and Harmonization Guide</h1>
+<p><strong>Version:</strong> 1.0<br />
+<strong>Scope:</strong> Clinical, sample, treatment, outcome, and molecular metadata curated by MAR-40 teams at UHN, UCL, McGill, and other authorized collaborating sites<br />
+<strong>Repository location:</strong> <code>docs/data_dictionary.md</code>  </p>
+<h2 id="1-purpose-and-principles">1. Purpose and principles</h2>
+<p>This dictionary defines a <strong>focused MAR-40 research data model</strong>, not a conversion to OMOP. Its purpose is to support interpretable, reproducible harmonization of immuno-oncology datasets with different study designs, treatment regimens, response measures, and molecular assays. Map <strong>scientifically relevant variables</strong>, not every field in a source database.</p>
+<p>Use the same target field names across collaborating institutions, but <strong>do not assume fields with the same name have the same meaning</strong>. Each cohort must document original terminology, definitions, units, time origins, preprocessing, and any transformations. Preserve original records in their authorized storage environments; keep the harmonized version and mapping decisions traceable to those records.</p>
+<p>The common data model and overall approach are aligned with the MAR-40 SOP v1.0. <strong>Individual source-to-target mappings still require evidence-based curation</strong>; values or conventions presented as examples below are not approvals to infer missing information.</p>
+<p><strong>Key conventions</strong></p>
+<ul>
+<li><strong>Grain / level:</strong> The entity represented by each record (cohort, patient, sample, treatment episode, response assessment, assay). Do not flatten repeated visits, treatment courses, or samples without a documented aggregation rule.</li>
+<li><strong>Requiredness:</strong> <strong>Identifier</strong> = required for records at the specified grain; <strong>Core</strong> = the harmonized column should be represented, but its value can be missing if unavailable; <strong>Conditional</strong> = required when that data type or analysis is present; <strong>Extended</strong> = enriches interpretation, where reported.</li>
+<li><strong>Patient identity:</strong> Use <code>(cohort, patientid)</code> as the patient key unless a validated linkage shows that patients are identical across cohorts. Sample keys use <code>(cohort, sampleid)</code>.</li>
+<li><strong>Missingness:</strong> Blank/<code>NA</code> denotes an unobserved harmonized value. <code>No</code> or <code>0</code> is a negative value <strong>only if explicitly supported by the source</strong>, never a substitute for missing data. Capture the reason (<code>Not reported</code>, <code>Not assessed</code>, <code>Not applicable</code>, <code>Restricted</code>, <code>Unresolved</code>) in a supplemental missingness/issue log when known.</li>
+<li><strong>Source fidelity:</strong> Retain the original source field/value, units, record level, and source evidence; avoid unsupported inference.</li>
+<li><strong>Data governance:</strong> Schema, scripts, synthetic examples, and permitted aggregate summaries may reside in GitHub; controlled/private patient-level data must remain in authorized environments.</li>
+</ul>
+<h2 id="2-recommended-logical-data-structure">2. Recommended logical data structure</h2>
+<table>
+<thead>
+<tr>
+<th>Table or object</th>
+<th>Record grain</th>
+<th>Identifier / link</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cohort registry</td>
+<td>One row per cohort</td>
+<td><code>cohort</code></td>
+<td>Source, permissions, modality coverage, dataset versions</td>
+</tr>
+<tr>
+<td>Clinical metadata</td>
+<td>One row per <code>(cohort, patientid)</code> or documented patient-treatment record</td>
+<td><code>cohort</code>, <code>patientid</code></td>
+<td>Baseline demographics, cancer characterization, outcomes</td>
+</tr>
+<tr>
+<td>Sample metadata</td>
+<td>One row per <code>(cohort, sampleid)</code></td>
+<td><code>cohort</code>, <code>sampleid</code>, <code>patientid</code></td>
+<td>Specimen, sampling time, patient connection</td>
+</tr>
+<tr>
+<td>Treatment metadata</td>
+<td>One row per documented treatment episode</td>
+<td><code>cohort</code>, <code>patientid</code>, <code>treatmentid</code> when available</td>
+<td>Regimen, components, targets, treatment setting</td>
+</tr>
+<tr>
+<td>Outcome assessments</td>
+<td>One row per documented assessment/episode</td>
+<td>Patient and treatment linkage plus assessment index/time</td>
+<td>RECIST/other outcome and assessment provenance</td>
+</tr>
+<tr>
+<td>Assay inventory / molecular objects</td>
+<td>One row per assay-sample combination, or appropriate MAE object</td>
+<td><code>cohort</code>, <code>sampleid</code>, <code>assay_id</code></td>
+<td>RNA/DNA modality, processing methods, features and measurements</td>
+</tr>
+<tr>
+<td>Mapping and QC logs</td>
+<td>One row per transformation, decision, or issue</td>
+<td>Cohort ID, source field, mapping rule/issue ID</td>
+<td>Auditability across sites</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>single sample-level flat CSV is an acceptable descriptive export</strong> if it maintains correct patient/sample links; it is not the canonical representation of longitudinal treatment, response, or molecular measurements. The visualization script may use such a flattened export.</p>
+<h2 id="3-core-clinical-and-sample-variables">3. Core clinical and sample variables</h2>
+<p>Columns below are <strong>target MAR-40 names</strong>. <code>String</code> means a character value; identifiers should not be coerced to numbers (leading zeros may matter). Example categorical values indicate the expected format, not permission to guess a value.</p>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Target field</th>
+<th>Level</th>
+<th>Requiredness</th>
+<th>Definition and permitted format</th>
+<th>Harmonization / validation guidance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity</td>
+<td><code>cohort</code></td>
+<td>Cohort / all records</td>
+<td>Identifier</td>
+<td>Stable cohort ID; string</td>
+<td>Must match cohort registry; site-specific naming without collisions</td>
+</tr>
+<tr>
+<td>Identity</td>
+<td><code>patientid</code></td>
+<td>Patient and linked records</td>
+<td>Identifier</td>
+<td>Pseudonymous patient ID; string</td>
+<td>Unique <strong>within</strong> cohort; preserve cross-file linkage</td>
+</tr>
+<tr>
+<td>Identity</td>
+<td><code>sampleid</code></td>
+<td>Sample</td>
+<td>Identifier</td>
+<td>Unique sample ID; string</td>
+<td>May be repeated across assay rows only when grain requires it</td>
+</tr>
+<tr>
+<td>Identity</td>
+<td><code>tissueid</code></td>
+<td>Specimen, if available</td>
+<td>Conditional</td>
+<td>Tissue/specimen identifier; string</td>
+<td>Distinguish biological specimen from aliquot/assay sample</td>
+</tr>
+<tr>
+<td>Identity</td>
+<td><code>treatmentid</code></td>
+<td>Treatment episode</td>
+<td>Conditional</td>
+<td>Treatment identifier; string</td>
+<td>Required to distinguish multiple therapy episodes when source provides them</td>
+</tr>
+<tr>
+<td>Demographics</td>
+<td><code>age</code></td>
+<td>Patient / baseline</td>
+<td>Core</td>
+<td>Numeric age in <strong>years</strong></td>
+<td>Record <code>age_reference</code> and original age units/timepoint; do not treat age at diagnosis as age at treatment without evidence</td>
+</tr>
+<tr>
+<td>Demographics</td>
+<td><code>sex</code></td>
+<td>Patient</td>
+<td>Core</td>
+<td>Source-recorded <code>F</code>, <code>M</code>, other supported value, or missing</td>
+<td>Map only categories substantiated by the original source; keep original value in mapping log</td>
+</tr>
+<tr>
+<td>Disease</td>
+<td><code>cancer_type</code></td>
+<td>Patient or tumor</td>
+<td>Core</td>
+<td>OncoTree <strong>Level 1</strong> (broad cancer type)</td>
+<td>Document OncoTree release and source label; never map histological subtype to a broad category by unsupported guesswork</td>
+</tr>
+<tr>
+<td>Disease</td>
+<td><code>cancer_subtype</code></td>
+<td>Patient or tumor</td>
+<td>Conditional</td>
+<td>OncoTree <strong>Level 2</strong> when supported</td>
+<td>Leave missing if subtype cannot be established; retain original terminology</td>
+</tr>
+<tr>
+<td>Disease</td>
+<td><code>histo</code></td>
+<td>Patient / tumor</td>
+<td>Extended</td>
+<td>Histology as reported; string</td>
+<td>Record histology system/code when available; keep provenance</td>
+</tr>
+<tr>
+<td>Disease</td>
+<td><code>stage</code></td>
+<td>Patient / assessment</td>
+<td>Core</td>
+<td>Source stage or valid harmonized stage; string</td>
+<td>Preserve stage system, edition, assessment date and whether primary/metastatic; do not merge incompatible staging systems</td>
+</tr>
+<tr>
+<td>Treatment</td>
+<td><code>treatment</code></td>
+<td>Treatment episode</td>
+<td>Core</td>
+<td>Broad treatment group, as defined in §4</td>
+<td>Preserve original regimen and constituent drug names; define rule for combinations</td>
+</tr>
+<tr>
+<td>Treatment</td>
+<td><code>target</code></td>
+<td>Treatment episode</td>
+<td>Core</td>
+<td>Target(s), e.g., <code>PD-1</code>, <code>PD-L1</code>, <code>CTLA-4</code></td>
+<td>Targets need not be unique; preserve multi-target combinations separately where possible</td>
+</tr>
+<tr>
+<td>Treatment</td>
+<td><code>regimen</code></td>
+<td>Treatment episode</td>
+<td>Conditional</td>
+<td>Exact source regimen/drugs; string</td>
+<td>Do not replace regimen with broad <code>treatment</code> class</td>
+</tr>
+<tr>
+<td>Treatment</td>
+<td><code>treatment_setting</code></td>
+<td>Treatment episode</td>
+<td>Extended</td>
+<td>Original and (when possible) standardized disease/treatment setting</td>
+<td>Preserve neoadjuvant, adjuvant, metastatic, etc. with evidence</td>
+</tr>
+<tr>
+<td>Sample</td>
+<td><code>sample_timing</code></td>
+<td>Sample</td>
+<td>Core</td>
+<td><code>Pre</code>, <code>On</code>, <code>Post</code>, missing</td>
+<td>Relative to <strong>which treatment episode?</strong> Document source time and reference event; do not force ambiguous timepoints</td>
+</tr>
+<tr>
+<td>Sample</td>
+<td><code>sample_type</code></td>
+<td>Sample</td>
+<td>Extended</td>
+<td>Biological material (tumor tissue, plasma, PBMC, etc.)</td>
+<td>Record source material and collection method</td>
+</tr>
+<tr>
+<td>Sample</td>
+<td><code>sample_source</code></td>
+<td>Sample</td>
+<td>Conditional</td>
+<td><code>Primary</code>, <code>Metastatic</code>, or original location/status if supported</td>
+<td>Preserve anatomical site separately; not interchangeable with timing</td>
+</tr>
+<tr>
+<td>Sample</td>
+<td><code>specimen_site</code></td>
+<td>Sample</td>
+<td>Extended</td>
+<td>Anatomic collection site, original/standardized</td>
+<td>Do not infer site from disease type</td>
+</tr>
+<tr>
+<td>Outcome</td>
+<td><code>recist</code></td>
+<td>Assessment / episode</td>
+<td>Core</td>
+<td><code>CR</code>, <code>PR</code>, <code>SD</code>, <code>PD</code>, <code>NE</code> where criteria support them</td>
+<td>Confirm RECIST or other assessment system/version, assessor and timepoint; <code>NE</code> is not <code>PD</code></td>
+</tr>
+<tr>
+<td>Outcome</td>
+<td><code>response</code></td>
+<td>Assessment / episode</td>
+<td>Core</td>
+<td><code>R</code>, <code>NR</code>, missing</td>
+<td>Binary response requires <strong>source-supported definition</strong>; do not automatically infer from <code>recist</code></td>
+</tr>
+<tr>
+<td>Survival</td>
+<td><code>survival_time_os</code></td>
+<td>Patient / episode</td>
+<td>Core</td>
+<td>Numeric OS duration, <strong>months</strong></td>
+<td>Confirm origin, endpoint and conversion from source units; nonnegative</td>
+</tr>
+<tr>
+<td>Survival</td>
+<td><code>event_occurred_os</code></td>
+<td>Patient / episode</td>
+<td>Core</td>
+<td><code>1</code> death event, <code>0</code> censored, missing</td>
+<td>Verify original event convention and pairing with the time value</td>
+</tr>
+<tr>
+<td>Survival</td>
+<td><code>survival_time_pfs</code></td>
+<td>Patient / episode</td>
+<td>Core</td>
+<td>Numeric PFS duration, <strong>months</strong></td>
+<td>Confirm progression/death definition, origin, and censoring; nonnegative</td>
+</tr>
+<tr>
+<td>Survival</td>
+<td><code>event_occurred_pfs</code></td>
+<td>Patient / episode</td>
+<td>Core</td>
+<td><code>1</code> event, <code>0</code> censored, missing</td>
+<td>Verify that original 0/1 meaning and endpoint definition align</td>
+</tr>
+<tr>
+<td>Survival</td>
+<td><code>survival_unit</code></td>
+<td>Cohort / outcome</td>
+<td>Conditional</td>
+<td>Original and/or harmonized duration units</td>
+<td>Harmonized durations use months; preserve original units and conversion rule</td>
+</tr>
+<tr>
+<td>Provenance</td>
+<td><code>data_source</code></td>
+<td>Cohort</td>
+<td>Conditional</td>
+<td>Accession, DOI, publication, or authorized internal reference</td>
+<td>Do not record credentials or restricted storage locations in public files</td>
+</tr>
+<tr>
+<td>Provenance</td>
+<td><code>access_type</code></td>
+<td>Cohort</td>
+<td>Core</td>
+<td><code>Public</code>, <code>Controlled access</code>, <code>Private</code></td>
+<td>Access status reflects permissions, not dataset quality; mixed status needs investigation or per-file classification</td>
+</tr>
+<tr>
+<td>Provenance</td>
+<td><code>source_version</code></td>
+<td>Cohort / file</td>
+<td>Conditional</td>
+<td>Release/date/checksum/version; string</td>
+<td>Required for reproducible provenance where available</td>
+</tr>
+</tbody>
+</table>
+<h3 id="31-distinguishing-clinical-entities">3.1 Distinguishing clinical entities</h3>
+<ul>
+<li>One patient may have multiple samples, sequencing assays, treatment regimens and response assessments.</li>
+<li>Patient-level response or stage summaries need an <strong>explicit aggregation/selection rule</strong> (for example, best overall response under a specified criteria and window); do not silently select a convenient record.</li>
+<li>If a longitudinal schema is not yet implemented, maintain companion tables or manifest entries describing the original grain and any aggregation applied to make a flat export.</li>
+</ul>
+<h2 id="4-treatment-and-response-definitions">4. Treatment and response definitions</h2>
+<h3 id="41-treatment-classification">4.1 Treatment classification</h3>
+<p>The SOP recognizes the main MAR-40 immunotherapy groupings. Preserve at least three distinct concepts: <strong>source regimen</strong>, <strong>drug/immune target</strong>, and <strong>harmonized treatment group</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Treatment group</th>
+<th>Interpretation</th>
+<th>Key caution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PD-(L)1</code></td>
+<td>PD-1 or PD-L1-directed therapy when classified as a single-target group</td>
+<td>Do not label a multi-agent regimen as monotherapy simply because it includes PD-(L)1 blockade</td>
+</tr>
+<tr>
+<td><code>CTLA4</code></td>
+<td>CTLA-4-directed single-target therapy</td>
+<td>Preserve exact drug and mechanism</td>
+</tr>
+<tr>
+<td><code>IO+combo</code></td>
+<td>Immunotherapy combination not represented by a more specific selected category</td>
+<td>Specify which components qualify; avoid overlap with <code>IO+chemo</code> or <code>IO+targeted</code></td>
+</tr>
+<tr>
+<td><code>IO+chemo</code></td>
+<td>Immunotherapy plus chemotherapy</td>
+<td>Confirm concurrent/combined therapy and study definition</td>
+</tr>
+<tr>
+<td><code>IO+targeted</code></td>
+<td>Immunotherapy plus targeted therapy</td>
+<td>Confirm exact combination and drug targets</td>
+</tr>
+<tr>
+<td><code>Other</code></td>
+<td>Documented regimen outside defined groups</td>
+<td>Preserve unmodified regimen</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implementation note:</strong> A treatment classification must not rely on a substring match alone. Multi-component regimens require a versioned precedence rule <strong>or</strong> a structured multi-label representation. If a cohort does not supply the information needed, flag the classification for review.</p>
+<h3 id="42-response">4.2 Response</h3>
+<p><code>recist</code> and <code>response</code> are separate fields. For <code>recist</code>, document assessment criteria (RECIST v1.1, iRECIST or other), assessor, timepoint, and whether the result is <strong>best overall response</strong>. For <code>response</code>, record the cohort's responder definition and its relationship, if any, to RECIST. Clinical benefit, objective response, pathological response, and investigator-assessed response <strong>must not automatically be treated as equivalent</strong>.</p>
+<h3 id="43-survival">4.3 Survival</h3>
+<p>Use <code>survival_time_os</code> and <code>survival_time_pfs</code> in months, with original units and transformation documented. A verified event coding is <code>1 = event; 0 = censored</code>; if the source uses the reverse convention, document the recoding. Preserve time origin (<code>diagnosis</code>, <code>treatment start</code>, <code>randomization</code>, etc.), event definition, and censoring rules in the cohort-level endpoint dictionary or mapping record. <strong>Availability of at least one OS/PFS field does not mean the cohort is ready for survival analysis</strong>; each record requires a valid paired time/event measurement and a compatible endpoint definition.</p>
+<h2 id="5-molecular-variables-and-assay-documentation">5. Molecular variables and assay documentation</h2>
+<p>Molecular metadata should distinguish <strong>assay presence</strong>, <strong>modality</strong>, <strong>measurement scale</strong>, and <strong>processing provenance</strong>. A <code>Yes</code> value is not an RNA-seq method; a <code>No</code> value must not represent unavailable information without evidence.</p>
+<table>
+<thead>
+<tr>
+<th>Target field</th>
+<th>Level</th>
+<th>Requiredness</th>
+<th>Description and documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rna</code></td>
+<td>Sample</td>
+<td>Core</td>
+<td>Availability status <code>Yes</code>, <code>No</code>, or missing; <code>No</code> only when explicitly assessed absent</td>
+</tr>
+<tr>
+<td><code>rna_info</code></td>
+<td>Sample / assay</td>
+<td>Conditional</td>
+<td>Source RNA technology/platform and processing description; use structured assay manifest for full details</td>
+</tr>
+<tr>
+<td><code>dna</code></td>
+<td>Sample</td>
+<td>Core</td>
+<td>Availability status <code>Yes</code>, <code>No</code>, or missing</td>
+</tr>
+<tr>
+<td><code>dna_info</code></td>
+<td>Sample / assay</td>
+<td>Conditional</td>
+<td>DNA modality (WES/WGS/panel/etc.) and processing summary</td>
+</tr>
+<tr>
+<td><code>assay_id</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Identifier linking assay entry with sample</td>
+</tr>
+<tr>
+<td><code>assay_type</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>RNA-seq, microarray, WES, WGS, panel, SNV, CNA, etc.</td>
+</tr>
+<tr>
+<td><code>measurement_type</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Counts, TPM, normalized microarray signal, variant calls, segments, gene-level CNA, etc.</td>
+</tr>
+<tr>
+<td><code>normalization</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Algorithm, parameters, transformations and pseudocount (if any)</td>
+</tr>
+<tr>
+<td><code>reference_genome</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Genome assembly, e.g. GRCh37/hg19 or GRCh38/hg38, <strong>verified from source/pipeline</strong></td>
+</tr>
+<tr>
+<td><code>gencode_version</code></td>
+<td>RNA assay</td>
+<td>Conditional</td>
+<td>Verified GENCODE release; see §5.1</td>
+</tr>
+<tr>
+<td><code>gene_id_type</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Ensembl gene ID, gene symbol, probe ID, etc.; record version suffix policy</td>
+</tr>
+<tr>
+<td><code>annotation_version</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Reference/annotation release, including non-GENCODE sources as applicable</td>
+</tr>
+<tr>
+<td><code>processing_pipeline</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Tool/workflow name, version, reference and parameters</td>
+</tr>
+<tr>
+<td><code>processing_source</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Published processed data, provided processed data, or MAR-40 raw-data reprocessing</td>
+</tr>
+<tr>
+<td><code>feature_mapping_version</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Gene/probe mapping resource and release</td>
+</tr>
+<tr>
+<td><code>assay_qc_status</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Pass / limitations / hold, as determined by QC procedure</td>
+</tr>
+</tbody>
+</table>
+<h3 id="51-gencode-annotation-strategy">5.1 GENCODE annotation strategy</h3>
+<p>MAR-40 uses the following <strong>source-aware strategy</strong>:</p>
+<ol>
+<li><strong>Published processed datasets:</strong> GENCODE <strong>v19</strong> is the historical harmonization reference where applicable; however, <strong>do not assign v19 to a dataset solely because its true annotation is unknown</strong>. If the publication/provider specifies a different release, retain the documented release. If not verifiable, record <code>Unknown</code> in assay provenance and flag for review.</li>
+<li><strong>Raw datasets available for standardized reprocessing:</strong> Prefer <strong>GENCODE v40</strong>, with its compatible genome build and an explicitly documented quantification pipeline.</li>
+<li><strong>Source-declared versions:</strong> When a publication or data provider identifies an annotation release, preserve that information even if it differs from v19 or v40.</li>
+</ol>
+<p>Record GENCODE release, genome build, gene ID type, quantification method, source reference and all conversions. <strong>Do not treat different GENCODE releases or builds as interchangeable</strong>, and do not label legacy expression measurements as reprocessed v40 unless actually reprocessed.</p>
+<h3 id="52-multi-assay-integration">5.2 Multi-assay integration</h3>
+<p>When appropriate, build <code>SummarizedExperiment</code>, <code>RangedSummarizedExperiment</code>, or <code>MultiAssayExperiment</code> objects. Validate feature and sample dimensions, <code>rowData</code>, <code>colData</code>, and the patient/sample relationships represented by <code>sampleMap</code>. A clinical-only cohort can be curated without generating a fictitious molecular assay.</p>
+<h2 id="6-mapping-rules-and-statuses">6. Mapping rules and statuses</h2>
+<p>MAR-40 mapping is <strong>key-variable, meaning-driven harmonization</strong>. It does not require OMOP concept IDs or conversion to OMOP database tables.</p>
+<table>
+<thead>
+<tr>
+<th>Mapping status</th>
+<th>Definition</th>
+<th>Example / action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Direct</code></td>
+<td>Equivalent meaning, grain, and units; rename or copy</td>
+<td><code>patient_id</code> → <code>patientid</code>, after ID checks</td>
+</tr>
+<tr>
+<td><code>Conditional</code></td>
+<td>Meaning is compatible after verified recoding, transformation, or unit conversion</td>
+<td>Source <code>OS_days</code> → months with verified origin and conversion</td>
+</tr>
+<tr>
+<td><code>Needs review</code></td>
+<td>Source definition, endpoint, timepoint, or clinical equivalence is uncertain</td>
+<td><code>best_response</code> → <code>recist</code> pending criteria check</td>
+</tr>
+<tr>
+<td><code>Unmapped</code></td>
+<td>No defensible target equivalence</td>
+<td><code>clinical_benefit</code> must not be silently assigned <code>response</code></td>
+</tr>
+</tbody>
+</table>
+<p>Recommended mapping-log columns:</p>
+<p><code>cohort</code>, <code>source_file</code>, <code>source_variable</code>, <code>source_value_or_code</code>, <code>source_definition</code>, <code>source_grain</code>, <code>source_unit</code>, <code>target_variable</code>, <code>target_value_or_code</code>, <code>transformation</code>, <code>rule_id</code>, <code>mapping_status</code>, <code>evidence</code>, <code>reviewer</code>, <code>review_date</code>, <code>mapping_version</code>, <code>notes</code>.</p>
+<p>A mapping record may be <strong>variable-level</strong> (source column → target column) or <strong>value-level</strong> (source category → standardized category). Where a variable needs both, record both. Keep restricted source values in approved storage; public repository mapping examples should be synthetic or non-sensitive.</p>
+<h3 id="61-illustrative-mappings-not-blanket-approvals">6.1 Illustrative mappings (not blanket approvals)</h3>
+<table>
+<thead>
+<tr>
+<th>Source field/value</th>
+<th>MAR-40 target</th>
+<th>Rule and necessary verification</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>patient_id</code></td>
+<td><code>patientid</code></td>
+<td>Preserve as string; confirm cohort-scoped uniqueness</td>
+<td>Direct</td>
+</tr>
+<tr>
+<td><code>tumor_type = Skin melanoma</code></td>
+<td><code>cancer_type</code></td>
+<td>Map to OncoTree Level 1, record vocabulary release and original term</td>
+<td>Conditional</td>
+</tr>
+<tr>
+<td><code>best_overall_response = PR</code></td>
+<td><code>recist</code></td>
+<td>Confirm assessment criteria/version and definition</td>
+<td>Needs review until verified</td>
+</tr>
+<tr>
+<td><code>sex = Female</code></td>
+<td><code>sex = F</code></td>
+<td>Only after confirming source-recorded category</td>
+<td>Conditional</td>
+</tr>
+<tr>
+<td><code>OS_days</code></td>
+<td><code>survival_time_os</code></td>
+<td>Verify origin, censoring and unit conversion; do not copy numeric days into month field</td>
+<td>Conditional</td>
+</tr>
+<tr>
+<td><code>clinical_benefit = Yes</code></td>
+<td><code>response</code></td>
+<td>Not necessarily objective response; retain source meaning</td>
+<td>Unmapped pending scientific justification</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-oncotree-and-tumor-taxonomy">6.2 OncoTree and tumor taxonomy</h3>
+<p>Harmonize <code>cancer_type</code> to the agreed <strong>OncoTree Level 1</strong> classification and populate <code>cancer_subtype</code> from <strong>Level 2</strong> only when a supported mapping is available. Preserve the original histology/tumor label, code and OncoTree version. Distinguish tumor primary, specimen site and metastatic status; escalate ambiguous diagnoses or multiple primaries.</p>
+<h2 id="7-quality-control-and-completeness-reporting">7. Quality control and completeness reporting</h2>
+<p>Follow <a href="../quality_control/">Quality Control</a> and the <a href="../data_curation_SOP/">SOP</a>. At minimum, evaluate:</p>
+<table>
+<thead>
+<tr>
+<th>QC area</th>
+<th>Core checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identifiers</td>
+<td>Missing/duplicate patient or sample IDs, uniqueness in correct scope, patient-to-sample linkage</td>
+</tr>
+<tr>
+<td>Grain</td>
+<td>Patient-level variables repeated consistently; longitudinal assessments not inadvertently collapsed</td>
+</tr>
+<tr>
+<td>Allowed categories</td>
+<td>Valid treatment/access/response codes; list all unmapped source values</td>
+</tr>
+<tr>
+<td>Disease mapping</td>
+<td>Supported OncoTree Level 1/2, original labels and release preserved</td>
+</tr>
+<tr>
+<td>Outcomes</td>
+<td>Valid nonnegative times, verified event coding, paired time/event fields, time origin/censoring documented</td>
+</tr>
+<tr>
+<td>Molecular</td>
+<td>Assay availability vs type, gene IDs, reference build, annotation release, dimensions and sample mappings</td>
+</tr>
+<tr>
+<td>Missingness</td>
+<td>Report missingness by cohort, variable, patient/sample and, when relevant, timepoint</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>Source versions, mapping log, code commit, environment, parameters, QC decisions</td>
+</tr>
+<tr>
+<td>Data access</td>
+<td>Cohort and source-file permissions, permitted destinations and sharing limitations</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Completeness ≠ comparability.</strong> For example, a cohort with a populated <code>response</code> column may still be incompatible with another cohort if response definitions differ. A heatmap cell of “Yes” signifies that at least one value was observed, not that all records are complete or analytically comparable.</p>
+<h2 id="8-example-export-conventions-and-compatibility">8. Example export conventions and compatibility</h2>
+<p>The current MAR-40 synthetic sample-level visualization workflow uses fields including <code>cohort</code>, <code>patientid</code>, <code>sampleid</code>, <code>cancer_type</code>, <code>histo</code>, <code>stage</code>, <code>age</code>, <code>sex</code>, <code>treatment</code>, <code>target</code>, <code>sample_timing</code>, <code>recist</code>, <code>response</code>, <code>survival_time_os</code>, <code>event_occurred_os</code>, <code>survival_time_pfs</code>, <code>event_occurred_pfs</code>, <code>rna</code>, and <code>dna</code>. Some versions also include <code>regimen</code>, <code>sample_source</code>, and a source column named <strong><code>access type</code></strong>.</p>
+<p><strong>Naming policy:</strong> Use <strong><code>access_type</code></strong> as the canonical dictionary field; accept legacy <code>access type</code> as an input alias through an explicit mapping/adapter. Do not silently change script dependencies. Similarly, distinguish <code>rna</code> / <code>dna</code> <em>availability</em> from <code>rna_info</code> / <code>dna_info</code> <em>assay descriptions</em>. Maintain a schema version for each exported dataset.</p>
+<p>Suggested locally generated cohort outputs (subject to source permissions):</p>
+<pre><code class="language-text">&lt;cohort_id&gt;/
+  source_manifest.tsv
+  mapping_log.tsv
+  clinical_harmonized.csv
+  sample_metadata.csv
+  assay_manifest.tsv
+  qc_summary.tsv
+  unresolved_issues.tsv
+  run_manifest.txt
+</code></pre>
+<p>The files and layout above describe an <strong>output contract to implement</strong>, not a claim that every file currently exists. Data protection and permitted sharing take precedence over repository convenience.</p>
+<h2 id="9-cross-site-review-and-maintenance">9. Cross-site review and maintenance</h2>
+<p>The <strong>MAR-40 harmonization team</strong> maintains this dictionary together with the SOP and executable QC/mapping configuration. A contributing site documents source-specific details and flags uncertainties. Material changes (e.g., endpoint definitions, treatment grouping, OncoTree release, GENCODE processing, access conventions) should be reviewed with the relevant scientific/data leads and recorded in Git history before adoption across sites.</p>
+<p>When updating a field, record: <strong>what changed, why, affected cohorts/analyses, version, reviewer, date and required reprocessing</strong>. Maintain backward-compatible mappings where feasible. Do not silently replace historical values in already released outputs.</p>
+<h3 id="dictionary-change-history">Dictionary change history</h3>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-11-20</td>
+<td>Consolidated MAR-40 data dictionary aligned to the multicentre SOP v1.0; canonical fields, source mapping, access, treatment/response/survival and GENCODE provenance conventions.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
