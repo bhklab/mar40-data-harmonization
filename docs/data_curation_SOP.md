@@ -1,6 +1,7 @@
 # MAR-40 Data Curation and Harmonization SOP
 
 **Version:** v0.1
+
 **Scope:** Participating MAR-40 teams curating clinical and molecular immuno-oncology cohorts  
 **Document owner(s):** Farnoosh Abbas Aghababazadeh   
 **Effective date:** November 20, 2026  
