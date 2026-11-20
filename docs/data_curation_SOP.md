@@ -229,17 +229,11 @@ Suggested cohort handoff contents, subject to institutional permissions:
 \<cohort_id>/
 
 ├── source_manifest.tsv           # Source inventory, versions, permitted paths/checksums
-
 ├── mapping_log.tsv               # Source -> MAR-40 transformations and decisions
-
 ├── clinical_harmonized.csv       # Approved de-identified clinical metadata, if shareable
-
 ├── assay_manifest.tsv            # Available assays and processing parameters
-
 ├── qc_summary.tsv                # QC checks, results, exceptions
-
 ├── unresolved_issues.tsv         # Items requiring reviewer decisions
-
 └── run_manifest.txt              # Git commit, environment, execution parameters, date
 
 ```
