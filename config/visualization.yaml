@@ -1,0 +1,11 @@
+# MAR-40 | Version-controlled visualization input mapping
+# Files must be sample-level, harmonized CSVs with cohort, patientid, sampleid.
+# Do not commit paths or data that expose restricted research information.
+# Local site-specific configuration can override this file with --configfile.
+datasets:
+  example:
+    input: "data/examples/MAR40_synthetic_sample_level.csv"
+
+  # To run another dataset, add an entry using a permitted local path:
+  # ucl:
+  #   input: "/approved/institutional/storage/UCL_harmonized_samples.csv"
