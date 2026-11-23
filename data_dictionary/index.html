@@ -100,10 +100,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#8-example-export-conventions-and-compatibility">8. Example export conventions and compatibility</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#9-cross-site-review-and-maintenance">9. Cross-site review and maintenance</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#dictionary-change-history">Dictionary change history</a>
-    </li>
-        </ul>
     </li>
     </ul>
                   </li>
@@ -146,8 +142,8 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="mar-40-data-dictionary-and-harmonization-guide">MAR-40 Data Dictionary and Harmonization Guide</h1>
-<p><strong>Version:</strong> 1.0<br />
-<strong>Scope:</strong> Clinical, sample, treatment, outcome, and molecular metadata curated by MAR-40 teams at UHN, UCL, McGill, and other authorized collaborating sites   </p>
+<p><strong>Version:</strong> 1.0  </p>
+<p><strong>Scope:</strong> Clinical, sample, treatment, outcome, and molecular metadata curated by MAR-40 teams at UHN, UCL, McGill, and other authorized collaborating sites  </p>
 <h2 id="1-purpose-and-principles">1. Purpose and principles</h2>
 <p>This dictionary defines a <strong>focused MAR-40 research data model</strong>, not a conversion to OMOP. Its purpose is to support interpretable, reproducible harmonization of immuno-oncology datasets with different study designs, treatment regimens, response measures, and molecular assays. Map <strong>scientifically relevant variables</strong>, not every field in a source database.</p>
 <p>Use the same target field names across collaborating institutions, but <strong>do not assume fields with the same name have the same meaning</strong>. Each cohort must document original terminology, definitions, units, time origins, preprocessing, and any transformations. Preserve original records in their authorized storage environments; keep the harmonized version and mapping decisions traceable to those records.</p>
@@ -633,11 +629,17 @@
 <h3 id="51-gencode-annotation-strategy">5.1 GENCODE annotation strategy</h3>
 <p>MAR-40 uses the following <strong>source-aware strategy</strong>:</p>
 <ol>
-<li><strong>Published processed datasets:</strong> GENCODE <strong>v19</strong> is the historical harmonization reference where applicable; however, <strong>do not assign v19 to a dataset solely because its true annotation is unknown</strong>. If the publication/provider specifies a different release, retain the documented release. If not verifiable, record <code>Unknown</code> in assay provenance and flag for review.</li>
-<li><strong>Raw datasets available for standardized reprocessing:</strong> Prefer <strong>GENCODE v40</strong>, with its compatible genome build and an explicitly documented quantification pipeline.</li>
-<li><strong>Source-declared versions:</strong> When a publication or data provider identifies an annotation release, preserve that information even if it differs from v19 or v40.</li>
+<li>
+<p><strong>Published processed datasets:</strong> <strong>GENCODE v19</strong> is the historical harmonization reference where applicable; however, <strong>do not assign GENCODE v19 to a dataset solely because its true annotation is unknown</strong>. If the publication/provider specifies a different release, retain the documented release. If not verifiable, record <code>Unknown</code> in assay provenance and flag for review.</p>
+</li>
+<li>
+<p><strong>Raw datasets available for standardized reprocessing:</strong> Prefer <strong>GENCODE v40</strong>, with its compatible genome build and an explicitly documented quantification pipeline.</p>
+</li>
+<li>
+<p><strong>Source-declared versions:</strong> When a publication or data provider identifies an annotation release, preserve that information even if it differs from GENCODE v19 or GENCODE v40.</p>
+</li>
 </ol>
-<p>Record GENCODE release, genome build, gene ID type, quantification method, source reference and all conversions. <strong>Do not treat different GENCODE releases or builds as interchangeable</strong>, and do not label legacy expression measurements as reprocessed v40 unless actually reprocessed.</p>
+<p>Record GENCODE release (e.g., GENCODE v19 or GENCODE v40), genome build, gene ID type, quantification method, source reference and all conversions. <strong>Do not treat different GENCODE releases or builds as interchangeable</strong>, and do not label legacy expression measurements as reprocessed using GENCODE v40 unless actually reprocessed with that annotation.</p>
 <h3 id="52-multi-assay-integration">5.2 Multi-assay integration</h3>
 <p>When appropriate, build <code>SummarizedExperiment</code>, <code>RangedSummarizedExperiment</code>, or <code>MultiAssayExperiment</code> objects. Validate feature and sample dimensions, <code>rowData</code>, <code>colData</code>, and the patient/sample relationships represented by <code>sampleMap</code>. A clinical-only cohort can be curated without generating a fictitious molecular assay.</p>
 <h2 id="6-mapping-rules-and-statuses">6. Mapping rules and statuses</h2>
@@ -778,39 +780,32 @@
 <p><strong>Completeness ≠ comparability.</strong> For example, a cohort with a populated <code>response</code> column may still be incompatible with another cohort if response definitions differ. A heatmap cell of “Yes” signifies that at least one value was observed, not that all records are complete or analytically comparable.</p>
 <h2 id="8-example-export-conventions-and-compatibility">8. Example export conventions and compatibility</h2>
 <p>The current MAR-40 synthetic sample-level visualization workflow uses fields including <code>cohort</code>, <code>patientid</code>, <code>sampleid</code>, <code>cancer_type</code>, <code>histo</code>, <code>stage</code>, <code>age</code>, <code>sex</code>, <code>treatment</code>, <code>target</code>, <code>sample_timing</code>, <code>recist</code>, <code>response</code>, <code>survival_time_os</code>, <code>event_occurred_os</code>, <code>survival_time_pfs</code>, <code>event_occurred_pfs</code>, <code>rna</code>, and <code>dna</code>. Some versions also include <code>regimen</code>, <code>sample_source</code>, and a source column named <strong><code>access type</code></strong>.</p>
-<p><strong>Naming policy:</strong> Use <strong><code>access_type</code></strong> as the canonical dictionary field; accept legacy <code>access type</code> as an input alias through an explicit mapping/adapter. Do not silently change script dependencies. Similarly, distinguish <code>rna</code> / <code>dna</code> <em>availability</em> from <code>rna_info</code> / <code>dna_info</code> <em>assay descriptions</em>. Maintain a schema version for each exported dataset.</p>
+<p><strong>Naming policy:</strong> Use <strong><code>access_type</code></strong> as the canonical dictionary field; accept legacy <code>access type</code> as an input alias through an explicit mapping/adapter. Do not silently change script dependencies. Similarly, distinguish <code>rna</code> / <code>dna</code> <strong>availability</strong> from <code>rna_info</code> / <code>dna_info</code> <strong>assay descriptions</strong>. Maintain a schema version for each exported dataset.</p>
 <p>Suggested locally generated cohort outputs (subject to source permissions):</p>
-<pre><code class="language-text">&lt;cohort_id&gt;/
+<pre><code class="language-text">
+&lt;cohort_id&gt;/
+
   source_manifest.tsv
+
   mapping_log.tsv
+
   clinical_harmonized.csv
+
   sample_metadata.csv
+
   assay_manifest.tsv
+
   qc_summary.tsv
+
   unresolved_issues.tsv
+
   run_manifest.txt
+
 </code></pre>
 <p>The files and layout above describe an <strong>output contract to implement</strong>, not a claim that every file currently exists. Data protection and permitted sharing take precedence over repository convenience.</p>
 <h2 id="9-cross-site-review-and-maintenance">9. Cross-site review and maintenance</h2>
 <p>The <strong>MAR-40 harmonization team</strong> maintains this dictionary together with the SOP and executable QC/mapping configuration. A contributing site documents source-specific details and flags uncertainties. Material changes (e.g., endpoint definitions, treatment grouping, OncoTree release, GENCODE processing, access conventions) should be reviewed with the relevant scientific/data leads and recorded in Git history before adoption across sites.</p>
 <p>When updating a field, record: <strong>what changed, why, affected cohorts/analyses, version, reviewer, date and required reprocessing</strong>. Maintain backward-compatible mappings where feasible. Do not silently replace historical values in already released outputs.</p>
-<h3 id="dictionary-change-history">Dictionary change history</h3>
-<table>
-<thead>
-<tr>
-<th>Version</th>
-<th>Date</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1.0</td>
-<td>2026-11-20</td>
-<td>Consolidated MAR-40 data dictionary aligned to the multicentre SOP v1.0; canonical fields, source mapping, access, treatment/response/survival and GENCODE provenance conventions.</td>
-</tr>
-</tbody>
-</table>
               
             </div>
           </div><footer>
