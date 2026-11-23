@@ -101,8 +101,6 @@ Collaborators can specify an approved local harmonized dataset through `config/v
 
 These descriptive outputs support cohort review but are not a substitute for source-level validation, endpoint assessment, or scientific approval. See the [Visualization Workflow Guide](docs/visualization_workflow.md) for more detailed instructions and troubleshooting.
 
-> **Implementation scope:** The current Snakemake module produces descriptive cohort visualizations from **already harmonized** metadata. Source-specific clinical curation, RNA/DNA processing, and multi-omics integration are separate components of the broader MAR-40 framework; they should not be assumed to be implemented by this visualization module.
-
 ## Documentation
 
 The repository documentation describes shared standards, workflows, and procedures.
