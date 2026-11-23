@@ -68,8 +68,6 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#reproducibility">Reproducibility</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fair-principles">FAIR Principles</a>
-    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#contributions">Contributions</a>
@@ -284,7 +282,7 @@
 <p>Dataset access is governed by source-specific permissions, institutional requirements, and applicable ethics and data-sharing agreements. Private or controlled-access patient-level datasets must <strong>not</strong> be committed to the public repository. Restricted data must remain in approved institutional storage.</p>
 <p>The repository shares code, standards, configurations, documentation, and synthetic or otherwise explicitly authorized examples. Workflow reproducibility does not require unrestricted access to the original datasets.</p>
 <h2 id="reproducibility-and-fair-data-principles">Reproducibility and FAIR Data Principles</h2>
-<p>MAR-40 aims to support transparent, reproducible, and FAIR-aligned management of clinical and molecular data across collaborating institutions.</p>
+<p>MAR-40 promotes reproducible research and <strong>FAIR</strong> data principles through standardized metadata, documented harmonization procedures, and reproducible computational workflows, supporting consistent data integration and reuse across collaborating institutions.</p>
 <h3 id="reproducibility">Reproducibility</h3>
 <p>The repository supports reproducible research through:</p>
 <ul>
@@ -295,34 +293,6 @@
 <li><strong>Automated execution:</strong> Dependency-aware workflow runs that can reproduce results and avoid unnecessary computation.</li>
 </ul>
 <p>Other workflow engines, such as <strong>Nextflow</strong>, may be evaluated in the future. Any additional orchestration layer should reuse the same validated scientific scripts and standardized input/output contracts rather than duplicate the analytical logic.</p>
-<h3 id="fair-principles">FAIR Principles</h3>
-<table>
-<thead>
-<tr>
-<th>Principle</th>
-<th>MAR-40 approach</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Findable</strong></td>
-<td>Maintain consistent cohort identifiers, source metadata, dataset descriptions, and provenance records.</td>
-</tr>
-<tr>
-<td><strong>Accessible</strong></td>
-<td>Document access conditions, permissions, and approved procedures for obtaining datasets.</td>
-</tr>
-<tr>
-<td><strong>Interoperable</strong></td>
-<td>Apply common clinical and molecular definitions, controlled vocabularies, and documented mappings.</td>
-</tr>
-<tr>
-<td><strong>Reusable</strong></td>
-<td>Preserve version-controlled workflows, processing descriptions, QC records, and software environment specifications.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>FAIR does not mean fully open:</strong> Data access and sharing remain subject to ethics approvals, institutional policies, and data governance requirements. This repository supports FAIR-aligned practices; dataset-level FAIR compliance must be evaluated independently.</p>
 <h2 id="contributions">Contributions</h2>
 <p>Collaborators are encouraged to propose improvements to data standards, documentation, validation procedures, and reproducible workflows. Changes to shared clinical definitions, mappings, and reporting conventions should be reviewed across participating sites before adoption.</p>
 <p>Contributions must preserve provenance and comply with dataset access restrictions. Do not include private or controlled-access source data in pull requests, issues, or example files.</p>
@@ -378,5 +348,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-11-23 00:33:46.782793+00:00
+Build Date UTC : 2026-11-23 00:37:59.253355+00:00
 -->
