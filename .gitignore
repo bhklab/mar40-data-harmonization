@@ -374,11 +374,34 @@ logs/
 site/
 
 #############################################################################
-# 8. PROJECT-SPECIFIC ENTRIES
+# 8. PROJECT-SPECIFIC ENTRIES - MAR-40
 #############################################################################
+# -------------------------------------------------------------
+# Raw clinical and molecular data
+# Do not commit original patient-level or restricted datasets.
+# -------------------------------------------------------------
+/data/rawdata/
 
-# Add your project-specific entries here
-# For example:
-# models/
-# sandbox/
-# etc.
+# -------------------------------------------------------------
+# Processed and harmonized datasets
+# These files are generated locally or stored in approved storage.
+# -------------------------------------------------------------
+/data/procdata/
+
+# -------------------------------------------------------------
+# Generated analysis results
+# Figures, reports, QC outputs, and intermediate files.
+# -------------------------------------------------------------
+/data/results/
+
+# -------------------------------------------------------------
+# Reproducible example datasets
+# Synthetic or explicitly approved shareable examples are tracked.
+# -------------------------------------------------------------
+!/data/examples/
+
+# -------------------------------------------------------------
+# Keep documentation and configuration files trackable.
+# -------------------------------------------------------------
+!/data/README.md
+!/data/examples/README.md
