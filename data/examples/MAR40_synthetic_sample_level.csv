@@ -1,0 +1,851 @@
+cohort,patientid,sampleid,cancer_type,histo,stage,age,sex,treatment,target,regimen,sample_timing,sample_source,recist,response,survival_time_os,event_occurred_os,survival_time_pfs,event_occurred_pfs,rna,dna,access type
+SIM_Melanoma_A,SIM_Melanoma_A_P001,SIM_Melanoma_A_P001_S01,Melanoma,Cutaneous melanoma,III,69,F,PD-1,PD-1,Pembrolizumab,On,Primary,PR,R,48.9,1,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P002,SIM_Melanoma_A_P002_S01,Melanoma,Cutaneous melanoma,III,64,F,PD-1,PD-1,Pembrolizumab,Pre,Primary,PD,NR,28.6,0,4.8,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P003,SIM_Melanoma_A_P003_S01,Melanoma,Cutaneous melanoma,III,37,M,PD-1,PD-1,Pembrolizumab,Pre,Unknown,PD,NR,50.5,1,6.4,1,No,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P004,SIM_Melanoma_A_P004_S01,Melanoma,Cutaneous melanoma,II,68,F,PD-1,PD-1,Pembrolizumab,Pre,Primary,NE,,13.1,1,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P004,SIM_Melanoma_A_P004_S02,Melanoma,Cutaneous melanoma,II,68,F,PD-1,PD-1,Pembrolizumab,Post,Unknown,NE,,13.1,1,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P005,SIM_Melanoma_A_P005_S01,Melanoma,Cutaneous melanoma,III,57,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,SD,NR,42.5,0,1.9,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P005,SIM_Melanoma_A_P005_S02,Melanoma,Cutaneous melanoma,III,57,M,PD-1,PD-1,Pembrolizumab,Post,Metastatic,SD,NR,42.5,0,1.9,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P006,SIM_Melanoma_A_P006_S01,Melanoma,Cutaneous melanoma,IV,33,M,PD-1,PD-1,Pembrolizumab,Pre,Primary,PR,R,51.5,1,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P007,SIM_Melanoma_A_P007_S01,Melanoma,Cutaneous melanoma,II,,M,PD-1,PD-1,Pembrolizumab,On,Metastatic,SD,NR,,,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P008,SIM_Melanoma_A_P008_S01,Melanoma,Cutaneous melanoma,II,52,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PD,NR,,,,,No,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P008,SIM_Melanoma_A_P008_S02,Melanoma,Cutaneous melanoma,II,52,M,PD-1,PD-1,Pembrolizumab,Unknown,Metastatic,PD,NR,,,,,No,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P009,SIM_Melanoma_A_P009_S01,Melanoma,Cutaneous melanoma,III,55,F,PD-1,PD-1,Pembrolizumab,Pre,Unknown,,,13.4,0,13.4,1,No,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P010,SIM_Melanoma_A_P010_S01,Melanoma,Cutaneous melanoma,II,78,M,PD-1,PD-1,Pembrolizumab,Unknown,Unknown,PR,R,44.9,1,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P011,SIM_Melanoma_A_P011_S01,Melanoma,Cutaneous melanoma,II,35,F,PD-1,PD-1,Pembrolizumab,Pre,Primary,,,,,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P012,SIM_Melanoma_A_P012_S01,Melanoma,Cutaneous melanoma,,36,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,SD,NR,30.2,1,7.5,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P013,SIM_Melanoma_A_P013_S01,Melanoma,Cutaneous melanoma,,67,F,PD-1,PD-1,Pembrolizumab,Pre,Unknown,CR,R,36.7,0,19.5,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P014,SIM_Melanoma_A_P014_S01,Melanoma,Cutaneous melanoma,IV,,F,PD-1,PD-1,Pembrolizumab,Pre,Primary,SD,NR,54.8,1,13.5,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P015,SIM_Melanoma_A_P015_S01,Melanoma,Cutaneous melanoma,II,,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PD,NR,9.4,1,9.4,1,No,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P016,SIM_Melanoma_A_P016_S01,Melanoma,Cutaneous melanoma,II,52,M,PD-1,PD-1,Pembrolizumab,On,Primary,NE,,35.6,1,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P017,SIM_Melanoma_A_P017_S01,Melanoma,Cutaneous melanoma,II,68,F,PD-1,PD-1,Pembrolizumab,Pre,Primary,NE,,11.4,0,9.6,0,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P017,SIM_Melanoma_A_P017_S02,Melanoma,Cutaneous melanoma,II,68,F,PD-1,PD-1,Pembrolizumab,Post,Unknown,NE,,11.4,0,9.6,0,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P018,SIM_Melanoma_A_P018_S01,Melanoma,Cutaneous melanoma,,54,F,PD-1,PD-1,Pembrolizumab,Pre,Unknown,SD,NR,,,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P019,SIM_Melanoma_A_P019_S01,Melanoma,Cutaneous melanoma,,66,M,PD-1,PD-1,Pembrolizumab,Unknown,Metastatic,PD,NR,30.6,0,17.2,0,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P020,SIM_Melanoma_A_P020_S01,Melanoma,Cutaneous melanoma,II,65,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PR,,19.2,0,16.4,0,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P021,SIM_Melanoma_A_P021_S01,Melanoma,Cutaneous melanoma,IV,45,F,PD-1,PD-1,Pembrolizumab,Pre,Unknown,PD,NR,14.2,1,12.0,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P022,SIM_Melanoma_A_P022_S01,Melanoma,Cutaneous melanoma,II,77,M,PD-1,PD-1,Pembrolizumab,On,Metastatic,CR,R,3.9,1,3.2,0,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P023,SIM_Melanoma_A_P023_S01,Melanoma,Cutaneous melanoma,IV,57,F,PD-1,PD-1,Pembrolizumab,Unknown,Primary,SD,NR,10.5,1,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P024,SIM_Melanoma_A_P024_S01,Melanoma,Cutaneous melanoma,III,54,F,PD-1,PD-1,Pembrolizumab,On,Unknown,PR,R,19.2,1,13.2,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P025,SIM_Melanoma_A_P025_S01,Melanoma,Cutaneous melanoma,IV,45,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,SD,NR,16.0,1,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P026,SIM_Melanoma_A_P026_S01,Melanoma,Cutaneous melanoma,II,63,F,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PD,NR,,,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P026,SIM_Melanoma_A_P026_S02,Melanoma,Cutaneous melanoma,II,63,F,PD-1,PD-1,Pembrolizumab,Post,Metastatic,PD,NR,,,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P027,SIM_Melanoma_A_P027_S01,Melanoma,Cutaneous melanoma,,,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,SD,NR,41.1,1,21.6,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P027,SIM_Melanoma_A_P027_S02,Melanoma,Cutaneous melanoma,,,M,PD-1,PD-1,Pembrolizumab,Unknown,Primary,SD,NR,41.1,1,21.6,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P028,SIM_Melanoma_A_P028_S01,Melanoma,Cutaneous melanoma,,31,M,PD-1,PD-1,Pembrolizumab,On,Metastatic,NE,,8.9,1,2.4,0,No,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P029,SIM_Melanoma_A_P029_S01,Melanoma,Cutaneous melanoma,II,52,F,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PD,NR,48.1,0,14.0,0,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P030,SIM_Melanoma_A_P030_S01,Melanoma,Cutaneous melanoma,II,38,M,PD-1,PD-1,Pembrolizumab,Pre,Unknown,,,10.8,0,9.1,1,No,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P031,SIM_Melanoma_A_P031_S01,Melanoma,Cutaneous melanoma,IV,,F,PD-1,PD-1,Pembrolizumab,Pre,Unknown,SD,NR,45.4,1,22.2,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P032,SIM_Melanoma_A_P032_S01,Melanoma,Cutaneous melanoma,,37,,PD-1,PD-1,Pembrolizumab,Pre,Primary,SD,NR,17.1,1,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P032,SIM_Melanoma_A_P032_S02,Melanoma,Cutaneous melanoma,,37,,PD-1,PD-1,Pembrolizumab,Post,Primary,SD,NR,17.1,1,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P033,SIM_Melanoma_A_P033_S01,Melanoma,Cutaneous melanoma,II,34,M,PD-1,PD-1,Pembrolizumab,Pre,Unknown,PR,R,43.7,1,3.7,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P034,SIM_Melanoma_A_P034_S01,Melanoma,Cutaneous melanoma,IV,76,M,PD-1,PD-1,Pembrolizumab,Pre,Unknown,SD,NR,29.7,1,14.1,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P035,SIM_Melanoma_A_P035_S01,Melanoma,Cutaneous melanoma,IV,82,M,PD-1,PD-1,Pembrolizumab,Unknown,Primary,PR,,9.8,0,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P036,SIM_Melanoma_A_P036_S01,Melanoma,Cutaneous melanoma,III,81,F,PD-1,PD-1,Pembrolizumab,Pre,Primary,PD,NR,,,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P036,SIM_Melanoma_A_P036_S02,Melanoma,Cutaneous melanoma,III,81,F,PD-1,PD-1,Pembrolizumab,Unknown,Unknown,PD,NR,,,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P037,SIM_Melanoma_A_P037_S01,Melanoma,Cutaneous melanoma,IV,82,F,PD-1,PD-1,Pembrolizumab,Pre,Unknown,PR,R,36.7,0,11.7,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P037,SIM_Melanoma_A_P037_S02,Melanoma,Cutaneous melanoma,IV,82,F,PD-1,PD-1,Pembrolizumab,Post,Metastatic,PR,R,36.7,0,11.7,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P038,SIM_Melanoma_A_P038_S01,Melanoma,Cutaneous melanoma,IV,46,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,,,,,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P039,SIM_Melanoma_A_P039_S01,Melanoma,Cutaneous melanoma,II,,M,PD-1,PD-1,Pembrolizumab,Pre,Unknown,PD,NR,,,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P040,SIM_Melanoma_A_P040_S01,Melanoma,Cutaneous melanoma,II,51,,PD-1,PD-1,Pembrolizumab,Pre,Unknown,NE,,42.5,1,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P041,SIM_Melanoma_A_P041_S01,Melanoma,Cutaneous melanoma,IV,69,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,NE,,40.1,0,7.3,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P042,SIM_Melanoma_A_P042_S01,Melanoma,Cutaneous melanoma,IV,63,M,PD-1,PD-1,Pembrolizumab,Pre,Unknown,PR,R,,,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P043,SIM_Melanoma_A_P043_S01,Melanoma,Cutaneous melanoma,III,72,F,PD-1,PD-1,Pembrolizumab,Pre,Primary,PD,NR,33.7,1,21.5,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P044,SIM_Melanoma_A_P044_S01,Melanoma,Cutaneous melanoma,,48,M,PD-1,PD-1,Pembrolizumab,Pre,Unknown,PD,NR,,,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P045,SIM_Melanoma_A_P045_S01,Melanoma,Cutaneous melanoma,IV,84,F,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PD,NR,25.4,1,10.4,0,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P045,SIM_Melanoma_A_P045_S02,Melanoma,Cutaneous melanoma,IV,84,F,PD-1,PD-1,Pembrolizumab,Unknown,Unknown,PD,NR,25.4,1,10.4,0,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P046,SIM_Melanoma_A_P046_S01,Melanoma,Cutaneous melanoma,III,40,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PR,R,,,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P047,SIM_Melanoma_A_P047_S01,Melanoma,Cutaneous melanoma,IV,,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PR,R,54.3,1,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P048,SIM_Melanoma_A_P048_S01,Melanoma,Cutaneous melanoma,IV,44,F,PD-1,PD-1,Pembrolizumab,On,Primary,PD,NR,16.8,0,16.8,0,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P049,SIM_Melanoma_A_P049_S01,Melanoma,Cutaneous melanoma,III,58,M,PD-1,PD-1,Pembrolizumab,Unknown,Primary,SD,NR,30.8,0,7.0,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P050,SIM_Melanoma_A_P050_S01,Melanoma,Cutaneous melanoma,IV,39,F,PD-1,PD-1,Pembrolizumab,Unknown,Metastatic,PR,R,,,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P051,SIM_Melanoma_A_P051_S01,Melanoma,Cutaneous melanoma,II,74,M,PD-1,PD-1,Pembrolizumab,Pre,Unknown,PD,NR,16.5,1,11.5,0,No,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P052,SIM_Melanoma_A_P052_S01,Melanoma,Cutaneous melanoma,III,39,F,PD-1,PD-1,Pembrolizumab,Pre,Primary,PD,NR,45.8,1,20.4,0,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P053,SIM_Melanoma_A_P053_S01,Melanoma,Cutaneous melanoma,II,63,F,PD-1,PD-1,Pembrolizumab,Pre,Unknown,PD,NR,9.0,0,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P054,SIM_Melanoma_A_P054_S01,Melanoma,Cutaneous melanoma,II,81,F,PD-1,PD-1,Pembrolizumab,Unknown,Unknown,SD,,4.6,0,4.6,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P055,SIM_Melanoma_A_P055_S01,Melanoma,Cutaneous melanoma,III,,,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PR,R,,,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P055,SIM_Melanoma_A_P055_S02,Melanoma,Cutaneous melanoma,III,,,PD-1,PD-1,Pembrolizumab,Post,Unknown,PR,R,,,,,No,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P056,SIM_Melanoma_A_P056_S01,Melanoma,Cutaneous melanoma,II,58,,PD-1,PD-1,Pembrolizumab,Pre,Unknown,SD,NR,32.7,0,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P057,SIM_Melanoma_A_P057_S01,Melanoma,Cutaneous melanoma,IV,49,F,PD-1,PD-1,Pembrolizumab,Pre,Unknown,PR,R,22.4,1,11.5,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P057,SIM_Melanoma_A_P057_S02,Melanoma,Cutaneous melanoma,IV,49,F,PD-1,PD-1,Pembrolizumab,Post,Metastatic,PR,R,22.4,1,11.5,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P058,SIM_Melanoma_A_P058_S01,Melanoma,Cutaneous melanoma,III,69,F,PD-1,PD-1,Pembrolizumab,Unknown,Unknown,SD,NR,,,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P059,SIM_Melanoma_A_P059_S01,Melanoma,Cutaneous melanoma,,35,F,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PD,NR,24.8,1,16.5,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P059,SIM_Melanoma_A_P059_S02,Melanoma,Cutaneous melanoma,,35,F,PD-1,PD-1,Pembrolizumab,Post,Unknown,PD,NR,24.8,1,16.5,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P060,SIM_Melanoma_A_P060_S01,Melanoma,Cutaneous melanoma,,60,F,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,SD,NR,,,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P061,SIM_Melanoma_A_P061_S01,Melanoma,Cutaneous melanoma,,55,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PR,R,40.1,1,20.8,0,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P062,SIM_Melanoma_A_P062_S01,Melanoma,Cutaneous melanoma,III,,F,PD-1,PD-1,Pembrolizumab,Pre,Primary,SD,NR,34.1,0,20.3,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P062,SIM_Melanoma_A_P062_S02,Melanoma,Cutaneous melanoma,III,,F,PD-1,PD-1,Pembrolizumab,Post,Metastatic,SD,NR,34.1,0,20.3,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P063,SIM_Melanoma_A_P063_S01,Melanoma,Cutaneous melanoma,IV,56,M,PD-1,PD-1,Pembrolizumab,Pre,Unknown,SD,NR,34.8,1,10.7,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P064,SIM_Melanoma_A_P064_S01,Melanoma,Cutaneous melanoma,II,66,F,PD-1,PD-1,Pembrolizumab,Unknown,Primary,NE,,36.0,0,22.5,0,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P065,SIM_Melanoma_A_P065_S01,Melanoma,Cutaneous melanoma,,45,M,PD-1,PD-1,Pembrolizumab,Pre,Unknown,SD,NR,10.4,0,10.4,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P066,SIM_Melanoma_A_P066_S01,Melanoma,Cutaneous melanoma,III,84,F,PD-1,PD-1,Pembrolizumab,Pre,Primary,PD,NR,18.4,0,4.3,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P067,SIM_Melanoma_A_P067_S01,Melanoma,Cutaneous melanoma,II,32,M,PD-1,PD-1,Pembrolizumab,On,Unknown,SD,NR,10.3,1,2.3,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P068,SIM_Melanoma_A_P068_S01,Melanoma,Cutaneous melanoma,II,,M,PD-1,PD-1,Pembrolizumab,Pre,Primary,PD,NR,3.5,1,3.5,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P068,SIM_Melanoma_A_P068_S02,Melanoma,Cutaneous melanoma,II,,M,PD-1,PD-1,Pembrolizumab,Post,Unknown,PD,NR,3.5,1,3.5,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P069,SIM_Melanoma_A_P069_S01,Melanoma,Cutaneous melanoma,III,31,M,PD-1,PD-1,Pembrolizumab,Pre,Unknown,PD,NR,54.3,0,8.5,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P069,SIM_Melanoma_A_P069_S02,Melanoma,Cutaneous melanoma,III,31,M,PD-1,PD-1,Pembrolizumab,Post,Metastatic,PD,NR,54.3,0,8.5,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P070,SIM_Melanoma_A_P070_S01,Melanoma,Cutaneous melanoma,III,80,F,PD-1,PD-1,Pembrolizumab,Unknown,Unknown,PD,NR,40.7,0,5.1,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P071,SIM_Melanoma_A_P071_S01,Melanoma,Cutaneous melanoma,II,,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PD,NR,53.6,1,18.8,1,No,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P072,SIM_Melanoma_A_P072_S01,Melanoma,Cutaneous melanoma,II,51,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,NE,,,,,,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P073,SIM_Melanoma_A_P073_S01,Melanoma,Cutaneous melanoma,IV,73,,PD-1,PD-1,Pembrolizumab,Pre,Primary,PD,NR,40.8,1,6.1,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P073,SIM_Melanoma_A_P073_S02,Melanoma,Cutaneous melanoma,IV,73,,PD-1,PD-1,Pembrolizumab,Unknown,Unknown,PD,NR,40.8,1,6.1,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P074,SIM_Melanoma_A_P074_S01,Melanoma,Cutaneous melanoma,,44,F,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PR,R,4.0,1,4.0,1,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P075,SIM_Melanoma_A_P075_S01,Melanoma,Cutaneous melanoma,III,55,F,PD-1,PD-1,Pembrolizumab,Pre,Primary,PD,NR,49.6,0,9.7,1,Yes,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P075,SIM_Melanoma_A_P075_S02,Melanoma,Cutaneous melanoma,III,55,F,PD-1,PD-1,Pembrolizumab,Post,Unknown,PD,NR,49.6,0,9.7,1,No,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P076,SIM_Melanoma_A_P076_S01,Melanoma,Cutaneous melanoma,II,51,M,PD-1,PD-1,Pembrolizumab,On,Metastatic,PR,R,39.6,1,5.9,0,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P077,SIM_Melanoma_A_P077_S01,Melanoma,Cutaneous melanoma,IV,40,F,PD-1,PD-1,Pembrolizumab,Pre,Unknown,NE,,15.4,0,,,No,Yes,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P078,SIM_Melanoma_A_P078_S01,Melanoma,Cutaneous melanoma,III,68,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PD,NR,8.3,0,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P078,SIM_Melanoma_A_P078_S02,Melanoma,Cutaneous melanoma,III,68,M,PD-1,PD-1,Pembrolizumab,Post,Metastatic,PD,NR,8.3,0,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P079,SIM_Melanoma_A_P079_S01,Melanoma,Cutaneous melanoma,II,73,F,PD-1,PD-1,Pembrolizumab,Pre,Primary,PD,NR,11.1,1,,,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P080,SIM_Melanoma_A_P080_S01,Melanoma,Cutaneous melanoma,IV,53,M,PD-1,PD-1,Pembrolizumab,Pre,Metastatic,PR,R,4.5,1,4.5,0,Yes,No,Public
+SIM_Melanoma_A,SIM_Melanoma_A_P080,SIM_Melanoma_A_P080_S02,Melanoma,Cutaneous melanoma,IV,53,M,PD-1,PD-1,Pembrolizumab,Unknown,Metastatic,PR,R,4.5,1,4.5,0,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P001,SIM_Lung_A_P001_S01,Lung,Non-small cell lung carcinoma,III,75,F,PD-L1,PD-L1,Atezolizumab,Post,Metastatic,PD,NR,27.4,1,18.5,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P002,SIM_Lung_A_P002_S01,Lung,Non-small cell lung carcinoma,II,63,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,SD,NR,54.0,1,11.5,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P003,SIM_Lung_A_P003_S01,Lung,Non-small cell lung carcinoma,,47,M,PD-L1,PD-L1,Atezolizumab,Post,Primary,PD,NR,48.8,0,20.4,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P004,SIM_Lung_A_P004_S01,Lung,Non-small cell lung carcinoma,II,57,F,PD-L1,PD-L1,Atezolizumab,On,Metastatic,SD,NR,20.6,0,18.4,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P005,SIM_Lung_A_P005_S01,Lung,Non-small cell lung carcinoma,III,,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PR,R,27.9,1,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P006,SIM_Lung_A_P006_S01,Lung,Non-small cell lung carcinoma,IV,42,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,SD,NR,3.5,1,3.5,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P007,SIM_Lung_A_P007_S01,Lung,Non-small cell lung carcinoma,III,75,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,NE,,,,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P007,SIM_Lung_A_P007_S02,Lung,Non-small cell lung carcinoma,III,75,M,PD-L1,PD-L1,Atezolizumab,Post,Primary,NE,,,,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P008,SIM_Lung_A_P008_S01,Lung,Non-small cell lung carcinoma,,34,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,PD,NR,5.3,0,5.3,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P009,SIM_Lung_A_P009_S01,Lung,Non-small cell lung carcinoma,IV,56,M,PD-L1,PD-L1,Atezolizumab,Post,Unknown,SD,NR,,,,,No,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P010,SIM_Lung_A_P010_S01,Lung,Non-small cell lung carcinoma,III,55,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,SD,NR,,,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P010,SIM_Lung_A_P010_S02,Lung,Non-small cell lung carcinoma,III,55,M,PD-L1,PD-L1,Atezolizumab,Post,Unknown,SD,NR,,,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P011,SIM_Lung_A_P011_S01,Lung,Non-small cell lung carcinoma,III,50,F,PD-L1,PD-L1,Atezolizumab,Post,Metastatic,PD,NR,40.6,1,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P012,SIM_Lung_A_P012_S01,Lung,Non-small cell lung carcinoma,III,,M,PD-L1,PD-L1,Atezolizumab,On,Primary,PD,NR,43.4,0,19.3,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P013,SIM_Lung_A_P013_S01,Lung,Non-small cell lung carcinoma,II,79,M,PD-L1,PD-L1,Atezolizumab,Post,Primary,PD,NR,21.8,1,11.2,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P014,SIM_Lung_A_P014_S01,Lung,Non-small cell lung carcinoma,IV,39,M,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,CR,R,35.1,0,14.9,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P014,SIM_Lung_A_P014_S02,Lung,Non-small cell lung carcinoma,IV,39,M,PD-L1,PD-L1,Atezolizumab,Post,Primary,CR,R,35.1,0,14.9,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P015,SIM_Lung_A_P015_S01,Lung,Non-small cell lung carcinoma,IV,69,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,NE,,7.1,1,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P016,SIM_Lung_A_P016_S01,Lung,Non-small cell lung carcinoma,III,45,F,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,PR,R,,,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P017,SIM_Lung_A_P017_S01,Lung,Non-small cell lung carcinoma,IV,45,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,SD,NR,43.8,1,5.2,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P017,SIM_Lung_A_P017_S02,Lung,Non-small cell lung carcinoma,IV,45,F,PD-L1,PD-L1,Atezolizumab,Post,Primary,SD,NR,43.8,1,5.2,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P018,SIM_Lung_A_P018_S01,Lung,Non-small cell lung carcinoma,,50,,PD-L1,PD-L1,Atezolizumab,Unknown,Metastatic,PR,,37.3,0,22.8,0,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P019,SIM_Lung_A_P019_S01,Lung,Non-small cell lung carcinoma,IV,48,,PD-L1,PD-L1,Atezolizumab,Unknown,Primary,PR,R,,,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P020,SIM_Lung_A_P020_S01,Lung,Non-small cell lung carcinoma,III,32,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,NE,,12.8,0,1.9,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P021,SIM_Lung_A_P021_S01,Lung,Non-small cell lung carcinoma,,,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PD,NR,20.7,1,4.7,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P021,SIM_Lung_A_P021_S02,Lung,Non-small cell lung carcinoma,,,F,PD-L1,PD-L1,Atezolizumab,Post,Unknown,PD,NR,20.7,1,4.7,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P022,SIM_Lung_A_P022_S01,Lung,Non-small cell lung carcinoma,II,38,F,PD-L1,PD-L1,Atezolizumab,Pre,Primary,SD,NR,16.8,0,13.9,1,No,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P022,SIM_Lung_A_P022_S02,Lung,Non-small cell lung carcinoma,II,38,F,PD-L1,PD-L1,Atezolizumab,Post,Primary,SD,NR,16.8,0,13.9,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P023,SIM_Lung_A_P023_S01,Lung,Non-small cell lung carcinoma,III,32,F,PD-L1,PD-L1,Atezolizumab,Post,Metastatic,SD,NR,14.1,1,12.6,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P024,SIM_Lung_A_P024_S01,Lung,Non-small cell lung carcinoma,II,33,F,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,NE,,,,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P024,SIM_Lung_A_P024_S02,Lung,Non-small cell lung carcinoma,II,33,F,PD-L1,PD-L1,Atezolizumab,Post,Primary,NE,,,,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P025,SIM_Lung_A_P025_S01,Lung,Non-small cell lung carcinoma,III,39,M,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,SD,NR,30.5,1,5.2,1,No,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P026,SIM_Lung_A_P026_S01,Lung,Non-small cell lung carcinoma,III,,M,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,SD,NR,29.7,1,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P027,SIM_Lung_A_P027_S01,Lung,Non-small cell lung carcinoma,,72,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,SD,NR,10.8,1,9.4,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P028,SIM_Lung_A_P028_S01,Lung,Non-small cell lung carcinoma,III,40,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,,,23.1,0,12.4,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P028,SIM_Lung_A_P028_S02,Lung,Non-small cell lung carcinoma,III,40,M,PD-L1,PD-L1,Atezolizumab,Post,Unknown,,,23.1,0,12.4,1,No,No,Public
+SIM_Lung_A,SIM_Lung_A_P029,SIM_Lung_A_P029_S01,Lung,Non-small cell lung carcinoma,III,57,M,PD-L1,PD-L1,Atezolizumab,Unknown,Metastatic,PD,NR,,,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P030,SIM_Lung_A_P030_S01,Lung,Non-small cell lung carcinoma,III,35,M,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,CR,R,18.0,1,8.0,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P031,SIM_Lung_A_P031_S01,Lung,Non-small cell lung carcinoma,IV,53,,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PD,,49.3,0,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P032,SIM_Lung_A_P032_S01,Lung,Non-small cell lung carcinoma,IV,84,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,SD,NR,45.3,1,8.5,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P033,SIM_Lung_A_P033_S01,Lung,Non-small cell lung carcinoma,III,65,M,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,SD,NR,30.7,1,15.4,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P034,SIM_Lung_A_P034_S01,Lung,Non-small cell lung carcinoma,,76,F,PD-L1,PD-L1,Atezolizumab,Post,Primary,SD,NR,6.8,0,3.5,0,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P035,SIM_Lung_A_P035_S01,Lung,Non-small cell lung carcinoma,III,54,F,PD-L1,PD-L1,Atezolizumab,Pre,Primary,,,37.0,0,8.0,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P035,SIM_Lung_A_P035_S02,Lung,Non-small cell lung carcinoma,III,54,F,PD-L1,PD-L1,Atezolizumab,Post,Unknown,,,37.0,0,8.0,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P036,SIM_Lung_A_P036_S01,Lung,Non-small cell lung carcinoma,II,66,F,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,PD,NR,8.5,1,5.8,0,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P037,SIM_Lung_A_P037_S01,Lung,Non-small cell lung carcinoma,,79,M,PD-L1,PD-L1,Atezolizumab,Unknown,Primary,PD,NR,12.4,0,12.4,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P038,SIM_Lung_A_P038_S01,Lung,Non-small cell lung carcinoma,IV,,F,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,NE,,20.0,1,,,No,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P039,SIM_Lung_A_P039_S01,Lung,Non-small cell lung carcinoma,III,75,F,PD-L1,PD-L1,Atezolizumab,Post,Primary,PR,R,54.1,1,11.8,0,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P040,SIM_Lung_A_P040_S01,Lung,Non-small cell lung carcinoma,III,70,M,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,PR,R,22.9,1,18.8,0,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P040,SIM_Lung_A_P040_S02,Lung,Non-small cell lung carcinoma,III,70,M,PD-L1,PD-L1,Atezolizumab,Post,Metastatic,PR,R,22.9,1,18.8,0,No,No,Public
+SIM_Lung_A,SIM_Lung_A_P041,SIM_Lung_A_P041_S01,Lung,Non-small cell lung carcinoma,IV,36,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,SD,NR,,,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P042,SIM_Lung_A_P042_S01,Lung,Non-small cell lung carcinoma,II,50,F,PD-L1,PD-L1,Atezolizumab,Post,Unknown,SD,NR,18.9,0,18.9,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P043,SIM_Lung_A_P043_S01,Lung,Non-small cell lung carcinoma,II,51,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,SD,NR,49.8,1,12.5,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P043,SIM_Lung_A_P043_S02,Lung,Non-small cell lung carcinoma,II,51,M,PD-L1,PD-L1,Atezolizumab,Post,Metastatic,SD,NR,49.8,1,12.5,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P044,SIM_Lung_A_P044_S01,Lung,Non-small cell lung carcinoma,III,46,M,PD-L1,PD-L1,Atezolizumab,Post,Metastatic,PD,NR,11.3,1,11.3,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P045,SIM_Lung_A_P045_S01,Lung,Non-small cell lung carcinoma,IV,80,M,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PR,R,39.8,0,20.5,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P045,SIM_Lung_A_P045_S02,Lung,Non-small cell lung carcinoma,IV,80,M,PD-L1,PD-L1,Atezolizumab,Post,Unknown,PR,R,39.8,0,20.5,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P046,SIM_Lung_A_P046_S01,Lung,Non-small cell lung carcinoma,II,36,M,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,NE,,44.7,0,13.4,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P046,SIM_Lung_A_P046_S02,Lung,Non-small cell lung carcinoma,II,36,M,PD-L1,PD-L1,Atezolizumab,Post,Primary,NE,,44.7,0,13.4,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P047,SIM_Lung_A_P047_S01,Lung,Non-small cell lung carcinoma,III,34,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PD,NR,8.8,0,8.8,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P048,SIM_Lung_A_P048_S01,Lung,Non-small cell lung carcinoma,IV,53,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PD,NR,46.5,1,1.6,1,No,No,Public
+SIM_Lung_A,SIM_Lung_A_P049,SIM_Lung_A_P049_S01,Lung,Non-small cell lung carcinoma,II,32,F,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,,,21.7,1,20.0,1,No,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P050,SIM_Lung_A_P050_S01,Lung,Non-small cell lung carcinoma,,37,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,SD,NR,16.3,0,16.3,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P051,SIM_Lung_A_P051_S01,Lung,Non-small cell lung carcinoma,II,33,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PD,NR,21.8,1,15.4,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P052,SIM_Lung_A_P052_S01,Lung,Non-small cell lung carcinoma,IV,47,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,PR,R,41.1,1,6.4,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P052,SIM_Lung_A_P052_S02,Lung,Non-small cell lung carcinoma,IV,47,M,PD-L1,PD-L1,Atezolizumab,Post,Unknown,PR,R,41.1,1,6.4,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P053,SIM_Lung_A_P053_S01,Lung,Non-small cell lung carcinoma,,36,M,PD-L1,PD-L1,Atezolizumab,Unknown,Unknown,SD,NR,,,,,No,No,Public
+SIM_Lung_A,SIM_Lung_A_P054,SIM_Lung_A_P054_S01,Lung,Non-small cell lung carcinoma,III,78,F,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,PD,NR,53.7,0,,,No,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P054,SIM_Lung_A_P054_S02,Lung,Non-small cell lung carcinoma,III,78,F,PD-L1,PD-L1,Atezolizumab,Post,Primary,PD,NR,53.7,0,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P055,SIM_Lung_A_P055_S01,Lung,Non-small cell lung carcinoma,IV,48,M,PD-L1,PD-L1,Atezolizumab,Post,Unknown,SD,NR,,,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P056,SIM_Lung_A_P056_S01,Lung,Non-small cell lung carcinoma,II,76,M,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,PD,NR,23.9,0,11.4,0,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P057,SIM_Lung_A_P057_S01,Lung,Non-small cell lung carcinoma,II,61,M,PD-L1,PD-L1,Atezolizumab,On,Metastatic,PD,NR,31.7,1,19.0,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P058,SIM_Lung_A_P058_S01,Lung,Non-small cell lung carcinoma,II,59,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PD,NR,5.6,1,5.6,1,No,No,Public
+SIM_Lung_A,SIM_Lung_A_P058,SIM_Lung_A_P058_S02,Lung,Non-small cell lung carcinoma,II,59,F,PD-L1,PD-L1,Atezolizumab,Post,Primary,PD,NR,5.6,1,5.6,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P059,SIM_Lung_A_P059_S01,Lung,Non-small cell lung carcinoma,IV,65,M,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,SD,NR,,,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P059,SIM_Lung_A_P059_S02,Lung,Non-small cell lung carcinoma,IV,65,M,PD-L1,PD-L1,Atezolizumab,Post,Primary,SD,NR,,,,,No,No,Public
+SIM_Lung_A,SIM_Lung_A_P060,SIM_Lung_A_P060_S01,Lung,Non-small cell lung carcinoma,IV,46,M,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PD,NR,,,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P061,SIM_Lung_A_P061_S01,Lung,Non-small cell lung carcinoma,IV,,F,PD-L1,PD-L1,Atezolizumab,Pre,Primary,PD,NR,,,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P062,SIM_Lung_A_P062_S01,Lung,Non-small cell lung carcinoma,IV,33,F,PD-L1,PD-L1,Atezolizumab,Pre,Primary,SD,NR,23.2,1,13.3,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P062,SIM_Lung_A_P062_S02,Lung,Non-small cell lung carcinoma,IV,33,F,PD-L1,PD-L1,Atezolizumab,Post,Primary,SD,NR,23.2,1,13.3,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P063,SIM_Lung_A_P063_S01,Lung,Non-small cell lung carcinoma,,37,M,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,SD,NR,,,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P063,SIM_Lung_A_P063_S02,Lung,Non-small cell lung carcinoma,,37,M,PD-L1,PD-L1,Atezolizumab,Post,Primary,SD,NR,,,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P064,SIM_Lung_A_P064_S01,Lung,Non-small cell lung carcinoma,II,65,F,PD-L1,PD-L1,Atezolizumab,Pre,Primary,PD,NR,34.1,0,15.7,0,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P065,SIM_Lung_A_P065_S01,Lung,Non-small cell lung carcinoma,II,73,F,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,,,15.1,0,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P066,SIM_Lung_A_P066_S01,Lung,Non-small cell lung carcinoma,II,50,M,PD-L1,PD-L1,Atezolizumab,Unknown,Metastatic,PD,NR,5.1,0,5.1,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P067,SIM_Lung_A_P067_S01,Lung,Non-small cell lung carcinoma,III,35,F,PD-L1,PD-L1,Atezolizumab,On,Metastatic,PR,R,11.5,1,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P068,SIM_Lung_A_P068_S01,Lung,Non-small cell lung carcinoma,IV,67,M,PD-L1,PD-L1,Atezolizumab,Post,Metastatic,PR,R,,,,,No,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P069,SIM_Lung_A_P069_S01,Lung,Non-small cell lung carcinoma,IV,62,M,PD-L1,PD-L1,Atezolizumab,Unknown,Metastatic,SD,NR,40.3,0,19.6,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P070,SIM_Lung_A_P070_S01,Lung,Non-small cell lung carcinoma,III,44,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,CR,,49.2,1,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P071,SIM_Lung_A_P071_S01,Lung,Non-small cell lung carcinoma,II,39,F,PD-L1,PD-L1,Atezolizumab,Unknown,Primary,NE,,37.2,1,11.0,0,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P072,SIM_Lung_A_P072_S01,Lung,Non-small cell lung carcinoma,,58,M,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,SD,NR,10.6,1,10.6,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P073,SIM_Lung_A_P073_S01,Lung,Non-small cell lung carcinoma,III,61,F,PD-L1,PD-L1,Atezolizumab,Pre,Primary,PR,R,35.1,0,6.7,1,No,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P073,SIM_Lung_A_P073_S02,Lung,Non-small cell lung carcinoma,III,61,F,PD-L1,PD-L1,Atezolizumab,Post,Unknown,PR,R,35.1,0,6.7,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P074,SIM_Lung_A_P074_S01,Lung,Non-small cell lung carcinoma,II,64,F,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,,,3.6,0,3.6,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P075,SIM_Lung_A_P075_S01,Lung,Non-small cell lung carcinoma,III,52,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PD,NR,48.7,0,15.7,1,No,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P076,SIM_Lung_A_P076_S01,Lung,Non-small cell lung carcinoma,III,47,,PD-L1,PD-L1,Atezolizumab,Pre,Primary,PD,NR,,,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P077,SIM_Lung_A_P077_S01,Lung,Non-small cell lung carcinoma,III,52,F,PD-L1,PD-L1,Atezolizumab,Unknown,Primary,PD,NR,23.6,1,18.9,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P078,SIM_Lung_A_P078_S01,Lung,Non-small cell lung carcinoma,II,51,F,PD-L1,PD-L1,Atezolizumab,Pre,Metastatic,,,26.4,0,16.2,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P079,SIM_Lung_A_P079_S01,Lung,Non-small cell lung carcinoma,III,62,F,PD-L1,PD-L1,Atezolizumab,Post,Unknown,CR,R,12.7,1,12.7,0,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P080,SIM_Lung_A_P080_S01,Lung,Non-small cell lung carcinoma,IV,82,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,SD,NR,,,,,No,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P080,SIM_Lung_A_P080_S02,Lung,Non-small cell lung carcinoma,IV,82,M,PD-L1,PD-L1,Atezolizumab,Post,Primary,SD,NR,,,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P081,SIM_Lung_A_P081_S01,Lung,Non-small cell lung carcinoma,II,67,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,PR,R,39.2,0,7.5,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P082,SIM_Lung_A_P082_S01,Lung,Non-small cell lung carcinoma,III,59,M,PD-L1,PD-L1,Atezolizumab,Unknown,Primary,PR,R,33.0,0,17.3,0,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P083,SIM_Lung_A_P083_S01,Lung,Non-small cell lung carcinoma,II,54,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,PR,R,37.1,0,17.1,0,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P084,SIM_Lung_A_P084_S01,Lung,Non-small cell lung carcinoma,III,64,F,PD-L1,PD-L1,Atezolizumab,Unknown,Metastatic,PD,NR,45.5,1,11.9,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P085,SIM_Lung_A_P085_S01,Lung,Non-small cell lung carcinoma,II,83,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,PD,NR,11.5,1,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P086,SIM_Lung_A_P086_S01,Lung,Non-small cell lung carcinoma,II,77,F,PD-L1,PD-L1,Atezolizumab,Post,Metastatic,PR,R,,,,,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P087,SIM_Lung_A_P087_S01,Lung,Non-small cell lung carcinoma,II,45,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,NE,,,,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P088,SIM_Lung_A_P088_S01,Lung,Non-small cell lung carcinoma,III,49,M,PD-L1,PD-L1,Atezolizumab,Pre,Primary,PD,,32.5,1,9.2,1,No,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P088,SIM_Lung_A_P088_S02,Lung,Non-small cell lung carcinoma,III,49,M,PD-L1,PD-L1,Atezolizumab,Post,Primary,PD,,32.5,1,9.2,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P089,SIM_Lung_A_P089_S01,Lung,Non-small cell lung carcinoma,III,74,M,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PD,NR,3.3,1,3.3,0,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P090,SIM_Lung_A_P090_S01,Lung,Non-small cell lung carcinoma,IV,,F,PD-L1,PD-L1,Atezolizumab,Pre,Primary,PD,NR,25.3,0,9.7,1,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P091,SIM_Lung_A_P091_S01,Lung,Non-small cell lung carcinoma,IV,46,F,PD-L1,PD-L1,Atezolizumab,Unknown,Unknown,PR,R,34.3,1,5.5,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P092,SIM_Lung_A_P092_S01,Lung,Non-small cell lung carcinoma,,56,,PD-L1,PD-L1,Atezolizumab,Unknown,Primary,SD,NR,20.6,0,18.6,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P093,SIM_Lung_A_P093_S01,Lung,Non-small cell lung carcinoma,III,67,M,PD-L1,PD-L1,Atezolizumab,Post,Metastatic,PR,R,47.9,1,,,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P094,SIM_Lung_A_P094_S01,Lung,Non-small cell lung carcinoma,II,34,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PD,NR,22.1,0,1.5,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P094,SIM_Lung_A_P094_S02,Lung,Non-small cell lung carcinoma,II,34,F,PD-L1,PD-L1,Atezolizumab,Post,Unknown,PD,NR,22.1,0,1.5,1,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P095,SIM_Lung_A_P095_S01,Lung,Non-small cell lung carcinoma,II,64,F,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PD,NR,36.0,1,17.5,0,Yes,No,Public
+SIM_Lung_A,SIM_Lung_A_P096,SIM_Lung_A_P096_S01,Lung,Non-small cell lung carcinoma,II,55,M,PD-L1,PD-L1,Atezolizumab,Pre,Unknown,PR,R,39.8,0,2.0,0,Yes,Yes,Public
+SIM_Lung_A,SIM_Lung_A_P096,SIM_Lung_A_P096_S02,Lung,Non-small cell lung carcinoma,II,55,M,PD-L1,PD-L1,Atezolizumab,Post,Unknown,PR,R,39.8,0,2.0,0,Yes,Yes,Public
+SIM_Bladder_A,SIM_Bladder_A_P001,SIM_Bladder_A_P001_S01,Bladder,Urothelial carcinoma,II,,M,PD-L1,PD-L1,Avelumab,Pre,Metastatic,PD,NR,40.4,1,8.3,0,No,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P001,SIM_Bladder_A_P001_S02,Bladder,Urothelial carcinoma,II,,M,PD-L1,PD-L1,Avelumab,Unknown,Metastatic,PD,NR,40.4,1,8.3,0,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P002,SIM_Bladder_A_P002_S01,Bladder,Urothelial carcinoma,IV,,F,PD-L1,PD-L1,Avelumab,Pre,Metastatic,PR,R,10.4,1,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P003,SIM_Bladder_A_P003_S01,Bladder,Urothelial carcinoma,II,35,F,PD-L1,PD-L1,Avelumab,Pre,Primary,PD,NR,,,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P004,SIM_Bladder_A_P004_S01,Bladder,Urothelial carcinoma,IV,80,F,PD-L1,PD-L1,Avelumab,Pre,Primary,PR,R,4.6,1,3.9,1,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P004,SIM_Bladder_A_P004_S02,Bladder,Urothelial carcinoma,IV,80,F,PD-L1,PD-L1,Avelumab,Post,Unknown,PR,R,4.6,1,3.9,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P005,SIM_Bladder_A_P005_S01,Bladder,Urothelial carcinoma,III,34,M,PD-L1,PD-L1,Avelumab,Pre,Unknown,PD,,46.8,0,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P005,SIM_Bladder_A_P005_S02,Bladder,Urothelial carcinoma,III,34,M,PD-L1,PD-L1,Avelumab,Unknown,Metastatic,PD,,46.8,0,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P006,SIM_Bladder_A_P006_S01,Bladder,Urothelial carcinoma,III,50,M,PD-L1,PD-L1,Avelumab,Pre,Metastatic,PR,,,,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P006,SIM_Bladder_A_P006_S02,Bladder,Urothelial carcinoma,III,50,M,PD-L1,PD-L1,Avelumab,Post,Primary,PR,,,,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P007,SIM_Bladder_A_P007_S01,Bladder,Urothelial carcinoma,II,32,F,PD-L1,PD-L1,Avelumab,Unknown,Metastatic,PD,NR,52.9,1,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P008,SIM_Bladder_A_P008_S01,Bladder,Urothelial carcinoma,III,61,M,PD-L1,PD-L1,Avelumab,Pre,Unknown,SD,NR,52.4,1,17.3,1,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P009,SIM_Bladder_A_P009_S01,Bladder,Urothelial carcinoma,IV,67,M,PD-L1,PD-L1,Avelumab,Pre,Unknown,SD,NR,19.3,0,12.2,1,No,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P010,SIM_Bladder_A_P010_S01,Bladder,Urothelial carcinoma,IV,36,F,PD-L1,PD-L1,Avelumab,Pre,Primary,PD,NR,,,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P010,SIM_Bladder_A_P010_S02,Bladder,Urothelial carcinoma,IV,36,F,PD-L1,PD-L1,Avelumab,Post,Metastatic,PD,NR,,,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P011,SIM_Bladder_A_P011_S01,Bladder,Urothelial carcinoma,III,67,F,PD-L1,PD-L1,Avelumab,Pre,Primary,SD,NR,,,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P011,SIM_Bladder_A_P011_S02,Bladder,Urothelial carcinoma,III,67,F,PD-L1,PD-L1,Avelumab,Post,Metastatic,SD,NR,,,,,No,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P012,SIM_Bladder_A_P012_S01,Bladder,Urothelial carcinoma,III,72,M,PD-L1,PD-L1,Avelumab,Pre,Primary,PR,R,28.9,1,7.5,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P013,SIM_Bladder_A_P013_S01,Bladder,Urothelial carcinoma,IV,83,M,PD-L1,PD-L1,Avelumab,Unknown,Metastatic,SD,NR,,,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P014,SIM_Bladder_A_P014_S01,Bladder,Urothelial carcinoma,III,54,F,PD-L1,PD-L1,Avelumab,Pre,Metastatic,PD,NR,29.0,0,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P014,SIM_Bladder_A_P014_S02,Bladder,Urothelial carcinoma,III,54,F,PD-L1,PD-L1,Avelumab,Post,Metastatic,PD,NR,29.0,0,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P015,SIM_Bladder_A_P015_S01,Bladder,Urothelial carcinoma,IV,51,M,PD-L1,PD-L1,Avelumab,Unknown,Metastatic,,,21.1,0,,,No,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P016,SIM_Bladder_A_P016_S01,Bladder,Urothelial carcinoma,III,79,M,PD-L1,PD-L1,Avelumab,Unknown,Primary,,,21.0,1,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P017,SIM_Bladder_A_P017_S01,Bladder,Urothelial carcinoma,IV,77,F,PD-L1,PD-L1,Avelumab,Pre,Unknown,SD,NR,,,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P018,SIM_Bladder_A_P018_S01,Bladder,Urothelial carcinoma,III,44,F,PD-L1,PD-L1,Avelumab,Pre,Unknown,PD,NR,,,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P019,SIM_Bladder_A_P019_S01,Bladder,Urothelial carcinoma,III,82,M,PD-L1,PD-L1,Avelumab,Pre,Unknown,SD,NR,34.5,0,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P020,SIM_Bladder_A_P020_S01,Bladder,Urothelial carcinoma,IV,52,M,PD-L1,PD-L1,Avelumab,Pre,Metastatic,PD,NR,49.0,1,7.1,1,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P021,SIM_Bladder_A_P021_S01,Bladder,Urothelial carcinoma,II,78,M,PD-L1,PD-L1,Avelumab,Pre,Primary,PR,R,7.5,0,7.5,1,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P022,SIM_Bladder_A_P022_S01,Bladder,Urothelial carcinoma,III,34,M,PD-L1,PD-L1,Avelumab,Pre,Metastatic,SD,NR,25.4,1,9.0,1,No,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P023,SIM_Bladder_A_P023_S01,Bladder,Urothelial carcinoma,III,62,M,PD-L1,PD-L1,Avelumab,Pre,Unknown,PD,NR,15.9,0,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P024,SIM_Bladder_A_P024_S01,Bladder,Urothelial carcinoma,IV,78,,PD-L1,PD-L1,Avelumab,Pre,Unknown,PD,NR,,,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P025,SIM_Bladder_A_P025_S01,Bladder,Urothelial carcinoma,,42,F,PD-L1,PD-L1,Avelumab,Pre,Unknown,NE,,15.1,0,15.1,1,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P026,SIM_Bladder_A_P026_S01,Bladder,Urothelial carcinoma,II,54,M,PD-L1,PD-L1,Avelumab,Pre,Metastatic,PR,R,,,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P027,SIM_Bladder_A_P027_S01,Bladder,Urothelial carcinoma,II,54,F,PD-L1,PD-L1,Avelumab,Pre,Metastatic,SD,NR,27.8,1,8.8,1,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P027,SIM_Bladder_A_P027_S02,Bladder,Urothelial carcinoma,II,54,F,PD-L1,PD-L1,Avelumab,Post,Primary,SD,NR,27.8,1,8.8,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P028,SIM_Bladder_A_P028_S01,Bladder,Urothelial carcinoma,II,63,M,PD-L1,PD-L1,Avelumab,Pre,Unknown,PD,NR,29.9,0,18.1,1,No,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P028,SIM_Bladder_A_P028_S02,Bladder,Urothelial carcinoma,II,63,M,PD-L1,PD-L1,Avelumab,Post,Unknown,PD,NR,29.9,0,18.1,1,No,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P029,SIM_Bladder_A_P029_S01,Bladder,Urothelial carcinoma,III,68,M,PD-L1,PD-L1,Avelumab,Pre,Unknown,NE,,41.3,1,2.4,0,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P030,SIM_Bladder_A_P030_S01,Bladder,Urothelial carcinoma,II,,F,PD-L1,PD-L1,Avelumab,Pre,Metastatic,PR,R,40.5,0,18.4,0,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P031,SIM_Bladder_A_P031_S01,Bladder,Urothelial carcinoma,II,74,,PD-L1,PD-L1,Avelumab,Pre,Metastatic,PD,NR,,,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P032,SIM_Bladder_A_P032_S01,Bladder,Urothelial carcinoma,,,F,PD-L1,PD-L1,Avelumab,Unknown,Primary,PD,NR,,,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P033,SIM_Bladder_A_P033_S01,Bladder,Urothelial carcinoma,III,56,M,PD-L1,PD-L1,Avelumab,Pre,Unknown,PR,R,37.4,0,22.5,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P034,SIM_Bladder_A_P034_S01,Bladder,Urothelial carcinoma,,54,F,PD-L1,PD-L1,Avelumab,Pre,Primary,PR,,48.1,1,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P035,SIM_Bladder_A_P035_S01,Bladder,Urothelial carcinoma,IV,80,F,PD-L1,PD-L1,Avelumab,Pre,Primary,,,52.8,1,21.9,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P036,SIM_Bladder_A_P036_S01,Bladder,Urothelial carcinoma,III,64,M,PD-L1,PD-L1,Avelumab,Pre,Unknown,SD,NR,37.4,1,5.5,0,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P036,SIM_Bladder_A_P036_S02,Bladder,Urothelial carcinoma,III,64,M,PD-L1,PD-L1,Avelumab,Post,Primary,SD,NR,37.4,1,5.5,0,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P037,SIM_Bladder_A_P037_S01,Bladder,Urothelial carcinoma,II,42,M,PD-L1,PD-L1,Avelumab,Pre,Primary,SD,NR,15.2,0,11.6,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P038,SIM_Bladder_A_P038_S01,Bladder,Urothelial carcinoma,III,65,M,PD-L1,PD-L1,Avelumab,Pre,Metastatic,PD,NR,52.0,0,,,No,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P038,SIM_Bladder_A_P038_S02,Bladder,Urothelial carcinoma,III,65,M,PD-L1,PD-L1,Avelumab,Post,Metastatic,PD,NR,52.0,0,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P039,SIM_Bladder_A_P039_S01,Bladder,Urothelial carcinoma,II,58,F,PD-L1,PD-L1,Avelumab,Pre,Primary,SD,,22.2,0,12.3,0,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P040,SIM_Bladder_A_P040_S01,Bladder,Urothelial carcinoma,IV,71,F,PD-L1,PD-L1,Avelumab,Pre,Metastatic,NE,,22.7,1,5.5,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P040,SIM_Bladder_A_P040_S02,Bladder,Urothelial carcinoma,IV,71,F,PD-L1,PD-L1,Avelumab,Post,Unknown,NE,,22.7,1,5.5,1,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P041,SIM_Bladder_A_P041_S01,Bladder,Urothelial carcinoma,IV,52,M,PD-L1,PD-L1,Avelumab,Pre,Metastatic,PD,NR,3.8,1,3.8,1,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P041,SIM_Bladder_A_P041_S02,Bladder,Urothelial carcinoma,IV,52,M,PD-L1,PD-L1,Avelumab,Post,Unknown,PD,NR,3.8,1,3.8,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P042,SIM_Bladder_A_P042_S01,Bladder,Urothelial carcinoma,II,81,F,PD-L1,PD-L1,Avelumab,Unknown,Metastatic,SD,NR,41.5,1,17.2,1,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P043,SIM_Bladder_A_P043_S01,Bladder,Urothelial carcinoma,,69,M,PD-L1,PD-L1,Avelumab,Pre,Metastatic,PD,NR,19.5,1,12.0,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P044,SIM_Bladder_A_P044_S01,Bladder,Urothelial carcinoma,,77,F,PD-L1,PD-L1,Avelumab,Pre,Unknown,SD,NR,3.6,1,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P044,SIM_Bladder_A_P044_S02,Bladder,Urothelial carcinoma,,77,F,PD-L1,PD-L1,Avelumab,Post,Primary,SD,NR,3.6,1,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P045,SIM_Bladder_A_P045_S01,Bladder,Urothelial carcinoma,III,71,M,PD-L1,PD-L1,Avelumab,Pre,Metastatic,PR,R,6.3,0,6.3,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P046,SIM_Bladder_A_P046_S01,Bladder,Urothelial carcinoma,IV,,F,PD-L1,PD-L1,Avelumab,Unknown,Unknown,PR,R,17.9,1,10.9,0,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P047,SIM_Bladder_A_P047_S01,Bladder,Urothelial carcinoma,II,68,F,PD-L1,PD-L1,Avelumab,Pre,Primary,NE,,32.8,1,21.2,1,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P047,SIM_Bladder_A_P047_S02,Bladder,Urothelial carcinoma,II,68,F,PD-L1,PD-L1,Avelumab,Post,Metastatic,NE,,32.8,1,21.2,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P048,SIM_Bladder_A_P048_S01,Bladder,Urothelial carcinoma,,,M,PD-L1,PD-L1,Avelumab,Pre,Primary,NE,,33.1,1,12.4,0,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P049,SIM_Bladder_A_P049_S01,Bladder,Urothelial carcinoma,II,42,F,PD-L1,PD-L1,Avelumab,Pre,Unknown,NE,,35.7,0,8.1,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P050,SIM_Bladder_A_P050_S01,Bladder,Urothelial carcinoma,,63,M,PD-L1,PD-L1,Avelumab,Pre,Unknown,SD,NR,12.2,1,3.6,0,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P051,SIM_Bladder_A_P051_S01,Bladder,Urothelial carcinoma,II,82,F,PD-L1,PD-L1,Avelumab,Pre,Primary,SD,NR,,,,,No,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P052,SIM_Bladder_A_P052_S01,Bladder,Urothelial carcinoma,III,39,F,PD-L1,PD-L1,Avelumab,Pre,Primary,SD,NR,19.6,1,15.5,0,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P053,SIM_Bladder_A_P053_S01,Bladder,Urothelial carcinoma,,,M,PD-L1,PD-L1,Avelumab,Pre,Metastatic,SD,NR,38.4,0,21.3,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P054,SIM_Bladder_A_P054_S01,Bladder,Urothelial carcinoma,IV,55,M,PD-L1,PD-L1,Avelumab,Pre,Unknown,CR,R,,,,,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P055,SIM_Bladder_A_P055_S01,Bladder,Urothelial carcinoma,IV,48,,PD-L1,PD-L1,Avelumab,On,Metastatic,PR,R,32.6,1,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P056,SIM_Bladder_A_P056_S01,Bladder,Urothelial carcinoma,,54,M,PD-L1,PD-L1,Avelumab,Pre,Unknown,CR,R,,,,,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P057,SIM_Bladder_A_P057_S01,Bladder,Urothelial carcinoma,III,56,,PD-L1,PD-L1,Avelumab,Pre,Metastatic,NE,,16.0,0,9.1,0,Yes,Yes,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P058,SIM_Bladder_A_P058_S01,Bladder,Urothelial carcinoma,IV,42,F,PD-L1,PD-L1,Avelumab,On,Unknown,,,48.1,0,14.8,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P059,SIM_Bladder_A_P059_S01,Bladder,Urothelial carcinoma,II,58,F,PD-L1,PD-L1,Avelumab,Pre,Unknown,SD,NR,28.3,0,21.8,1,Yes,No,Controlled access
+SIM_Bladder_A,SIM_Bladder_A_P060,SIM_Bladder_A_P060_S01,Bladder,Urothelial carcinoma,IV,36,F,PD-L1,PD-L1,Avelumab,On,Primary,PD,NR,48.7,1,22.1,0,No,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P001,SIM_Kidney_A_P001_S01,Kidney,Clear cell renal cell carcinoma,,56,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,On,Unknown,,,34.4,1,15.1,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P002,SIM_Kidney_A_P002_S01,Kidney,Clear cell renal cell carcinoma,II,34,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PD,NR,46.8,1,11.0,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P003,SIM_Kidney_A_P003_S01,Kidney,Clear cell renal cell carcinoma,III,80,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,SD,NR,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P003,SIM_Kidney_A_P003_S02,Kidney,Clear cell renal cell carcinoma,III,80,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Metastatic,SD,NR,,,,,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P004,SIM_Kidney_A_P004_S01,Kidney,Clear cell renal cell carcinoma,IV,45,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P005,SIM_Kidney_A_P005_S01,Kidney,Clear cell renal cell carcinoma,III,75,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,19.0,0,14.6,0,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P006,SIM_Kidney_A_P006_S01,Kidney,Clear cell renal cell carcinoma,,52,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Primary,PR,R,34.0,0,22.7,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P007,SIM_Kidney_A_P007_S01,Kidney,Clear cell renal cell carcinoma,IV,66,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,29.7,0,,,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P008,SIM_Kidney_A_P008_S01,Kidney,Clear cell renal cell carcinoma,IV,62,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Unknown,NE,,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P009,SIM_Kidney_A_P009_S01,Kidney,Clear cell renal cell carcinoma,III,54,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Primary,PR,R,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P010,SIM_Kidney_A_P010_S01,Kidney,Clear cell renal cell carcinoma,IV,60,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,41.5,1,1.5,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P011,SIM_Kidney_A_P011_S01,Kidney,Clear cell renal cell carcinoma,III,71,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PR,R,16.7,1,6.4,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P011,SIM_Kidney_A_P011_S02,Kidney,Clear cell renal cell carcinoma,III,71,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PR,R,16.7,1,6.4,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P012,SIM_Kidney_A_P012_S01,Kidney,Clear cell renal cell carcinoma,III,41,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,NE,,28.1,1,18.0,0,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P012,SIM_Kidney_A_P012_S02,Kidney,Clear cell renal cell carcinoma,III,41,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,NE,,28.1,1,18.0,0,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P013,SIM_Kidney_A_P013_S01,Kidney,Clear cell renal cell carcinoma,III,42,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,SD,NR,46.7,0,13.0,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P014,SIM_Kidney_A_P014_S01,Kidney,Clear cell renal cell carcinoma,IV,42,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,SD,NR,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P015,SIM_Kidney_A_P015_S01,Kidney,Clear cell renal cell carcinoma,II,59,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PD,NR,11.5,1,11.5,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P015,SIM_Kidney_A_P015_S02,Kidney,Clear cell renal cell carcinoma,II,59,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PD,NR,11.5,1,11.5,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P016,SIM_Kidney_A_P016_S01,Kidney,Clear cell renal cell carcinoma,II,47,,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Unknown,SD,NR,28.8,1,16.2,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P017,SIM_Kidney_A_P017_S01,Kidney,Clear cell renal cell carcinoma,III,41,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,,,49.7,1,19.8,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P018,SIM_Kidney_A_P018_S01,Kidney,Clear cell renal cell carcinoma,II,58,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Metastatic,PR,R,14.6,0,9.5,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P019,SIM_Kidney_A_P019_S01,Kidney,Clear cell renal cell carcinoma,III,35,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Metastatic,SD,NR,19.0,1,19.0,0,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P020,SIM_Kidney_A_P020_S01,Kidney,Clear cell renal cell carcinoma,,73,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Unknown,SD,NR,,,,,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P021,SIM_Kidney_A_P021_S01,Kidney,Clear cell renal cell carcinoma,II,64,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PR,R,36.9,0,5.4,0,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P022,SIM_Kidney_A_P022_S01,Kidney,Clear cell renal cell carcinoma,,82,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PD,NR,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P023,SIM_Kidney_A_P023_S01,Kidney,Clear cell renal cell carcinoma,IV,71,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,CR,R,22.9,1,8.5,0,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P024,SIM_Kidney_A_P024_S01,Kidney,Clear cell renal cell carcinoma,,74,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,4.2,0,1.3,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P024,SIM_Kidney_A_P024_S02,Kidney,Clear cell renal cell carcinoma,,74,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Primary,PD,NR,4.2,0,1.3,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P025,SIM_Kidney_A_P025_S01,Kidney,Clear cell renal cell carcinoma,,77,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Metastatic,PR,R,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P026,SIM_Kidney_A_P026_S01,Kidney,Clear cell renal cell carcinoma,,,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PD,NR,4.6,0,,,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P026,SIM_Kidney_A_P026_S02,Kidney,Clear cell renal cell carcinoma,,,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,PD,NR,4.6,0,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P027,SIM_Kidney_A_P027_S01,Kidney,Clear cell renal cell carcinoma,II,78,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Unknown,PR,,29.4,0,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P028,SIM_Kidney_A_P028_S01,Kidney,Clear cell renal cell carcinoma,III,38,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,SD,NR,,,,,No,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P029,SIM_Kidney_A_P029_S01,Kidney,Clear cell renal cell carcinoma,III,53,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,,,29.0,0,11.7,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P029,SIM_Kidney_A_P029_S02,Kidney,Clear cell renal cell carcinoma,III,53,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,,,29.0,0,11.7,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P030,SIM_Kidney_A_P030_S01,Kidney,Clear cell renal cell carcinoma,IV,62,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PD,NR,41.3,1,,,No,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P030,SIM_Kidney_A_P030_S02,Kidney,Clear cell renal cell carcinoma,IV,62,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PD,NR,41.3,1,,,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P031,SIM_Kidney_A_P031_S01,Kidney,Clear cell renal cell carcinoma,II,77,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PR,R,38.6,1,18.4,1,No,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P032,SIM_Kidney_A_P032_S01,Kidney,Clear cell renal cell carcinoma,II,62,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PD,NR,3.6,1,3.6,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P033,SIM_Kidney_A_P033_S01,Kidney,Clear cell renal cell carcinoma,II,78,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PR,,48.8,0,1.1,1,No,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P033,SIM_Kidney_A_P033_S02,Kidney,Clear cell renal cell carcinoma,II,78,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PR,,48.8,0,1.1,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P034,SIM_Kidney_A_P034_S01,Kidney,Clear cell renal cell carcinoma,IV,,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PD,NR,30.1,1,19.3,0,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P034,SIM_Kidney_A_P034_S02,Kidney,Clear cell renal cell carcinoma,IV,,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PD,NR,30.1,1,19.3,0,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P035,SIM_Kidney_A_P035_S01,Kidney,Clear cell renal cell carcinoma,III,45,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Primary,PR,R,3.3,0,3.3,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P036,SIM_Kidney_A_P036_S01,Kidney,Clear cell renal cell carcinoma,II,65,,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,NE,,4.0,0,4.0,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P036,SIM_Kidney_A_P036_S02,Kidney,Clear cell renal cell carcinoma,II,65,,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Metastatic,NE,,4.0,0,4.0,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P037,SIM_Kidney_A_P037_S01,Kidney,Clear cell renal cell carcinoma,,80,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,On,Metastatic,PR,R,5.8,0,,,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P038,SIM_Kidney_A_P038_S01,Kidney,Clear cell renal cell carcinoma,,,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,SD,NR,16.5,1,11.0,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P039,SIM_Kidney_A_P039_S01,Kidney,Clear cell renal cell carcinoma,,68,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Unknown,PR,R,27.6,1,17.9,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P040,SIM_Kidney_A_P040_S01,Kidney,Clear cell renal cell carcinoma,III,37,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PD,NR,14.0,0,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P040,SIM_Kidney_A_P040_S02,Kidney,Clear cell renal cell carcinoma,III,37,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Unknown,PD,NR,14.0,0,,,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P041,SIM_Kidney_A_P041_S01,Kidney,Clear cell renal cell carcinoma,II,81,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,SD,NR,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P041,SIM_Kidney_A_P041_S02,Kidney,Clear cell renal cell carcinoma,II,81,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,SD,NR,,,,,No,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P042,SIM_Kidney_A_P042_S01,Kidney,Clear cell renal cell carcinoma,IV,32,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,NE,,14.5,1,9.5,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P043,SIM_Kidney_A_P043_S01,Kidney,Clear cell renal cell carcinoma,III,65,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,SD,NR,49.6,0,12.9,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P043,SIM_Kidney_A_P043_S02,Kidney,Clear cell renal cell carcinoma,III,65,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,SD,NR,49.6,0,12.9,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P044,SIM_Kidney_A_P044_S01,Kidney,Clear cell renal cell carcinoma,II,39,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PR,,,,,,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P044,SIM_Kidney_A_P044_S02,Kidney,Clear cell renal cell carcinoma,II,39,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,PR,,,,,,No,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P045,SIM_Kidney_A_P045_S01,Kidney,Clear cell renal cell carcinoma,IV,59,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,PR,R,31.1,0,13.1,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P046,SIM_Kidney_A_P046_S01,Kidney,Clear cell renal cell carcinoma,III,45,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PD,NR,42.9,1,20.0,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P046,SIM_Kidney_A_P046_S02,Kidney,Clear cell renal cell carcinoma,III,45,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Primary,PD,NR,42.9,1,20.0,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P047,SIM_Kidney_A_P047_S01,Kidney,Clear cell renal cell carcinoma,IV,50,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Unknown,SD,NR,34.9,0,12.9,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P048,SIM_Kidney_A_P048_S01,Kidney,Clear cell renal cell carcinoma,II,52,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Metastatic,PD,NR,,,,,No,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P049,SIM_Kidney_A_P049_S01,Kidney,Clear cell renal cell carcinoma,II,83,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,NE,,25.9,1,10.4,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P050,SIM_Kidney_A_P050_S01,Kidney,Clear cell renal cell carcinoma,,75,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PR,,11.7,0,6.6,0,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P051,SIM_Kidney_A_P051_S01,Kidney,Clear cell renal cell carcinoma,IV,67,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PD,NR,29.4,0,15.8,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P052,SIM_Kidney_A_P052_S01,Kidney,Clear cell renal cell carcinoma,III,,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,CR,R,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P052,SIM_Kidney_A_P052_S02,Kidney,Clear cell renal cell carcinoma,III,,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,CR,R,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P053,SIM_Kidney_A_P053_S01,Kidney,Clear cell renal cell carcinoma,II,40,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,SD,NR,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P054,SIM_Kidney_A_P054_S01,Kidney,Clear cell renal cell carcinoma,IV,74,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,CR,R,10.2,1,10.2,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P055,SIM_Kidney_A_P055_S01,Kidney,Clear cell renal cell carcinoma,,43,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Metastatic,PD,NR,,,,,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P056,SIM_Kidney_A_P056_S01,Kidney,Clear cell renal cell carcinoma,,42,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Metastatic,PR,R,,,,,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P057,SIM_Kidney_A_P057_S01,Kidney,Clear cell renal cell carcinoma,II,82,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PD,NR,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P058,SIM_Kidney_A_P058_S01,Kidney,Clear cell renal cell carcinoma,IV,31,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P059,SIM_Kidney_A_P059_S01,Kidney,Clear cell renal cell carcinoma,II,37,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PD,NR,44.1,0,,,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P060,SIM_Kidney_A_P060_S01,Kidney,Clear cell renal cell carcinoma,IV,70,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PR,R,47.0,0,,,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P061,SIM_Kidney_A_P061_S01,Kidney,Clear cell renal cell carcinoma,III,63,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,SD,NR,5.9,1,5.1,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P062,SIM_Kidney_A_P062_S01,Kidney,Clear cell renal cell carcinoma,IV,49,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P063,SIM_Kidney_A_P063_S01,Kidney,Clear cell renal cell carcinoma,III,42,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PD,NR,25.7,0,21.5,0,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P064,SIM_Kidney_A_P064_S01,Kidney,Clear cell renal cell carcinoma,III,41,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,SD,NR,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P065,SIM_Kidney_A_P065_S01,Kidney,Clear cell renal cell carcinoma,IV,48,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Metastatic,PD,NR,33.4,1,9.4,0,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P066,SIM_Kidney_A_P066_S01,Kidney,Clear cell renal cell carcinoma,II,41,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,NE,,42.3,1,10.7,0,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P067,SIM_Kidney_A_P067_S01,Kidney,Clear cell renal cell carcinoma,IV,79,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PR,R,9.5,1,9.5,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P068,SIM_Kidney_A_P068_S01,Kidney,Clear cell renal cell carcinoma,IV,39,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Primary,PD,NR,12.9,0,10.3,0,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P069,SIM_Kidney_A_P069_S01,Kidney,Clear cell renal cell carcinoma,,73,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Primary,PR,R,39.8,0,6.2,1,Yes,No,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P070,SIM_Kidney_A_P070_S01,Kidney,Clear cell renal cell carcinoma,,31,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Metastatic,PD,NR,16.7,1,14.2,1,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P071,SIM_Kidney_A_P071_S01,Kidney,Clear cell renal cell carcinoma,III,55,,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,,,,,,,Yes,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P072,SIM_Kidney_A_P072_S01,Kidney,Clear cell renal cell carcinoma,IV,63,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,SD,NR,3.9,1,3.9,1,No,Yes,Controlled access
+SIM_Kidney_A,SIM_Kidney_A_P072,SIM_Kidney_A_P072_S02,Kidney,Clear cell renal cell carcinoma,IV,63,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Metastatic,SD,NR,3.9,1,3.9,1,Yes,No,Controlled access
+SIM_Melanoma_B,SIM_Melanoma_B_P001,SIM_Melanoma_B_P001_S01,Melanoma,Cutaneous melanoma,,76,,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,PD,NR,23.3,1,12.2,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P002,SIM_Melanoma_B_P002_S01,Melanoma,Cutaneous melanoma,IV,57,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Unknown,PR,R,35.5,1,3.1,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P002,SIM_Melanoma_B_P002_S02,Melanoma,Cutaneous melanoma,IV,57,F,CTLA-4,CTLA-4,Ipilimumab,Post,Unknown,PR,R,35.5,1,3.1,1,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P003,SIM_Melanoma_B_P003_S01,Melanoma,Cutaneous melanoma,IV,56,F,CTLA-4,CTLA-4,Ipilimumab,Unknown,Primary,PD,NR,21.4,1,7.8,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P004,SIM_Melanoma_B_P004_S01,Melanoma,Cutaneous melanoma,IV,50,,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,NE,,7.2,0,,,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P005,SIM_Melanoma_B_P005_S01,Melanoma,Cutaneous melanoma,III,46,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Unknown,SD,NR,22.3,1,22.3,1,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P006,SIM_Melanoma_B_P006_S01,Melanoma,Cutaneous melanoma,III,40,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,,,,,,,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P006,SIM_Melanoma_B_P006_S02,Melanoma,Cutaneous melanoma,III,40,F,CTLA-4,CTLA-4,Ipilimumab,Post,Unknown,,,,,,,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P007,SIM_Melanoma_B_P007_S01,Melanoma,Cutaneous melanoma,III,52,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,PD,NR,,,,,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P007,SIM_Melanoma_B_P007_S02,Melanoma,Cutaneous melanoma,III,52,F,CTLA-4,CTLA-4,Ipilimumab,Post,Metastatic,PD,NR,,,,,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P008,SIM_Melanoma_B_P008_S01,Melanoma,Cutaneous melanoma,III,41,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Unknown,SD,NR,28.9,0,3.9,1,No,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P009,SIM_Melanoma_B_P009_S01,Melanoma,Cutaneous melanoma,II,31,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,CR,R,15.7,1,12.0,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P010,SIM_Melanoma_B_P010_S01,Melanoma,Cutaneous melanoma,III,33,F,CTLA-4,CTLA-4,Ipilimumab,Unknown,Metastatic,,,35.3,0,18.7,0,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P011,SIM_Melanoma_B_P011_S01,Melanoma,Cutaneous melanoma,,62,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Unknown,PD,NR,14.3,1,1.8,1,No,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P012,SIM_Melanoma_B_P012_S01,Melanoma,Cutaneous melanoma,IV,54,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Unknown,PD,NR,,,,,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P012,SIM_Melanoma_B_P012_S02,Melanoma,Cutaneous melanoma,IV,54,M,CTLA-4,CTLA-4,Ipilimumab,Post,Metastatic,PD,NR,,,,,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P013,SIM_Melanoma_B_P013_S01,Melanoma,Cutaneous melanoma,,79,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,PD,,37.4,0,21.3,1,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P013,SIM_Melanoma_B_P013_S02,Melanoma,Cutaneous melanoma,,79,F,CTLA-4,CTLA-4,Ipilimumab,Post,Metastatic,PD,,37.4,0,21.3,1,No,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P014,SIM_Melanoma_B_P014_S01,Melanoma,Cutaneous melanoma,III,46,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,PD,NR,10.3,1,,,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P014,SIM_Melanoma_B_P014_S02,Melanoma,Cutaneous melanoma,III,46,M,CTLA-4,CTLA-4,Ipilimumab,Post,Primary,PD,NR,10.3,1,,,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P015,SIM_Melanoma_B_P015_S01,Melanoma,Cutaneous melanoma,III,52,,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,SD,NR,,,,,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P016,SIM_Melanoma_B_P016_S01,Melanoma,Cutaneous melanoma,II,84,,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,SD,NR,,,,,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P016,SIM_Melanoma_B_P016_S02,Melanoma,Cutaneous melanoma,II,84,,CTLA-4,CTLA-4,Ipilimumab,Post,Metastatic,SD,NR,,,,,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P017,SIM_Melanoma_B_P017_S01,Melanoma,Cutaneous melanoma,II,66,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,PD,NR,53.2,1,3.9,0,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P017,SIM_Melanoma_B_P017_S02,Melanoma,Cutaneous melanoma,II,66,M,CTLA-4,CTLA-4,Ipilimumab,Unknown,Primary,PD,NR,53.2,1,3.9,0,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P018,SIM_Melanoma_B_P018_S01,Melanoma,Cutaneous melanoma,III,55,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,PD,,37.4,1,7.1,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P019,SIM_Melanoma_B_P019_S01,Melanoma,Cutaneous melanoma,IV,82,F,CTLA-4,CTLA-4,Ipilimumab,On,Unknown,PD,,51.6,0,9.1,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P020,SIM_Melanoma_B_P020_S01,Melanoma,Cutaneous melanoma,,65,M,CTLA-4,CTLA-4,Ipilimumab,Unknown,Primary,PD,,,,,,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P021,SIM_Melanoma_B_P021_S01,Melanoma,Cutaneous melanoma,III,32,M,CTLA-4,CTLA-4,Ipilimumab,On,Unknown,PR,R,13.0,0,9.3,0,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P022,SIM_Melanoma_B_P022_S01,Melanoma,Cutaneous melanoma,III,,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,SD,NR,11.0,1,11.0,1,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P023,SIM_Melanoma_B_P023_S01,Melanoma,Cutaneous melanoma,III,50,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,PD,NR,3.5,0,3.5,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P024,SIM_Melanoma_B_P024_S01,Melanoma,Cutaneous melanoma,II,64,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Unknown,PR,R,,,,,No,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P024,SIM_Melanoma_B_P024_S02,Melanoma,Cutaneous melanoma,II,64,F,CTLA-4,CTLA-4,Ipilimumab,Post,Unknown,PR,R,,,,,No,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P025,SIM_Melanoma_B_P025_S01,Melanoma,Cutaneous melanoma,IV,31,,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,PD,NR,35.9,1,,,No,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P026,SIM_Melanoma_B_P026_S01,Melanoma,Cutaneous melanoma,II,79,F,CTLA-4,CTLA-4,Ipilimumab,On,Primary,PR,R,52.5,1,17.1,1,No,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P027,SIM_Melanoma_B_P027_S01,Melanoma,Cutaneous melanoma,II,33,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,PD,NR,41.3,0,17.4,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P028,SIM_Melanoma_B_P028_S01,Melanoma,Cutaneous melanoma,,38,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,PD,NR,16.1,0,16.1,1,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P028,SIM_Melanoma_B_P028_S02,Melanoma,Cutaneous melanoma,,38,M,CTLA-4,CTLA-4,Ipilimumab,Post,Unknown,PD,NR,16.1,0,16.1,1,No,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P029,SIM_Melanoma_B_P029_S01,Melanoma,Cutaneous melanoma,II,43,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,SD,NR,,,,,No,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P030,SIM_Melanoma_B_P030_S01,Melanoma,Cutaneous melanoma,,44,F,CTLA-4,CTLA-4,Ipilimumab,Unknown,Metastatic,SD,NR,,,,,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P031,SIM_Melanoma_B_P031_S01,Melanoma,Cutaneous melanoma,IV,54,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Unknown,NE,,45.3,0,16.2,0,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P032,SIM_Melanoma_B_P032_S01,Melanoma,Cutaneous melanoma,,63,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,PD,NR,38.4,1,18.0,0,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P033,SIM_Melanoma_B_P033_S01,Melanoma,Cutaneous melanoma,III,55,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,PR,,20.0,1,5.2,1,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P034,SIM_Melanoma_B_P034_S01,Melanoma,Cutaneous melanoma,II,69,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,NE,,37.7,0,11.9,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P035,SIM_Melanoma_B_P035_S01,Melanoma,Cutaneous melanoma,,45,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,SD,NR,54.8,0,19.2,0,No,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P035,SIM_Melanoma_B_P035_S02,Melanoma,Cutaneous melanoma,,45,M,CTLA-4,CTLA-4,Ipilimumab,Unknown,Primary,SD,NR,54.8,0,19.2,0,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P036,SIM_Melanoma_B_P036_S01,Melanoma,Cutaneous melanoma,IV,60,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,PR,R,24.4,0,13.7,1,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P037,SIM_Melanoma_B_P037_S01,Melanoma,Cutaneous melanoma,II,69,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Unknown,NE,,26.0,1,4.8,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P038,SIM_Melanoma_B_P038_S01,Melanoma,Cutaneous melanoma,III,39,M,CTLA-4,CTLA-4,Ipilimumab,Post,Metastatic,PR,R,52.7,1,21.8,0,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P039,SIM_Melanoma_B_P039_S01,Melanoma,Cutaneous melanoma,IV,,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Unknown,SD,NR,,,,,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P040,SIM_Melanoma_B_P040_S01,Melanoma,Cutaneous melanoma,III,74,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,PD,NR,37.5,0,21.1,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P041,SIM_Melanoma_B_P041_S01,Melanoma,Cutaneous melanoma,II,51,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,SD,NR,53.3,0,13.8,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P042,SIM_Melanoma_B_P042_S01,Melanoma,Cutaneous melanoma,III,,,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,PR,R,24.9,1,19.5,1,No,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P043,SIM_Melanoma_B_P043_S01,Melanoma,Cutaneous melanoma,III,78,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Unknown,PR,R,52.1,0,6.9,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P044,SIM_Melanoma_B_P044_S01,Melanoma,Cutaneous melanoma,IV,82,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,SD,NR,21.2,1,17.5,0,No,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P044,SIM_Melanoma_B_P044_S02,Melanoma,Cutaneous melanoma,IV,82,F,CTLA-4,CTLA-4,Ipilimumab,Post,Metastatic,SD,NR,21.2,1,17.5,0,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P045,SIM_Melanoma_B_P045_S01,Melanoma,Cutaneous melanoma,III,36,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Unknown,PD,NR,16.2,0,5.3,1,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P046,SIM_Melanoma_B_P046_S01,Melanoma,Cutaneous melanoma,III,32,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,NE,,7.1,1,7.1,0,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P047,SIM_Melanoma_B_P047_S01,Melanoma,Cutaneous melanoma,IV,81,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,PR,,,,,,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P048,SIM_Melanoma_B_P048_S01,Melanoma,Cutaneous melanoma,II,53,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,SD,NR,18.7,0,18.7,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P049,SIM_Melanoma_B_P049_S01,Melanoma,Cutaneous melanoma,III,76,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,,,3.3,1,3.3,1,Yes,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P050,SIM_Melanoma_B_P050_S01,Melanoma,Cutaneous melanoma,IV,75,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,PD,NR,52.3,0,16.1,1,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P051,SIM_Melanoma_B_P051_S01,Melanoma,Cutaneous melanoma,,55,F,CTLA-4,CTLA-4,Ipilimumab,Pre,Metastatic,PR,R,4.1,1,4.1,0,Yes,Yes,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P052,SIM_Melanoma_B_P052_S01,Melanoma,Cutaneous melanoma,IV,35,M,CTLA-4,CTLA-4,Ipilimumab,Pre,Primary,PD,NR,,,,,No,No,Public
+SIM_Melanoma_B,SIM_Melanoma_B_P052,SIM_Melanoma_B_P052_S02,Melanoma,Cutaneous melanoma,IV,35,M,CTLA-4,CTLA-4,Ipilimumab,Post,Metastatic,PD,NR,,,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P001,SIM_Lung_B_P001_S01,Lung,Non-small cell lung carcinoma,,78,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PR,,,,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P002,SIM_Lung_B_P002_S01,Lung,Non-small cell lung carcinoma,,,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PR,R,,,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P003,SIM_Lung_B_P003_S01,Lung,Non-small cell lung carcinoma,,58,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,NE,,37.9,1,4.1,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P003,SIM_Lung_B_P003_S02,Lung,Non-small cell lung carcinoma,,58,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Metastatic,NE,,37.9,1,4.1,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P004,SIM_Lung_B_P004_S01,Lung,Non-small cell lung carcinoma,,53,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PD,NR,51.6,1,2.4,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P005,SIM_Lung_B_P005_S01,Lung,Non-small cell lung carcinoma,,,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,NE,,32.6,0,5.6,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P006,SIM_Lung_B_P006_S01,Lung,Non-small cell lung carcinoma,,37,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,,,,,,,No,No,Public
+SIM_Lung_C,SIM_Lung_B_P007,SIM_Lung_B_P007_S01,Lung,Non-small cell lung carcinoma,,44,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PD,NR,,,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P008,SIM_Lung_B_P008_S01,Lung,Non-small cell lung carcinoma,,67,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,8.8,0,8.8,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P009,SIM_Lung_B_P009_S01,Lung,Non-small cell lung carcinoma,,63,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,,,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P010,SIM_Lung_B_P010_S01,Lung,Non-small cell lung carcinoma,,54,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PD,NR,27.5,1,17.7,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P010,SIM_Lung_B_P010_S02,Lung,Non-small cell lung carcinoma,,54,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Primary,PD,NR,27.5,1,17.7,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P011,SIM_Lung_B_P011_S01,Lung,Non-small cell lung carcinoma,,61,,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,29.4,0,8.1,0,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P012,SIM_Lung_B_P012_S01,Lung,Non-small cell lung carcinoma,,63,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PD,NR,50.7,1,11.0,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P012,SIM_Lung_B_P012_S02,Lung,Non-small cell lung carcinoma,,63,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Unknown,PD,NR,50.7,1,11.0,1,No,No,Public
+SIM_Lung_C,SIM_Lung_B_P013,SIM_Lung_B_P013_S01,Lung,Non-small cell lung carcinoma,,60,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,3.4,0,3.4,0,No,No,Public
+SIM_Lung_C,SIM_Lung_B_P013,SIM_Lung_B_P013_S02,Lung,Non-small cell lung carcinoma,,60,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Primary,PD,NR,3.4,0,3.4,0,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P014,SIM_Lung_B_P014_S01,Lung,Non-small cell lung carcinoma,,80,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PD,NR,15.6,1,15.6,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P014,SIM_Lung_B_P014_S02,Lung,Non-small cell lung carcinoma,,80,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Metastatic,PD,NR,15.6,1,15.6,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P015,SIM_Lung_B_P015_S01,Lung,Non-small cell lung carcinoma,,38,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,24.2,1,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P015,SIM_Lung_B_P015_S02,Lung,Non-small cell lung carcinoma,,38,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Metastatic,PD,NR,24.2,1,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P016,SIM_Lung_B_P016_S01,Lung,Non-small cell lung carcinoma,,70,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,NE,,6.2,1,6.2,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P017,SIM_Lung_B_P017_S01,Lung,Non-small cell lung carcinoma,,33,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PR,,7.1,0,7.1,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P018,SIM_Lung_B_P018_S01,Lung,Non-small cell lung carcinoma,,57,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PD,NR,39.6,1,8.7,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P018,SIM_Lung_B_P018_S02,Lung,Non-small cell lung carcinoma,,57,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Unknown,PD,NR,39.6,1,8.7,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P019,SIM_Lung_B_P019_S01,Lung,Non-small cell lung carcinoma,,52,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,51.8,0,10.3,0,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P020,SIM_Lung_B_P020_S01,Lung,Non-small cell lung carcinoma,,58,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,25.5,0,13.8,0,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P021,SIM_Lung_B_P021_S01,Lung,Non-small cell lung carcinoma,,62,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PD,NR,6.0,0,6.0,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P021,SIM_Lung_B_P021_S02,Lung,Non-small cell lung carcinoma,,62,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Metastatic,PD,NR,6.0,0,6.0,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P022,SIM_Lung_B_P022_S01,Lung,Non-small cell lung carcinoma,,53,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,SD,NR,51.1,0,20.5,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P023,SIM_Lung_B_P023_S01,Lung,Non-small cell lung carcinoma,,44,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,SD,NR,50.4,0,3.4,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P024,SIM_Lung_B_P024_S01,Lung,Non-small cell lung carcinoma,,48,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,SD,NR,47.5,0,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P025,SIM_Lung_B_P025_S01,Lung,Non-small cell lung carcinoma,,70,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Unknown,Metastatic,,,40.2,1,6.3,0,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P026,SIM_Lung_B_P026_S01,Lung,Non-small cell lung carcinoma,,44,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PR,R,50.2,0,17.5,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P027,SIM_Lung_B_P027_S01,Lung,Non-small cell lung carcinoma,,38,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PD,NR,,,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P028,SIM_Lung_B_P028_S01,Lung,Non-small cell lung carcinoma,,61,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PD,NR,12.1,0,12.1,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P029,SIM_Lung_B_P029_S01,Lung,Non-small cell lung carcinoma,,31,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PR,R,34.8,1,21.8,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P029,SIM_Lung_B_P029_S02,Lung,Non-small cell lung carcinoma,,31,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Primary,PR,R,34.8,1,21.8,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P030,SIM_Lung_B_P030_S01,Lung,Non-small cell lung carcinoma,,31,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,NE,,9.9,1,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P031,SIM_Lung_B_P031_S01,Lung,Non-small cell lung carcinoma,,64,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,30.8,1,13.4,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P032,SIM_Lung_B_P032_S01,Lung,Non-small cell lung carcinoma,,83,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PD,NR,,,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P033,SIM_Lung_B_P033_S01,Lung,Non-small cell lung carcinoma,,58,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,On,Unknown,SD,,51.6,0,3.3,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P034,SIM_Lung_B_P034_S01,Lung,Non-small cell lung carcinoma,,57,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,On,Metastatic,NE,,43.0,0,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P035,SIM_Lung_B_P035_S01,Lung,Non-small cell lung carcinoma,,80,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,,,51.8,0,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P036,SIM_Lung_B_P036_S01,Lung,Non-small cell lung carcinoma,,82,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,NE,,48.4,0,21.9,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P037,SIM_Lung_B_P037_S01,Lung,Non-small cell lung carcinoma,,,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PR,R,21.5,1,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P038,SIM_Lung_B_P038_S01,Lung,Non-small cell lung carcinoma,,50,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,48.7,0,8.6,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P039,SIM_Lung_B_P039_S01,Lung,Non-small cell lung carcinoma,,34,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PD,NR,34.6,1,18.1,0,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P040,SIM_Lung_B_P040_S01,Lung,Non-small cell lung carcinoma,,53,,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,SD,NR,24.4,0,7.3,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P041,SIM_Lung_B_P041_S01,Lung,Non-small cell lung carcinoma,,46,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PD,NR,,,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P041,SIM_Lung_B_P041_S02,Lung,Non-small cell lung carcinoma,,46,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Primary,PD,NR,,,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P042,SIM_Lung_B_P042_S01,Lung,Non-small cell lung carcinoma,,67,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PR,R,13.1,0,13.1,1,No,No,Public
+SIM_Lung_C,SIM_Lung_B_P043,SIM_Lung_B_P043_S01,Lung,Non-small cell lung carcinoma,,35,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PR,,,,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P044,SIM_Lung_B_P044_S01,Lung,Non-small cell lung carcinoma,,80,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,CR,R,49.2,1,3.0,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P045,SIM_Lung_B_P045_S01,Lung,Non-small cell lung carcinoma,,,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Unknown,Unknown,PD,NR,,,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P046,SIM_Lung_B_P046_S01,Lung,Non-small cell lung carcinoma,,77,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PR,R,14.3,1,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P046,SIM_Lung_B_P046_S02,Lung,Non-small cell lung carcinoma,,77,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Unknown,PR,R,14.3,1,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P047,SIM_Lung_B_P047_S01,Lung,Non-small cell lung carcinoma,,72,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,,,,,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P048,SIM_Lung_B_P048_S01,Lung,Non-small cell lung carcinoma,,35,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,SD,NR,48.0,1,19.0,0,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P049,SIM_Lung_B_P049_S01,Lung,Non-small cell lung carcinoma,,57,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PD,NR,6.9,1,4.6,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P049,SIM_Lung_B_P049_S02,Lung,Non-small cell lung carcinoma,,57,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Primary,PD,NR,6.9,1,4.6,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P050,SIM_Lung_B_P050_S01,Lung,Non-small cell lung carcinoma,,84,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,35.9,1,22.6,0,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P051,SIM_Lung_B_P051_S01,Lung,Non-small cell lung carcinoma,,38,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,SD,NR,52.8,0,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P052,SIM_Lung_B_P052_S01,Lung,Non-small cell lung carcinoma,,52,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PR,R,41.6,1,19.5,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P052,SIM_Lung_B_P052_S02,Lung,Non-small cell lung carcinoma,,52,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Unknown,PR,R,41.6,1,19.5,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P053,SIM_Lung_B_P053_S01,Lung,Non-small cell lung carcinoma,,69,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PR,R,,,,,No,No,Public
+SIM_Lung_C,SIM_Lung_B_P053,SIM_Lung_B_P053_S02,Lung,Non-small cell lung carcinoma,,69,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Primary,PR,R,,,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P054,SIM_Lung_B_P054_S01,Lung,Non-small cell lung carcinoma,,54,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PR,R,49.5,1,3.7,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P054,SIM_Lung_B_P054_S02,Lung,Non-small cell lung carcinoma,,54,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Unknown,Primary,PR,R,49.5,1,3.7,1,No,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P055,SIM_Lung_B_P055_S01,Lung,Non-small cell lung carcinoma,,74,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PR,,40.8,0,1.5,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P056,SIM_Lung_B_P056_S01,Lung,Non-small cell lung carcinoma,,39,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PR,R,,,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P056,SIM_Lung_B_P056_S02,Lung,Non-small cell lung carcinoma,,39,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Unknown,PR,R,,,,,No,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P057,SIM_Lung_B_P057_S01,Lung,Non-small cell lung carcinoma,,67,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,On,Primary,PD,NR,31.6,1,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P058,SIM_Lung_B_P058_S01,Lung,Non-small cell lung carcinoma,,53,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,SD,NR,15.7,1,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P058,SIM_Lung_B_P058_S02,Lung,Non-small cell lung carcinoma,,53,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Primary,SD,NR,15.7,1,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P059,SIM_Lung_B_P059_S01,Lung,Non-small cell lung carcinoma,,,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,,,41.1,0,8.9,0,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P059,SIM_Lung_B_P059_S02,Lung,Non-small cell lung carcinoma,,,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Primary,,,41.1,0,8.9,0,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P060,SIM_Lung_B_P060_S01,Lung,Non-small cell lung carcinoma,,71,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PR,R,,,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P061,SIM_Lung_B_P061_S01,Lung,Non-small cell lung carcinoma,,61,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,CR,R,54.0,1,11.1,0,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P062,SIM_Lung_B_P062_S01,Lung,Non-small cell lung carcinoma,,73,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PD,NR,,,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P063,SIM_Lung_B_P063_S01,Lung,Non-small cell lung carcinoma,,52,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,SD,NR,32.2,0,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P064,SIM_Lung_B_P064_S01,Lung,Non-small cell lung carcinoma,,49,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,,,8.5,1,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P064,SIM_Lung_B_P064_S02,Lung,Non-small cell lung carcinoma,,49,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Metastatic,,,8.5,1,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P065,SIM_Lung_B_P065_S01,Lung,Non-small cell lung carcinoma,,70,,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,SD,NR,,,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P066,SIM_Lung_B_P066_S01,Lung,Non-small cell lung carcinoma,,72,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PD,NR,,,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P067,SIM_Lung_B_P067_S01,Lung,Non-small cell lung carcinoma,,37,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,SD,NR,,,,,No,No,Public
+SIM_Lung_C,SIM_Lung_B_P067,SIM_Lung_B_P067_S02,Lung,Non-small cell lung carcinoma,,37,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Unknown,SD,NR,,,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P068,SIM_Lung_B_P068_S01,Lung,Non-small cell lung carcinoma,,34,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Unknown,Unknown,PR,,46.3,1,22.2,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P069,SIM_Lung_B_P069_S01,Lung,Non-small cell lung carcinoma,,55,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,10.2,1,10.2,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P070,SIM_Lung_B_P070_S01,Lung,Non-small cell lung carcinoma,,79,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PR,R,19.3,1,3.1,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P071,SIM_Lung_B_P071_S01,Lung,Non-small cell lung carcinoma,,37,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PR,R,24.7,1,18.6,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P071,SIM_Lung_B_P071_S02,Lung,Non-small cell lung carcinoma,,37,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Metastatic,PR,R,24.7,1,18.6,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P072,SIM_Lung_B_P072_S01,Lung,Non-small cell lung carcinoma,,61,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,SD,,4.5,1,4.5,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P073,SIM_Lung_B_P073_S01,Lung,Non-small cell lung carcinoma,,83,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,,,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P073,SIM_Lung_B_P073_S02,Lung,Non-small cell lung carcinoma,,83,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Post,Metastatic,PD,NR,,,,,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P074,SIM_Lung_B_P074_S01,Lung,Non-small cell lung carcinoma,,50,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PR,R,31.5,1,16.7,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P075,SIM_Lung_B_P075_S01,Lung,Non-small cell lung carcinoma,,,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PD,NR,30.6,1,10.7,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P076,SIM_Lung_B_P076_S01,Lung,Non-small cell lung carcinoma,,34,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,SD,NR,27.3,1,10.0,1,No,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P077,SIM_Lung_B_P077_S01,Lung,Non-small cell lung carcinoma,,59,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PD,NR,20.9,0,20.9,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P078,SIM_Lung_B_P078_S01,Lung,Non-small cell lung carcinoma,,64,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,18.5,1,1.1,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P079,SIM_Lung_B_P079_S01,Lung,Non-small cell lung carcinoma,,80,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,SD,NR,8.2,1,8.2,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P080,SIM_Lung_B_P080_S01,Lung,Non-small cell lung carcinoma,,47,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PR,R,33.0,1,19.3,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P081,SIM_Lung_B_P081_S01,Lung,Non-small cell lung carcinoma,,32,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,PR,,42.6,1,1.4,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P082,SIM_Lung_B_P082_S01,Lung,Non-small cell lung carcinoma,,74,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Primary,PR,R,52.7,1,3.8,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P083,SIM_Lung_B_P083_S01,Lung,Non-small cell lung carcinoma,,83,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,PD,NR,49.9,0,18.1,1,No,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P084,SIM_Lung_B_P084_S01,Lung,Non-small cell lung carcinoma,,,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,SD,NR,53.5,0,7.7,1,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P085,SIM_Lung_B_P085_S01,Lung,Non-small cell lung carcinoma,,37,,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Unknown,Metastatic,PD,NR,27.0,1,13.8,0,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P086,SIM_Lung_B_P086_S01,Lung,Non-small cell lung carcinoma,,62,F,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Metastatic,SD,,54.6,0,,,Yes,Yes,Public
+SIM_Lung_C,SIM_Lung_B_P087,SIM_Lung_B_P087_S01,Lung,Non-small cell lung carcinoma,,61,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,On,Metastatic,NE,,35.5,0,2.5,1,Yes,No,Public
+SIM_Lung_C,SIM_Lung_B_P088,SIM_Lung_B_P088_S01,Lung,Non-small cell lung carcinoma,,67,M,IO+chemo,PD-1 + chemotherapy,Pembrolizumab + chemotherapy,Pre,Unknown,SD,NR,,,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P001,SIM_HNSCC_A_P001_S01,Head and neck,Squamous cell carcinoma,II,83,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,PD,NR,21.5,0,2.9,1,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P002,SIM_HNSCC_A_P002_S01,Head and neck,Squamous cell carcinoma,,60,M,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,NR,20.9,0,11.8,0,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P002,SIM_HNSCC_A_P002_S02,Head and neck,Squamous cell carcinoma,,60,M,PD-1,PD-1,Nivolumab,Post,Unknown,SD,NR,20.9,0,11.8,0,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P003,SIM_HNSCC_A_P003_S01,Head and neck,Squamous cell carcinoma,II,77,M,PD-1,PD-1,Nivolumab,Pre,Primary,,,36.2,1,,,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P004,SIM_HNSCC_A_P004_S01,Head and neck,Squamous cell carcinoma,,82,M,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,NR,31.5,0,9.8,1,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P005,SIM_HNSCC_A_P005_S01,Head and neck,Squamous cell carcinoma,II,46,F,PD-1,PD-1,Nivolumab,Pre,Primary,NE,,12.4,1,12.4,1,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P006,SIM_HNSCC_A_P006_S01,Head and neck,Squamous cell carcinoma,,,M,PD-1,PD-1,Nivolumab,On,Unknown,PD,,7.7,1,,,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P007,SIM_HNSCC_A_P007_S01,Head and neck,Squamous cell carcinoma,II,55,F,PD-1,PD-1,Nivolumab,Pre,Metastatic,PD,NR,,,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P007,SIM_HNSCC_A_P007_S02,Head and neck,Squamous cell carcinoma,II,55,F,PD-1,PD-1,Nivolumab,Unknown,Metastatic,PD,NR,,,,,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P008,SIM_HNSCC_A_P008_S01,Head and neck,Squamous cell carcinoma,IV,50,M,PD-1,PD-1,Nivolumab,Pre,Primary,SD,NR,49.4,1,15.4,0,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P009,SIM_HNSCC_A_P009_S01,Head and neck,Squamous cell carcinoma,III,82,F,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,,,,,,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P009,SIM_HNSCC_A_P009_S02,Head and neck,Squamous cell carcinoma,III,82,F,PD-1,PD-1,Nivolumab,Post,Unknown,SD,,,,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P010,SIM_HNSCC_A_P010_S01,Head and neck,Squamous cell carcinoma,III,34,M,PD-1,PD-1,Nivolumab,Unknown,Unknown,SD,NR,,,,,No,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P011,SIM_HNSCC_A_P011_S01,Head and neck,Squamous cell carcinoma,II,62,M,PD-1,PD-1,Nivolumab,On,Metastatic,PD,NR,,,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P012,SIM_HNSCC_A_P012_S01,Head and neck,Squamous cell carcinoma,II,63,M,PD-1,PD-1,Nivolumab,Pre,Unknown,PD,NR,29.3,0,3.6,1,No,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P012,SIM_HNSCC_A_P012_S02,Head and neck,Squamous cell carcinoma,II,63,M,PD-1,PD-1,Nivolumab,Post,Primary,PD,NR,29.3,0,3.6,1,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P013,SIM_HNSCC_A_P013_S01,Head and neck,Squamous cell carcinoma,IV,79,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,PR,R,8.9,0,8.9,1,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P013,SIM_HNSCC_A_P013_S02,Head and neck,Squamous cell carcinoma,IV,79,M,PD-1,PD-1,Nivolumab,Post,Unknown,PR,R,8.9,0,8.9,1,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P014,SIM_HNSCC_A_P014_S01,Head and neck,Squamous cell carcinoma,III,65,M,PD-1,PD-1,Nivolumab,Post,Unknown,PD,NR,35.7,1,14.5,0,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P015,SIM_HNSCC_A_P015_S01,Head and neck,Squamous cell carcinoma,,81,M,PD-1,PD-1,Nivolumab,Pre,Unknown,PR,R,45.4,0,13.7,1,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P016,SIM_HNSCC_A_P016_S01,Head and neck,Squamous cell carcinoma,IV,60,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,SD,NR,,,,,No,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P017,SIM_HNSCC_A_P017_S01,Head and neck,Squamous cell carcinoma,III,46,F,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,NR,5.5,0,3.7,0,No,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P017,SIM_HNSCC_A_P017_S02,Head and neck,Squamous cell carcinoma,III,46,F,PD-1,PD-1,Nivolumab,Post,Unknown,SD,NR,5.5,0,3.7,0,No,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P018,SIM_HNSCC_A_P018_S01,Head and neck,Squamous cell carcinoma,III,48,F,PD-1,PD-1,Nivolumab,Pre,Metastatic,SD,NR,35.7,1,12.3,0,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P019,SIM_HNSCC_A_P019_S01,Head and neck,Squamous cell carcinoma,IV,,F,PD-1,PD-1,Nivolumab,On,Unknown,PD,NR,4.3,0,,,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P020,SIM_HNSCC_A_P020_S01,Head and neck,Squamous cell carcinoma,II,60,M,PD-1,PD-1,Nivolumab,Pre,Primary,PR,R,41.7,1,,,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P021,SIM_HNSCC_A_P021_S01,Head and neck,Squamous cell carcinoma,III,80,F,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,NR,47.9,1,8.3,1,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P022,SIM_HNSCC_A_P022_S01,Head and neck,Squamous cell carcinoma,III,80,F,PD-1,PD-1,Nivolumab,Pre,Primary,PD,NR,,,,,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P022,SIM_HNSCC_A_P022_S02,Head and neck,Squamous cell carcinoma,III,80,F,PD-1,PD-1,Nivolumab,Unknown,Unknown,PD,NR,,,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P023,SIM_HNSCC_A_P023_S01,Head and neck,Squamous cell carcinoma,III,47,M,PD-1,PD-1,Nivolumab,Pre,Unknown,PR,,,,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P023,SIM_HNSCC_A_P023_S02,Head and neck,Squamous cell carcinoma,III,47,M,PD-1,PD-1,Nivolumab,Post,Metastatic,PR,,,,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P024,SIM_HNSCC_A_P024_S01,Head and neck,Squamous cell carcinoma,III,,M,PD-1,PD-1,Nivolumab,Pre,Unknown,PR,R,26.5,0,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P025,SIM_HNSCC_A_P025_S01,Head and neck,Squamous cell carcinoma,III,37,,PD-1,PD-1,Nivolumab,Pre,Primary,PR,R,,,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P026,SIM_HNSCC_A_P026_S01,Head and neck,Squamous cell carcinoma,III,67,F,PD-1,PD-1,Nivolumab,Pre,Unknown,PD,NR,40.2,0,8.5,0,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P027,SIM_HNSCC_A_P027_S01,Head and neck,Squamous cell carcinoma,,48,M,PD-1,PD-1,Nivolumab,Pre,Primary,NE,,24.3,1,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P028,SIM_HNSCC_A_P028_S01,Head and neck,Squamous cell carcinoma,II,46,F,PD-1,PD-1,Nivolumab,On,Primary,SD,NR,6.1,1,,,No,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P029,SIM_HNSCC_A_P029_S01,Head and neck,Squamous cell carcinoma,III,52,M,PD-1,PD-1,Nivolumab,Pre,Unknown,PD,NR,39.0,0,20.1,0,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P030,SIM_HNSCC_A_P030_S01,Head and neck,Squamous cell carcinoma,,,F,PD-1,PD-1,Nivolumab,Pre,Metastatic,CR,R,19.2,1,15.1,1,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P030,SIM_HNSCC_A_P030_S02,Head and neck,Squamous cell carcinoma,,,F,PD-1,PD-1,Nivolumab,Post,Primary,CR,R,19.2,1,15.1,1,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P031,SIM_HNSCC_A_P031_S01,Head and neck,Squamous cell carcinoma,II,62,M,PD-1,PD-1,Nivolumab,Pre,Unknown,CR,R,26.9,1,4.2,1,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P032,SIM_HNSCC_A_P032_S01,Head and neck,Squamous cell carcinoma,III,56,F,PD-1,PD-1,Nivolumab,Pre,Metastatic,PD,NR,15.1,1,13.9,1,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P032,SIM_HNSCC_A_P032_S02,Head and neck,Squamous cell carcinoma,III,56,F,PD-1,PD-1,Nivolumab,Post,Metastatic,PD,NR,15.1,1,13.9,1,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P033,SIM_HNSCC_A_P033_S01,Head and neck,Squamous cell carcinoma,III,84,M,PD-1,PD-1,Nivolumab,Pre,Unknown,PR,R,9.6,0,4.1,1,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P034,SIM_HNSCC_A_P034_S01,Head and neck,Squamous cell carcinoma,II,52,M,PD-1,PD-1,Nivolumab,Pre,Primary,NE,,52.4,0,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P035,SIM_HNSCC_A_P035_S01,Head and neck,Squamous cell carcinoma,,,M,PD-1,PD-1,Nivolumab,On,Unknown,PR,R,8.3,0,3.7,0,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P036,SIM_HNSCC_A_P036_S01,Head and neck,Squamous cell carcinoma,IV,72,F,PD-1,PD-1,Nivolumab,Pre,Primary,NE,,,,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P037,SIM_HNSCC_A_P037_S01,Head and neck,Squamous cell carcinoma,III,31,F,PD-1,PD-1,Nivolumab,Pre,Primary,PR,R,31.5,0,11.6,1,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P038,SIM_HNSCC_A_P038_S01,Head and neck,Squamous cell carcinoma,III,41,F,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,NR,,,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P039,SIM_HNSCC_A_P039_S01,Head and neck,Squamous cell carcinoma,II,41,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,,,29.6,1,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P040,SIM_HNSCC_A_P040_S01,Head and neck,Squamous cell carcinoma,IV,57,F,PD-1,PD-1,Nivolumab,Pre,Unknown,PD,NR,48.6,0,,,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P041,SIM_HNSCC_A_P041_S01,Head and neck,Squamous cell carcinoma,II,37,M,PD-1,PD-1,Nivolumab,On,Unknown,NE,,,,,,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P042,SIM_HNSCC_A_P042_S01,Head and neck,Squamous cell carcinoma,,73,M,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,NR,30.9,1,21.1,1,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P043,SIM_HNSCC_A_P043_S01,Head and neck,Squamous cell carcinoma,III,82,,PD-1,PD-1,Nivolumab,Pre,Unknown,PD,NR,15.9,1,9.0,1,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P043,SIM_HNSCC_A_P043_S02,Head and neck,Squamous cell carcinoma,III,82,,PD-1,PD-1,Nivolumab,Post,Metastatic,PD,NR,15.9,1,9.0,1,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P044,SIM_HNSCC_A_P044_S01,Head and neck,Squamous cell carcinoma,III,32,F,PD-1,PD-1,Nivolumab,Pre,Primary,PD,NR,34.9,1,13.2,0,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P044,SIM_HNSCC_A_P044_S02,Head and neck,Squamous cell carcinoma,III,32,F,PD-1,PD-1,Nivolumab,Post,Unknown,PD,NR,34.9,1,13.2,0,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P045,SIM_HNSCC_A_P045_S01,Head and neck,Squamous cell carcinoma,,50,F,PD-1,PD-1,Nivolumab,Pre,Metastatic,PR,R,,,,,No,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P046,SIM_HNSCC_A_P046_S01,Head and neck,Squamous cell carcinoma,III,57,F,PD-1,PD-1,Nivolumab,Pre,Unknown,PR,R,35.9,1,1.4,0,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P047,SIM_HNSCC_A_P047_S01,Head and neck,Squamous cell carcinoma,II,41,M,PD-1,PD-1,Nivolumab,Pre,Primary,SD,NR,11.9,0,11.9,1,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P048,SIM_HNSCC_A_P048_S01,Head and neck,Squamous cell carcinoma,,70,,PD-1,PD-1,Nivolumab,Pre,Metastatic,PR,R,,,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P049,SIM_HNSCC_A_P049_S01,Head and neck,Squamous cell carcinoma,,33,F,PD-1,PD-1,Nivolumab,Pre,Metastatic,SD,,,,,,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P049,SIM_HNSCC_A_P049_S02,Head and neck,Squamous cell carcinoma,,33,F,PD-1,PD-1,Nivolumab,Post,Unknown,SD,,,,,,No,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P050,SIM_HNSCC_A_P050_S01,Head and neck,Squamous cell carcinoma,IV,78,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,PD,NR,,,,,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P050,SIM_HNSCC_A_P050_S02,Head and neck,Squamous cell carcinoma,IV,78,M,PD-1,PD-1,Nivolumab,Unknown,Primary,PD,NR,,,,,No,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P051,SIM_HNSCC_A_P051_S01,Head and neck,Squamous cell carcinoma,IV,47,F,PD-1,PD-1,Nivolumab,Post,Primary,PD,NR,9.3,0,9.3,1,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P052,SIM_HNSCC_A_P052_S01,Head and neck,Squamous cell carcinoma,,64,F,PD-1,PD-1,Nivolumab,Pre,Primary,PD,NR,42.1,1,20.2,1,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P053,SIM_HNSCC_A_P053_S01,Head and neck,Squamous cell carcinoma,II,56,F,PD-1,PD-1,Nivolumab,Pre,Primary,PD,NR,,,,,Yes,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P054,SIM_HNSCC_A_P054_S01,Head and neck,Squamous cell carcinoma,III,66,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,NE,,50.7,0,16.7,1,Yes,Yes,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P055,SIM_HNSCC_A_P055_S01,Head and neck,Squamous cell carcinoma,IV,84,M,PD-1,PD-1,Nivolumab,Pre,Unknown,,,,,,,No,No,Public
+SIM_HNSCC_D,SIM_HNSCC_A_P056,SIM_HNSCC_A_P056_S01,Head and neck,Squamous cell carcinoma,IV,33,F,PD-1,PD-1,Nivolumab,Pre,Metastatic,NE,,33.2,0,19.4,0,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P001,SIM_Brain_A_P001_S01,Brain,Glioblastoma,III,62,F,PD-1,PD-1,Nivolumab,Pre,Unknown,PD,NR,53.7,1,13.9,1,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P001,SIM_Brain_A_P001_S02,Brain,Glioblastoma,III,62,F,PD-1,PD-1,Nivolumab,Post,Primary,PD,NR,53.7,1,13.9,1,No,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P002,SIM_Brain_A_P002_S01,Brain,Glioblastoma,III,70,F,PD-1,PD-1,Nivolumab,Unknown,Primary,SD,NR,,,,,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P003,SIM_Brain_A_P003_S01,Brain,Glioblastoma,II,63,M,PD-1,PD-1,Nivolumab,Pre,Unknown,PD,NR,46.2,0,,,No,No,Public
+SIM_Brain_E,SIM_Brain_A_P004,SIM_Brain_A_P004_S01,Brain,Glioblastoma,IV,31,F,PD-1,PD-1,Nivolumab,Pre,Metastatic,NE,,,,,,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P005,SIM_Brain_A_P005_S01,Brain,Glioblastoma,III,61,F,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,,41.0,0,5.2,1,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P005,SIM_Brain_A_P005_S02,Brain,Glioblastoma,III,61,F,PD-1,PD-1,Nivolumab,Post,Primary,SD,,41.0,0,5.2,1,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P006,SIM_Brain_A_P006_S01,Brain,Glioblastoma,III,77,F,PD-1,PD-1,Nivolumab,Pre,Unknown,PD,NR,3.5,0,,,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P007,SIM_Brain_A_P007_S01,Brain,Glioblastoma,III,,M,PD-1,PD-1,Nivolumab,Pre,Primary,PD,,33.7,0,10.0,1,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P008,SIM_Brain_A_P008_S01,Brain,Glioblastoma,III,80,M,PD-1,PD-1,Nivolumab,Pre,Primary,PD,NR,21.1,1,,,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P008,SIM_Brain_A_P008_S02,Brain,Glioblastoma,III,80,M,PD-1,PD-1,Nivolumab,Post,Metastatic,PD,NR,21.1,1,,,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P009,SIM_Brain_A_P009_S01,Brain,Glioblastoma,II,58,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,SD,NR,,,,,No,No,Public
+SIM_Brain_E,SIM_Brain_A_P009,SIM_Brain_A_P009_S02,Brain,Glioblastoma,II,58,M,PD-1,PD-1,Nivolumab,Post,Metastatic,SD,NR,,,,,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P010,SIM_Brain_A_P010_S01,Brain,Glioblastoma,II,64,M,PD-1,PD-1,Nivolumab,Pre,Primary,PD,NR,,,,,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P010,SIM_Brain_A_P010_S02,Brain,Glioblastoma,II,64,M,PD-1,PD-1,Nivolumab,Post,Unknown,PD,NR,,,,,No,No,Public
+SIM_Brain_E,SIM_Brain_A_P011,SIM_Brain_A_P011_S01,Brain,Glioblastoma,III,31,F,PD-1,PD-1,Nivolumab,Unknown,Metastatic,PR,R,19.6,1,,,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P012,SIM_Brain_A_P012_S01,Brain,Glioblastoma,II,,F,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,NR,,,,,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P013,SIM_Brain_A_P013_S01,Brain,Glioblastoma,IV,36,M,PD-1,PD-1,Nivolumab,Pre,Unknown,,,54.8,1,14.6,1,No,No,Public
+SIM_Brain_E,SIM_Brain_A_P014,SIM_Brain_A_P014_S01,Brain,Glioblastoma,II,54,,PD-1,PD-1,Nivolumab,Pre,Metastatic,PR,R,37.7,0,,,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P015,SIM_Brain_A_P015_S01,Brain,Glioblastoma,IV,75,M,PD-1,PD-1,Nivolumab,On,Unknown,PD,NR,,,,,No,No,Public
+SIM_Brain_E,SIM_Brain_A_P016,SIM_Brain_A_P016_S01,Brain,Glioblastoma,IV,43,M,PD-1,PD-1,Nivolumab,Unknown,Metastatic,PD,NR,26.7,1,19.3,1,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P017,SIM_Brain_A_P017_S01,Brain,Glioblastoma,IV,70,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,SD,NR,,,,,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P018,SIM_Brain_A_P018_S01,Brain,Glioblastoma,III,49,F,PD-1,PD-1,Nivolumab,Pre,Metastatic,PD,NR,16.5,1,7.7,1,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P019,SIM_Brain_A_P019_S01,Brain,Glioblastoma,III,53,,PD-1,PD-1,Nivolumab,Pre,Primary,PD,NR,43.3,0,19.1,1,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P020,SIM_Brain_A_P020_S01,Brain,Glioblastoma,IV,40,M,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,NR,41.0,0,19.9,1,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P020,SIM_Brain_A_P020_S02,Brain,Glioblastoma,IV,40,M,PD-1,PD-1,Nivolumab,Post,Primary,SD,NR,41.0,0,19.9,1,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P021,SIM_Brain_A_P021_S01,Brain,Glioblastoma,II,75,M,PD-1,PD-1,Nivolumab,On,Unknown,PD,NR,28.4,1,7.4,0,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P022,SIM_Brain_A_P022_S01,Brain,Glioblastoma,II,57,M,PD-1,PD-1,Nivolumab,Pre,Unknown,,,6.4,1,2.5,1,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P023,SIM_Brain_A_P023_S01,Brain,Glioblastoma,III,65,M,PD-1,PD-1,Nivolumab,Pre,Primary,PD,NR,11.5,1,11.5,0,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P023,SIM_Brain_A_P023_S02,Brain,Glioblastoma,III,65,M,PD-1,PD-1,Nivolumab,Post,Unknown,PD,NR,11.5,1,11.5,0,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P024,SIM_Brain_A_P024_S01,Brain,Glioblastoma,IV,,F,PD-1,PD-1,Nivolumab,Unknown,Primary,SD,NR,42.4,0,1.1,1,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P025,SIM_Brain_A_P025_S01,Brain,Glioblastoma,III,46,F,PD-1,PD-1,Nivolumab,On,Primary,,,32.4,1,15.7,0,No,No,Public
+SIM_Brain_E,SIM_Brain_A_P026,SIM_Brain_A_P026_S01,Brain,Glioblastoma,II,32,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,,,3.6,1,3.6,1,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P026,SIM_Brain_A_P026_S02,Brain,Glioblastoma,II,32,M,PD-1,PD-1,Nivolumab,Post,Metastatic,,,3.6,1,3.6,1,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P027,SIM_Brain_A_P027_S01,Brain,Glioblastoma,III,62,F,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,NR,21.8,1,18.2,1,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P028,SIM_Brain_A_P028_S01,Brain,Glioblastoma,III,35,F,PD-1,PD-1,Nivolumab,Unknown,Unknown,PR,R,18.3,1,14.8,1,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P029,SIM_Brain_A_P029_S01,Brain,Glioblastoma,,78,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,CR,R,,,,,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P030,SIM_Brain_A_P030_S01,Brain,Glioblastoma,IV,64,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,PD,NR,,,,,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P031,SIM_Brain_A_P031_S01,Brain,Glioblastoma,III,37,M,PD-1,PD-1,Nivolumab,Pre,Unknown,PR,R,19.7,0,11.1,1,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P032,SIM_Brain_A_P032_S01,Brain,Glioblastoma,IV,,M,PD-1,PD-1,Nivolumab,Pre,Primary,PD,NR,,,,,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P033,SIM_Brain_A_P033_S01,Brain,Glioblastoma,IV,65,F,PD-1,PD-1,Nivolumab,On,Primary,PR,R,,,,,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P034,SIM_Brain_A_P034_S01,Brain,Glioblastoma,,43,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,SD,NR,16.3,0,,,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P035,SIM_Brain_A_P035_S01,Brain,Glioblastoma,III,49,F,PD-1,PD-1,Nivolumab,Unknown,Primary,PR,R,,,,,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P036,SIM_Brain_A_P036_S01,Brain,Glioblastoma,IV,84,M,PD-1,PD-1,Nivolumab,Unknown,Metastatic,PR,R,,,,,No,No,Public
+SIM_Brain_E,SIM_Brain_A_P037,SIM_Brain_A_P037_S01,Brain,Glioblastoma,II,44,F,PD-1,PD-1,Nivolumab,Pre,Unknown,,,17.6,0,17.6,1,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P038,SIM_Brain_A_P038_S01,Brain,Glioblastoma,II,57,F,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,NR,47.4,1,17.0,0,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P038,SIM_Brain_A_P038_S02,Brain,Glioblastoma,II,57,F,PD-1,PD-1,Nivolumab,Post,Unknown,SD,NR,47.4,1,17.0,0,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P039,SIM_Brain_A_P039_S01,Brain,Glioblastoma,III,56,M,PD-1,PD-1,Nivolumab,Unknown,Primary,PD,NR,36.7,0,,,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P040,SIM_Brain_A_P040_S01,Brain,Glioblastoma,IV,47,F,PD-1,PD-1,Nivolumab,Pre,Unknown,SD,NR,39.4,1,16.7,1,No,No,Public
+SIM_Brain_E,SIM_Brain_A_P041,SIM_Brain_A_P041_S01,Brain,Glioblastoma,II,79,M,PD-1,PD-1,Nivolumab,Pre,Unknown,PR,R,,,,,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P042,SIM_Brain_A_P042_S01,Brain,Glioblastoma,II,57,F,PD-1,PD-1,Nivolumab,Pre,Unknown,PR,R,17.5,1,10.0,1,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P043,SIM_Brain_A_P043_S01,Brain,Glioblastoma,III,51,M,PD-1,PD-1,Nivolumab,Pre,Primary,PD,NR,5.4,1,5.4,1,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P043,SIM_Brain_A_P043_S02,Brain,Glioblastoma,III,51,M,PD-1,PD-1,Nivolumab,Post,Unknown,PD,NR,5.4,1,5.4,1,Yes,No,Public
+SIM_Brain_E,SIM_Brain_A_P044,SIM_Brain_A_P044_S01,Brain,Glioblastoma,IV,41,M,PD-1,PD-1,Nivolumab,Pre,Metastatic,PD,NR,,,,,Yes,Yes,Public
+SIM_Brain_E,SIM_Brain_A_P044,SIM_Brain_A_P044_S02,Brain,Glioblastoma,IV,41,M,PD-1,PD-1,Nivolumab,Post,Metastatic,PD,NR,,,,,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P001,SIM_Colon_A_P001_S01,Colorectal,Colorectal adenocarcinoma,,74,,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,41.4,1,8.2,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P001,SIM_Colon_A_P001_S02,Colorectal,Colorectal adenocarcinoma,,74,,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PD,NR,41.4,1,8.2,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P002,SIM_Colon_A_P002_S01,Colorectal,Colorectal adenocarcinoma,,52,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,CR,R,22.5,0,3.8,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P003,SIM_Colon_A_P003_S01,Colorectal,Colorectal adenocarcinoma,,68,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Unknown,PD,NR,3.8,0,,,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P004,SIM_Colon_A_P004_S01,Colorectal,Colorectal adenocarcinoma,,,,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Metastatic,PD,NR,6.6,0,6.6,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P005,SIM_Colon_A_P005_S01,Colorectal,Colorectal adenocarcinoma,,32,,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,CR,R,20.0,0,,,No,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P006,SIM_Colon_A_P006_S01,Colorectal,Colorectal adenocarcinoma,,53,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PD,NR,3.7,0,3.7,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P007,SIM_Colon_A_P007_S01,Colorectal,Colorectal adenocarcinoma,,45,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,30.2,1,21.8,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P008,SIM_Colon_A_P008_S01,Colorectal,Colorectal adenocarcinoma,,58,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Metastatic,SD,,46.9,1,4.8,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P009,SIM_Colon_A_P009_S01,Colorectal,Colorectal adenocarcinoma,,83,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,SD,NR,13.5,0,13.5,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P009,SIM_Colon_A_P009_S02,Colorectal,Colorectal adenocarcinoma,,83,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,SD,NR,13.5,0,13.5,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P010,SIM_Colon_A_P010_S01,Colorectal,Colorectal adenocarcinoma,,74,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PR,R,41.9,1,3.8,0,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P011,SIM_Colon_A_P011_S01,Colorectal,Colorectal adenocarcinoma,,,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,On,Unknown,PD,NR,,,,,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P012,SIM_Colon_A_P012_S01,Colorectal,Colorectal adenocarcinoma,,,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PD,NR,50.6,1,,,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P013,SIM_Colon_A_P013_S01,Colorectal,Colorectal adenocarcinoma,,75,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,On,Primary,,,22.8,0,14.8,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P014,SIM_Colon_A_P014_S01,Colorectal,Colorectal adenocarcinoma,,73,,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,,,19.9,1,,,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P015,SIM_Colon_A_P015_S01,Colorectal,Colorectal adenocarcinoma,,70,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,17.4,1,17.4,1,No,No,Public
+SIM_Colon_E,SIM_Colon_A_P016,SIM_Colon_A_P016_S01,Colorectal,Colorectal adenocarcinoma,,46,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,PR,R,25.8,1,,,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P017,SIM_Colon_A_P017_S01,Colorectal,Colorectal adenocarcinoma,,,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Unknown,SD,NR,,,,,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P018,SIM_Colon_A_P018_S01,Colorectal,Colorectal adenocarcinoma,,63,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Unknown,PD,NR,20.3,0,18.8,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P019,SIM_Colon_A_P019_S01,Colorectal,Colorectal adenocarcinoma,,70,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Metastatic,PD,NR,,,,,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P020,SIM_Colon_A_P020_S01,Colorectal,Colorectal adenocarcinoma,,79,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PR,R,,,,,No,No,Public
+SIM_Colon_E,SIM_Colon_A_P020,SIM_Colon_A_P020_S02,Colorectal,Colorectal adenocarcinoma,,79,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Metastatic,PR,R,,,,,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P021,SIM_Colon_A_P021_S01,Colorectal,Colorectal adenocarcinoma,,,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,PD,NR,,,,,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P022,SIM_Colon_A_P022_S01,Colorectal,Colorectal adenocarcinoma,,37,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,On,Metastatic,PD,NR,18.4,0,4.6,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P023,SIM_Colon_A_P023_S01,Colorectal,Colorectal adenocarcinoma,,66,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,7.9,1,7.9,0,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P024,SIM_Colon_A_P024_S01,Colorectal,Colorectal adenocarcinoma,,72,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PD,NR,15.5,0,15.5,1,No,No,Public
+SIM_Colon_E,SIM_Colon_A_P024,SIM_Colon_A_P024_S02,Colorectal,Colorectal adenocarcinoma,,72,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PD,NR,15.5,0,15.5,1,No,No,Public
+SIM_Colon_E,SIM_Colon_A_P025,SIM_Colon_A_P025_S01,Colorectal,Colorectal adenocarcinoma,,43,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,CR,R,29.1,1,1.3,0,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P026,SIM_Colon_A_P026_S01,Colorectal,Colorectal adenocarcinoma,,44,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PR,,,,,,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P027,SIM_Colon_A_P027_S01,Colorectal,Colorectal adenocarcinoma,,33,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,On,Metastatic,PR,R,11.5,1,8.3,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P028,SIM_Colon_A_P028_S01,Colorectal,Colorectal adenocarcinoma,,63,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,NE,,43.7,0,21.7,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P028,SIM_Colon_A_P028_S02,Colorectal,Colorectal adenocarcinoma,,63,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Metastatic,NE,,43.7,0,21.7,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P029,SIM_Colon_A_P029_S01,Colorectal,Colorectal adenocarcinoma,,38,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,SD,NR,14.2,1,14.2,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P029,SIM_Colon_A_P029_S02,Colorectal,Colorectal adenocarcinoma,,38,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,SD,NR,14.2,1,14.2,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P030,SIM_Colon_A_P030_S01,Colorectal,Colorectal adenocarcinoma,,47,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,SD,NR,52.8,0,23.0,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P031,SIM_Colon_A_P031_S01,Colorectal,Colorectal adenocarcinoma,,80,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PR,R,32.6,1,13.4,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P032,SIM_Colon_A_P032_S01,Colorectal,Colorectal adenocarcinoma,,33,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PR,R,27.8,1,9.8,0,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P033,SIM_Colon_A_P033_S01,Colorectal,Colorectal adenocarcinoma,,47,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,39.4,1,2.7,0,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P033,SIM_Colon_A_P033_S02,Colorectal,Colorectal adenocarcinoma,,47,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PD,NR,39.4,1,2.7,0,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P034,SIM_Colon_A_P034_S01,Colorectal,Colorectal adenocarcinoma,,42,,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Unknown,PD,NR,49.1,0,15.4,0,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P035,SIM_Colon_A_P035_S01,Colorectal,Colorectal adenocarcinoma,,47,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Primary,,,,,,,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P036,SIM_Colon_A_P036_S01,Colorectal,Colorectal adenocarcinoma,,78,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PD,NR,41.6,1,13.9,0,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P037,SIM_Colon_A_P037_S01,Colorectal,Colorectal adenocarcinoma,,80,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Unknown,SD,NR,26.1,0,9.2,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P038,SIM_Colon_A_P038_S01,Colorectal,Colorectal adenocarcinoma,,39,,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,,,37.5,0,16.3,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P039,SIM_Colon_A_P039_S01,Colorectal,Colorectal adenocarcinoma,,,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Primary,PR,R,11.2,0,1.8,1,No,No,Public
+SIM_Colon_E,SIM_Colon_A_P040,SIM_Colon_A_P040_S01,Colorectal,Colorectal adenocarcinoma,,44,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,53.3,1,,,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P041,SIM_Colon_A_P041_S01,Colorectal,Colorectal adenocarcinoma,,49,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Metastatic,SD,NR,17.3,1,17.3,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P042,SIM_Colon_A_P042_S01,Colorectal,Colorectal adenocarcinoma,,68,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PR,R,54.4,0,8.0,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P042,SIM_Colon_A_P042_S02,Colorectal,Colorectal adenocarcinoma,,68,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,PR,R,54.4,0,8.0,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P043,SIM_Colon_A_P043_S01,Colorectal,Colorectal adenocarcinoma,,70,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,SD,NR,16.1,0,,,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P044,SIM_Colon_A_P044_S01,Colorectal,Colorectal adenocarcinoma,,37,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,PR,R,25.4,1,15.2,0,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P045,SIM_Colon_A_P045_S01,Colorectal,Colorectal adenocarcinoma,,42,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PR,R,32.5,0,17.1,1,No,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P046,SIM_Colon_A_P046_S01,Colorectal,Colorectal adenocarcinoma,,53,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PR,R,38.2,1,23.0,0,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P046,SIM_Colon_A_P046_S02,Colorectal,Colorectal adenocarcinoma,,53,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,PR,R,38.2,1,23.0,0,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P047,SIM_Colon_A_P047_S01,Colorectal,Colorectal adenocarcinoma,,37,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,On,Unknown,SD,NR,43.9,1,17.8,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P048,SIM_Colon_A_P048_S01,Colorectal,Colorectal adenocarcinoma,,36,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PD,NR,3.8,1,3.8,0,No,No,Public
+SIM_Colon_E,SIM_Colon_A_P048,SIM_Colon_A_P048_S02,Colorectal,Colorectal adenocarcinoma,,36,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PD,NR,3.8,1,3.8,0,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P049,SIM_Colon_A_P049_S01,Colorectal,Colorectal adenocarcinoma,,58,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,37.6,1,,,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P049,SIM_Colon_A_P049_S02,Colorectal,Colorectal adenocarcinoma,,58,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PD,NR,37.6,1,,,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P050,SIM_Colon_A_P050_S01,Colorectal,Colorectal adenocarcinoma,,36,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,,,40.9,0,17.8,0,No,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P050,SIM_Colon_A_P050_S02,Colorectal,Colorectal adenocarcinoma,,36,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,,,40.9,0,17.8,0,No,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P051,SIM_Colon_A_P051_S01,Colorectal,Colorectal adenocarcinoma,,52,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PD,NR,14.7,0,,,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P052,SIM_Colon_A_P052_S01,Colorectal,Colorectal adenocarcinoma,,32,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Metastatic,PD,NR,,,,,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P053,SIM_Colon_A_P053_S01,Colorectal,Colorectal adenocarcinoma,,53,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,28.8,1,8.3,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P053,SIM_Colon_A_P053_S02,Colorectal,Colorectal adenocarcinoma,,53,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Metastatic,PD,NR,28.8,1,8.3,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P054,SIM_Colon_A_P054_S01,Colorectal,Colorectal adenocarcinoma,,74,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,NE,,,,,,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P055,SIM_Colon_A_P055_S01,Colorectal,Colorectal adenocarcinoma,,54,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Unknown,Primary,PD,NR,29.5,1,19.7,0,No,No,Public
+SIM_Colon_E,SIM_Colon_A_P056,SIM_Colon_A_P056_S01,Colorectal,Colorectal adenocarcinoma,,31,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,NE,,20.9,1,13.8,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P056,SIM_Colon_A_P056_S02,Colorectal,Colorectal adenocarcinoma,,31,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Unknown,NE,,20.9,1,13.8,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P057,SIM_Colon_A_P057_S01,Colorectal,Colorectal adenocarcinoma,,31,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,,,30.7,0,4.3,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P058,SIM_Colon_A_P058_S01,Colorectal,Colorectal adenocarcinoma,,79,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,PR,R,20.8,1,20.8,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P059,SIM_Colon_A_P059_S01,Colorectal,Colorectal adenocarcinoma,,62,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Unknown,CR,R,23.7,1,4.9,0,No,No,Public
+SIM_Colon_E,SIM_Colon_A_P060,SIM_Colon_A_P060_S01,Colorectal,Colorectal adenocarcinoma,,43,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Primary,PR,R,,,,,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P061,SIM_Colon_A_P061_S01,Colorectal,Colorectal adenocarcinoma,,47,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,NE,,17.1,1,2.3,1,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P061,SIM_Colon_A_P061_S02,Colorectal,Colorectal adenocarcinoma,,47,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Metastatic,NE,,17.1,1,2.3,1,Yes,No,Public
+SIM_Colon_E,SIM_Colon_A_P062,SIM_Colon_A_P062_S01,Colorectal,Colorectal adenocarcinoma,,,M,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,SD,NR,15.7,1,15.7,0,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P063,SIM_Colon_A_P063_S01,Colorectal,Colorectal adenocarcinoma,,78,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Metastatic,PD,NR,53.2,0,3.4,1,No,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P064,SIM_Colon_A_P064_S01,Colorectal,Colorectal adenocarcinoma,,,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Pre,Primary,PD,NR,,,,,Yes,Yes,Public
+SIM_Colon_E,SIM_Colon_A_P064,SIM_Colon_A_P064_S02,Colorectal,Colorectal adenocarcinoma,,,F,IO+combo,PD-1 + CTLA-4,Nivolumab + ipilimumab,Post,Metastatic,PD,NR,,,,,No,No,Public
+SIM_Breast_F,SIM_Breast_A_P001,SIM_Breast_A_P001_S01,Breast,Triple-negative breast carcinoma,III,44,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,On,Primary,,,,,,,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P002,SIM_Breast_A_P002_S01,Breast,Triple-negative breast carcinoma,IV,70,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,PR,R,,,,,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P002,SIM_Breast_A_P002_S02,Breast,Triple-negative breast carcinoma,IV,70,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Unknown,PR,R,,,,,No,No,Private
+SIM_Breast_F,SIM_Breast_A_P003,SIM_Breast_A_P003_S01,Breast,Triple-negative breast carcinoma,II,75,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Unknown,SD,NR,28.5,1,18.3,0,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P004,SIM_Breast_A_P004_S01,Breast,Triple-negative breast carcinoma,III,83,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,SD,NR,33.1,1,2.6,0,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P004,SIM_Breast_A_P004_S02,Breast,Triple-negative breast carcinoma,III,83,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Metastatic,SD,NR,33.1,1,2.6,0,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P005,SIM_Breast_A_P005_S01,Breast,Triple-negative breast carcinoma,III,55,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,SD,NR,50.9,0,15.7,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P006,SIM_Breast_A_P006_S01,Breast,Triple-negative breast carcinoma,,79,,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Unknown,Primary,SD,,17.6,0,13.3,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P007,SIM_Breast_A_P007_S01,Breast,Triple-negative breast carcinoma,II,36,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Unknown,Primary,PD,NR,45.2,0,5.6,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P008,SIM_Breast_A_P008_S01,Breast,Triple-negative breast carcinoma,II,68,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,On,Metastatic,,,33.2,0,4.3,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P009,SIM_Breast_A_P009_S01,Breast,Triple-negative breast carcinoma,,78,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,PR,R,30.4,1,9.4,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P010,SIM_Breast_A_P010_S01,Breast,Triple-negative breast carcinoma,IV,,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Primary,PD,NR,,,,,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P011,SIM_Breast_A_P011_S01,Breast,Triple-negative breast carcinoma,III,49,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,PR,R,35.9,1,22.3,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P012,SIM_Breast_A_P012_S01,Breast,Triple-negative breast carcinoma,II,,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,SD,NR,52.7,1,1.3,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P013,SIM_Breast_A_P013_S01,Breast,Triple-negative breast carcinoma,II,66,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,SD,NR,14.9,0,14.9,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P013,SIM_Breast_A_P013_S02,Breast,Triple-negative breast carcinoma,II,66,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Primary,SD,NR,14.9,0,14.9,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P014,SIM_Breast_A_P014_S01,Breast,Triple-negative breast carcinoma,IV,55,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,SD,NR,43.0,0,14.1,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P015,SIM_Breast_A_P015_S01,Breast,Triple-negative breast carcinoma,IV,79,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PD,NR,49.9,1,3.9,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P016,SIM_Breast_A_P016_S01,Breast,Triple-negative breast carcinoma,IV,66,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Primary,SD,NR,37.5,1,17.0,0,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P017,SIM_Breast_A_P017_S01,Breast,Triple-negative breast carcinoma,III,73,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,SD,NR,,,,,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P017,SIM_Breast_A_P017_S02,Breast,Triple-negative breast carcinoma,III,73,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Unknown,SD,NR,,,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P018,SIM_Breast_A_P018_S01,Breast,Triple-negative breast carcinoma,III,67,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,PR,R,,,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P019,SIM_Breast_A_P019_S01,Breast,Triple-negative breast carcinoma,IV,52,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,PR,R,16.5,1,16.0,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P020,SIM_Breast_A_P020_S01,Breast,Triple-negative breast carcinoma,III,54,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Unknown,SD,NR,22.2,1,7.8,0,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P021,SIM_Breast_A_P021_S01,Breast,Triple-negative breast carcinoma,IV,57,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,PD,NR,4.5,1,4.5,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P022,SIM_Breast_A_P022_S01,Breast,Triple-negative breast carcinoma,IV,50,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Unknown,Metastatic,PR,R,,,,,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P023,SIM_Breast_A_P023_S01,Breast,Triple-negative breast carcinoma,II,39,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,PD,NR,,,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P024,SIM_Breast_A_P024_S01,Breast,Triple-negative breast carcinoma,,56,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,PD,NR,29.4,1,12.0,0,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P025,SIM_Breast_A_P025_S01,Breast,Triple-negative breast carcinoma,III,,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PR,R,,,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P026,SIM_Breast_A_P026_S01,Breast,Triple-negative breast carcinoma,III,66,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,CR,R,44.2,1,9.2,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P027,SIM_Breast_A_P027_S01,Breast,Triple-negative breast carcinoma,IV,,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,SD,NR,,,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P027,SIM_Breast_A_P027_S02,Breast,Triple-negative breast carcinoma,IV,,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Unknown,SD,NR,,,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P028,SIM_Breast_A_P028_S01,Breast,Triple-negative breast carcinoma,II,39,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,CR,R,9.3,1,,,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P029,SIM_Breast_A_P029_S01,Breast,Triple-negative breast carcinoma,IV,44,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Primary,PD,NR,28.7,0,8.5,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P030,SIM_Breast_A_P030_S01,Breast,Triple-negative breast carcinoma,III,82,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PD,NR,,,,,No,No,Private
+SIM_Breast_F,SIM_Breast_A_P031,SIM_Breast_A_P031_S01,Breast,Triple-negative breast carcinoma,,46,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,SD,NR,54.5,1,20.6,0,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P031,SIM_Breast_A_P031_S02,Breast,Triple-negative breast carcinoma,,46,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Metastatic,SD,NR,54.5,1,20.6,0,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P032,SIM_Breast_A_P032_S01,Breast,Triple-negative breast carcinoma,II,67,,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,SD,NR,27.3,0,14.4,0,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P032,SIM_Breast_A_P032_S02,Breast,Triple-negative breast carcinoma,II,67,,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Primary,SD,NR,27.3,0,14.4,0,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P033,SIM_Breast_A_P033_S01,Breast,Triple-negative breast carcinoma,IV,31,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,PD,NR,5.0,1,5.0,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P034,SIM_Breast_A_P034_S01,Breast,Triple-negative breast carcinoma,III,37,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,SD,NR,,,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P035,SIM_Breast_A_P035_S01,Breast,Triple-negative breast carcinoma,II,53,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PD,NR,35.3,0,11.1,0,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P035,SIM_Breast_A_P035_S02,Breast,Triple-negative breast carcinoma,II,53,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Metastatic,PD,NR,35.3,0,11.1,0,No,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P036,SIM_Breast_A_P036_S01,Breast,Triple-negative breast carcinoma,IV,,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,SD,NR,15.7,1,4.3,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P037,SIM_Breast_A_P037_S01,Breast,Triple-negative breast carcinoma,II,75,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,,,,,,,No,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P038,SIM_Breast_A_P038_S01,Breast,Triple-negative breast carcinoma,IV,50,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Unknown,Primary,PR,R,46.0,1,5.9,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P039,SIM_Breast_A_P039_S01,Breast,Triple-negative breast carcinoma,,77,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PD,NR,,,,,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P040,SIM_Breast_A_P040_S01,Breast,Triple-negative breast carcinoma,III,,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,On,Metastatic,PD,NR,,,,,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P041,SIM_Breast_A_P041_S01,Breast,Triple-negative breast carcinoma,IV,80,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,On,Metastatic,NE,,32.8,1,1.4,0,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P042,SIM_Breast_A_P042_S01,Breast,Triple-negative breast carcinoma,III,51,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,PR,R,48.0,1,19.8,0,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P043,SIM_Breast_A_P043_S01,Breast,Triple-negative breast carcinoma,III,69,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,SD,NR,,,,,No,No,Private
+SIM_Breast_F,SIM_Breast_A_P043,SIM_Breast_A_P043_S02,Breast,Triple-negative breast carcinoma,III,69,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Metastatic,SD,NR,,,,,No,No,Private
+SIM_Breast_F,SIM_Breast_A_P044,SIM_Breast_A_P044_S01,Breast,Triple-negative breast carcinoma,IV,48,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PD,NR,7.4,0,7.4,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P044,SIM_Breast_A_P044_S02,Breast,Triple-negative breast carcinoma,IV,48,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Primary,PD,NR,7.4,0,7.4,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P045,SIM_Breast_A_P045_S01,Breast,Triple-negative breast carcinoma,III,82,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,SD,NR,,,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P046,SIM_Breast_A_P046_S01,Breast,Triple-negative breast carcinoma,IV,44,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,SD,NR,35.1,0,19.3,0,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P046,SIM_Breast_A_P046_S02,Breast,Triple-negative breast carcinoma,IV,44,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Metastatic,SD,NR,35.1,0,19.3,0,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P047,SIM_Breast_A_P047_S01,Breast,Triple-negative breast carcinoma,II,31,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,NE,,30.4,1,21.6,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P048,SIM_Breast_A_P048_S01,Breast,Triple-negative breast carcinoma,II,31,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PR,,21.1,0,8.8,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P049,SIM_Breast_A_P049_S01,Breast,Triple-negative breast carcinoma,,,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,SD,NR,43.1,0,,,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P050,SIM_Breast_A_P050_S01,Breast,Triple-negative breast carcinoma,III,71,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PD,NR,29.1,0,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P050,SIM_Breast_A_P050_S02,Breast,Triple-negative breast carcinoma,III,71,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Unknown,PD,NR,29.1,0,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P051,SIM_Breast_A_P051_S01,Breast,Triple-negative breast carcinoma,III,47,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PD,NR,,,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P052,SIM_Breast_A_P052_S01,Breast,Triple-negative breast carcinoma,III,53,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,SD,NR,39.1,1,20.6,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P053,SIM_Breast_A_P053_S01,Breast,Triple-negative breast carcinoma,IV,75,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Unknown,SD,NR,46.8,0,17.6,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P054,SIM_Breast_A_P054_S01,Breast,Triple-negative breast carcinoma,IV,78,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Unknown,Primary,PD,,50.7,1,10.9,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P055,SIM_Breast_A_P055_S01,Breast,Triple-negative breast carcinoma,III,35,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PR,R,,,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P056,SIM_Breast_A_P056_S01,Breast,Triple-negative breast carcinoma,III,62,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,SD,NR,9.5,0,9.5,0,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P057,SIM_Breast_A_P057_S01,Breast,Triple-negative breast carcinoma,IV,84,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PD,NR,27.3,1,21.6,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P057,SIM_Breast_A_P057_S02,Breast,Triple-negative breast carcinoma,IV,84,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Metastatic,PD,NR,27.3,1,21.6,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P058,SIM_Breast_A_P058_S01,Breast,Triple-negative breast carcinoma,III,35,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,PD,NR,36.1,0,5.7,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P058,SIM_Breast_A_P058_S02,Breast,Triple-negative breast carcinoma,III,35,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Unknown,PD,NR,36.1,0,5.7,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P059,SIM_Breast_A_P059_S01,Breast,Triple-negative breast carcinoma,II,56,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Unknown,Metastatic,CR,R,33.7,1,,,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P060,SIM_Breast_A_P060_S01,Breast,Triple-negative breast carcinoma,III,77,,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,On,Unknown,CR,R,28.2,0,15.6,1,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P061,SIM_Breast_A_P061_S01,Breast,Triple-negative breast carcinoma,II,60,,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,PR,R,,,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P062,SIM_Breast_A_P062_S01,Breast,Triple-negative breast carcinoma,III,,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PD,NR,36.4,1,,,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P062,SIM_Breast_A_P062_S02,Breast,Triple-negative breast carcinoma,III,,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Unknown,PD,NR,36.4,1,,,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P063,SIM_Breast_A_P063_S01,Breast,Triple-negative breast carcinoma,IV,82,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Unknown,PR,R,48.7,1,18.2,0,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P064,SIM_Breast_A_P064_S01,Breast,Triple-negative breast carcinoma,III,50,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Unknown,Metastatic,SD,,53.1,1,19.7,0,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P065,SIM_Breast_A_P065_S01,Breast,Triple-negative breast carcinoma,II,36,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Metastatic,PR,R,48.6,1,9.4,0,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P065,SIM_Breast_A_P065_S02,Breast,Triple-negative breast carcinoma,II,36,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Unknown,PR,R,48.6,1,9.4,0,Yes,Yes,Private
+SIM_Breast_F,SIM_Breast_A_P066,SIM_Breast_A_P066_S01,Breast,Triple-negative breast carcinoma,III,76,F,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,PR,R,30.5,0,5.6,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P067,SIM_Breast_A_P067_S01,Breast,Triple-negative breast carcinoma,,46,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,CR,R,15.6,0,15.6,1,No,No,Private
+SIM_Breast_F,SIM_Breast_A_P067,SIM_Breast_A_P067_S02,Breast,Triple-negative breast carcinoma,,46,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Post,Unknown,CR,R,15.6,0,15.6,1,Yes,No,Private
+SIM_Breast_F,SIM_Breast_A_P068,SIM_Breast_A_P068_S01,Breast,Triple-negative breast carcinoma,IV,57,M,IO+chemo,PD-L1 + chemotherapy,Atezolizumab + chemotherapy,Pre,Primary,SD,NR,3.6,1,3.6,1,Yes,Yes,Private
