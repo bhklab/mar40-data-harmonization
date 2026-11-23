@@ -166,7 +166,7 @@ The repository shares code, standards, configurations, documentation, and synthe
 
 ## Reproducibility and FAIR Data Principles
 
-MAR-40 aims to support transparent, reproducible, and FAIR-aligned management of clinical and molecular data across collaborating institutions.
+MAR-40 promotes reproducible research and **FAIR** data principles through standardized metadata, documented harmonization procedures, and reproducible computational workflows, supporting consistent data integration and reuse across collaborating institutions.
 
 ### Reproducibility
 
@@ -180,16 +180,6 @@ The repository supports reproducible research through:
 
 Other workflow engines, such as **Nextflow**, may be evaluated in the future. Any additional orchestration layer should reuse the same validated scientific scripts and standardized input/output contracts rather than duplicate the analytical logic.
 
-### FAIR Principles
-
-| Principle | MAR-40 approach |
-| --- | --- |
-| **Findable** | Maintain consistent cohort identifiers, source metadata, dataset descriptions, and provenance records. |
-| **Accessible** | Document access conditions, permissions, and approved procedures for obtaining datasets. |
-| **Interoperable** | Apply common clinical and molecular definitions, controlled vocabularies, and documented mappings. |
-| **Reusable** | Preserve version-controlled workflows, processing descriptions, QC records, and software environment specifications. |
-
-**FAIR does not mean fully open:** Data access and sharing remain subject to ethics approvals, institutional policies, and data governance requirements. This repository supports FAIR-aligned practices; dataset-level FAIR compliance must be evaluated independently.
 
 ## Contributions
 
