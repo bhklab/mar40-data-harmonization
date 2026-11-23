@@ -220,35 +220,33 @@ For R/Bioconductor workflows, supported integration objects include:
 MAE should be considered a **target integration representation**, not a requirement to fabricate molecular assays for a clinical-only cohort. The exact MAR-40 output contract and filenames should be defined in [Data dictionary](data_dictionary.md) and [Usage](usage.md).
 
 ## 8. Quality control and release gates
-Perform QC at **source**, **post-harmonization**, and **integrated output** stages. See [Quality control](quality_control.md) for executable rules and any approved thresholds.
 
-| QC area | Required review |
+Quality control (QC) is performed at three stages: **source data**, **post-harmonization**, and **integrated outputs**. Apply the checks relevant to each cohort and its available modalities; a clinical-only cohort does not require molecular-assay QC. Detailed validation rules, thresholds, and reporting conventions are maintained in the [Quality Control Guide](quality_control.md).
 
+| QC stage | Key checks |
 | --- | --- |
+| **Source data** | Verify file readability, source versions and provenance, expected identifiers, original coding, and permitted data access. |
+| **Post-harmonization** | Validate canonical field names and permitted values; patient/sample uniqueness and linkage; supported disease, treatment, response, and survival mappings; missingness and unresolved decisions. |
+| **Integrated outputs** | Confirm assay-to-sample/patient relationships, molecular feature identifiers, reference genome and annotation compatibility, assay dimensions and units, where applicable. Check generated outputs against input counts and documented transformations. |
 
-| File integrity | Inputs readable, expected schema, source/version/checksum recorded. |
+**Cross-cutting QC requirements:**
 
-| Identity | Missing or duplicated IDs; conflicting patient fields; sample-to-patient joins. |
+- **Record granularity:** Assess duplicates and apparent conflicts at the correct patient, sample, treatment, or assessment level. Longitudinal changes are not automatically errors.
+- **Clinical interpretation:** Verify response criteria, survival time origins, event/censoring codes, and derived variables before considering data analysis-ready.
+- **Completeness and provenance:** Summarize missingness by cohort and relevant record level; retain source-to-target mapping decisions, exceptions, and applicable software/configuration versions.
+- **Issue tracking:** Document each material discrepancy, its impact, resolution or outstanding status, and responsible reviewer. Do not silently impute missing values or discard records.
 
-| Vocabulary | Unmapped disease, drug, assay, response and access labels. |
+### 8.1 QC review and release decision
 
-| Clinical consistency | Implausible ages, invalid time/event codes, contradictory dates or survival data. |
+Assign a documented disposition to each cohort or release:
 
-| Assay integrity | Feature IDs, sample IDs, annotation release, dimensions, build and measurement units. |
+- **Pass:** Applicable QC checks are satisfied, provenance is documented, and no material unresolved issues remain.
+- **Pass with documented limitations:** Noncritical missingness or limitations remain, but their impact and permitted use are recorded and approved by the designated reviewer.
+- **Hold for review:** Material clinical or molecular ambiguities, invalid patient/sample links, failed structural checks, or unresolved data-access concerns prevent release until reviewed.
 
-| Completeness | Missingness by cohort, field, patient/sample, and timepoint. |
+Record the QC disposition, reviewer, review date, outstanding issues, and any restrictions in the cohort QC summary. A **Pass** indicates completion of the specified curation checks, not automatic suitability for every downstream analysis.
 
-| Traceability | Every derived field links to a documented source and rule/version. |
-
-**QC review dispositions:**
-
-- **Pass:** QC checks satisfied; all required provenance supplied.
-
-- **Pass with documented limitations:** Missing or noncritical issues disclosed and approved by a reviewer.
-
-- **Hold for review:** Clinically material mapping conflicts, unverifiable links, access concerns, or failed structural checks.
-
-Do **not** treat a simple cohort-level presence/absence heatmap as a full QC or survival-analysis readiness assessment.
+The [Snakemake cohort visualization workflow](visualization_workflow.md) provides **descriptive QC support**, including cohort summaries, variable-availability and missingness reports, and selected conflict flags. Its plots and tables do **not** replace source-level validation, scientific review, or endpoint-specific analysis-readiness checks. In particular, a nonmissing survival time **or** event field does not establish a valid time–event pair.
 
 ## 9. Outputs, reproducibility, and handoff
 Suggested cohort handoff contents, subject to institutional permissions:
@@ -258,11 +256,17 @@ Suggested cohort handoff contents, subject to institutional permissions:
 <cohort_id>/
 
 ├── source_manifest.tsv           # Source inventory, versions, permitted paths/checksums
+
 ├── mapping_log.tsv               # Source -> MAR-40 transformations and decisions
+
 ├── clinical_harmonized.csv       # Approved de-identified clinical metadata, if shareable
+
 ├── assay_manifest.tsv            # Available assays and processing parameters
+
 ├── qc_summary.tsv                # QC checks, results, exceptions
+
 ├── unresolved_issues.tsv         # Items requiring reviewer decisions
+
 └── run_manifest.txt              # Git commit, environment, execution parameters, date
 
 ```
