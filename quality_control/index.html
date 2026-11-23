@@ -145,7 +145,9 @@
               
                 <h1 id="mar-40-quality-control-framework">MAR-40 Quality Control Framework</h1>
 <p><strong>Version:</strong> 1.0<br />
-<strong>Scope:</strong> Clinical, sample, treatment, outcome, and molecular data curated by MAR-40 collaborating teams at UHN, UCL, McGill, and other authorized sites  </p>
+<strong>Scope:</strong> Clinical, sample, treatment, outcome, and molecular data curated by MAR-40 collaborating teams at UHN, UCL, McGill, and other authorized sites<br />
+<strong>Repository location:</strong> <code>docs/quality_control.md</code><br />
+<strong>Related documents:</strong> <a href="../data_curation_SOP/">Data Curation SOP</a> · <a href="../data_dictionary/">Data Dictionary</a> · <a href="../data_sources/">Data Sources</a> · <a href="../usage/">Usage</a></p>
 <h2 id="1-purpose-and-guiding-principles">1. Purpose and guiding principles</h2>
 <p>This document establishes <strong>consistent, traceable quality-control (QC) procedures</strong> for MAR-40 cohort curation and harmonization. Participating sites apply the same validation concepts and reporting conventions while processing restricted datasets inside authorized environments. The framework is <strong>variable- and analysis-oriented</strong>; conversion to OMOP is not required.</p>
 <p>The goal is to distinguish three questions:</p>
@@ -257,8 +259,8 @@
 <tr>
 <td>SRC-02</td>
 <td>Access status verified</td>
-<td><code>Public</code>, <code>Controlled access</code>, or <code>Private</code>, with supporting permission/agreements</td>
-<td>Error</td>
+<td>Confirm file-level <code>Public</code>, <code>Controlled access</code>, or <code>Private</code> classification and supporting permissions; cohort-level <code>Mixed</code> requires component-level classification and <code>Unknown</code> requires review</td>
+<td>Error / Review</td>
 </tr>
 <tr>
 <td>SRC-03</td>
@@ -286,7 +288,7 @@
 </tr>
 </tbody>
 </table>
-<p>Record missing source documentation explicitly. Do not assert a version, license, approval, or source interpretation that cannot be verified.</p>
+<p>Record missing source documentation explicitly. Do not assert a version, license, approval, or source interpretation that cannot be verified. A cohort-level <code>Mixed</code> access classification is acceptable only when each component has a verified access status; <code>Unknown</code> must be resolved before authorizing release.</p>
 <h2 id="5-clinical-and-sample-metadata-qc">5. Clinical and sample metadata QC</h2>
 <h3 id="51-identifiers-and-record-structure">5.1 Identifiers and record structure</h3>
 <table>
@@ -337,7 +339,7 @@
 </tr>
 </tbody>
 </table>
-<p>Patient counts must be reported using <strong>distinct <code>(cohort, patientid)</code> keys</strong>. Do not assume <code>patientid</code> is globally unique across cohorts without verified identity linkage.</p>
+<p>Patient counts must be reported using <strong>distinct <code>(cohort, patientid)</code> keys</strong>. Do not assume <code>patientid</code> is globally unique across cohorts without verified identity linkage. Apparent differences in treatment, response, or disease status across visits or sampling timepoints are not automatically patient-level conflicts; review them at the correct assessment or treatment-episode grain.</p>
 <h3 id="52-missingness-and-valid-values">5.2 Missingness and valid values</h3>
 <p>Assess missingness for every harmonized core variable at its correct grain. Use an explicit denominator: for example, <code>n_missing / n_patients</code> for a patient-level field and <code>n_missing / n_samples</code> for a sample-level field. When cohorts contain longitudinal assessments, report missingness by relevant timepoint/episode rather than only after flattening.</p>
 <p>Recognize documented missing representations (e.g., blank, <code>NA</code>, <code>N/A</code>, <code>Unknown</code>, <code>Not recorded</code>), but retain distinguishable missingness reasons where known (<code>Not assessed</code>, <code>Not reported</code>, <code>Not applicable</code>, <code>Restricted</code>, <code>Unresolved</code>). <strong>An observed negative value is not missing.</strong></p>
@@ -464,6 +466,7 @@
 </ul>
 <p>Avoid treating a cohort's observed median time as Kaplan–Meier median survival or median follow-up without the relevant statistical method.</p>
 <h2 id="6-molecular-assay-and-annotation-qc">6. Molecular assay and annotation QC</h2>
+<p>Core molecular metadata QC uses four fields: <code>rna</code> and <code>dna</code> report assay availability (<code>Yes</code>, <code>No</code>, or missing), while <code>rna_info</code> and <code>dna_info</code> describe the technology and processing information when available. A missing assay is not automatically a failed QC check, and <code>No</code> must be source-supported. Rules MOL-02 through MOL-08 apply only to relevant molecular data and do not add required core dictionary fields.</p>
 <table>
 <thead>
 <tr>
@@ -495,7 +498,7 @@
 <tr>
 <td>MOL-04</td>
 <td>Reference and gene annotations</td>
-<td>Genome build, gene ID scheme, and GENCODE/other annotation releases recorded or explicitly <code>Unknown</code></td>
+<td>Genome build, gene ID scheme, and GENCODE or other annotation releases recorded or explicitly <code>Unknown</code></td>
 <td>Review</td>
 </tr>
 <tr>
@@ -524,7 +527,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>GENCODE policy:</strong> For applicable published processed datasets, GENCODE <strong>v19</strong> is the historical MAR-40 harmonization reference; <strong>do not assign v19 when the true source annotation is unverified</strong>. For available raw datasets that are reprocessed using MAR-40 standardized pipelines, prefer <strong>GENCODE v40</strong> with its compatible reference genome. Where a publication/provider specifies another release, retain the documented source version. Track the source release, genome build, pipeline, and any conversion or feature remapping. Different gene annotations or expression scales are not automatically comparable.</p>
+<p><strong>GENCODE policy:</strong> For applicable published processed datasets, <strong>GENCODE v19</strong> is the historical MAR-40 harmonization reference; <strong>do not assign GENCODE v19 when the true source annotation is unverified</strong>. For available raw datasets that are reprocessed using MAR-40 standardized pipelines, prefer <strong>GENCODE v40</strong> with its compatible reference genome. Where a publication/provider specifies another release, retain the documented source version. Track the source release, genome build, pipeline, and any conversion or feature remapping. Different gene annotations or expression scales are not automatically comparable.</p>
 <p>For microarrays, retain the source platform, normalization, probe mapping and annotation release; do not describe normalized microarray signals as TPM. Clinical-only cohorts do not need an artificial assay or MAE object.</p>
 <h2 id="7-mapping-quality-and-cross-cohort-comparability">7. Mapping quality and cross-cohort comparability</h2>
 <p>The dictionary uses <strong><code>Direct</code></strong>, <strong><code>Conditional</code></strong>, <strong><code>Needs review</code></strong>, and <strong><code>Unmapped</code></strong> as mapping statuses. A status describes a <strong>mapping decision</strong>; it is not the same as a QC severity or a cohort disposition.</p>
@@ -587,6 +590,7 @@
 ├── assay_manifest.tsv           # Assay types and processing/annotation provenance, if present
 └── run_manifest.txt             # Code/environment/input provenance
 </code></pre>
+<p>These filenames define the <strong>recommended full QC reporting contract</strong>; they are not all outputs of the currently implemented workflow. The <a href="../visualization_workflow/">Snakemake cohort visualization workflow</a> currently generates descriptive figures and reports, including <code>cohort_summary.csv</code>, <code>cohort_variable_missingness.csv</code>, and <code>patient_level_conflicts.csv</code>. Those outputs support cohort review but do not implement all rule IDs or replace source-level, molecular, and endpoint-specific QC.</p>
 <p>Additional recommended QC views may be produced from the same checks: <code>missingness_summary.tsv</code>, <code>patient_sample_validation.tsv</code>, <code>endpoint_completeness.tsv</code>, and <code>molecular_qc_summary.tsv</code>. Keep one canonical issue log, rather than conflicting copies with different statuses.</p>
 <h3 id="81-qc_summarytsv-columns">8.1 <code>qc_summary.tsv</code> columns</h3>
 <table>
@@ -663,7 +667,7 @@
 <li><strong>Inspect</strong> every <code>Error</code> and clinically material <code>Review</code> finding; document fixes, scientific interpretation, or explicit limitations.</li>
 <li><strong>Re-run</strong> affected checks after code, mapping, or data corrections; preserve the run/version history.</li>
 <li><strong>Assign a disposition</strong> (<code>Pass</code>, <code>Pass with documented limitations</code>, or <code>Hold for review</code>) for the specific output and intended analysis.</li>
-<li><strong>Record the designated reviewer and decision</strong> consistent with site responsibilities in the SOP; confirm that sharing and destination are authorized before any cross-site release.</li>
+<li><strong>Record the designated reviewer and decision</strong>, including the output/dataset version, intended use, review date, unresolved limitations, and any restrictions; confirm that sharing and destination are authorized before any cross-site release.</li>
 <li><strong>Release only approved outputs</strong> with their manifests and permissible QC summaries.</li>
 </ol>
 <p>A held cohort need not be discarded: the relevant issue may affect only a particular assay or endpoint. The release decision should specify what is usable, restricted, pending review, or excluded from a stated analysis.</p>
@@ -698,7 +702,7 @@
 <td>1.0</td>
 <td>2026-11-20</td>
 <td>Active</td>
-<td>Initial MAR-40 cross-site QC specification aligned with Data Curation SOP v1.0 and Data Dictionary v1.0.</td>
+<td>MAR-40 cross-site QC specification aligned with Data Curation SOP v1.0 and Data Dictionary v1.0; editorial clarifications to access handling, molecular metadata, reporting scope, and review decisions.</td>
 </tr>
 </tbody>
 </table>
