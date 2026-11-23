@@ -101,6 +101,7 @@ Collaborators can specify an approved local harmonized dataset through `config/v
 
 These descriptive outputs support cohort review but are not a substitute for source-level validation, endpoint assessment, or scientific approval. See the [Visualization Workflow Guide](docs/visualization_workflow.md) for more detailed instructions and troubleshooting.
 
+> **Implementation scope:** The current Snakemake module produces descriptive cohort visualizations from **already harmonized** metadata. Source-specific clinical curation, RNA/DNA processing, and multi-omics integration are separate components of the broader MAR-40 framework; they should not be assumed to be implemented by this visualization module.
 
 ## Documentation
 
@@ -115,8 +116,6 @@ The repository documentation describes shared standards, workflows, and procedur
 | [Usage Guide](docs/usage.md) | General instructions for running workflows and reproducing outputs. |
 | [Visualization Workflow](docs/visualization_workflow.md) | Snakemake-based cohort characterization, figures, reports, and troubleshooting. |
 | [Development Notes](docs/devnotes.md) | Technical notes and development decisions. |
-
-Project documentation is also intended for publication through [MAR-40 documentation](https://bhklab.github.io/mar40-data-harmonization/), subject to the GitHub Pages deployment configuration.
 
 ## Data Curation and Harmonization Workflow
 
@@ -163,13 +162,9 @@ Dataset access is governed by source-specific permissions, institutional require
 
 The repository shares code, standards, configurations, documentation, and synthetic or otherwise explicitly authorized examples. Workflow reproducibility does not require unrestricted access to the original datasets.
 
-### FAIR Principles
-
-MAR-40 supports **FAIR (Findable, Accessible, Interoperable, and Reusable)** data principles through standardized metadata, controlled vocabularies, documented source-to-standard mappings, and traceable processing workflows. These practices improve data interoperability and reuse across collaborating institutions while respecting institutional access permissions and data governance requirements.
-
 ## Reproducibility and FAIR Data Principles
 
-MAR-40 aims to support transparent, reproducible, and FAIR-aligned management of clinical and molecular data across collaborating institutions.
+MAR-40 supports transparent, reproducible, and **FAIR (Findable, Accessible, Interoperable, and Reusable)**-aligned management of clinical and molecular data across collaborating institutions. Standardized metadata, controlled vocabularies, documented mappings, and reproducible workflows promote interoperability, traceability, and reuse while respecting institutional data governance requirements.
 
 ### Reproducibility
 
@@ -181,7 +176,7 @@ The repository supports reproducible research through:
 - **Traceable outputs:** Cohort summaries, missingness and conflict reports, input provenance, and execution metadata.
 - **Automated execution:** Dependency-aware workflow runs that can reproduce results and avoid unnecessary computation.
 
-Other workflow engines, such as **Nextflow**, may be evaluated in the future. Any additional orchestration layer should reuse the same validated scientific scripts and standardized input/output contracts rather than duplicate the analytical logic.
+Snakemake is currently used for workflow orchestration. **Nextflow** support may be introduced in the future, reusing the same validated scripts and standardized inputs and outputs.
 
 ## Contributions
 
