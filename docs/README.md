@@ -99,7 +99,7 @@ The workflow produces:
 
 Collaborators can specify an approved local harmonized dataset through `config/visualization.yaml` without changing the visualization script. The same variable definitions, missing-value conventions, and color mappings should be used across sites.
 
-See the [Visualization Workflow Guide](docs/visualization_workflow.md) for more detailed instructions and troubleshooting.
+These descriptive outputs support cohort review but are not a substitute for source-level validation, endpoint assessment, or scientific approval. See the [Visualization Workflow Guide](docs/visualization_workflow.md) for more detailed instructions and troubleshooting.
 
 > **Implementation scope:** The current Snakemake module produces descriptive cohort visualizations from **already harmonized** metadata. Source-specific clinical curation, RNA/DNA processing, and multi-omics integration are separate components of the broader MAR-40 framework; they should not be assumed to be implemented by this visualization module.
 
@@ -117,11 +117,9 @@ The repository documentation describes shared standards, workflows, and procedur
 | [Visualization Workflow](docs/visualization_workflow.md) | Snakemake-based cohort characterization, figures, reports, and troubleshooting. |
 | [Development Notes](docs/devnotes.md) | Technical notes and development decisions. |
 
-Project documentation is also intended for publication through [MAR-40 documentation](https://bhklab.github.io/mar40-data-harmonization/), subject to the GitHub Pages deployment configuration.
-
 ## Data Curation and Harmonization Workflow
 
-The MAR-40 framework comprises six main stages:
+The MAR-40 framework comprises six main stages, as described in the [Data Curation SOP](docs/data_curation_SOP.md):
 
 1. **Data acquisition and provenance:** Identify cohorts, publications, source datasets, versions, and access permissions.
 2. **Clinical metadata curation:** Review patient and sample identifiers, demographics, cancer classifications, treatment, response, and survival variables.
@@ -130,7 +128,7 @@ The MAR-40 framework comprises six main stages:
 5. **Quality control:** Assess missingness, duplicate records, conflicting fields, assay links, and unresolved mappings.
 6. **Reproducible outputs:** Produce standardized tables, descriptive figures, QC summaries, and provenance records using version-controlled methods.
 
-Missing values may occur for individual records or entire cohorts and should not be treated as negative observations. Patient-level, sample-level, and timepoint-specific variables must be distinguished when preparing analyses.
+Missing values may occur for individual records or entire cohorts and should not be treated as negative observations. Patient-level, sample-level, treatment-level, and timepoint-specific variables must be distinguished when preparing analyses; longitudinal changes in treatment or response are not automatically data conflicts.
 
 Follow the [Data Curation SOP](docs/data_curation_SOP.md) and [Quality Control Guide](docs/quality_control.md) for detailed procedures.
 
@@ -166,7 +164,7 @@ The repository shares code, standards, configurations, documentation, and synthe
 
 ## Reproducibility and FAIR Data Principles
 
-MAR-40 promotes reproducible research and **FAIR** data principles through standardized metadata, documented harmonization procedures, and reproducible computational workflows, supporting consistent data integration and reuse across collaborating institutions.
+MAR-40 supports transparent, reproducible, and **FAIR (Findable, Accessible, Interoperable, and Reusable)**-aligned management of clinical and molecular data across collaborating institutions. Standardized metadata, controlled vocabularies, documented mappings, and reproducible workflows promote interoperability, traceability, and reuse while respecting institutional data governance requirements.
 
 ### Reproducibility
 
@@ -178,8 +176,7 @@ The repository supports reproducible research through:
 - **Traceable outputs:** Cohort summaries, missingness and conflict reports, input provenance, and execution metadata.
 - **Automated execution:** Dependency-aware workflow runs that can reproduce results and avoid unnecessary computation.
 
-Other workflow engines, such as **Nextflow**, may be evaluated in the future. Any additional orchestration layer should reuse the same validated scientific scripts and standardized input/output contracts rather than duplicate the analytical logic.
-
+Snakemake is currently used for workflow orchestration. **Nextflow** support may be introduced in the future, reusing the same validated scripts and standardized inputs and outputs.
 
 ## Contributions
 
