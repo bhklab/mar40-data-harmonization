@@ -32,7 +32,7 @@ The goal is to distinguish three questions:
 | **C. Integration QC** | Molecular assay files, sample mappings, optional SE/MAE objects | Sample linkage, feature IDs, annotation/build, matrix dimensions, assay provenance | Molecular/integration QC summary |
 | **D. Release review** | QC results, issues, manifests, outputs | Outstanding blocking findings, documented limitations, authorized destination | Cohort QC disposition and reviewer record |
 
-**Responsibilities:** The contributing site's curator executes and documents checks. Site scientific/data leads review clinically important ambiguities and access restrictions. The MAR-40 harmonization team maintains shared rules and evaluates cross-cohort comparability. Changes to the shared rules follow the SOP's version-control process.
+**Responsibilities:** The contributing site's curator executes and documents checks. Site scientific/data leads review clinically important ambiguities and access restrictions. 
 
 ## 3. QC finding severity and cohort dispositions
 
