@@ -85,7 +85,7 @@ The SOP recognizes the main MAR-40 immunotherapy groupings. Preserve at least th
 
 | Treatment group | Interpretation | Key caution |
 |---|---|---|
-| `PD-(L)1` | PD-1 or PD-L1-directed therapy when classified as a single-target group | Do not label a multi-agent regimen as monotherapy simply because it includes PD-(L)1 blockade |
+| `PD-1/PD-L1` | PD-1 or PD-L1-directed therapy when classified as a single-target group | Do not label a multi-agent regimen as monotherapy simply because it includes PD-1/PD-L1 blockade |
 | `CTLA4` | CTLA-4-directed single-target therapy | Preserve exact drug and mechanism |
 | `IO+combo` | Immunotherapy combination not represented by a more specific selected category | Specify which components qualify; avoid overlap with `IO+chemo` or `IO+targeted` |
 | `IO+chemo` | Immunotherapy plus chemotherapy | Confirm concurrent/combined therapy and study definition |
@@ -112,18 +112,12 @@ Molecular metadata should distinguish **assay presence**, **modality**, **measur
 | `rna_info` | Sample / assay | Conditional | Source RNA technology/platform and processing description; use structured assay manifest for full details |
 | `dna` | Sample | Core | Availability status `Yes`, `No`, or missing |
 | `dna_info` | Sample / assay | Conditional | DNA modality (WES/WGS/panel/etc.) and processing summary |
-| `assay_id` | Assay | Conditional | Identifier linking assay entry with sample |
-| `assay_type` | Assay | Conditional | RNA-seq, microarray, WES, WGS, panel, SNV, CNA, etc. |
-| `measurement_type` | Assay | Conditional | Counts, TPM, normalized microarray signal, variant calls, segments, gene-level CNA, etc. |
-| `normalization` | Assay | Conditional | Algorithm, parameters, transformations and pseudocount (if any) |
-| `reference_genome` | Assay | Conditional | Genome assembly, e.g. GRCh37/hg19 or GRCh38/hg38, **verified from source/pipeline** |
-| `gencode_version` | RNA assay | Conditional | Verified GENCODE release; see §5.1 |
-| `gene_id_type` | Assay | Conditional | Ensembl gene ID, gene symbol, probe ID, etc.; record version suffix policy |
-| `annotation_version` | Assay | Conditional | Reference/annotation release, including non-GENCODE sources as applicable |
-| `processing_pipeline` | Assay | Conditional | Tool/workflow name, version, reference and parameters |
-| `processing_source` | Assay | Conditional | Published processed data, provided processed data, or MAR-40 raw-data reprocessing |
-| `feature_mapping_version` | Assay | Conditional | Gene/probe mapping resource and release |
-| `assay_qc_status` | Assay | Conditional | Pass / limitations / hold, as determined by QC procedure |
+
+The four fields above form the **core molecular metadata table** for the harmonized clinical/sample-level export. `rna` and `dna` are core availability fields; `rna_info` and `dna_info` remain conditional descriptive fields, as defined above. Additional assay-level details are documented in the assay manifest or molecular objects, rather than added as mandatory columns to this table.
+
+**Assay documentation (separate from core table):** Where molecular data are available, preserve the source modality (RNA-seq, microarray, WES, WGS, targeted panel, SNV or CNA), input format and measurement scale, normalization or transformations, processing pipeline/version, sample/feature identifiers, reference genome, gene annotation version and relevant QC results. RNA-seq inputs may include FASTQ files or processed counts/TPM matrices, with transcript-level expression retained when provided; microarray values require their original platform and normalization. DNA data may include VCF/MAF variant calls, binary mutation matrices, CNA segments or gene-level CNA measurements. Do not label these different measurements as interchangeable.
+
+**RNA transformations:** Keep original expression values and measurement units traceable. For example, the existing IO curation guide uses `log2(TPM + 0.001)`, whereas the SOP describes `log2(TPM + 1)` as an illustrative option. Neither pseudocount should be imposed silently across cohorts; confirm the approved pipeline, whether values were already transformed, and record the exact formula. Similarly, deriving TPM from counts requires verified gene/transcript lengths and quantification assumptions.
 
 ### 5.1 GENCODE annotation strategy
 
@@ -135,9 +129,13 @@ MAR-40 uses the following **source-aware strategy**:
 
 3. **Source-declared versions:** When a publication or data provider identifies an annotation release, preserve that information even if it differs from GENCODE v19 or GENCODE v40.
 
+Use source-matched annotation resources where available (for example, the established BHKLab annotation files for GENCODE v19 and GENCODE v40). When applicable, retain gene- and transcript-level feature annotations and transcript-to-gene mappings; selecting a mismatched release can lead to loss of features.
+
 Record GENCODE release (e.g., GENCODE v19 or GENCODE v40), genome build, gene ID type, quantification method, source reference and all conversions. **Do not treat different GENCODE releases or builds as interchangeable**, and do not label legacy expression measurements as reprocessed using GENCODE v40 unless actually reprocessed with that annotation.
 
 ### 5.2 Multi-assay integration
+
+The existing IO curation workflow uses `SummarizedExperiment` and `RangedSummarizedExperiment` to store assays, with clinical metadata linked through `MultiAssayExperiment` (`MAE`). The final MAE structure should retain `experiments()`, `colData()`, and `sampleMap()` so that molecular samples are correctly associated with patients.
 
 When appropriate, build `SummarizedExperiment`, `RangedSummarizedExperiment`, or `MultiAssayExperiment` objects. Validate feature and sample dimensions, `rowData`, `colData`, and the patient/sample relationships represented by `sampleMap`. A clinical-only cohort can be curated without generating a fictitious molecular assay.
 
@@ -200,25 +198,15 @@ The current MAR-40 synthetic sample-level visualization workflow uses fields inc
 Suggested locally generated cohort outputs (subject to source permissions):
 
 ```text
-
 <cohort_id>/
-
-  source_manifest.tsv
-
-  mapping_log.tsv
-
-  clinical_harmonized.csv
-
-  sample_metadata.csv
-
-  assay_manifest.tsv
-
-  qc_summary.tsv
-
-  unresolved_issues.tsv
-
-  run_manifest.txt
-
+├── source_manifest.tsv
+├── mapping_log.tsv
+├── clinical_harmonized.csv
+├── sample_metadata.csv
+├── assay_manifest.tsv
+├── qc_summary.tsv
+├── unresolved_issues.tsv
+└── run_manifest.txt
 ```
 
 The files and layout above describe an **output contract to implement**, not a claim that every file currently exists. Data protection and permitted sharing take precedence over repository convenience.
@@ -228,3 +216,9 @@ The files and layout above describe an **output contract to implement**, not a c
 The **MAR-40 harmonization team** maintains this dictionary together with the SOP and executable QC/mapping configuration. A contributing site documents source-specific details and flags uncertainties. Material changes (e.g., endpoint definitions, treatment grouping, OncoTree release, GENCODE processing, access conventions) should be reviewed with the relevant scientific/data leads and recorded in Git history before adoption across sites.
 
 When updating a field, record: **what changed, why, affected cohorts/analyses, version, reviewer, date and required reprocessing**. Maintain backward-compatible mappings where feasible. Do not silently replace historical values in already released outputs.
+
+### Dictionary change history
+
+| Version | Date | Description |
+|---|---|---|
+| 1.0 | 2026-11-20 | Consolidated MAR-40 data dictionary aligned to the multicentre SOP v1.0; canonical fields, source mapping, access, treatment/response/survival and GENCODE provenance conventions. |
