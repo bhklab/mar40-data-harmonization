@@ -1,7 +1,8 @@
 # MAR-40 Data Dictionary and Harmonization Guide
 
 **Version:** 1.0  
-**Scope:** Clinical, sample, treatment, outcome, and molecular metadata curated by MAR-40 teams at UHN, UCL, McGill, and other authorized collaborating sites   
+
+**Scope:** Clinical, sample, treatment, outcome, and molecular metadata curated by MAR-40 teams at UHN, UCL, McGill, and other authorized collaborating sites  
 
 ## 1. Purpose and principles
 
@@ -128,11 +129,13 @@ Molecular metadata should distinguish **assay presence**, **modality**, **measur
 
 MAR-40 uses the following **source-aware strategy**:
 
-1. **Published processed datasets:** GENCODE **v19** is the historical harmonization reference where applicable; however, **do not assign v19 to a dataset solely because its true annotation is unknown**. If the publication/provider specifies a different release, retain the documented release. If not verifiable, record `Unknown` in assay provenance and flag for review.
-2. **Raw datasets available for standardized reprocessing:** Prefer **GENCODE v40**, with its compatible genome build and an explicitly documented quantification pipeline.
-3. **Source-declared versions:** When a publication or data provider identifies an annotation release, preserve that information even if it differs from v19 or v40.
+1. **Published processed datasets:** **GENCODE v19** is the historical harmonization reference where applicable; however, **do not assign GENCODE v19 to a dataset solely because its true annotation is unknown**. If the publication/provider specifies a different release, retain the documented release. If not verifiable, record `Unknown` in assay provenance and flag for review.
 
-Record GENCODE release, genome build, gene ID type, quantification method, source reference and all conversions. **Do not treat different GENCODE releases or builds as interchangeable**, and do not label legacy expression measurements as reprocessed v40 unless actually reprocessed.
+2. **Raw datasets available for standardized reprocessing:** Prefer **GENCODE v40**, with its compatible genome build and an explicitly documented quantification pipeline.
+
+3. **Source-declared versions:** When a publication or data provider identifies an annotation release, preserve that information even if it differs from GENCODE v19 or GENCODE v40.
+
+Record GENCODE release (e.g., GENCODE v19 or GENCODE v40), genome build, gene ID type, quantification method, source reference and all conversions. **Do not treat different GENCODE releases or builds as interchangeable**, and do not label legacy expression measurements as reprocessed using GENCODE v40 unless actually reprocessed with that annotation.
 
 ### 5.2 Multi-assay integration
 
@@ -192,20 +195,30 @@ Follow [Quality Control](quality_control.md) and the [SOP](data_curation_SOP.md)
 
 The current MAR-40 synthetic sample-level visualization workflow uses fields including `cohort`, `patientid`, `sampleid`, `cancer_type`, `histo`, `stage`, `age`, `sex`, `treatment`, `target`, `sample_timing`, `recist`, `response`, `survival_time_os`, `event_occurred_os`, `survival_time_pfs`, `event_occurred_pfs`, `rna`, and `dna`. Some versions also include `regimen`, `sample_source`, and a source column named **`access type`**.
 
-**Naming policy:** Use **`access_type`** as the canonical dictionary field; accept legacy `access type` as an input alias through an explicit mapping/adapter. Do not silently change script dependencies. Similarly, distinguish `rna` / `dna` *availability* from `rna_info` / `dna_info` *assay descriptions*. Maintain a schema version for each exported dataset.
+**Naming policy:** Use **`access_type`** as the canonical dictionary field; accept legacy `access type` as an input alias through an explicit mapping/adapter. Do not silently change script dependencies. Similarly, distinguish `rna` / `dna` **availability** from `rna_info` / `dna_info` **assay descriptions**. Maintain a schema version for each exported dataset.
 
 Suggested locally generated cohort outputs (subject to source permissions):
 
 ```text
+
 <cohort_id>/
+
   source_manifest.tsv
+
   mapping_log.tsv
+
   clinical_harmonized.csv
+
   sample_metadata.csv
+
   assay_manifest.tsv
+
   qc_summary.tsv
+
   unresolved_issues.tsv
+
   run_manifest.txt
+
 ```
 
 The files and layout above describe an **output contract to implement**, not a claim that every file currently exists. Data protection and permitted sharing take precedence over repository convenience.
@@ -215,9 +228,3 @@ The files and layout above describe an **output contract to implement**, not a c
 The **MAR-40 harmonization team** maintains this dictionary together with the SOP and executable QC/mapping configuration. A contributing site documents source-specific details and flags uncertainties. Material changes (e.g., endpoint definitions, treatment grouping, OncoTree release, GENCODE processing, access conventions) should be reviewed with the relevant scientific/data leads and recorded in Git history before adoption across sites.
 
 When updating a field, record: **what changed, why, affected cohorts/analyses, version, reviewer, date and required reprocessing**. Maintain backward-compatible mappings where feasible. Do not silently replace historical values in already released outputs.
-
-### Dictionary change history
-
-| Version | Date | Description |
-|---|---|---|
-| 1.0 | 2026-11-20 | Consolidated MAR-40 data dictionary aligned to the multicentre SOP v1.0; canonical fields, source mapping, access, treatment/response/survival and GENCODE provenance conventions. |
