@@ -91,56 +91,47 @@ suppressPackageStartupMessages({
 #--------------------------------------------------------------
 # 1.1. Configure input and output paths
 #--------------------------------------------------------------
-
 args <- commandArgs(trailingOnly = TRUE)
 
-if (length(args) > 2) {
+if (length(args) > 2L) {
   stop(
-    "Usage: Rscript SCRIPT.R [INPUT.csv] [OUTPUT_DIR]",
+    "Usage: Rscript scripts/MAR40_cohort_visualization.R ",
+    "[INPUT.csv] [OUTPUT_DIR]",
     call. = FALSE
   )
 }
 
-default_inputs <- c(
-  "data/results/data/MAR40_synthetic_sample_level.csv",
-  "data/results/MAR40_synthetic_sample_level.csv"
+default_input <- file.path(
+  "data",
+  "examples",
+  "MAR40_synthetic_sample_level.csv"
 )
 
-if (length(args) >= 1) {
+default_output <- file.path(
+  "data",
+  "results",
+  "figures"
+)
 
-  input_file <- args[[1]]
-
+input_file <- if (length(args) >= 1L) {
+  args[[1]]
 } else {
-
-  available_inputs <- default_inputs[
-    file.exists(default_inputs)
-  ]
-
-  if (length(available_inputs) == 0) {
-    stop(
-      "No default input CSV found. Supply a harmonized CSV path.",
-      call. = FALSE
-    )
-  }
-
-  if (length(available_inputs) > 1) {
-    stop(
-      "Multiple default inputs found. Specify the input path explicitly.",
-      call. = FALSE
-    )
-  }
-
-  input_file <- available_inputs[[1]]
+  default_input
 }
 
-outdir <- if (length(args) >= 2) {
+outdir <- if (length(args) >= 2L) {
   args[[2]]
 } else {
-  "data/results/figures"
+  default_output
 }
 
 if (!file.exists(input_file)) {
-  stop("Input file does not exist: ", input_file)
+  stop(
+    "Input file not found: ", input_file,
+    "\nPlease provide a standardized MAR-40 sample-level CSV.",
+    "\nDefault example location: ", default_input,
+    call. = FALSE
+  )
 }
 
 dir.create(
@@ -153,9 +144,8 @@ if (!dir.exists(outdir)) {
   stop("Unable to create output directory: ", outdir)
 }
 
-message("Input file: ", normalizePath(input_file))
-message("Output directory: ", normalizePath(outdir))
-
+message("Input: ", normalizePath(input_file))
+message("Output: ", normalizePath(outdir))
 
 #------------------------------------------------------------------
 # STEP 2. DEFINE FIXED COLOR PALETTES
