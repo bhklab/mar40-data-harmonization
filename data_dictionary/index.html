@@ -100,6 +100,10 @@
     <li class="toctree-l2"><a class="reference internal" href="#8-example-export-conventions-and-compatibility">8. Example export conventions and compatibility</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#9-cross-site-review-and-maintenance">9. Cross-site review and maintenance</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#dictionary-change-history">Dictionary change history</a>
+    </li>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -480,9 +484,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>PD-(L)1</code></td>
+<td><code>PD-1/PD-L1</code></td>
 <td>PD-1 or PD-L1-directed therapy when classified as a single-target group</td>
-<td>Do not label a multi-agent regimen as monotherapy simply because it includes PD-(L)1 blockade</td>
+<td>Do not label a multi-agent regimen as monotherapy simply because it includes PD-1/PD-L1 blockade</td>
 </tr>
 <tr>
 <td><code>CTLA4</code></td>
@@ -552,80 +556,11 @@
 <td>Conditional</td>
 <td>DNA modality (WES/WGS/panel/etc.) and processing summary</td>
 </tr>
-<tr>
-<td><code>assay_id</code></td>
-<td>Assay</td>
-<td>Conditional</td>
-<td>Identifier linking assay entry with sample</td>
-</tr>
-<tr>
-<td><code>assay_type</code></td>
-<td>Assay</td>
-<td>Conditional</td>
-<td>RNA-seq, microarray, WES, WGS, panel, SNV, CNA, etc.</td>
-</tr>
-<tr>
-<td><code>measurement_type</code></td>
-<td>Assay</td>
-<td>Conditional</td>
-<td>Counts, TPM, normalized microarray signal, variant calls, segments, gene-level CNA, etc.</td>
-</tr>
-<tr>
-<td><code>normalization</code></td>
-<td>Assay</td>
-<td>Conditional</td>
-<td>Algorithm, parameters, transformations and pseudocount (if any)</td>
-</tr>
-<tr>
-<td><code>reference_genome</code></td>
-<td>Assay</td>
-<td>Conditional</td>
-<td>Genome assembly, e.g. GRCh37/hg19 or GRCh38/hg38, <strong>verified from source/pipeline</strong></td>
-</tr>
-<tr>
-<td><code>gencode_version</code></td>
-<td>RNA assay</td>
-<td>Conditional</td>
-<td>Verified GENCODE release; see §5.1</td>
-</tr>
-<tr>
-<td><code>gene_id_type</code></td>
-<td>Assay</td>
-<td>Conditional</td>
-<td>Ensembl gene ID, gene symbol, probe ID, etc.; record version suffix policy</td>
-</tr>
-<tr>
-<td><code>annotation_version</code></td>
-<td>Assay</td>
-<td>Conditional</td>
-<td>Reference/annotation release, including non-GENCODE sources as applicable</td>
-</tr>
-<tr>
-<td><code>processing_pipeline</code></td>
-<td>Assay</td>
-<td>Conditional</td>
-<td>Tool/workflow name, version, reference and parameters</td>
-</tr>
-<tr>
-<td><code>processing_source</code></td>
-<td>Assay</td>
-<td>Conditional</td>
-<td>Published processed data, provided processed data, or MAR-40 raw-data reprocessing</td>
-</tr>
-<tr>
-<td><code>feature_mapping_version</code></td>
-<td>Assay</td>
-<td>Conditional</td>
-<td>Gene/probe mapping resource and release</td>
-</tr>
-<tr>
-<td><code>assay_qc_status</code></td>
-<td>Assay</td>
-<td>Conditional</td>
-<td>Pass / limitations / hold, as determined by QC procedure</td>
-</tr>
 </tbody>
 </table>
+<p>The four fields above form the <strong>core molecular metadata table</strong> for the harmonized clinical/sample-level export. <code>rna</code> and <code>dna</code> are core availability fields; <code>rna_info</code> and <code>dna_info</code> remain conditional descriptive fields, as defined above. Additional assay-level details are documented in the assay manifest or molecular objects, rather than added as mandatory columns to this table.</p>
+<p><strong>Assay documentation (separate from core table):</strong> Where molecular data are available, preserve the source modality (RNA-seq, microarray, WES, WGS, targeted panel, SNV or CNA), input format and measurement scale, normalization or transformations, processing pipeline/version, sample/feature identifiers, reference genome, gene annotation version and relevant QC results. RNA-seq inputs may include FASTQ files or processed counts/TPM matrices, with transcript-level expression retained when provided; microarray values require their original platform and normalization. DNA data may include VCF/MAF variant calls, binary mutation matrices, CNA segments or gene-level CNA measurements. Do not label these different measurements as interchangeable.</p>
+<p><strong>RNA transformations:</strong> Keep original expression values and measurement units traceable. For example, the existing IO curation guide uses <code>log2(TPM + 0.001)</code>, whereas the SOP describes <code>log2(TPM + 1)</code> as an illustrative option. Neither pseudocount should be imposed silently across cohorts; confirm the approved pipeline, whether values were already transformed, and record the exact formula. Similarly, deriving TPM from counts requires verified gene/transcript lengths and quantification assumptions.</p>
 <h3 id="51-gencode-annotation-strategy">5.1 GENCODE annotation strategy</h3>
 <p>MAR-40 uses the following <strong>source-aware strategy</strong>:</p>
 <ol>
@@ -639,8 +574,10 @@
 <p><strong>Source-declared versions:</strong> When a publication or data provider identifies an annotation release, preserve that information even if it differs from GENCODE v19 or GENCODE v40.</p>
 </li>
 </ol>
+<p>Use source-matched annotation resources where available (for example, the established BHKLab annotation files for GENCODE v19 and GENCODE v40). When applicable, retain gene- and transcript-level feature annotations and transcript-to-gene mappings; selecting a mismatched release can lead to loss of features.</p>
 <p>Record GENCODE release (e.g., GENCODE v19 or GENCODE v40), genome build, gene ID type, quantification method, source reference and all conversions. <strong>Do not treat different GENCODE releases or builds as interchangeable</strong>, and do not label legacy expression measurements as reprocessed using GENCODE v40 unless actually reprocessed with that annotation.</p>
 <h3 id="52-multi-assay-integration">5.2 Multi-assay integration</h3>
+<p>The existing IO curation workflow uses <code>SummarizedExperiment</code> and <code>RangedSummarizedExperiment</code> to store assays, with clinical metadata linked through <code>MultiAssayExperiment</code> (<code>MAE</code>). The final MAE structure should retain <code>experiments()</code>, <code>colData()</code>, and <code>sampleMap()</code> so that molecular samples are correctly associated with patients.</p>
 <p>When appropriate, build <code>SummarizedExperiment</code>, <code>RangedSummarizedExperiment</code>, or <code>MultiAssayExperiment</code> objects. Validate feature and sample dimensions, <code>rowData</code>, <code>colData</code>, and the patient/sample relationships represented by <code>sampleMap</code>. A clinical-only cohort can be curated without generating a fictitious molecular assay.</p>
 <h2 id="6-mapping-rules-and-statuses">6. Mapping rules and statuses</h2>
 <p>MAR-40 mapping is <strong>key-variable, meaning-driven harmonization</strong>. It does not require OMOP concept IDs or conversion to OMOP database tables.</p>
@@ -782,30 +719,37 @@
 <p>The current MAR-40 synthetic sample-level visualization workflow uses fields including <code>cohort</code>, <code>patientid</code>, <code>sampleid</code>, <code>cancer_type</code>, <code>histo</code>, <code>stage</code>, <code>age</code>, <code>sex</code>, <code>treatment</code>, <code>target</code>, <code>sample_timing</code>, <code>recist</code>, <code>response</code>, <code>survival_time_os</code>, <code>event_occurred_os</code>, <code>survival_time_pfs</code>, <code>event_occurred_pfs</code>, <code>rna</code>, and <code>dna</code>. Some versions also include <code>regimen</code>, <code>sample_source</code>, and a source column named <strong><code>access type</code></strong>.</p>
 <p><strong>Naming policy:</strong> Use <strong><code>access_type</code></strong> as the canonical dictionary field; accept legacy <code>access type</code> as an input alias through an explicit mapping/adapter. Do not silently change script dependencies. Similarly, distinguish <code>rna</code> / <code>dna</code> <strong>availability</strong> from <code>rna_info</code> / <code>dna_info</code> <strong>assay descriptions</strong>. Maintain a schema version for each exported dataset.</p>
 <p>Suggested locally generated cohort outputs (subject to source permissions):</p>
-<pre><code class="language-text">
-&lt;cohort_id&gt;/
-
-  source_manifest.tsv
-
-  mapping_log.tsv
-
-  clinical_harmonized.csv
-
-  sample_metadata.csv
-
-  assay_manifest.tsv
-
-  qc_summary.tsv
-
-  unresolved_issues.tsv
-
-  run_manifest.txt
-
+<pre><code class="language-text">&lt;cohort_id&gt;/
+├── source_manifest.tsv
+├── mapping_log.tsv
+├── clinical_harmonized.csv
+├── sample_metadata.csv
+├── assay_manifest.tsv
+├── qc_summary.tsv
+├── unresolved_issues.tsv
+└── run_manifest.txt
 </code></pre>
 <p>The files and layout above describe an <strong>output contract to implement</strong>, not a claim that every file currently exists. Data protection and permitted sharing take precedence over repository convenience.</p>
 <h2 id="9-cross-site-review-and-maintenance">9. Cross-site review and maintenance</h2>
 <p>The <strong>MAR-40 harmonization team</strong> maintains this dictionary together with the SOP and executable QC/mapping configuration. A contributing site documents source-specific details and flags uncertainties. Material changes (e.g., endpoint definitions, treatment grouping, OncoTree release, GENCODE processing, access conventions) should be reviewed with the relevant scientific/data leads and recorded in Git history before adoption across sites.</p>
 <p>When updating a field, record: <strong>what changed, why, affected cohorts/analyses, version, reviewer, date and required reprocessing</strong>. Maintain backward-compatible mappings where feasible. Do not silently replace historical values in already released outputs.</p>
+<h3 id="dictionary-change-history">Dictionary change history</h3>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-11-20</td>
+<td>Consolidated MAR-40 data dictionary aligned to the multicentre SOP v1.0; canonical fields, source mapping, access, treatment/response/survival and GENCODE provenance conventions.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
