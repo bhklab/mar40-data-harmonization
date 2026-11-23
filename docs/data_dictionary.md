@@ -1,7 +1,6 @@
 # MAR-40 Data Dictionary and Harmonization Guide
 
-**Version:** 1.0  
-
+**Version:** 1.0    
 **Scope:** Clinical, sample, treatment, outcome, and molecular metadata curated by MAR-40 teams at UHN, UCL, McGill, and other authorized collaborating sites  
 
 ## 1. Purpose and principles
