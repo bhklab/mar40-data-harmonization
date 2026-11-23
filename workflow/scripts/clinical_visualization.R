@@ -85,6 +85,7 @@ suppressPackageStartupMessages({
   library(ggplot2)
   library(dplyr)
   library(tidyr)
+  library(paletteer)
   library(ComplexHeatmap)
 })
 
@@ -150,9 +151,14 @@ message("Output: ", normalizePath(outdir))
 #------------------------------------------------------------------
 # STEP 2. DEFINE FIXED COLOR PALETTES
 #------------------------------------------------------------------
-# These colors are fixed across sites and runs.
-# Unexpected category values must be reviewed rather than
-# silently assigned new colors.
+# Colors were originally selected using the paletteer package
+# and stored as fixed hexadecimal values.
+#
+# This ensures consistent category-to-color mapping across
+# UHN, UCL, and McGill, independent of package versions.
+#
+# Do not modify the selected colors without agreement
+# across collaborating centers.
 #------------------------------------------------------------------
 
 missing_color <- "#D4D4D4"
