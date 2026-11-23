@@ -1,11 +1,7 @@
 # MAR-40 Data Sources and Cohort Registry
 
-**Version:** 1.0  
-**Status:** Active  
-**Date:** November 20, 2026  
+**Version:** 1.0    
 **Scope:** MAR-40 participating teams at UHN, UCL, McGill University, and other authorized collaborating sites  
-**Repository location:** `docs/data_sources.md`  
-**Related documentation:** [Data Curation SOP](data_curation_SOP.md) · [Data Dictionary](data_dictionary.md) · [Quality Control](quality_control.md) · [Usage](usage.md)
 
 ## 1. Purpose and scope
 
