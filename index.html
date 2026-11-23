@@ -52,15 +52,27 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quick-start-reproducible-cohort-visualization">Quick Start: Reproducible Cohort Visualization</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-curation-and-harmonization-workflow">Data Curation and Harmonization Workflow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#repository-organization">Repository Organization</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#data-curation-and-harmonization-workflow">Data curation and harmonization workflow</a>
+    <li class="toctree-l3"><a class="reference internal" href="#data-access-and-sharing">Data Access and Sharing</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#data-organization">Data Organization</a>
+    <li class="toctree-l2"><a class="reference internal" href="#reproducibility-and-fair-data-principles">Reproducibility and FAIR Data Principles</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#reproducibility">Reproducibility</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#reproducibility">Reproducibility</a>
+    <li class="toctree-l3"><a class="reference internal" href="#fair-principles">FAIR Principles</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contributions">Contributions</a>
     </li>
     </ul>
                 </li>
@@ -118,47 +130,85 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="mar-40-data-harmonization-and-standardization">MAR-40 data harmonization and standardization</h1>
-<p><strong>Authors:</strong> <a href="https://github.com/RibaA">Farnoosh Abbas Aghababazadeh</a> </p>
-<p><strong>Contact:</strong> <a href="mailto:farnoosh.abbasaghababazadeh@uhn.ca">farnoosh.abbasaghababazadeh@uhn.ca</a> </p>
-<p><strong>Description:</strong> Development of standardized data processing and harmonization procedures, standard operating procedures (SOPs), quality control frameworks, and reproducible Snakemake workflows for clinical and molecular data in the MAR-40 immuno-oncology research program.</p>
+                <h1 id="mar-40-data-harmonization-and-standardization">MAR-40 Data Harmonization and Standardization</h1>
+<p><strong>Author:</strong> <a href="https://github.com/RibaA">Farnoosh Abbas Aghababazadeh</a><br />
+<strong>Contact:</strong> <a href="mailto:farnoosh.abbasaghababazadeh@uhn.ca">farnoosh.abbasaghababazadeh@uhn.ca</a></p>
+<p><strong>Description:</strong> Development of standardized data curation, processing, and harmonization procedures, standard operating procedures (SOPs), quality control frameworks, and reproducible computational workflows for clinical and molecular data within the MAR-40 immuno-oncology research program.</p>
 <hr />
-<p><a href="https://github.com/prefix-dev/pixi"><img alt="pixi-badge" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/prefix-dev/pixi/main/assets/badge/v0.json&amp;style=flat-square" /></a>
+<p><a href="https://github.com/prefix-dev/pixi"><img alt="Pixi" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/prefix-dev/pixi/main/assets/badge/v0.json&amp;style=flat-square" /></a>
 <a href="https://github.com/astral-sh/ruff"><img alt="Ruff" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&amp;style=flat-square" /></a>
-<a href="https://github.com/squidfunk/mkdocs-material"><img alt="Built with Material for MkDocs" src="https://img.shields.io/badge/mkdocs--material-gray?logo=materialformkdocs&amp;style=flat-square" /></a></p>
-<p><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bhklab/mar-40-data-harmonization-and-standardization?style=flat-square" />
-<img alt="GitHub issues" src="https://img.shields.io/github/issues/bhklab/mar-40-data-harmonization-and-standardization?style=flat-square" />
-<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/bhklab/mar-40-data-harmonization-and-standardization?style=flat-square" />
-<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/bhklab/mar-40-data-harmonization-and-standardization?style=flat-square" />
-<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/bhklab/mar-40-data-harmonization-and-standardization?style=flat-square" /></p>
+<a href="https://github.com/squidfunk/mkdocs-material"><img alt="Material for MkDocs" src="https://img.shields.io/badge/mkdocs--material-gray?logo=materialformkdocs&amp;style=flat-square" /></a>
+<a href="https://snakemake.github.io/"><img alt="Snakemake" src="https://img.shields.io/badge/workflow-Snakemake-blue?style=flat-square" /></a></p>
+<p><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bhklab/mar40-data-harmonization?style=flat-square" />
+<img alt="GitHub issues" src="https://img.shields.io/github/issues/bhklab/mar40-data-harmonization?style=flat-square" />
+<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/bhklab/mar40-data-harmonization?style=flat-square" />
+<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/bhklab/mar40-data-harmonization?style=flat-square" /></p>
 <h2 id="overview">Overview</h2>
-<p>MAR-40 is a collaborative immuno-oncology research program that integrates heterogeneous clinical and molecular datasets across participating institutions. This repository supports consistent and reproducible data curation, standardization, harmonization, and quality control across collaborating sites.</p>
+<p>MAR-40 is a collaborative immuno-oncology research program integrating heterogeneous clinical and molecular datasets across participating institutions, including the University Health Network (UHN), University College London (UCL), and McGill University.</p>
+<p>This repository provides a shared framework for consistent data curation, standardization, harmonization, quality control, and reproducible analyses across participating sites.</p>
 <p>The project aims to:</p>
 <ul>
 <li>Standardize clinical and molecular metadata using common data dictionaries and controlled vocabularies.</li>
-<li>Harmonize cohort-specific fields for cancer type, treatment, response, survival outcomes, and molecular assays.</li>
+<li>Harmonize cohort-specific variables, including cancer type, treatment, response, survival outcomes, sampling timepoints, and molecular assays.</li>
 <li>Document source-to-standard mappings, provenance, quality-control decisions, and unresolved discrepancies.</li>
-<li>Support reproducible computational workflows and downstream immuno-oncology biomarker analyses.</li>
+<li>Develop reproducible computational workflows, currently using <strong>Snakemake</strong> for cohort visualization and <strong>Pixi</strong> for environment management.</li>
+<li>Support consistent cohort characterization and downstream immuno-oncology biomarker research.</li>
+<li>Promote data management practices aligned with the <strong>FAIR principles</strong> (Findable, Accessible, Interoperable, and Reusable).</li>
 </ul>
 <h2 id="set-up">Set Up</h2>
 <h3 id="prerequisites">Prerequisites</h3>
-<p><a href="https://pixi.sh/latest/">Pixi</a> is used to manage the project environment. If it is not yet installed, follow the <a href="https://pixi.sh/latest/">Pixi installation instructions</a>.</p>
+<p><a href="https://pixi.sh/latest/">Pixi</a> manages the project environment and software dependencies. Follow the <a href="https://pixi.sh/latest/">Pixi installation instructions</a> if it is not already installed.</p>
 <h3 id="installation">Installation</h3>
 <ol>
-<li>Clone the repository and navigate to the project directory:</li>
-</ol>
-<p>```bash
-   git clone https://github.com/bhklab/mar40-data-harmonization.git
-   cd mar40-data-harmonization</p>
-<p>```</p>
-<ol>
-<li>Set up the project environment:</li>
+<li>Clone the repository and enter its root directory:</li>
 </ol>
 <p><code>bash
-   pixi install</code>
-For detailed setup instructions and reproducible workflows, see the <a href="docs/usage.md">Usage</a>.</p>
+   git clone https://github.com/bhklab/mar40-data-harmonization.git
+   cd mar40-data-harmonization</code></p>
+<ol>
+<li>Install the project environment:</li>
+</ol>
+<p><code>bash
+   pixi install</code></p>
+<ol>
+<li>Verify that Snakemake is available:</li>
+</ol>
+<p><code>bash
+   pixi run snakemake --version</code></p>
+<p>See the <a href="docs/usage.md">Usage Guide</a> for general setup and workflow instructions.</p>
+<h2 id="quick-start-reproducible-cohort-visualization">Quick Start: Reproducible Cohort Visualization</h2>
+<p>The repository includes a <strong>Snakemake workflow</strong> for descriptive cohort characterization and visualization using harmonized MAR-40 sample-level clinical metadata. A synthetic example dataset is supplied so collaborators can test the workflow without accessing restricted patient-level data.</p>
+<p><strong>Example input:</strong> <code>data/examples/MAR40_synthetic_sample_level.csv</code><br />
+<strong>Required identifiers:</strong> <code>cohort</code>, <code>patientid</code>, <code>sampleid</code><br />
+<strong>Configuration:</strong> <code>config/visualization.yaml</code></p>
+<p>From the repository root, preview the workflow:</p>
+<pre><code class="language-bash">pixi run snakemake \
+  --snakefile workflow/Snakefile \
+  --cores 1 \
+  --dry-run
+</code></pre>
+<p>Execute the workflow:</p>
+<pre><code class="language-bash">pixi run snakemake \
+  --snakefile workflow/Snakefile \
+  --cores 1
+</code></pre>
+<p>The workflow produces:</p>
+<ul>
+<li>Cancer type and immunotherapy treatment distributions.</li>
+<li>Clinical variable availability across cohorts.</li>
+<li>Sex and RECIST distributions by cohort.</li>
+<li>Pre-, on-, and post-treatment sampling distributions.</li>
+<li>Supporting counts, cohort summaries, missingness reports, conflict records, and run metadata.</li>
+</ul>
+<p><strong>Outputs:</strong> <code>results/visualization/example/</code><br />
+<strong>Execution log:</strong> <code>logs/visualization/example.log</code></p>
+<p>Collaborators can specify an approved local harmonized dataset through <code>config/visualization.yaml</code> without changing the visualization script. The same variable definitions, missing-value conventions, and color mappings should be used across sites.</p>
+<p>See the <a href="docs/visualization_workflow.md">Visualization Workflow Guide</a> for more detailed instructions and troubleshooting.</p>
+<blockquote>
+<p><strong>Implementation scope:</strong> The current Snakemake module produces descriptive cohort visualizations from <strong>already harmonized</strong> metadata. Source-specific clinical curation, RNA/DNA processing, and multi-omics integration are separate components of the broader MAR-40 framework; they should not be assumed to be implemented by this visualization module.</p>
+</blockquote>
 <h2 id="documentation">Documentation</h2>
-<p>View the full documentation at <a href="https://bhklab.github.io/mar40-data-harmonization/">MAR-40 data harmonization</a>.</p>
+<p>The repository documentation describes shared standards, workflows, and procedures.</p>
 <table>
 <thead>
 <tr>
@@ -169,23 +219,27 @@ For detailed setup instructions and reproducible workflows, see the <a href="doc
 <tbody>
 <tr>
 <td><a href="docs/data_curation_SOP.md">Data Curation SOP</a></td>
-<td>Step-by-step clinical and molecular data curation, processing, and harmonization procedures.</td>
+<td>Clinical and molecular data curation, processing, and harmonization procedures.</td>
 </tr>
 <tr>
 <td><a href="docs/data_dictionary.md">Data Dictionary</a></td>
-<td>Standardized fields, definitions, units, and permitted values.</td>
+<td>Standardized variables, definitions, units, and permitted values.</td>
 </tr>
 <tr>
 <td><a href="docs/data_sources.md">Data Sources</a></td>
-<td>Cohort provenance, source documentation, and data access.</td>
+<td>Cohort provenance, source information, molecular availability, and data access conditions.</td>
 </tr>
 <tr>
 <td><a href="docs/quality_control.md">Quality Control</a></td>
-<td>Validation, missingness, consistency checks, and QC reporting.</td>
+<td>Validation, missingness assessment, consistency checks, and QC reporting.</td>
 </tr>
 <tr>
-<td><a href="docs/usage.md">Usage</a></td>
-<td>Instructions for running workflows and reproducing outputs.</td>
+<td><a href="docs/usage.md">Usage Guide</a></td>
+<td>General instructions for running workflows and reproducing outputs.</td>
+</tr>
+<tr>
+<td><a href="docs/visualization_workflow.md">Visualization Workflow</a></td>
+<td>Snakemake-based cohort characterization, figures, reports, and troubleshooting.</td>
 </tr>
 <tr>
 <td><a href="docs/devnotes.md">Development Notes</a></td>
@@ -193,43 +247,85 @@ For detailed setup instructions and reproducible workflows, see the <a href="doc
 </tr>
 </tbody>
 </table>
-<h3 id="data-curation-and-harmonization-workflow">Data curation and harmonization workflow</h3>
+<p>Project documentation is also intended for publication through <a href="https://bhklab.github.io/mar40-data-harmonization/">MAR-40 documentation</a>, subject to the GitHub Pages deployment configuration.</p>
+<h2 id="data-curation-and-harmonization-workflow">Data Curation and Harmonization Workflow</h2>
+<p>The MAR-40 framework comprises six main stages:</p>
 <ol>
-<li><strong>Data acquisition and provenance:</strong> Identify source cohorts, publications, datasets, access permissions, and source versions.</li>
-<li><strong>Clinical metadata curation:</strong> Review patient/sample identifiers, demographics, disease classifications, treatments, responses, and survival endpoints.</li>
-<li><strong>Molecular data preparation:</strong> Document assay modalities, processing methods, and molecular annotations.</li>
-<li><strong>Harmonization:</strong> Apply the shared data dictionary, controlled vocabularies, and documented source-to-standard mapping decisions.</li>
-<li><strong>Quality control:</strong> Check missing values, duplicated records, conflicting fields, assay links, and unresolved mappings.</li>
-<li><strong>Reproducible outputs:</strong> Produce standardized files, QC summaries, and provenance records using version-controlled workflows.</li>
+<li><strong>Data acquisition and provenance:</strong> Identify cohorts, publications, source datasets, versions, and access permissions.</li>
+<li><strong>Clinical metadata curation:</strong> Review patient and sample identifiers, demographics, cancer classifications, treatment, response, and survival variables.</li>
+<li><strong>Molecular data preparation:</strong> Document assay modalities, processing methods, annotations, and sample relationships.</li>
+<li><strong>Harmonization:</strong> Apply the shared data dictionary, controlled vocabularies, and documented source-to-standard mappings.</li>
+<li><strong>Quality control:</strong> Assess missingness, duplicate records, conflicting fields, assay links, and unresolved mappings.</li>
+<li><strong>Reproducible outputs:</strong> Produce standardized tables, descriptive figures, QC summaries, and provenance records using version-controlled methods.</li>
 </ol>
-<p>Follow the <a href="docs/data_curation_SOP.md">Data Curation SOP</a> for detailed procedures and <a href="docs/quality_control.md">Quality Control</a> for checks and review expectations.</p>
-<h2 id="data-organization">Data Organization</h2>
+<p>Missing values may occur for individual records or entire cohorts and should not be treated as negative observations. Patient-level, sample-level, and timepoint-specific variables must be distinguished when preparing analyses.</p>
+<p>Follow the <a href="docs/data_curation_SOP.md">Data Curation SOP</a> and <a href="docs/quality_control.md">Quality Control Guide</a> for detailed procedures.</p>
+<h2 id="repository-organization">Repository Organization</h2>
+<pre><code class="language-text">mar40-data-harmonization/
+├── config/             # Shared workflow configurations
+├── data/
+│   ├── examples/       # Version-controlled synthetic/shareable examples
+│   ├── rawdata/        # Original source data (approved local storage)
+│   └── procdata/       # Processed/harmonized data (approved local storage)
+├── docs/               # SOPs, dictionaries, and workflow documentation
+├── metadata/           # Project metadata and supporting records
+├── resources/          # Reference resources
+├── workflow/
+│   ├── Snakefile       # Snakemake entry point
+│   ├── rules/          # Reusable Snakemake rules
+│   └── scripts/        # R/Python analysis scripts
+├── results/            # Generated outputs (not committed)
+├── logs/               # Workflow logs (not committed)
+├── pixi.toml           # Environment and dependency specification
+└── pixi.lock           # Resolved dependency versions
+</code></pre>
+<p>See the <a href="data/rawdata/README.md">Raw Data README</a> and <a href="data/procdata/README.md">Processed Data README</a> for directory-specific conventions.</p>
+<h3 id="data-access-and-sharing">Data Access and Sharing</h3>
+<p>Dataset access is governed by source-specific permissions, institutional requirements, and applicable ethics and data-sharing agreements. Private or controlled-access patient-level datasets must <strong>not</strong> be committed to the public repository. Restricted data must remain in approved institutional storage.</p>
+<p>The repository shares code, standards, configurations, documentation, and synthetic or otherwise explicitly authorized examples. Workflow reproducibility does not require unrestricted access to the original datasets.</p>
+<h2 id="reproducibility-and-fair-data-principles">Reproducibility and FAIR Data Principles</h2>
+<p>MAR-40 aims to support transparent, reproducible, and FAIR-aligned management of clinical and molecular data across collaborating institutions.</p>
+<h3 id="reproducibility">Reproducibility</h3>
+<p>The repository supports reproducible research through:</p>
+<ul>
+<li><strong>Shared standards:</strong> Data dictionaries, controlled vocabularies, and documented harmonization decisions.</li>
+<li><strong>Version-controlled methods:</strong> Snakemake rules, reusable scripts, and workflow configurations.</li>
+<li><strong>Managed environments:</strong> Pixi specifications and lockfiles for dependency consistency.</li>
+<li><strong>Traceable outputs:</strong> Cohort summaries, missingness and conflict reports, input provenance, and execution metadata.</li>
+<li><strong>Automated execution:</strong> Dependency-aware workflow runs that can reproduce results and avoid unnecessary computation.</li>
+</ul>
+<p>Other workflow engines, such as <strong>Nextflow</strong>, may be evaluated in the future. Any additional orchestration layer should reuse the same validated scientific scripts and standardized input/output contracts rather than duplicate the analytical logic.</p>
+<h3 id="fair-principles">FAIR Principles</h3>
 <table>
 <thead>
 <tr>
-<th>Directory</th>
-<th>Contents</th>
+<th>Principle</th>
+<th>MAR-40 approach</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>data/rawdata/</code></td>
-<td>Original source data and source-specific documentation.</td>
+<td><strong>Findable</strong></td>
+<td>Maintain consistent cohort identifiers, source metadata, dataset descriptions, and provenance records.</td>
 </tr>
 <tr>
-<td><code>data/procdata/</code></td>
-<td>Processed and harmonized clinical and molecular data.</td>
+<td><strong>Accessible</strong></td>
+<td>Document access conditions, permissions, and approved procedures for obtaining datasets.</td>
 </tr>
 <tr>
-<td><code>data/results/</code></td>
-<td>Generated summary tables, figures, and analysis outputs.</td>
+<td><strong>Interoperable</strong></td>
+<td>Apply common clinical and molecular definitions, controlled vocabularies, and documented mappings.</td>
+</tr>
+<tr>
+<td><strong>Reusable</strong></td>
+<td>Preserve version-controlled workflows, processing descriptions, QC records, and software environment specifications.</td>
 </tr>
 </tbody>
 </table>
-<p>See the <a href="data/rawdata/README.md">Raw Data README</a> and <a href="data/procdata/README.md">Processed Data README</a> for directory-specific conventions.</p>
-<p><strong>Data access:</strong> Do not commit private or controlled-access patient-level datasets to a public repository. Store restricted data only in approved environments; commit only documentation, code, and appropriately authorized example or synthetic data.</p>
-<h2 id="reproducibility">Reproducibility</h2>
-<p>Collaborators should follow the shared SOP and dictionary, use version-controlled scripts and configurations, document mapping decisions and unresolved cases, review QC results, and record input provenance and software versions. These practices allow data preparation steps to be reviewed and rerun consistently across participating sites.</p>
+<p><strong>FAIR does not mean fully open:</strong> Data access and sharing remain subject to ethics approvals, institutional policies, and data governance requirements. This repository supports FAIR-aligned practices; dataset-level FAIR compliance must be evaluated independently.</p>
+<h2 id="contributions">Contributions</h2>
+<p>Collaborators are encouraged to propose improvements to data standards, documentation, validation procedures, and reproducible workflows. Changes to shared clinical definitions, mappings, and reporting conventions should be reviewed across participating sites before adoption.</p>
+<p>Contributions must preserve provenance and comply with dataset access restrictions. Do not include private or controlled-access source data in pull requests, issues, or example files.</p>
               
             </div>
           </div><footer>
@@ -282,5 +378,5 @@ For detailed setup instructions and reproducible workflows, see the <a href="doc
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-11-23 00:27:46.414845+00:00
+Build Date UTC : 2026-11-23 00:33:46.782793+00:00
 -->
