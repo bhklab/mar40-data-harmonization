@@ -123,7 +123,11 @@
               
                 <h1 id="mar-40-data-sources-and-cohort-registry">MAR-40 Data Sources and Cohort Registry</h1>
 <p><strong>Version:</strong> 1.0<br />
-<strong>Scope:</strong> MAR-40 participating teams at UHN, UCL, McGill University, and other authorized collaborating sites  </p>
+<strong>Status:</strong> Active<br />
+<strong>Date:</strong> November 20, 2026<br />
+<strong>Scope:</strong> MAR-40 participating teams at UHN, UCL, McGill University, and other authorized collaborating sites<br />
+<strong>Repository location:</strong> <code>docs/data_sources.md</code><br />
+<strong>Related documentation:</strong> <a href="../data_curation_SOP/">Data Curation SOP</a> · <a href="../data_dictionary/">Data Dictionary</a> · <a href="../quality_control/">Quality Control</a> · <a href="../usage/">Usage</a></p>
 <h2 id="1-purpose-and-scope">1. Purpose and scope</h2>
 <p>This document defines how contributing teams register and describe the clinical and molecular immuno-oncology cohorts used in MAR-40. It establishes a consistent <strong>cohort-level source inventory</strong>, not a common patient-level data model or an OMOP conversion requirement.</p>
 <p>The objectives are to:</p>
@@ -136,7 +140,7 @@
 </ul>
 <p><strong>The registry does not authorize transfer or release of data.</strong> Permissions are determined by ethics approvals, agreements, source licenses, and institutional policies.</p>
 <h2 id="2-registry-structure-and-record-granularity">2. Registry structure and record granularity</h2>
-<p>Maintain one row per <strong>cohort and source release</strong> in the machine-readable registry (<code>config/cohort_registry.csv</code>). If an independently processed cohort release differs substantially in data content or provenance, register it as a separate version. Each row must have a unique <code>registry_id</code>.</p>
+<p>Use <code>config/cohort_registry_template.csv</code> as the shared, machine-readable schema. Maintain the populated cohort registry in an approved location, with only explicitly authorized metadata committed to the repository. Register one row per <strong>cohort and source release</strong>. If an independently processed cohort release differs substantially in data content or provenance, register it as a separate version. Each row must have a unique <code>registry_id</code>.</p>
 <p>A cohort is a source-defined analysis population. It may contain multiple treatment arms, tumor types, molecular assays, patients, specimens, and sampling timepoints. Use companion manifests when these cannot be represented accurately by a single row:</p>
 <ul>
 <li><strong>Source manifest:</strong> original files, hashes, locations, access conditions, and source releases.</li>
@@ -256,7 +260,7 @@
 <li><code>count_notes</code>: data freeze, exclusions, partial-release coverage, or counting assumptions.</li>
 </ul>
 <p>Use <code>Unknown</code> or blank for unverified counts; <strong>zero means a verified count of zero</strong>.</p>
-<p>Capture source-supported characteristics without forcing a cohort into one category if multiple apply:</p>
+<p>Capture source-supported characteristics without forcing a cohort into one category if multiple apply. When several categories are present, use a consistent, documented multi-value convention or companion table:</p>
 <table>
 <thead>
 <tr>
@@ -267,7 +271,7 @@
 <tbody>
 <tr>
 <td><code>cancer_types</code></td>
-<td>Source cancer types; mapping to OncoTree Level 1 is documented in the harmonization output. Multiple values may be separated by <code>|</code>.</td>
+<td>Source cancer types; mapping to OncoTree Level 1 is documented in the harmonization output. For multiple values, use a documented delimiter (e.g., semicolon) or a companion table; preserve original source labels.</td>
 </tr>
 <tr>
 <td><code>cancer_subtypes</code></td>
@@ -279,7 +283,7 @@
 </tr>
 <tr>
 <td><code>treatment_categories</code></td>
-<td>Harmonized categories when verified (e.g., PD-(L)1, CTLA4, IO+combo, IO+chemo, IO+targeted).</td>
+<td>Harmonized categories when verified (e.g., PD-1/PD-L1, CTLA4, IO+combo, IO+chemo, IO+targeted).</td>
 </tr>
 <tr>
 <td><code>sampling_timepoints</code></td>
@@ -317,7 +321,37 @@
 </table>
 <p><strong>Availability vs readiness:</strong> <code>Yes</code> indicates that relevant data have been identified, not that fields are sufficiently complete or comparable for pooled analysis. Readiness is assessed separately under <a href="../quality_control/">Quality Control</a>. Do not treat missing/unknown as <code>No</code>.</p>
 <h2 id="6-molecular-data-inventory-and-annotations">6. Molecular data inventory and annotations</h2>
-<p>For each cohort, capture <code>rna_available</code>, <code>dna_available</code>, <code>other_assays</code>, <code>source_data_level</code> (<code>Raw</code>, <code>Processed</code>, <code>Both</code>, <code>Unknown</code>), and <code>assay_notes</code>.</p>
+<p>For each cohort, capture the following registry-level molecular metadata. These availability indicators summarize the cohort; the corresponding sample-level fields in the <a href="../data_dictionary/">Data Dictionary</a> are <code>rna</code>, <code>rna_info</code>, <code>dna</code>, and <code>dna_info</code>. Do not interpret missing or unverified data as <code>No</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Registry field</th>
+<th>Description / recording rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rna_available</code></td>
+<td><code>Yes</code>, <code>No</code>, or <code>Unknown</code>; RNA data availability at cohort level.</td>
+</tr>
+<tr>
+<td><code>dna_available</code></td>
+<td><code>Yes</code>, <code>No</code>, or <code>Unknown</code>; DNA data availability at cohort level.</td>
+</tr>
+<tr>
+<td><code>other_assays</code></td>
+<td>Other documented modalities, if present; do not infer absence from unreported assays.</td>
+</tr>
+<tr>
+<td><code>source_data_level</code></td>
+<td><code>Raw</code>, <code>Processed</code>, <code>Both</code>, or <code>Unknown</code>.</td>
+</tr>
+<tr>
+<td><code>assay_notes</code></td>
+<td>Available assay types, source processing descriptions, coverage, and relevant limitations.</td>
+</tr>
+</tbody>
+</table>
 <p>For each assay, document in a separate assay manifest where applicable:</p>
 <table>
 <thead>
@@ -361,11 +395,11 @@
 <p>Document the project's working approach without retroactively assigning an unverified annotation to published data:</p>
 <ul>
 <li><strong>GENCODE v19</strong> is the principal reference used for applicable published/processed cohorts where harmonization follows the established published-data workflow.</li>
-<li><strong>GENCODE v40</strong> is the preferred annotation for cohorts with raw-data access that are reprocessed through the standardized workflow.</li>
+<li><strong>GENCODE v40</strong> is the preferred annotation for cohorts with raw-data access that are reprocessed through the approved standardized workflow, when compatible with its reference genome and processing pipeline.</li>
 <li><strong>Explicitly reported source version:</strong> retain and record the annotation release specified by the publication, data provider, or processing documentation.</li>
-<li><strong>Undocumented source annotation:</strong> record <code>Unknown</code> until source evidence or identifier checks establish the actual release. Do not assert that published data used v19 solely because v19 is a common project reference.</li>
+<li><strong>Undocumented source annotation:</strong> record <code>Unknown</code> until source evidence or identifier checks establish the actual release. Do not assert that published data used GENCODE v19 solely because it is a common project reference.</li>
 </ul>
-<p>Record gene identifier conversions, genome-build changes, and relevant compatibility limitations. A GENCODE release alone does not establish which reference genome or quantification method was used.</p>
+<p>Record gene identifier conversions, genome-build changes, and relevant compatibility limitations. A GENCODE release alone does not establish which reference genome or quantification method was used. Preserve the source-reported release and validate compatibility before applying an alternative reference.</p>
 <h2 id="7-versioning-quality-review-and-maintenance">7. Versioning, quality review, and maintenance</h2>
 <p>Each registry record should be traceable to a source manifest or authorized provider record. When new data arrive:</p>
 <ol>
@@ -378,7 +412,7 @@
 </ol>
 <p>A change in annotation, cohort definition, endpoint meaning, or source scope must be documented rather than silently replacing a prior interpretation. Keep cohort-specific mapping/QC decisions outside the summary table when they require detailed evidence.</p>
 <h2 id="8-using-the-machine-readable-registry">8. Using the machine-readable registry</h2>
-<p>A companion file, <strong><code>config/cohort_registry_template.csv</code></strong>, defines a common column layout. Copy it to the approved cohort registry location and populate one row per cohort/release. The template contains <strong>no real cohort data</strong>, and its example vocabulary is specified in this document.</p>
+<p>The <strong><code>config/cohort_registry_template.csv</code></strong> file defines a shared column layout. Copy it to an approved registry location and populate one row per cohort/release. The template contains <strong>no real cohort data</strong>. A populated registry may be shared through GitHub only when its entire contents are authorized for public release; otherwise, retain it in approved storage.</p>
 <p>The registry is intended to support source inventories and descriptive cohort summaries. It is <strong>not</strong> a substitute for patient-level clinical metadata, assay manifests, source-level permissions checks, or executable QC.</p>
 <p>For execution instructions, see <a href="../usage/">Usage</a>. For clinical target-variable definitions and source-to-target rules, see <a href="../data_dictionary/">Data Dictionary</a>. For validation and release checks, see <a href="../quality_control/">Quality Control</a>.</p>
 <h2 id="document-history">Document history</h2>
