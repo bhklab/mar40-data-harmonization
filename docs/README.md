@@ -72,18 +72,18 @@ The visualization workflow produces descriptive cohort summaries and figures fro
 - **Example input:** `data/examples/MAR40_synthetic_sample_level.csv`
 - **Required identifiers:** `cohort`, `patientid`, `sampleid`
 - **Configuration:** `config/visualization.yaml`
-- **Rule file:** `workflow/rules/visualization.smk`
+- **Rule file:** `workflow/visualization/rules.smk`
 
 From the repository root, preview the current visualization workflow:
 
 ```bash
-pixi run snakemake --snakefile workflow/Snakefile --cores 1 --dry-run
+pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1 --dry-run
 ```
 
 Execute:
 
 ```bash
-pixi run snakemake --snakefile workflow/Snakefile --cores 1
+pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1
 ```
 
 **Note:** These commands use the original visualization entry point. If visualization has been moved to its own dedicated `workflow/visualization/Snakefile`, use that entry point instead after validating its configuration.

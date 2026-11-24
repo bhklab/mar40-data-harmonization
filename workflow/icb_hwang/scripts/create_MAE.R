@@ -16,10 +16,10 @@
 #     ICB_Hwang.rds
 #
 # Usage:
-#   Rscript workflow/scripts/icb_hwang/create_MAE.R
+#   Rscript workflow/icb_hwang/scripts/create_MAE.R
 #
 # Optional:
-#   Rscript workflow/scripts/icb_hwang/create_MAE.R \
+#   Rscript workflow/icb_hwang/scripts/create_MAE.R \
 #     data/examples/icb_hwang
 #
 # Purpose:

@@ -12,10 +12,10 @@
 #     EXPR.csv (semicolon-delimited)
 #
 # Usage:
-#   Rscript workflow/scripts/icb_hwang/Format_EXPR.R
+#   Rscript workflow/icb_hwang/scripts/Format_EXPR.R
 #
 # Optional:
-#   Rscript workflow/scripts/icb_hwang/Format_EXPR.R \
+#   Rscript workflow/icb_hwang/scripts/Format_EXPR.R \
 #     data/examples/icb_hwang
 #
 # Purpose:

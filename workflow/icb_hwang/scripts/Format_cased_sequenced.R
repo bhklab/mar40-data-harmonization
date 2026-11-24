@@ -12,10 +12,10 @@
 #     cased_sequenced.csv (semicolon-delimited)
 #
 # Usage:
-#   Rscript workflow/scripts/icb_hwang/Format_cased_sequenced.R
+#   Rscript workflow/icb_hwang/scripts/Format_cased_sequenced.R
 #
 # Optional:
-#   Rscript workflow/scripts/icb_hwang/Format_cased_sequenced.R \
+#   Rscript workflow/icb_hwang/scripts/Format_cased_sequenced.R \
 #     data/examples/icb_hwang
 #
 # Purpose:

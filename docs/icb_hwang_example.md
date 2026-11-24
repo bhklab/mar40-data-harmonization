@@ -23,9 +23,9 @@ The expression data originate from an **Oncomine Immune Response Research Assay*
 
 - **Original repository:** [RibaA/ICB_Hwang](https://github.com/RibaA/ICB_Hwang)
 - **GEO dataset:** [GSE136961](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961)
-- **MAR-40 R scripts:** `workflow/scripts/icb_hwang/`
+- **MAR-40 R scripts:** `workflow/icb_hwang/scripts/`
 - **Snakemake entry point:** `workflow/icb_hwang/Snakefile`
-- **Rule definitions:** `workflow/rules/icb_hwang.smk`
+- **Rule definitions:** `workflow/icb_hwang/rules.smk`
 - **Configuration:** `config/icb_hwang.yaml`
 
 The MAR-40 implementation adapts the original Hwang processing scripts to this repository's paths and Snakemake orchestration, while preserving cohort-specific processing conventions where applicable.

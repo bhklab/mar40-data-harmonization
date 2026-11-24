@@ -1,12 +1,11 @@
 # ============================================================
 # MAR-40 | Example 1: ICB_Hwang (GSE136961)
-# Clinical + RNA Harmonization Workflow
+# Clinical + RNA Harmonization Rules
 # ============================================================
 #
 # Purpose:
-#   Process GEO clinical and RNA data, harmonize molecular
-#   and clinical metadata, and construct an expression-only
-#   MultiAssayExperiment (MAE).
+#   Harmonize GEO clinical and RNA expression data and
+#   construct an expression-only MultiAssayExperiment (MAE).
 #
 # Workflow:
 #   1. GEO data preprocessing
@@ -15,24 +14,21 @@
 #   4. RNA expression harmonization
 #   5. MultiAssayExperiment construction
 #
-# All scientific processing uses R.
-# Snakemake manages dependencies and execution.
-#
-# Configuration:
-#   config/icb_hwang.yaml
+# Scientific processing is performed in R.
+# Snakemake manages execution and dependencies.
 #
 # Entry point:
 #   workflow/icb_hwang/Snakefile
 #
-# This workflow is independent of clinical visualization.
+# Configuration:
+#   config/icb_hwang.yaml
 # ============================================================
 
-
 # ------------------------------------------------------------
-# 1. Load Hwang configuration
+# 1. Configuration
 # ------------------------------------------------------------
 
-# Configuration is loaded by workflow/icb_hwang/Snakefile.
+# Loaded by workflow/icb_hwang/Snakefile
 
 H = config["hwang"]
 
@@ -41,10 +37,10 @@ H_DOWNLOAD = H["download_dir"]
 H_CURATED = H["curation_dir"]
 H_ANNOT = H["annotation_file"]
 H_TISSUE = H["tissue_annotation_file"]
-
 H_RSCRIPT = H["rscript"]
 
-H_SCRIPTS = "workflow/scripts/icb_hwang"
+# Workflow-specific R scripts
+H_SCRIPTS = "workflow/icb_hwang/scripts"
 
 
 # ------------------------------------------------------------
@@ -114,7 +110,7 @@ rule hwang_availability:
         rscript=H_RSCRIPT
 
     message:
-        "ICB_Hwang: checking RNA and DNA data availability"
+        "ICB_Hwang: determining molecular data availability"
 
     shell:
         '"{params.rscript}" "{input.script}" "{params.data_root}"'
@@ -138,7 +134,7 @@ rule hwang_format_expr:
         rscript=H_RSCRIPT
 
     message:
-        "ICB_Hwang: harmonizing RNA expression (log2 TPM + 1)"
+        "ICB_Hwang: harmonizing RNA expression (log2(TPM + 1))"
 
     shell:
         '"{params.rscript}" "{input.script}" "{params.data_root}"'

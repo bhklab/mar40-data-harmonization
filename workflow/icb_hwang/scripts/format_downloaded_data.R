@@ -13,10 +13,10 @@
 #     EXP_TPM.tsv
 #
 # Usage:
-#   Rscript workflow/scripts/icb_hwang/format_downloaded_data.R
+#   Rscript workflow/icb_hwang/scripts/format_downloaded_data.R
 #
 # Optional:
-#   Rscript workflow/scripts/icb_hwang/format_downloaded_data.R \
+#   Rscript workflow/icb_hwang/scripts/format_downloaded_data.R \
 #     data/examples/icb_hwang
 #
 # Original source files are never modified.

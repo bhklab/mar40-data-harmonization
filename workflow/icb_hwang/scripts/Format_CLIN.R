@@ -14,10 +14,10 @@
 #     CLIN.csv (semicolon-delimited)
 #
 # Usage:
-#   Rscript workflow/scripts/icb_hwang/Format_CLIN.R
+#   Rscript workflow/icb_hwang/scripts/Format_CLIN.R
 #
 # Optional:
-#   Rscript workflow/scripts/icb_hwang/Format_CLIN.R \
+#   Rscript workflow/icb_hwang/scripts/Format_CLIN.R \
 #     data/examples/icb_hwang
 #
 # Purpose:

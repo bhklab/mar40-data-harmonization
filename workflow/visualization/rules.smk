@@ -1,8 +1,22 @@
-# MAR-40 | Cohort visualization using the EXISTING R script
-#   workflow/scripts/clinical_visualization.R
-# This rule does not re-harmonize clinical data. Input is already standardized.
-# The list of outputs matches MAR40 cohort visualization v1.1; if the local
-# script differs, reconcile filenames before running.
+# ============================================================
+# MAR-40 | Clinical Cohort Visualization Rules
+# ============================================================
+#
+# R script:
+#   workflow/visualization/clinical_visualization.R
+#
+# Input:
+#   Harmonized sample-level clinical metadata
+#
+# Output:
+#   Descriptive cohort figures and summary reports
+#
+# This workflow does not perform clinical harmonization.
+# ============================================================
+
+# ------------------------------------------------------------
+# 1. Figure outputs
+# ------------------------------------------------------------
 
 FIGURE_FILES = [
     "01_cancer_donut.png",
@@ -13,6 +27,10 @@ FIGURE_FILES = [
     "05_sampling_timing_by_cohort.png",
     "06_recist_by_cohort.png",
 ]
+
+# ------------------------------------------------------------
+# 2. Report outputs
+# ------------------------------------------------------------
 
 REPORT_FILES = [
     "cohort_summary.csv",
@@ -33,20 +51,29 @@ REPORT_FILES = [
 
 VISUALIZATION_FILES = FIGURE_FILES + REPORT_FILES
 
+# ------------------------------------------------------------
+# 3. Visualization rule
+# ------------------------------------------------------------
+
 rule cohort_visualization:
     input:
         csv=lambda wc: config["datasets"][wc.dataset]["input"],
-        script="workflow/scripts/clinical_visualization.R",
+        script="workflow/visualization/clinical_visualization.R"
+
     output:
         expand(
             "results/visualization/{{dataset}}/{filename}",
             filename=VISUALIZATION_FILES,
-        ),
+        )
+
     params:
-        outdir=lambda wc: f"results/visualization/{wc.dataset}",
+        outdir=lambda wc: f"results/visualization/{wc.dataset}"
+
     log:
-        "logs/visualization/{dataset}.log",
+        "logs/visualization/{dataset}.log"
+
     threads: 1
+
     shell:
         """
         Rscript {input.script:q} {input.csv:q} {params.outdir:q} > {log:q} 2>&1

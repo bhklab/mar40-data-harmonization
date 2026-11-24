@@ -148,9 +148,9 @@ The working Snakemake workflow creates descriptive cohort figures and summary/QC
 | --- | --- |
 | Example input | `data/examples/MAR40_synthetic_sample_level.csv` |
 | Configuration | `config/visualization.yaml` |
-| Workflow entry point | `workflow/Snakefile` |
-| Snakemake rule | `workflow/rules/visualization.smk` |
-| Analysis script | `workflow/scripts/clinical_visualization.R` |
+| Workflow entry point | `workflow/visualization/Snakefile` |
+| Snakemake rule | `workflow/visualization/rules.smk` |
+| Analysis script | `workflow/visualization/clinical_visualization.R` |
 | Output directory | `results/visualization/example/` |
 | Execution log | `logs/visualization/example.log` |
 
@@ -158,13 +158,13 @@ Run the following from the **repository root** after `pixi install`:
 
 ```bash
 # Check planned jobs without executing them
-pixi run snakemake --snakefile workflow/Snakefile --cores 1 --dry-run
+pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1 --dry-run
 
 # Execute the visualization
-pixi run snakemake --snakefile workflow/Snakefile --cores 1
+pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1
 
 # Recheck the workflow after execution
-pixi run snakemake --snakefile workflow/Snakefile --cores 1 --dry-run
+pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1 --dry-run
 ```
 
 The workflow has been exercised with the synthetic example; Snakemake subsequently reported that its declared outputs were present and up to date. This confirms file-based execution and dependency tracking, **not** full clinical or molecular scientific validation.
@@ -232,7 +232,7 @@ The same workflow should produce structurally comparable outputs at UHN, UCL, an
 | --- | --- |
 | Snakemake command not found | Confirm `pixi install` completed, then check `pixi run snakemake --version`. |
 | Pixi dependency installation fails | Inspect Python/package compatibility and the errors during environment resolution; document any environment changes. |
-| Snakemake cannot find `workflow/Snakefile` | Run commands from the repository root, or provide the correct `--snakefile` path. |
+| Snakemake cannot find `workflow/visualization/Snakefile` | Run commands from the repository root, or provide the correct `--snakefile` path. |
 | Input CSV not found | Check `config/visualization.yaml` and verify that the input path is accessible locally. |
 | R script or package error | Inspect `logs/visualization/example.log` and confirm required R packages in the Pixi environment. |
 | Snakemake reports nothing to do | Expected when all declared outputs are present and up to date. |

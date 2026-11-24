@@ -1,0 +1,26 @@
+# ============================================================
+# MAR-40 | Clinical Cohort Visualization
+# ============================================================
+#
+# Run from the repository root:
+#   pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1
+#
+# This workflow is independent of the ICB_Hwang workflow.
+# ============================================================
+
+configfile: "config/visualization.yaml"
+
+DATASETS = sorted(config["datasets"])
+
+if not DATASETS:
+    raise ValueError("No visualization datasets configured.")
+
+include: "rules.smk"
+
+rule all:
+    input:
+        expand(
+            "results/visualization/{dataset}/{filename}",
+            dataset=DATASETS,
+            filename=VISUALIZATION_FILES,
+        )
