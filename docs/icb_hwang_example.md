@@ -12,6 +12,10 @@ The workflow uses GEO clinical metadata, TPM-normalized gene expression, cohort-
 |---|---:|
 | Clinical records | 21 |
 | RNA expression samples | 21 |
+| Original expression features | 393 |
+| Harmonized expression genes | 390 |
+| Genes matched to GENCODE v19 | 381 |
+| Unmatched genes | 9 |
 | Annotated genes | 381 |
 | MAE sample mappings | 21 |
 | Expression transformation | `log2(TPM + 1)` |
@@ -35,18 +39,18 @@ The MAR-40 implementation adapts the original Hwang processing scripts to this r
 ```text
 config/
 └── icb_hwang.yaml
+
 workflow/
-├── icb_hwang/
-│   └── Snakefile
-├── rules/
-│   └── icb_hwang.smk
-└── scripts/
-    └── icb_hwang/
+└── icb_hwang/
+    ├── Snakefile
+    ├── rules.smk
+    └── scripts/
         ├── format_downloaded_data.R
         ├── Format_CLIN.R
         ├── Format_cased_sequenced.R
         ├── Format_EXPR.R
         └── create_MAE.R
+
 data/
 └── examples/
     └── icb_hwang/
@@ -117,7 +121,7 @@ The successfully tested local installation used **R 4.5.2 on Windows**. The R de
 
 `Format_CLIN.R` currently loads shared functions from **ICB_Common** on GitHub using `source()`. This requires internet access at execution time and does not yet pin those remote functions to a specific commit. The Pixi environment should not be assumed to manage the separately installed Windows R packages unless explicitly configured to do so.
 
-The R executable used in the rules is configurable through `config/icb_hwang.yaml` and/or an environment override if implemented in the rule file. On the tested Windows workstation, the Rscript executable was `C:/Program Files/R/R-4.5.2/bin/x64/Rscript.exe`. Set the executable to a valid path for the local system before running.
+The R executable is configured through `config/icb_hwang.yaml`. The workflow was successfully tested using R 4.5.2 on Windows (`C:/Program Files/R/R-4.5.2/bin/x64/Rscript.exe`). Users should update this path for their local installation.
 
 ## Run from the repository root
 
@@ -150,7 +154,7 @@ The final object is saved to:
 
 ## Validated local execution
 
-In the successful local run, the final MAE contained **381 annotated gene rows and 21 expression columns**. The MAE contained **21 clinical records** and its `sampleMap` had **21 mappings**, with matching GEO GSM identifiers for `primary` and assay `colname`.
+In the successful local run, **393 original expression features** were reduced to **390 harmonized genes**; **381 genes matched GENCODE v19** and **9 were unmatched**. The final MAE contained **381 annotated gene rows and 21 expression columns**. The MAE contained **21 clinical records** and its `sampleMap` had **21 mappings**, with matching GEO GSM identifiers for `primary` and assay `colname`.
 
 These are observed local results showing successful processing and technical clinical–RNA sample integration. They do **not** establish that every clinical harmonization field has undergone full scientific validation.
 
