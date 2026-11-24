@@ -86,8 +86,6 @@ Execute:
 pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1
 ```
 
-**Note:** These commands use the original visualization entry point. If visualization has been moved to its own dedicated `workflow/visualization/Snakefile`, use that entry point instead after validating its configuration.
-
 Outputs include cancer type and immunotherapy treatment distributions; clinical variable availability; sex and RECIST distributions; pre-, on-, and post-treatment sampling summaries; and supporting counts, missingness reports, conflict records, and run metadata.
 
 - **Outputs:** `results/visualization/example/`
@@ -153,25 +151,28 @@ Follow the [Data Curation SOP](docs/data_curation_SOP.md) and [Quality Control G
 
 ```text
 mar40-data-harmonization/
-├── config/                   # Workflow configurations
+├── config/                    # Workflow configurations
 ├── data/
-│   ├── examples/             # Synthetic examples and local cohort example folders
-│   │   └── icb_hwang/        # Hwang download/, annot/, curation/ (data ignored)
-│   ├── rawdata/              # Other approved local source data
-│   └── procdata/             # Other approved local processed data
-├── docs/                     # SOPs, dictionaries, workflow documentation
-├── metadata/                 # Project metadata and supporting records
-├── resources/                # Reference resources
+│   ├── examples/              # Synthetic and local cohort examples
+│   │   └── icb_hwang/         # Local Hwang input and output data
+│   ├── rawdata/               # Approved local source data
+│   └── procdata/              # Approved local processed data
+├── docs/                      # SOPs and workflow documentation
+├── metadata/                  # Project metadata
+├── resources/                 # Reference resources
 ├── workflow/
-│   ├── Snakefile             # Existing visualization entry point
 │   ├── icb_hwang/
-│   │   └── Snakefile         # Separate Hwang entry point
-│   ├── rules/                # Snakemake rules for each workflow
-│   └── scripts/              # Scientific R scripts
-├── results/                  # Generated outputs (ignored)
-├── logs/                     # Workflow logs (ignored)
-├── pixi.toml                 # Environment specification
-└── pixi.lock                 # Resolved dependencies
+│   │   ├── Snakefile
+│   │   ├── rules.smk
+│   │   └── scripts/           # Five Hwang R processing scripts
+│   └── visualization/
+│       ├── Snakefile
+│       ├── rules.smk
+│       └── clinical_visualization.R
+├── results/                   # Generated outputs (ignored)
+├── logs/                      # Execution logs (ignored)
+├── pixi.toml                  # Environment specification
+└── pixi.lock                  # Resolved dependencies
 ```
 
 See the [Raw Data README](data/rawdata/README.md) and [Processed Data README](data/procdata/README.md) for other directory conventions.
