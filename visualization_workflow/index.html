@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Farnoosh Abbas Aghababazadeh" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>MAR-40 cohort visualization with Snakemake - MAR-40 Data Harmonization and Standardization</title>
+    <title>MAR-40 Cohort Visualization with Snakemake - MAR-40 Data Harmonization and Standardization</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "MAR-40 cohort visualization with Snakemake";
+        var mkdocs_page_name = "MAR-40 Cohort Visualization with Snakemake";
         var mkdocs_page_input_path = "visualization_workflow.md";
         var mkdocs_page_url = null;
       </script>
@@ -86,7 +86,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">MAR-40 cohort visualization with Snakemake</li>
+      <li class="breadcrumb-item active">MAR-40 Cohort Visualization with Snakemake</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/bhklab/mar-40-data-harmonization-and-standardization/edit/master/docs/visualization_workflow.md">Edit on mar-40-data-harmonization-and-standardization</a>
     </li>
@@ -96,42 +96,131 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="mar-40-cohort-visualization-with-snakemake">MAR-40 cohort visualization with Snakemake</h1>
-<h2 id="scope-and-inputs">Scope and inputs</h2>
-<p>Run from the repository root. The workflow invokes the <strong>existing</strong> <code>workflow/visualization/clinical_visualization.R</code> and expects an already harmonized, comma-delimited, sample-level table containing <code>cohort</code>, <code>patientid</code>, and <code>sampleid</code>. The script accepts input and output paths as its first two positional arguments. The synthetic example lives at <code>data/examples/MAR40_synthetic_sample_level.csv</code> and is suitable for testing; restricted clinical data must remain in approved institutional storage.</p>
-<p>Missing fields (e.g. all-missing <code>age</code> or <code>stage</code>, partially missing <code>response</code>) are permitted. Interpret <code>F/M</code>, <code>R/NR</code>, <code>CR/PR/SD/PD/NE</code>, and <code>NA</code> using the MAR-40 data dictionary. This workflow <strong>does not</strong> perform source-specific harmonization, determine data-access rights, or verify that OS/PFS are analysis-ready.</p>
-<h2 id="files">Files</h2>
-<ul>
-<li><code>workflow/visualization/Snakefile</code>: workflow entry point</li>
-<li><code>workflow/visualization/rules.smk</code>: rule and expected outputs</li>
-<li><code>workflow/visualization/clinical_visualization.R</code>: existing R visualization script (not overwritten by this bundle)</li>
-<li><code>config/visualization.yaml</code>: datasets and input paths</li>
-<li><code>data/examples/MAR40_synthetic_sample_level.csv</code>: tracked synthetic example</li>
-<li><code>results/visualization/&lt;dataset&gt;/</code>: generated figures, QC tables, and manifest</li>
-<li><code>logs/visualization/&lt;dataset&gt;.log</code>: execution log</li>
-</ul>
-<h2 id="run">Run</h2>
-<pre><code class="language-bash">snakemake --snakefile workflow/visualization/Snakefile --cores 1 --dry-run
-snakemake --snakefile workflow/visualization/Snakefile --cores 1
+                <h1 id="mar-40-cohort-visualization-with-snakemake">MAR-40 Cohort Visualization with Snakemake</h1>
+<p><strong>Status:</strong> Implemented and validated with a successful Snakemake dry-run. In the latest execution check, the existing visualization outputs were present and up to date; the R script was not rerun.</p>
+<h2 id="overview">Overview</h2>
+<p>This workflow generates descriptive figures and summary reports from <strong>already harmonized, sample-level clinical metadata</strong>. It uses R for visualization, Snakemake for workflow orchestration, and Pixi to launch Snakemake. It runs independently of the ICB_Hwang clinical + RNA harmonization workflow.</p>
+<p>The workflow does <strong>not</strong> harmonize source data, establish data-access permissions, or confirm that clinical endpoints such as overall survival (OS) and progression-free survival (PFS) are analysis-ready.</p>
+<h2 id="repository-structure">Repository structure</h2>
+<pre><code class="language-text">config/
+└── visualization.yaml
+
+workflow/
+└── visualization/
+    ├── Snakefile
+    ├── rules.smk
+    └── clinical_visualization.R
+
+data/
+└── examples/
+    └── MAR40_synthetic_sample_level.csv
+
+results/
+└── visualization/
+    └── &lt;dataset&gt;/
+
+logs/
+└── visualization/
+    └── &lt;dataset&gt;.log
 </code></pre>
-<p>If Snakemake is installed in Pixi, use <code>pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1</code> instead. The environment must also provide <code>Rscript</code> and the R dependencies <code>ggplot2</code>, <code>dplyr</code>, <code>tidyr</code>, and <code>ComplexHeatmap</code> to the shell; validate package availability using <code>Rscript -e 'sapply(c("ggplot2","dplyr","tidyr","ComplexHeatmap"), requireNamespace, quietly=TRUE)'</code>. Pixi tasks and package definitions have not been verified against your local <code>pixi.toml</code>.</p>
-<p>To run a different harmonized CSV, add a dataset under <code>datasets:</code> in <code>config/visualization.yaml</code> (or provide a separate local config via <code>--configfile</code>). Each dataset writes to its own results subfolder.</p>
-<h3 id="example">Example</h3>
+<p>The <code>results/</code> and <code>logs/</code> directories contain generated outputs and should not be committed to the public repository unless explicitly approved.</p>
+<h2 id="input-requirements">Input requirements</h2>
+<p>The input is a <strong>comma-delimited CSV</strong> with one row per sample and the required identifiers:</p>
+<ul>
+<li><code>cohort</code></li>
+<li><code>patientid</code></li>
+<li><code>sampleid</code></li>
+</ul>
+<p>Additional variables may include cancer type, treatment, sex, age, stage, response, RECIST category, sampling timepoint, OS, PFS, and molecular data availability. Missing values are permitted, including variables unavailable for an entire cohort.</p>
+<p>Use the <a href="../data_dictionary/">MAR-40 Data Dictionary</a> for standardized definitions and accepted values. In particular, distinguish <strong>missing values</strong> from negative observations and distinguish patient-, sample-, treatment-, and timepoint-level information.</p>
+<p><strong>Test input:</strong> <code>data/examples/MAR40_synthetic_sample_level.csv</code>. This synthetic dataset enables workflow testing without exposing restricted patient-level records.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Dataset inputs are defined in <code>config/visualization.yaml</code>. For example:</p>
 <pre><code class="language-yaml">datasets:
   example:
     input: data/examples/MAR40_synthetic_sample_level.csv
-  ucl:
-    input: /approved/institutional/storage/UCL_harmonized_samples.csv
 </code></pre>
-<h2 id="before-the-first-run">Before the first run</h2>
+<p>To process another approved, harmonized dataset, add a named dataset under <code>datasets:</code> with its input CSV path. Each dataset has a separate output directory and log file.</p>
+<p>If the visualization rule is configured to use a specific R installation, also set the top-level <code>rscript</code> value in <code>config/visualization.yaml</code> and ensure <code>workflow/visualization/rules.smk</code> reads it. On the tested Windows workstation, R 4.5.2 was available at:</p>
+<pre><code class="language-yaml">rscript: &quot;C:/Program Files/R/R-4.5.2/bin/x64/Rscript.exe&quot;
+</code></pre>
+<p>This setting is optional <strong>only if</strong> the rule uses the corresponding <code>config.get("rscript", "Rscript")</code> parameter. Otherwise, the rule invokes <code>Rscript</code> from the execution environment. Verify the actual rule before relying on this configuration.</p>
+<h2 id="run-from-the-repository-root">Run from the repository root</h2>
+<p>In Git Bash:</p>
+<pre><code class="language-bash"># Preview the workflow without running R
+pixi run snakemake \
+  --snakefile workflow/visualization/Snakefile \
+  --cores 1 \
+  --dry-run
+
+# Execute the workflow
+pixi run snakemake \
+  --snakefile workflow/visualization/Snakefile \
+  --cores 1 \
+  --printshellcmds
+</code></pre>
+<p>The R script receives two positional arguments: the <strong>input CSV path</strong> and the <strong>output directory</strong>. The workflow uses the existing <code>workflow/visualization/clinical_visualization.R</code>; it does not replace or modify that script.</p>
+<p>Before an actual run, confirm the required R packages are installed in the R environment used by the Snakemake rule. The visualization script may require packages such as <code>ggplot2</code>, <code>dplyr</code>, <code>tidyr</code>, and <code>ComplexHeatmap</code>.</p>
+<h2 id="generated-outputs">Generated outputs</h2>
+<p>For a dataset named <code>example</code>, generated files are written to <code>results/visualization/example/</code> and the execution log to <code>logs/visualization/example.log</code>.</p>
+<p>The workflow declares the following figure outputs:</p>
+<table>
+<thead>
+<tr>
+<th>Figure</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cancer type distribution</td>
+<td><code>01_cancer_donut.png</code></td>
+</tr>
+<tr>
+<td>Treatment distribution</td>
+<td><code>02_treatment_donut.png</code></td>
+</tr>
+<tr>
+<td>Clinical variable availability</td>
+<td><code>03_clinical_availability_heatmap.png</code>, <code>.pdf</code></td>
+</tr>
+<tr>
+<td>Sex by cohort</td>
+<td><code>04_sex_by_cohort.png</code></td>
+</tr>
+<tr>
+<td>Sampling timing by cohort</td>
+<td><code>05_sampling_timing_by_cohort.png</code></td>
+</tr>
+<tr>
+<td>RECIST by cohort</td>
+<td><code>06_recist_by_cohort.png</code></td>
+</tr>
+</tbody>
+</table>
+<p>Additional reports include cohort-level summaries, clinical variable availability and missingness, patient-level conflicts, assay-source labels, observed follow-up summaries, counts underlying figures, and <code>run_manifest.txt</code>. The full expected output list is defined in <code>workflow/visualization/rules.smk</code>.</p>
+<p>These outputs support <strong>descriptive cohort review</strong>; they are not a substitute for source-data QC, endpoint validation, or scientific approval.</p>
+<h2 id="validation-and-checks">Validation and checks</h2>
+<p>The reorganized workflow successfully completed a Snakemake dry-run using:</p>
+<ul>
+<li><strong>Entry point:</strong> <code>workflow/visualization/Snakefile</code></li>
+<li><strong>Rule file:</strong> <code>workflow/visualization/rules.smk</code></li>
+<li><strong>R script:</strong> <code>workflow/visualization/clinical_visualization.R</code></li>
+<li><strong>Example input:</strong> <code>data/examples/MAR40_synthetic_sample_level.csv</code></li>
+</ul>
+<p>The subsequent execution command reported <strong>“Nothing to be done (all requested files are present and up to date).”</strong> This confirms Snakemake recognized the existing outputs, but does not constitute a fresh R execution after the directory reorganization.</p>
+<p>Before using a new dataset or changing the R script:</p>
 <ol>
-<li>Confirm <code>workflow/visualization/clinical_visualization.R</code> exists and accepts <code>INPUT.csv OUTPUT_DIR</code>. If not, adapt the script or the rule.</li>
-<li>Confirm its output filenames match <code>FIGURE_FILES</code> and <code>REPORT_FILES</code> in <code>workflow/visualization/rules.smk</code>. The list is based on the previously reviewed v1.1 script; if filenames differ, update the rule.</li>
-<li>Verify the source CSV is standardized. The R script does not automatically import semicolon-delimited source metadata.</li>
-<li>Check <code>.gitignore</code> excludes <code>/results/</code> and <code>/logs/</code> (and non-shareable <code>/data/rawdata/</code>, <code>/data/procdata/</code>) but does not exclude <code>/data/examples/</code>.</li>
-<li>Only publish input CSVs, figures, and reports when their sharing permissions allow it.</li>
+<li>Confirm the input CSV contains <code>cohort</code>, <code>patientid</code>, and <code>sampleid</code>, and follows the MAR-40 data dictionary.</li>
+<li>Confirm the selected R executable and required packages are available.</li>
+<li>Confirm the output filenames produced by <code>clinical_visualization.R</code> agree with <code>FIGURE_FILES</code> and <code>REPORT_FILES</code> in <code>rules.smk</code>.</li>
+<li>Review generated summaries, missingness, and conflict reports for interpretation and potential curation issues.</li>
+<li>Confirm permissions before sharing any real-data-derived figures, reports, or tables.</li>
 </ol>
-<p>Snakemake is incremental: edit the input CSV or the R script to rerun the corresponding dataset. No cross-site dataset is automatically transferred or merged.</p>
+<p>Snakemake tracks dependencies and may rerun a dataset when its input file or R script changes. It does not automatically transfer or merge data between institutions.</p>
+<h2 id="data-access-and-sharing">Data access and sharing</h2>
+<p>Restricted clinical datasets must remain in approved institutional storage. Synthetic or otherwise explicitly authorized examples may be shared through the repository. Publication of derived plots or summary tables is also subject to applicable data-use permissions and institutional review.</p>
+<p>For upstream curation and standardization procedures, see the <a href="../data_curation_SOP/">Data Curation SOP</a>, <a href="../data_dictionary/">Data Dictionary</a>, and <a href="../quality_control/">Quality Control Guide</a>.</p>
               
             </div>
           </div><footer>
