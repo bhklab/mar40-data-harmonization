@@ -97,49 +97,210 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="example-1-icb_hwang-clinical-rna">Example 1 — ICB_Hwang (Clinical + RNA)</h1>
-<p><strong>Status:</strong> Merge overlay prepared; R scripts must be imported and the merged workflow validated locally before claiming reproducibility.</p>
-<p>The Hwang immunotherapy cohort is associated with GEO <strong>GSE136961</strong>. The workflow uses source clinical data, a targeted RNA expression matrix, documented cohort-specific standardization, and GENCODE v19 gene annotations to create an expression-only MultiAssayExperiment (MAE). It does not create DNA assay data.</p>
+<p><strong>Status:</strong> Implemented and successfully executed locally using Pixi, Snakemake, and R. Automated quality control is planned.</p>
+<h2 id="overview">Overview</h2>
+<p>The Hwang immunotherapy cohort is available through GEO accession <strong>GSE136961</strong>. This example demonstrates a reproducible workflow for harmonizing clinical metadata and targeted RNA expression data and integrating them into an expression-only MultiAssayExperiment (MAE).</p>
+<p>The workflow uses GEO clinical metadata, TPM-normalized gene expression, cohort-specific clinical harmonization functions, and GENCODE v19 gene annotations. It does <strong>not</strong> generate DNA assay data.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align: right;">Validated local result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clinical records</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr>
+<td>RNA expression samples</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr>
+<td>Annotated genes</td>
+<td style="text-align: right;">381</td>
+</tr>
+<tr>
+<td>MAE sample mappings</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr>
+<td>Expression transformation</td>
+<td style="text-align: right;"><code>log2(TPM + 1)</code></td>
+</tr>
+<tr>
+<td>Gene annotation</td>
+<td style="text-align: right;">GENCODE v19</td>
+</tr>
+</tbody>
+</table>
+<p>The expression data originate from an <strong>Oncomine Immune Response Research Assay</strong> targeted immune-response panel, not whole-transcriptome RNA sequencing.</p>
 <h2 id="source-and-attribution">Source and attribution</h2>
 <ul>
-<li>Source repository: <a href="https://github.com/RibaA/ICB_Hwang">https://github.com/RibaA/ICB_Hwang</a></li>
-<li>GEO: <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961">https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961</a></li>
-<li>Imported R source revision: <code>workflow/scripts/icb_hwang/UPSTREAM_COMMIT.txt</code> (generated on import)</li>
-<li>Upstream scripts are copied into <code>workflow/scripts/icb_hwang/</code> without moving any repository data, binary annotation files, or Git metadata.</li>
+<li><strong>Original repository:</strong> <a href="https://github.com/RibaA/ICB_Hwang">RibaA/ICB_Hwang</a></li>
+<li><strong>GEO dataset:</strong> <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961">GSE136961</a></li>
+<li><strong>MAR-40 R scripts:</strong> <code>workflow/scripts/icb_hwang/</code></li>
+<li><strong>Snakemake entry point:</strong> <code>workflow/icb_hwang/Snakefile</code></li>
+<li><strong>Rule definitions:</strong> <code>workflow/rules/icb_hwang.smk</code></li>
+<li><strong>Configuration:</strong> <code>config/icb_hwang.yaml</code></li>
 </ul>
-<h2 id="import-existing-scripts">Import existing scripts</h2>
-<p>From the <strong>MAR-40 root directory</strong>, with Git Bash:</p>
-<pre><code class="language-bash">git clone https://github.com/RibaA/ICB_Hwang.git ../ICB_Hwang
-pixi run python tools/import_icb_hwang.py --source ../ICB_Hwang
+<p>The MAR-40 implementation adapts the original Hwang processing scripts to this repository's paths and Snakemake orchestration, while preserving cohort-specific processing conventions where applicable.</p>
+<h2 id="repository-structure">Repository structure</h2>
+<pre><code class="language-text">config/
+└── icb_hwang.yaml
+workflow/
+├── icb_hwang/
+│   └── Snakefile
+├── rules/
+│   └── icb_hwang.smk
+└── scripts/
+    └── icb_hwang/
+        ├── format_downloaded_data.R
+        ├── Format_CLIN.R
+        ├── Format_cased_sequenced.R
+        ├── Format_EXPR.R
+        └── create_MAE.R
+data/
+└── examples/
+    └── icb_hwang/
+        ├── README.md
+        ├── download/
+        ├── annot/
+        └── curation/
 </code></pre>
-<p>Alternatively, <code>pixi run python tools/import_icb_hwang.py --clone</code> downloads the repository automatically. Existing imported files will not be overwritten unless <code>--overwrite</code> is used.</p>
-<p>The importer updates only the stale comment in <code>Format_EXPR.R</code> from <code>log2(TPM + 0.001)</code> to <strong><code>log2(TPM + 1)</code></strong>; the computational expression transformation in the upstream script already uses <code>log2(tpm + 1)</code>.</p>
-<h2 id="connect-workflow">Connect workflow</h2>
-<p>Append this line to the <strong>existing</strong> <code>workflow/Snakefile</code> without removing its visualization rules or changing the default <code>all</code> target:</p>
-<pre><code class="language-python">include: &quot;rules/icb_hwang.smk&quot;
-</code></pre>
-<p>The Hwang rules have unique <code>hwang_</code> prefixes. Use the explicit Hwang MAE target below so the original visualization workflow remains independent.</p>
-<h2 id="required-local-annotation-and-dependencies">Required local annotation and dependencies</h2>
+<p>The Hwang workflow has a dedicated Snakefile and runs independently of the clinical visualization workflow.</p>
+<h2 id="required-local-input-data">Required local input data</h2>
+<p>Place the following files under <code>data/examples/icb_hwang/</code> before running the workflow.</p>
+<table>
+<thead>
+<tr>
+<th>Directory</th>
+<th>Required file</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>download/</code></td>
+<td><code>GSE136961_series_matrix.txt.gz</code></td>
+<td>GEO sample and clinical metadata</td>
+</tr>
+<tr>
+<td><code>download/</code></td>
+<td><code>GSE136961_TPM.tsv.gz</code></td>
+<td>TPM-normalized targeted expression</td>
+</tr>
+<tr>
+<td><code>annot/</code></td>
+<td><code>curation_tissue.csv</code></td>
+<td>Tissue harmonization</td>
+</tr>
+<tr>
+<td><code>annot/</code></td>
+<td><code>Gencode.v19.annotation.RData</code></td>
+<td>Gene annotations (<code>features_gene</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Other provenance files, such as <code>curation_drug.csv</code> and <code>DATASET_LOAD_INFO.csv</code>, may be retained locally in <code>annot/</code>; they are not declared as required inputs in the current five-rule pipeline.</p>
+<p>The current Snakemake workflow <strong>expects these input files locally</strong>; it does not download them automatically. Local downloads, annotation binaries, and generated curation files are excluded from Git unless separately approved for redistribution.</p>
+<h2 id="processing-workflow">Processing workflow</h2>
+<p>The workflow consists of five R scripts, with execution and dependencies managed by Snakemake.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>R script</th>
+<th>Output under <code>curation/</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. GEO preprocessing</td>
+<td><code>format_downloaded_data.R</code></td>
+<td><code>CLIN.txt</code>, <code>EXP_TPM.tsv</code></td>
+</tr>
+<tr>
+<td>2. Clinical harmonization</td>
+<td><code>Format_CLIN.R</code></td>
+<td><code>CLIN.csv</code></td>
+</tr>
+<tr>
+<td>3. Molecular availability</td>
+<td><code>Format_cased_sequenced.R</code></td>
+<td><code>cased_sequenced.csv</code></td>
+</tr>
+<tr>
+<td>4. RNA harmonization</td>
+<td><code>Format_EXPR.R</code></td>
+<td><code>EXPR.csv</code></td>
+</tr>
+<tr>
+<td>5. MAE construction</td>
+<td><code>create_MAE.R</code></td>
+<td><code>ICB_Hwang.rds</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="geo-preprocessing-and-sample-mapping">GEO preprocessing and sample mapping</h3>
+<p><code>format_downloaded_data.R</code> extracts sample metadata from the GEO series matrix and reads the compressed TPM data through an R gzip connection. Expression columns identified by sample titles (for example, <code>D01</code>, <code>D06</code>, and <code>N10</code>) are matched against <code>clin$title</code> and renamed using the corresponding <code>clin$geo_accession</code> values (<code>GSM...</code>). Original downloaded files remain unchanged.</p>
+<h3 id="clinical-harmonization">Clinical harmonization</h3>
+<p><code>Format_CLIN.R</code> preserves the original GEO metadata fields and creates legacy ICB clinical variables, including tissue classification, treatment class, survival times, event indicators, and derived response annotations. Survival times are converted from days to months.</p>
+<p>The cohort included <strong>nivolumab or pembrolizumab</strong> (anti-PD-1); the study-level treatment options should not be interpreted as verified patient-specific combined therapy. <code>Get_Response()</code> may derive response using PFS-related information rather than directly reproducing the source study's RECIST-based durable clinical benefit classification. These definitions require scientific review for cross-cohort analyses.</p>
+<h3 id="molecular-availability">Molecular availability</h3>
+<p><code>Format_cased_sequenced.R</code> creates the legacy ICB fields <code>patient</code>, <code>snv</code>, <code>cna</code>, and <code>expr</code>. RNA availability is checked against expression sample columns. SNV/CNA data not supplied in this curated example should not be interpreted as biological absence of alterations.</p>
+<h3 id="rna-expression-harmonization">RNA expression harmonization</h3>
+<p><code>Format_EXPR.R</code> extracts gene symbols from <code>Symbol_ID</code>, resolves duplicate symbols by retaining the row with the highest total TPM across samples, and keeps RNA-available samples. Values are transformed using <strong><code>log2(TPM + 1)</code></strong>. The output matrix has genes as rows and GEO GSM sample identifiers as columns.</p>
+<h3 id="multiassayexperiment-construction">MultiAssayExperiment construction</h3>
+<p><code>create_MAE.R</code> joins harmonized clinical and expression samples by matching identifiers, annotates genes using GENCODE v19, and constructs an expression-only MAE with a ranged SummarizedExperiment. Genes without matching annotation are omitted from the annotated MAE but remain in <code>EXPR.csv</code>.</p>
+<h2 id="software-dependencies">Software dependencies</h2>
 <ul>
-<li>Place the approved <code>Gencode.v19.annotation.RData</code> containing <code>features_gene</code> at <code>resources/annotations/Gencode.v19.annotation.RData</code>, or update <code>config/icb_hwang.yaml</code> to use the approved existing path.</li>
-<li>The tissue annotation <code>curation_tissue.csv</code> is downloaded by the workflow.</li>
-<li>R packages include <code>GEOquery</code>, <code>data.table</code>, <code>stringr</code>, <code>tibble</code>, <code>SummarizedExperiment</code>, <code>MultiAssayExperiment</code>, <code>GenomicRanges</code>, and their dependencies.</li>
-<li><code>Format_CLIN.R</code> currently loads three <code>ICB_Common</code> helpers from upstream <code>raw.githubusercontent.com</code> using <code>source()</code>. This requires network access unless these functions are separately vendored and the script adapted.</li>
-<li>Install and test these R/Bioconductor dependencies in your selected environment. The overlay <strong>does not edit</strong> <code>pixi.toml</code> or <code>pixi.lock</code>, because the existing platform/environment configuration has not been supplied.</li>
-<li>For Windows, execution in Linux/WSL may be more reliable than native Git Bash. All paths are configured relative to the MAR-40 repository.</li>
+<li><strong>Pixi:</strong> Launches the workflow tooling.</li>
+<li><strong>Snakemake:</strong> Schedules and connects the five processing rules.</li>
+<li><strong>R:</strong> Performs scientific data processing and constructs the MAE.</li>
 </ul>
-<h2 id="dry-run-and-execution">Dry run and execution</h2>
-<pre><code class="language-bash"># Preview required jobs; an existing annotation file is necessary for MAE execution
-pixi run snakemake --snakefile workflow/Snakefile --cores 1 \
-  --dry-run data/procdata/icb_hwang/ICB_Hwang.rds
+<p>The successfully tested local installation used <strong>R 4.5.2 on Windows</strong>. The R dependencies checked successfully were <code>GEOquery</code>, <code>Biobase</code>, <code>data.table</code>, <code>stringr</code>, <code>tibble</code>, <code>SummarizedExperiment</code>, <code>MultiAssayExperiment</code>, <code>GenomicRanges</code>, and <code>S4Vectors</code>.</p>
+<p><code>Format_CLIN.R</code> currently loads shared functions from <strong>ICB_Common</strong> on GitHub using <code>source()</code>. This requires internet access at execution time and does not yet pin those remote functions to a specific commit. The Pixi environment should not be assumed to manage the separately installed Windows R packages unless explicitly configured to do so.</p>
+<p>The R executable used in the rules is configurable through <code>config/icb_hwang.yaml</code> and/or an environment override if implemented in the rule file. On the tested Windows workstation, the Rscript executable was <code>C:/Program Files/R/R-4.5.2/bin/x64/Rscript.exe</code>. Set the executable to a valid path for the local system before running.</p>
+<h2 id="run-from-the-repository-root">Run from the repository root</h2>
+<p>Commands below use Git Bash syntax:</p>
+<pre><code class="language-bash"># Inspect registered rules
+pixi run snakemake \
+  --snakefile workflow/icb_hwang/Snakefile \
+  --list-rules
 
-# Run the Hwang curation example
-pixi run snakemake --snakefile workflow/Snakefile --cores 1 \
-  data/procdata/icb_hwang/ICB_Hwang.rds
+# Preview dependencies; does not run R
+pixi run snakemake \
+  --snakefile workflow/icb_hwang/Snakefile \
+  --cores 1 \
+  --dry-run
+
+# Execute the Hwang workflow
+pixi run snakemake \
+  --snakefile workflow/icb_hwang/Snakefile \
+  --cores 1 \
+  --printshellcmds
 </code></pre>
-<p><strong>Expected outputs</strong> are <code>data/procdata/icb_hwang/CLIN.csv</code>, <code>EXPR.csv</code>, <code>cased_sequenced.csv</code>, and <code>ICB_Hwang.rds</code>. Source GEO downloads are stored in <code>data/rawdata/icb_hwang/download/</code>. These are generated data and should not be committed indiscriminately to a public repository.</p>
-<h2 id="scientific-validation-prior-to-release">Scientific validation prior to release</h2>
-<p>Confirm the GEO download checksums and sample IDs; verify clinical mapping, missingness, RECIST/response and survival definitions; confirm that TPM values are transformed using <code>log2(TPM + 1)</code>; check expression sample linkage and the MAE <code>sampleMap</code>; verify GENCODE v19 feature mappings and record unmatched genes. Compare counts against the upstream run, but do not assume the published figures are reproduced until local outputs have been checked.</p>
-<p><strong>Important:</strong> The upstream <code>Format_CLIN.R</code> includes cohort-specific clinical response logic and sources remote helper functions. It should undergo scientific review rather than being described as universally validated MAR-40 response harmonization. Also, its <code>rna</code> and <code>rna_info</code> semantics differ from the MAR-40 core availability field specification; consider a documented adapter for downstream standardized visualizations rather than silently changing the upstream file.</p>
+<p>In PowerShell, run each command on one line or use PowerShell's backtick continuation instead of <code>\</code>.</p>
+<p>The final object is saved to:</p>
+<p><code>data/examples/icb_hwang/curation/ICB_Hwang.rds</code></p>
+<h2 id="validated-local-execution">Validated local execution</h2>
+<p>In the successful local run, the final MAE contained <strong>381 annotated gene rows and 21 expression columns</strong>. The MAE contained <strong>21 clinical records</strong> and its <code>sampleMap</code> had <strong>21 mappings</strong>, with matching GEO GSM identifiers for <code>primary</code> and assay <code>colname</code>.</p>
+<p>These are observed local results showing successful processing and technical clinical–RNA sample integration. They do <strong>not</strong> establish that every clinical harmonization field has undergone full scientific validation.</p>
+<p>For manual inspection in R:</p>
+<pre><code class="language-r">library(MultiAssayExperiment)
+mae &lt;- readRDS(&quot;data/examples/icb_hwang/curation/ICB_Hwang.rds&quot;)
+dim(mae[[&quot;expr&quot;]])
+nrow(colData(mae))
+sampleMap(mae)
+</code></pre>
+<h2 id="quality-control-and-planned-improvements">Quality control and planned improvements</h2>
+<p><strong>Automated QC is deferred.</strong> Initial manual inspection confirmed that expression samples and clinical records were present and linked in the MAE. Planned additions include automated sample correspondence checks, missingness and identifier validation, response/survival definition review, gene mapping summaries, source checksums, pinned ICB_Common functions, and cross-platform environment testing.</p>
+<h2 id="mar-40-data-dictionary-considerations">MAR-40 data dictionary considerations</h2>
+<p>This example retains some <strong>legacy ICB</strong> field definitions for compatibility with the original workflow. In particular, the meanings of <code>rna</code> and <code>rna_info</code> and the use of GSM accession as the legacy <code>patient</code> key differ from the MAR-40 core metadata specification. Future use in standardized MAR-40 visualizations or cross-cohort analyses should employ a documented mapping or adapter rather than silently changing the cohort-specific source fields.</p>
+<h2 id="data-sharing">Data sharing</h2>
+<p>Only scripts, configurations, documentation, and approved example resources should be committed to Git. Original downloaded inputs, large annotations, generated harmonized matrices, and MAE objects should remain local unless their sharing is explicitly reviewed and permitted. The documentation alone does not provide all source files or make the workflow completely self-contained.</p>
               
             </div>
           </div><footer>
