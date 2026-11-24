@@ -1,0 +1,12 @@
+# ============================================================
+# MAR-40 | Example 1: ICB_Hwang (GSE136961)
+# Clinical + RNA Harmonization
+# ============================================================
+
+configfile: "config/icb_hwang.yaml"
+
+rule all:
+    input:
+        "data/examples/icb_hwang/curation/ICB_Hwang.rds"
+
+include: "../rules/icb_hwang.smk"
