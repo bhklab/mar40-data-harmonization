@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Farnoosh Abbas Aghababazadeh" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Example 1 — ICB_Hwang (Clinical + RNA) - MAR-40 Data Harmonization and Standardization</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Example 1 \u2014 ICB_Hwang (Clinical + RNA)";
+        var mkdocs_page_input_path = "icb_hwang_example.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> MAR-40 Data Harmonization and Standardization
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../usage/">Installation and Usage</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data Sources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_sources/">Cohort Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data Standardization</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_curation_SOP/">Data Curation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_dictionary/">Standardized Data Dictionary</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../quality_control/">Quality Control</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reproducible Workflow</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../snakemake_workflow.md">Snakemake Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../devnotes/">Developer Notes</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">MAR-40 Data Harmonization and Standardization</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Example 1 — ICB_Hwang (Clinical + RNA)</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/bhklab/mar-40-data-harmonization-and-standardization/edit/master/docs/icb_hwang_example.md">Edit on mar-40-data-harmonization-and-standardization</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="example-1-icb_hwang-clinical-rna">Example 1 — ICB_Hwang (Clinical + RNA)</h1>
+<p><strong>Status:</strong> Merge overlay prepared; R scripts must be imported and the merged workflow validated locally before claiming reproducibility.</p>
+<p>The Hwang immunotherapy cohort is associated with GEO <strong>GSE136961</strong>. The workflow uses source clinical data, a targeted RNA expression matrix, documented cohort-specific standardization, and GENCODE v19 gene annotations to create an expression-only MultiAssayExperiment (MAE). It does not create DNA assay data.</p>
+<h2 id="source-and-attribution">Source and attribution</h2>
+<ul>
+<li>Source repository: <a href="https://github.com/RibaA/ICB_Hwang">https://github.com/RibaA/ICB_Hwang</a></li>
+<li>GEO: <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961">https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961</a></li>
+<li>Imported R source revision: <code>workflow/scripts/icb_hwang/UPSTREAM_COMMIT.txt</code> (generated on import)</li>
+<li>Upstream scripts are copied into <code>workflow/scripts/icb_hwang/</code> without moving any repository data, binary annotation files, or Git metadata.</li>
+</ul>
+<h2 id="import-existing-scripts">Import existing scripts</h2>
+<p>From the <strong>MAR-40 root directory</strong>, with Git Bash:</p>
+<pre><code class="language-bash">git clone https://github.com/RibaA/ICB_Hwang.git ../ICB_Hwang
+pixi run python tools/import_icb_hwang.py --source ../ICB_Hwang
+</code></pre>
+<p>Alternatively, <code>pixi run python tools/import_icb_hwang.py --clone</code> downloads the repository automatically. Existing imported files will not be overwritten unless <code>--overwrite</code> is used.</p>
+<p>The importer updates only the stale comment in <code>Format_EXPR.R</code> from <code>log2(TPM + 0.001)</code> to <strong><code>log2(TPM + 1)</code></strong>; the computational expression transformation in the upstream script already uses <code>log2(tpm + 1)</code>.</p>
+<h2 id="connect-workflow">Connect workflow</h2>
+<p>Append this line to the <strong>existing</strong> <code>workflow/Snakefile</code> without removing its visualization rules or changing the default <code>all</code> target:</p>
+<pre><code class="language-python">include: &quot;rules/icb_hwang.smk&quot;
+</code></pre>
+<p>The Hwang rules have unique <code>hwang_</code> prefixes. Use the explicit Hwang MAE target below so the original visualization workflow remains independent.</p>
+<h2 id="required-local-annotation-and-dependencies">Required local annotation and dependencies</h2>
+<ul>
+<li>Place the approved <code>Gencode.v19.annotation.RData</code> containing <code>features_gene</code> at <code>resources/annotations/Gencode.v19.annotation.RData</code>, or update <code>config/icb_hwang.yaml</code> to use the approved existing path.</li>
+<li>The tissue annotation <code>curation_tissue.csv</code> is downloaded by the workflow.</li>
+<li>R packages include <code>GEOquery</code>, <code>data.table</code>, <code>stringr</code>, <code>tibble</code>, <code>SummarizedExperiment</code>, <code>MultiAssayExperiment</code>, <code>GenomicRanges</code>, and their dependencies.</li>
+<li><code>Format_CLIN.R</code> currently loads three <code>ICB_Common</code> helpers from upstream <code>raw.githubusercontent.com</code> using <code>source()</code>. This requires network access unless these functions are separately vendored and the script adapted.</li>
+<li>Install and test these R/Bioconductor dependencies in your selected environment. The overlay <strong>does not edit</strong> <code>pixi.toml</code> or <code>pixi.lock</code>, because the existing platform/environment configuration has not been supplied.</li>
+<li>For Windows, execution in Linux/WSL may be more reliable than native Git Bash. All paths are configured relative to the MAR-40 repository.</li>
+</ul>
+<h2 id="dry-run-and-execution">Dry run and execution</h2>
+<pre><code class="language-bash"># Preview required jobs; an existing annotation file is necessary for MAE execution
+pixi run snakemake --snakefile workflow/Snakefile --cores 1 \
+  --dry-run data/procdata/icb_hwang/ICB_Hwang.rds
+
+# Run the Hwang curation example
+pixi run snakemake --snakefile workflow/Snakefile --cores 1 \
+  data/procdata/icb_hwang/ICB_Hwang.rds
+</code></pre>
+<p><strong>Expected outputs</strong> are <code>data/procdata/icb_hwang/CLIN.csv</code>, <code>EXPR.csv</code>, <code>cased_sequenced.csv</code>, and <code>ICB_Hwang.rds</code>. Source GEO downloads are stored in <code>data/rawdata/icb_hwang/download/</code>. These are generated data and should not be committed indiscriminately to a public repository.</p>
+<h2 id="scientific-validation-prior-to-release">Scientific validation prior to release</h2>
+<p>Confirm the GEO download checksums and sample IDs; verify clinical mapping, missingness, RECIST/response and survival definitions; confirm that TPM values are transformed using <code>log2(TPM + 1)</code>; check expression sample linkage and the MAE <code>sampleMap</code>; verify GENCODE v19 feature mappings and record unmatched genes. Compare counts against the upstream run, but do not assume the published figures are reproduced until local outputs have been checked.</p>
+<p><strong>Important:</strong> The upstream <code>Format_CLIN.R</code> includes cohort-specific clinical response logic and sources remote helper functions. It should undergo scientific review rather than being described as universally validated MAR-40 response harmonization. Also, its <code>rna</code> and <code>rna_info</code> semantics differ from the MAR-40 core availability field specification; consider a documented adapter for downstream standardized visualizations rather than silently changing the upstream file.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/bhklab/mar-40-data-harmonization-and-standardization" class="fa fa-code-fork" style="color: #fcfcfc"> mar-40-data-harmonization-and-standardization</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
