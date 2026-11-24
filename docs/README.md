@@ -99,48 +99,25 @@ See the [Visualization Workflow Guide](docs/visualization_workflow.md).
 
 ### Example 1: ICB_Hwang — Clinical + RNA
 
-The Hwang anti-PD-1 immunotherapy cohort ([GEO GSE136961](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961)) demonstrates clinical and RNA expression harmonization using five R scripts orchestrated with a separate Snakemake workflow.
+The Hwang immunotherapy cohort ([GEO GSE136961](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961)) serves as a reproducible example of clinical and RNA data harmonization using **R, Snakemake, and Pixi**.
 
-The source expression data use a **targeted immune-response gene panel**, not whole-transcriptome RNA sequencing.
+The workflow integrates clinical metadata and RNA expression data into a **MultiAssayExperiment (MAE)**, with standardized sample identifiers and documented processing steps.
 
-The pipeline:
+**Validated output:** 381 annotated genes, 21 RNA samples, and 21 matched clinical records.
 
-1. Extracts GEO clinical metadata and maps expression sample titles to GSM accessions.
-2. Harmonizes cohort-specific clinical variables.
-3. Records sample-level RNA availability in the legacy ICB curation format.
-4. Harmonizes gene expression using **`log2(TPM + 1)`**.
-5. Annotates features with **GENCODE v19** and constructs an expression-only MultiAssayExperiment (MAE).
+**Workflow:** `workflow/icb_hwang/Snakefile`  
+**Configuration:** `config/icb_hwang.yaml`  
+**Data directory:** `data/examples/icb_hwang/`
 
-**Locally validated MAE output:**
-
-| Component | Result |
-| --- | --- |
-| Annotated genes | 381 |
-| RNA samples | 21 |
-| Clinical records | 21 |
-| MAE assay-to-clinical sample mappings | 21 |
-
-**Workflow paths:**
-
-- **Entry point:** `workflow/icb_hwang/Snakefile`
-- **Rules:** `workflow/rules/icb_hwang.smk`
-- **R scripts:** `workflow/scripts/icb_hwang/`
-- **Configuration:** `config/icb_hwang.yaml`
-- **Source data and annotations:** `data/examples/icb_hwang/download/` and `data/examples/icb_hwang/annot/`
-- **Generated outputs:** `data/examples/icb_hwang/curation/`
-
-After placing the required GEO and annotation files locally and configuring the R executable, preview and run the workflow from the repository root:
+Run from the repository root after configuring R and providing the required local inputs:
 
 ```bash
-pixi run snakemake --snakefile workflow/icb_hwang/Snakefile --cores 1 --dry-run
-pixi run snakemake --snakefile workflow/icb_hwang/Snakefile --cores 1 --printshellcmds
+pixi run snakemake --snakefile workflow/icb_hwang/Snakefile --cores 1
 ```
 
-The final output is `data/examples/icb_hwang/curation/ICB_Hwang.rds`. Original data, annotation binaries, and generated outputs are excluded from the public repository pending applicable sharing approvals.
+**Status:** Successfully executed locally. Automated QC is planned for a future update.
 
-**Status:** Successfully executed locally; automated MAE QC is planned but has not yet been implemented. Clinical response definitions and some legacy ICB metadata semantics require source-level scientific review. The current workflow also uses shared ICB_Common functions retrieved from GitHub; pinning this dependency remains future work.
-
-See [ICB_Hwang Example](docs/icb_hwang_example.md) and [Hwang data instructions](data/examples/icb_hwang/README.md).
+For methodology, dependencies, and input requirements, see the [ICB_Hwang Example Documentation](docs/icb_hwang_example.md).
 
 ## Documentation
 
