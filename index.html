@@ -205,59 +205,17 @@
 <p>Collaborators can configure an approved local dataset in <code>config/visualization.yaml</code> without modifying the scientific visualization script. Descriptive outputs do not replace source-level validation or scientific approval.</p>
 <p>See the <a href="docs/visualization_workflow.md">Visualization Workflow Guide</a>.</p>
 <h3 id="example-1-icb_hwang-clinical-rna">Example 1: ICB_Hwang — Clinical + RNA</h3>
-<p>The Hwang anti-PD-1 immunotherapy cohort (<a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961">GEO GSE136961</a>) demonstrates clinical and RNA expression harmonization using five R scripts orchestrated with a separate Snakemake workflow.</p>
-<p>The source expression data use a <strong>targeted immune-response gene panel</strong>, not whole-transcriptome RNA sequencing.</p>
-<p>The pipeline:</p>
-<ol>
-<li>Extracts GEO clinical metadata and maps expression sample titles to GSM accessions.</li>
-<li>Harmonizes cohort-specific clinical variables.</li>
-<li>Records sample-level RNA availability in the legacy ICB curation format.</li>
-<li>Harmonizes gene expression using <strong><code>log2(TPM + 1)</code></strong>.</li>
-<li>Annotates features with <strong>GENCODE v19</strong> and constructs an expression-only MultiAssayExperiment (MAE).</li>
-</ol>
-<p><strong>Locally validated MAE output:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Annotated genes</td>
-<td>381</td>
-</tr>
-<tr>
-<td>RNA samples</td>
-<td>21</td>
-</tr>
-<tr>
-<td>Clinical records</td>
-<td>21</td>
-</tr>
-<tr>
-<td>MAE assay-to-clinical sample mappings</td>
-<td>21</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Workflow paths:</strong></p>
-<ul>
-<li><strong>Entry point:</strong> <code>workflow/icb_hwang/Snakefile</code></li>
-<li><strong>Rules:</strong> <code>workflow/rules/icb_hwang.smk</code></li>
-<li><strong>R scripts:</strong> <code>workflow/scripts/icb_hwang/</code></li>
-<li><strong>Configuration:</strong> <code>config/icb_hwang.yaml</code></li>
-<li><strong>Source data and annotations:</strong> <code>data/examples/icb_hwang/download/</code> and <code>data/examples/icb_hwang/annot/</code></li>
-<li><strong>Generated outputs:</strong> <code>data/examples/icb_hwang/curation/</code></li>
-</ul>
-<p>After placing the required GEO and annotation files locally and configuring the R executable, preview and run the workflow from the repository root:</p>
-<pre><code class="language-bash">pixi run snakemake --snakefile workflow/icb_hwang/Snakefile --cores 1 --dry-run
-pixi run snakemake --snakefile workflow/icb_hwang/Snakefile --cores 1 --printshellcmds
+<p>The Hwang immunotherapy cohort (<a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961">GEO GSE136961</a>) serves as a reproducible example of clinical and RNA data harmonization using <strong>R, Snakemake, and Pixi</strong>.</p>
+<p>The workflow integrates clinical metadata and RNA expression data into a <strong>MultiAssayExperiment (MAE)</strong>, with standardized sample identifiers and documented processing steps.</p>
+<p><strong>Validated output:</strong> 381 annotated genes, 21 RNA samples, and 21 matched clinical records.</p>
+<p><strong>Workflow:</strong> <code>workflow/icb_hwang/Snakefile</code><br />
+<strong>Configuration:</strong> <code>config/icb_hwang.yaml</code><br />
+<strong>Data directory:</strong> <code>data/examples/icb_hwang/</code></p>
+<p>Run from the repository root after configuring R and providing the required local inputs:</p>
+<pre><code class="language-bash">pixi run snakemake --snakefile workflow/icb_hwang/Snakefile --cores 1
 </code></pre>
-<p>The final output is <code>data/examples/icb_hwang/curation/ICB_Hwang.rds</code>. Original data, annotation binaries, and generated outputs are excluded from the public repository pending applicable sharing approvals.</p>
-<p><strong>Status:</strong> Successfully executed locally; automated MAE QC is planned but has not yet been implemented. Clinical response definitions and some legacy ICB metadata semantics require source-level scientific review. The current workflow also uses shared ICB_Common functions retrieved from GitHub; pinning this dependency remains future work.</p>
-<p>See <a href="docs/icb_hwang_example.md">ICB_Hwang Example</a> and <a href="data/examples/icb_hwang/README.md">Hwang data instructions</a>.</p>
+<p><strong>Status:</strong> Successfully executed locally. Automated QC is planned for a future update.</p>
+<p>For methodology, dependencies, and input requirements, see the <a href="docs/icb_hwang_example.md">ICB_Hwang Example Documentation</a>.</p>
 <h2 id="documentation">Documentation</h2>
 <p>The repository documentation describes shared standards, workflows, and procedures.</p>
 <table>
@@ -407,5 +365,5 @@ pixi run snakemake --snakefile workflow/icb_hwang/Snakefile --cores 1 --printshe
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-11-24 00:47:12.014458+00:00
+Build Date UTC : 2026-11-24 00:51:05.214385+00:00
 -->
