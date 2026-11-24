@@ -1,64 +1,177 @@
 # Example 1 — ICB_Hwang (Clinical + RNA)
 
-**Status:** Merge overlay prepared; R scripts must be imported and the merged workflow validated locally before claiming reproducibility.
+**Status:** Implemented and successfully executed locally using Pixi, Snakemake, and R. Automated quality control is planned.
 
-The Hwang immunotherapy cohort is associated with GEO **GSE136961**. The workflow uses source clinical data, a targeted RNA expression matrix, documented cohort-specific standardization, and GENCODE v19 gene annotations to create an expression-only MultiAssayExperiment (MAE). It does not create DNA assay data.
+## Overview
+
+The Hwang immunotherapy cohort is available through GEO accession **GSE136961**. This example demonstrates a reproducible workflow for harmonizing clinical metadata and targeted RNA expression data and integrating them into an expression-only MultiAssayExperiment (MAE).
+
+The workflow uses GEO clinical metadata, TPM-normalized gene expression, cohort-specific clinical harmonization functions, and GENCODE v19 gene annotations. It does **not** generate DNA assay data.
+
+| Component | Validated local result |
+|---|---:|
+| Clinical records | 21 |
+| RNA expression samples | 21 |
+| Annotated genes | 381 |
+| MAE sample mappings | 21 |
+| Expression transformation | `log2(TPM + 1)` |
+| Gene annotation | GENCODE v19 |
+
+The expression data originate from an **Oncomine Immune Response Research Assay** targeted immune-response panel, not whole-transcriptome RNA sequencing.
 
 ## Source and attribution
 
-- Source repository: <https://github.com/RibaA/ICB_Hwang>
-- GEO: <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961>
-- Imported R source revision: `workflow/scripts/icb_hwang/UPSTREAM_COMMIT.txt` (generated on import)
-- Upstream scripts are copied into `workflow/scripts/icb_hwang/` without moving any repository data, binary annotation files, or Git metadata.
+- **Original repository:** [RibaA/ICB_Hwang](https://github.com/RibaA/ICB_Hwang)
+- **GEO dataset:** [GSE136961](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961)
+- **MAR-40 R scripts:** `workflow/scripts/icb_hwang/`
+- **Snakemake entry point:** `workflow/icb_hwang/Snakefile`
+- **Rule definitions:** `workflow/rules/icb_hwang.smk`
+- **Configuration:** `config/icb_hwang.yaml`
 
-## Import existing scripts
+The MAR-40 implementation adapts the original Hwang processing scripts to this repository's paths and Snakemake orchestration, while preserving cohort-specific processing conventions where applicable.
 
-From the **MAR-40 root directory**, with Git Bash:
+## Repository structure
+
+```text
+config/
+└── icb_hwang.yaml
+workflow/
+├── icb_hwang/
+│   └── Snakefile
+├── rules/
+│   └── icb_hwang.smk
+└── scripts/
+    └── icb_hwang/
+        ├── format_downloaded_data.R
+        ├── Format_CLIN.R
+        ├── Format_cased_sequenced.R
+        ├── Format_EXPR.R
+        └── create_MAE.R
+data/
+└── examples/
+    └── icb_hwang/
+        ├── README.md
+        ├── download/
+        ├── annot/
+        └── curation/
+```
+
+The Hwang workflow has a dedicated Snakefile and runs independently of the clinical visualization workflow.
+
+## Required local input data
+
+Place the following files under `data/examples/icb_hwang/` before running the workflow.
+
+| Directory | Required file | Purpose |
+|---|---|---|
+| `download/` | `GSE136961_series_matrix.txt.gz` | GEO sample and clinical metadata |
+| `download/` | `GSE136961_TPM.tsv.gz` | TPM-normalized targeted expression |
+| `annot/` | `curation_tissue.csv` | Tissue harmonization |
+| `annot/` | `Gencode.v19.annotation.RData` | Gene annotations (`features_gene`) |
+
+Other provenance files, such as `curation_drug.csv` and `DATASET_LOAD_INFO.csv`, may be retained locally in `annot/`; they are not declared as required inputs in the current five-rule pipeline.
+
+The current Snakemake workflow **expects these input files locally**; it does not download them automatically. Local downloads, annotation binaries, and generated curation files are excluded from Git unless separately approved for redistribution.
+
+## Processing workflow
+
+The workflow consists of five R scripts, with execution and dependencies managed by Snakemake.
+
+| Step | R script | Output under `curation/` |
+|---|---|---|
+| 1. GEO preprocessing | `format_downloaded_data.R` | `CLIN.txt`, `EXP_TPM.tsv` |
+| 2. Clinical harmonization | `Format_CLIN.R` | `CLIN.csv` |
+| 3. Molecular availability | `Format_cased_sequenced.R` | `cased_sequenced.csv` |
+| 4. RNA harmonization | `Format_EXPR.R` | `EXPR.csv` |
+| 5. MAE construction | `create_MAE.R` | `ICB_Hwang.rds` |
+
+### GEO preprocessing and sample mapping
+
+`format_downloaded_data.R` extracts sample metadata from the GEO series matrix and reads the compressed TPM data through an R gzip connection. Expression columns identified by sample titles (for example, `D01`, `D06`, and `N10`) are matched against `clin$title` and renamed using the corresponding `clin$geo_accession` values (`GSM...`). Original downloaded files remain unchanged.
+
+### Clinical harmonization
+
+`Format_CLIN.R` preserves the original GEO metadata fields and creates legacy ICB clinical variables, including tissue classification, treatment class, survival times, event indicators, and derived response annotations. Survival times are converted from days to months.
+
+The cohort included **nivolumab or pembrolizumab** (anti-PD-1); the study-level treatment options should not be interpreted as verified patient-specific combined therapy. `Get_Response()` may derive response using PFS-related information rather than directly reproducing the source study's RECIST-based durable clinical benefit classification. These definitions require scientific review for cross-cohort analyses.
+
+### Molecular availability
+
+`Format_cased_sequenced.R` creates the legacy ICB fields `patient`, `snv`, `cna`, and `expr`. RNA availability is checked against expression sample columns. SNV/CNA data not supplied in this curated example should not be interpreted as biological absence of alterations.
+
+### RNA expression harmonization
+
+`Format_EXPR.R` extracts gene symbols from `Symbol_ID`, resolves duplicate symbols by retaining the row with the highest total TPM across samples, and keeps RNA-available samples. Values are transformed using **`log2(TPM + 1)`**. The output matrix has genes as rows and GEO GSM sample identifiers as columns.
+
+### MultiAssayExperiment construction
+
+`create_MAE.R` joins harmonized clinical and expression samples by matching identifiers, annotates genes using GENCODE v19, and constructs an expression-only MAE with a ranged SummarizedExperiment. Genes without matching annotation are omitted from the annotated MAE but remain in `EXPR.csv`.
+
+## Software dependencies
+
+- **Pixi:** Launches the workflow tooling.
+- **Snakemake:** Schedules and connects the five processing rules.
+- **R:** Performs scientific data processing and constructs the MAE.
+
+The successfully tested local installation used **R 4.5.2 on Windows**. The R dependencies checked successfully were `GEOquery`, `Biobase`, `data.table`, `stringr`, `tibble`, `SummarizedExperiment`, `MultiAssayExperiment`, `GenomicRanges`, and `S4Vectors`.
+
+`Format_CLIN.R` currently loads shared functions from **ICB_Common** on GitHub using `source()`. This requires internet access at execution time and does not yet pin those remote functions to a specific commit. The Pixi environment should not be assumed to manage the separately installed Windows R packages unless explicitly configured to do so.
+
+The R executable used in the rules is configurable through `config/icb_hwang.yaml` and/or an environment override if implemented in the rule file. On the tested Windows workstation, the Rscript executable was `C:/Program Files/R/R-4.5.2/bin/x64/Rscript.exe`. Set the executable to a valid path for the local system before running.
+
+## Run from the repository root
+
+Commands below use Git Bash syntax:
 
 ```bash
-git clone https://github.com/RibaA/ICB_Hwang.git ../ICB_Hwang
-pixi run python tools/import_icb_hwang.py --source ../ICB_Hwang
+# Inspect registered rules
+pixi run snakemake \
+  --snakefile workflow/icb_hwang/Snakefile \
+  --list-rules
+
+# Preview dependencies; does not run R
+pixi run snakemake \
+  --snakefile workflow/icb_hwang/Snakefile \
+  --cores 1 \
+  --dry-run
+
+# Execute the Hwang workflow
+pixi run snakemake \
+  --snakefile workflow/icb_hwang/Snakefile \
+  --cores 1 \
+  --printshellcmds
 ```
 
-Alternatively, `pixi run python tools/import_icb_hwang.py --clone` downloads the repository automatically. Existing imported files will not be overwritten unless `--overwrite` is used.
+In PowerShell, run each command on one line or use PowerShell's backtick continuation instead of `\`.
 
-The importer updates only the stale comment in `Format_EXPR.R` from `log2(TPM + 0.001)` to **`log2(TPM + 1)`**; the computational expression transformation in the upstream script already uses `log2(tpm + 1)`.
+The final object is saved to:
 
-## Connect workflow
+`data/examples/icb_hwang/curation/ICB_Hwang.rds`
 
-Append this line to the **existing** `workflow/Snakefile` without removing its visualization rules or changing the default `all` target:
+## Validated local execution
 
-```python
-include: "rules/icb_hwang.smk"
+In the successful local run, the final MAE contained **381 annotated gene rows and 21 expression columns**. The MAE contained **21 clinical records** and its `sampleMap` had **21 mappings**, with matching GEO GSM identifiers for `primary` and assay `colname`.
+
+These are observed local results showing successful processing and technical clinical–RNA sample integration. They do **not** establish that every clinical harmonization field has undergone full scientific validation.
+
+For manual inspection in R:
+
+```r
+library(MultiAssayExperiment)
+mae <- readRDS("data/examples/icb_hwang/curation/ICB_Hwang.rds")
+dim(mae[["expr"]])
+nrow(colData(mae))
+sampleMap(mae)
 ```
 
-The Hwang rules have unique `hwang_` prefixes. Use the explicit Hwang MAE target below so the original visualization workflow remains independent.
+## Quality control and planned improvements
 
-## Required local annotation and dependencies
+**Automated QC is deferred.** Initial manual inspection confirmed that expression samples and clinical records were present and linked in the MAE. Planned additions include automated sample correspondence checks, missingness and identifier validation, response/survival definition review, gene mapping summaries, source checksums, pinned ICB_Common functions, and cross-platform environment testing.
 
-- Place the approved `Gencode.v19.annotation.RData` containing `features_gene` at `resources/annotations/Gencode.v19.annotation.RData`, or update `config/icb_hwang.yaml` to use the approved existing path.
-- The tissue annotation `curation_tissue.csv` is downloaded by the workflow.
-- R packages include `GEOquery`, `data.table`, `stringr`, `tibble`, `SummarizedExperiment`, `MultiAssayExperiment`, `GenomicRanges`, and their dependencies.
-- `Format_CLIN.R` currently loads three `ICB_Common` helpers from upstream `raw.githubusercontent.com` using `source()`. This requires network access unless these functions are separately vendored and the script adapted.
-- Install and test these R/Bioconductor dependencies in your selected environment. The overlay **does not edit** `pixi.toml` or `pixi.lock`, because the existing platform/environment configuration has not been supplied.
-- For Windows, execution in Linux/WSL may be more reliable than native Git Bash. All paths are configured relative to the MAR-40 repository.
+## MAR-40 data dictionary considerations
 
-## Dry run and execution
+This example retains some **legacy ICB** field definitions for compatibility with the original workflow. In particular, the meanings of `rna` and `rna_info` and the use of GSM accession as the legacy `patient` key differ from the MAR-40 core metadata specification. Future use in standardized MAR-40 visualizations or cross-cohort analyses should employ a documented mapping or adapter rather than silently changing the cohort-specific source fields.
 
-```bash
-# Preview required jobs; an existing annotation file is necessary for MAE execution
-pixi run snakemake --snakefile workflow/Snakefile --cores 1 \
-  --dry-run data/procdata/icb_hwang/ICB_Hwang.rds
+## Data sharing
 
-# Run the Hwang curation example
-pixi run snakemake --snakefile workflow/Snakefile --cores 1 \
-  data/procdata/icb_hwang/ICB_Hwang.rds
-```
-
-**Expected outputs** are `data/procdata/icb_hwang/CLIN.csv`, `EXPR.csv`, `cased_sequenced.csv`, and `ICB_Hwang.rds`. Source GEO downloads are stored in `data/rawdata/icb_hwang/download/`. These are generated data and should not be committed indiscriminately to a public repository.
-
-## Scientific validation prior to release
-
-Confirm the GEO download checksums and sample IDs; verify clinical mapping, missingness, RECIST/response and survival definitions; confirm that TPM values are transformed using `log2(TPM + 1)`; check expression sample linkage and the MAE `sampleMap`; verify GENCODE v19 feature mappings and record unmatched genes. Compare counts against the upstream run, but do not assume the published figures are reproduced until local outputs have been checked.
-
-**Important:** The upstream `Format_CLIN.R` includes cohort-specific clinical response logic and sources remote helper functions. It should undergo scientific review rather than being described as universally validated MAR-40 response harmonization. Also, its `rna` and `rna_info` semantics differ from the MAR-40 core availability field specification; consider a documented adapter for downstream standardized visualizations rather than silently changing the upstream file.
+Only scripts, configurations, documentation, and approved example resources should be committed to Git. Original downloaded inputs, large annotations, generated harmonized matrices, and MAE objects should remain local unless their sharing is explicitly reviewed and permitted. The documentation alone does not provide all source files or make the workflow completely self-contained.
