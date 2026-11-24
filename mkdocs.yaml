@@ -1,21 +1,15 @@
-
 site_name: MAR-40 Data Harmonization and Standardization
-repo_url: https://github.com/bhklab/mar-40-data-harmonization-and-standardization
-repo_name: mar-40-data-harmonization-and-standardization
-site_description: Documentation for MAR-40 Milestone 1 - Data Standardization, Harmonization, SOPs, and Reproducible Workflows
+repo_url: https://github.com/bhklab/mar40-data-harmonization
+repo_name: bhklab/mar40-data-harmonization
+site_description: Documentation for MAR-40 data standardization, harmonization, SOPs, and reproducible workflows
 site_author: Farnoosh Abbas Aghababazadeh
 
-# Documentation directories
 docs_dir: docs
 site_dir: site
 
-# GitHub Pages deployment branch
 remote_branch: gh-pages
-
-# Local documentation server
 dev_addr: 127.0.0.1:8003
 
-# Documentation navigation
 nav:
   - Home: README.md
 
@@ -30,20 +24,19 @@ nav:
       - Standardized Data Dictionary: data_dictionary.md
       - Quality Control: quality_control.md
 
-  - Reproducible Workflow:
+  - Reproducible Workflows:
       - Snakemake Overview: snakemake_workflow.md
+      - Cohort Visualization: visualization_workflow.md
+      - ICB_Hwang Clinical + RNA: icb_hwang_example.md
 
   - Development:
       - Developer Notes: devnotes.md
 
-# Documentation theme
 theme: readthedocs
 
-# Plugins
 plugins:
   - search
   - include-markdown
 
-# Project homepage
 extra:
-  homepage: https://bhklab.github.io/mar-40-data-harmonization-and-standardization
+  homepage: https://bhklab.github.io/mar40-data-harmonization/
