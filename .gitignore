@@ -405,3 +405,16 @@ site/
 # -------------------------------------------------------------
 !/data/README.md
 !/data/examples/README.md
+# Snakemake temporary files
+.snakemake/
+
+# Generated results and local working files
+results/
+sandbox/
+
+# ICB_Hwang original data and annotations
+data/examples/icb_hwang/download/
+data/examples/icb_hwang/annot/
+
+# ICB_Hwang generated outputs
+data/examples/icb_hwang/curation/
