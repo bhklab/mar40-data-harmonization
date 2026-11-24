@@ -98,23 +98,23 @@
               
                 <h1 id="mar-40-cohort-visualization-with-snakemake">MAR-40 cohort visualization with Snakemake</h1>
 <h2 id="scope-and-inputs">Scope and inputs</h2>
-<p>Run from the repository root. The workflow invokes the <strong>existing</strong> <code>workflow/scripts/clinical_visualization.R</code> and expects an already harmonized, comma-delimited, sample-level table containing <code>cohort</code>, <code>patientid</code>, and <code>sampleid</code>. The script accepts input and output paths as its first two positional arguments. The synthetic example lives at <code>data/examples/MAR40_synthetic_sample_level.csv</code> and is suitable for testing; restricted clinical data must remain in approved institutional storage.</p>
+<p>Run from the repository root. The workflow invokes the <strong>existing</strong> <code>workflow/visualization/clinical_visualization.R</code> and expects an already harmonized, comma-delimited, sample-level table containing <code>cohort</code>, <code>patientid</code>, and <code>sampleid</code>. The script accepts input and output paths as its first two positional arguments. The synthetic example lives at <code>data/examples/MAR40_synthetic_sample_level.csv</code> and is suitable for testing; restricted clinical data must remain in approved institutional storage.</p>
 <p>Missing fields (e.g. all-missing <code>age</code> or <code>stage</code>, partially missing <code>response</code>) are permitted. Interpret <code>F/M</code>, <code>R/NR</code>, <code>CR/PR/SD/PD/NE</code>, and <code>NA</code> using the MAR-40 data dictionary. This workflow <strong>does not</strong> perform source-specific harmonization, determine data-access rights, or verify that OS/PFS are analysis-ready.</p>
 <h2 id="files">Files</h2>
 <ul>
-<li><code>workflow/Snakefile</code>: workflow entry point</li>
-<li><code>workflow/rules/visualization.smk</code>: rule and expected outputs</li>
-<li><code>workflow/scripts/clinical_visualization.R</code>: existing R visualization script (not overwritten by this bundle)</li>
+<li><code>workflow/visualization/Snakefile</code>: workflow entry point</li>
+<li><code>workflow/visualization/rules.smk</code>: rule and expected outputs</li>
+<li><code>workflow/visualization/clinical_visualization.R</code>: existing R visualization script (not overwritten by this bundle)</li>
 <li><code>config/visualization.yaml</code>: datasets and input paths</li>
 <li><code>data/examples/MAR40_synthetic_sample_level.csv</code>: tracked synthetic example</li>
 <li><code>results/visualization/&lt;dataset&gt;/</code>: generated figures, QC tables, and manifest</li>
 <li><code>logs/visualization/&lt;dataset&gt;.log</code>: execution log</li>
 </ul>
 <h2 id="run">Run</h2>
-<pre><code class="language-bash">snakemake --snakefile workflow/Snakefile --cores 1 --dry-run
-snakemake --snakefile workflow/Snakefile --cores 1
+<pre><code class="language-bash">snakemake --snakefile workflow/visualization/Snakefile --cores 1 --dry-run
+snakemake --snakefile workflow/visualization/Snakefile --cores 1
 </code></pre>
-<p>If Snakemake is installed in Pixi, use <code>pixi run snakemake --snakefile workflow/Snakefile --cores 1</code> instead. The environment must also provide <code>Rscript</code> and the R dependencies <code>ggplot2</code>, <code>dplyr</code>, <code>tidyr</code>, and <code>ComplexHeatmap</code> to the shell; validate package availability using <code>Rscript -e 'sapply(c("ggplot2","dplyr","tidyr","ComplexHeatmap"), requireNamespace, quietly=TRUE)'</code>. Pixi tasks and package definitions have not been verified against your local <code>pixi.toml</code>.</p>
+<p>If Snakemake is installed in Pixi, use <code>pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1</code> instead. The environment must also provide <code>Rscript</code> and the R dependencies <code>ggplot2</code>, <code>dplyr</code>, <code>tidyr</code>, and <code>ComplexHeatmap</code> to the shell; validate package availability using <code>Rscript -e 'sapply(c("ggplot2","dplyr","tidyr","ComplexHeatmap"), requireNamespace, quietly=TRUE)'</code>. Pixi tasks and package definitions have not been verified against your local <code>pixi.toml</code>.</p>
 <p>To run a different harmonized CSV, add a dataset under <code>datasets:</code> in <code>config/visualization.yaml</code> (or provide a separate local config via <code>--configfile</code>). Each dataset writes to its own results subfolder.</p>
 <h3 id="example">Example</h3>
 <pre><code class="language-yaml">datasets:
@@ -125,8 +125,8 @@ snakemake --snakefile workflow/Snakefile --cores 1
 </code></pre>
 <h2 id="before-the-first-run">Before the first run</h2>
 <ol>
-<li>Confirm <code>workflow/scripts/clinical_visualization.R</code> exists and accepts <code>INPUT.csv OUTPUT_DIR</code>. If not, adapt the script or the rule.</li>
-<li>Confirm its output filenames match <code>FIGURE_FILES</code> and <code>REPORT_FILES</code> in <code>workflow/rules/visualization.smk</code>. The list is based on the previously reviewed v1.1 script; if filenames differ, update the rule.</li>
+<li>Confirm <code>workflow/visualization/clinical_visualization.R</code> exists and accepts <code>INPUT.csv OUTPUT_DIR</code>. If not, adapt the script or the rule.</li>
+<li>Confirm its output filenames match <code>FIGURE_FILES</code> and <code>REPORT_FILES</code> in <code>workflow/visualization/rules.smk</code>. The list is based on the previously reviewed v1.1 script; if filenames differ, update the rule.</li>
 <li>Verify the source CSV is standardized. The R script does not automatically import semicolon-delimited source metadata.</li>
 <li>Check <code>.gitignore</code> excludes <code>/results/</code> and <code>/logs/</code> (and non-shareable <code>/data/rawdata/</code>, <code>/data/procdata/</code>) but does not exclude <code>/data/examples/</code>.</li>
 <li>Only publish input CSVs, figures, and reports when their sharing permissions allow it.</li>

@@ -188,13 +188,13 @@
 <li><strong>Example input:</strong> <code>data/examples/MAR40_synthetic_sample_level.csv</code></li>
 <li><strong>Required identifiers:</strong> <code>cohort</code>, <code>patientid</code>, <code>sampleid</code></li>
 <li><strong>Configuration:</strong> <code>config/visualization.yaml</code></li>
-<li><strong>Rule file:</strong> <code>workflow/rules/visualization.smk</code></li>
+<li><strong>Rule file:</strong> <code>workflow/visualization/rules.smk</code></li>
 </ul>
 <p>From the repository root, preview the current visualization workflow:</p>
-<pre><code class="language-bash">pixi run snakemake --snakefile workflow/Snakefile --cores 1 --dry-run
+<pre><code class="language-bash">pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1 --dry-run
 </code></pre>
 <p>Execute:</p>
-<pre><code class="language-bash">pixi run snakemake --snakefile workflow/Snakefile --cores 1
+<pre><code class="language-bash">pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1
 </code></pre>
 <p><strong>Note:</strong> These commands use the original visualization entry point. If visualization has been moved to its own dedicated <code>workflow/visualization/Snakefile</code>, use that entry point instead after validating its configuration.</p>
 <p>Outputs include cancer type and immunotherapy treatment distributions; clinical variable availability; sex and RECIST distributions; pre-, on-, and post-treatment sampling summaries; and supporting counts, missingness reports, conflict records, and run metadata.</p>
@@ -365,5 +365,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-11-24 00:51:05.214385+00:00
+Build Date UTC : 2026-11-24 01:12:06.266521+00:00
 -->

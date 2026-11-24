@@ -287,15 +287,15 @@ results/
 </tr>
 <tr>
 <td>Workflow entry point</td>
-<td><code>workflow/Snakefile</code></td>
+<td><code>workflow/visualization/Snakefile</code></td>
 </tr>
 <tr>
 <td>Snakemake rule</td>
-<td><code>workflow/rules/visualization.smk</code></td>
+<td><code>workflow/visualization/rules.smk</code></td>
 </tr>
 <tr>
 <td>Analysis script</td>
-<td><code>workflow/scripts/clinical_visualization.R</code></td>
+<td><code>workflow/visualization/clinical_visualization.R</code></td>
 </tr>
 <tr>
 <td>Output directory</td>
@@ -309,13 +309,13 @@ results/
 </table>
 <p>Run the following from the <strong>repository root</strong> after <code>pixi install</code>:</p>
 <pre><code class="language-bash"># Check planned jobs without executing them
-pixi run snakemake --snakefile workflow/Snakefile --cores 1 --dry-run
+pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1 --dry-run
 
 # Execute the visualization
-pixi run snakemake --snakefile workflow/Snakefile --cores 1
+pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1
 
 # Recheck the workflow after execution
-pixi run snakemake --snakefile workflow/Snakefile --cores 1 --dry-run
+pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1 --dry-run
 </code></pre>
 <p>The workflow has been exercised with the synthetic example; Snakemake subsequently reported that its declared outputs were present and up to date. This confirms file-based execution and dependency tracking, <strong>not</strong> full clinical or molecular scientific validation.</p>
 <p>For figure definitions, input conventions, and troubleshooting, see the <a href="../visualization_workflow/">Visualization Workflow Guide</a>.</p>
@@ -378,7 +378,7 @@ pixi run snakemake --snakefile workflow/Snakefile --cores 1 --dry-run
 <td>Inspect Python/package compatibility and the errors during environment resolution; document any environment changes.</td>
 </tr>
 <tr>
-<td>Snakemake cannot find <code>workflow/Snakefile</code></td>
+<td>Snakemake cannot find <code>workflow/visualization/Snakefile</code></td>
 <td>Run commands from the repository root, or provide the correct <code>--snakefile</code> path.</td>
 </tr>
 <tr>
