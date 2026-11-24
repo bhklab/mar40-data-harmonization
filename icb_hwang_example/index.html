@@ -118,6 +118,22 @@
 <td style="text-align: right;">21</td>
 </tr>
 <tr>
+<td>Original expression features</td>
+<td style="text-align: right;">393</td>
+</tr>
+<tr>
+<td>Harmonized expression genes</td>
+<td style="text-align: right;">390</td>
+</tr>
+<tr>
+<td>Genes matched to GENCODE v19</td>
+<td style="text-align: right;">381</td>
+</tr>
+<tr>
+<td>Unmatched genes</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr>
 <td>Annotated genes</td>
 <td style="text-align: right;">381</td>
 </tr>
@@ -149,18 +165,18 @@
 <h2 id="repository-structure">Repository structure</h2>
 <pre><code class="language-text">config/
 └── icb_hwang.yaml
+
 workflow/
-├── icb_hwang/
-│   └── Snakefile
-├── rules/
-│   └── icb_hwang.smk
-└── scripts/
-    └── icb_hwang/
+└── icb_hwang/
+    ├── Snakefile
+    ├── rules.smk
+    └── scripts/
         ├── format_downloaded_data.R
         ├── Format_CLIN.R
         ├── Format_cased_sequenced.R
         ├── Format_EXPR.R
         └── create_MAE.R
+
 data/
 └── examples/
     └── icb_hwang/
@@ -262,7 +278,7 @@ data/
 </ul>
 <p>The successfully tested local installation used <strong>R 4.5.2 on Windows</strong>. The R dependencies checked successfully were <code>GEOquery</code>, <code>Biobase</code>, <code>data.table</code>, <code>stringr</code>, <code>tibble</code>, <code>SummarizedExperiment</code>, <code>MultiAssayExperiment</code>, <code>GenomicRanges</code>, and <code>S4Vectors</code>.</p>
 <p><code>Format_CLIN.R</code> currently loads shared functions from <strong>ICB_Common</strong> on GitHub using <code>source()</code>. This requires internet access at execution time and does not yet pin those remote functions to a specific commit. The Pixi environment should not be assumed to manage the separately installed Windows R packages unless explicitly configured to do so.</p>
-<p>The R executable used in the rules is configurable through <code>config/icb_hwang.yaml</code> and/or an environment override if implemented in the rule file. On the tested Windows workstation, the Rscript executable was <code>C:/Program Files/R/R-4.5.2/bin/x64/Rscript.exe</code>. Set the executable to a valid path for the local system before running.</p>
+<p>The R executable is configured through <code>config/icb_hwang.yaml</code>. The workflow was successfully tested using R 4.5.2 on Windows (<code>C:/Program Files/R/R-4.5.2/bin/x64/Rscript.exe</code>). Users should update this path for their local installation.</p>
 <h2 id="run-from-the-repository-root">Run from the repository root</h2>
 <p>Commands below use Git Bash syntax:</p>
 <pre><code class="language-bash"># Inspect registered rules
@@ -286,7 +302,7 @@ pixi run snakemake \
 <p>The final object is saved to:</p>
 <p><code>data/examples/icb_hwang/curation/ICB_Hwang.rds</code></p>
 <h2 id="validated-local-execution">Validated local execution</h2>
-<p>In the successful local run, the final MAE contained <strong>381 annotated gene rows and 21 expression columns</strong>. The MAE contained <strong>21 clinical records</strong> and its <code>sampleMap</code> had <strong>21 mappings</strong>, with matching GEO GSM identifiers for <code>primary</code> and assay <code>colname</code>.</p>
+<p>In the successful local run, <strong>393 original expression features</strong> were reduced to <strong>390 harmonized genes</strong>; <strong>381 genes matched GENCODE v19</strong> and <strong>9 were unmatched</strong>. The final MAE contained <strong>381 annotated gene rows and 21 expression columns</strong>. The MAE contained <strong>21 clinical records</strong> and its <code>sampleMap</code> had <strong>21 mappings</strong>, with matching GEO GSM identifiers for <code>primary</code> and assay <code>colname</code>.</p>
 <p>These are observed local results showing successful processing and technical clinical–RNA sample integration. They do <strong>not</strong> establish that every clinical harmonization field has undergone full scientific validation.</p>
 <p>For manual inspection in R:</p>
 <pre><code class="language-r">library(MultiAssayExperiment)
