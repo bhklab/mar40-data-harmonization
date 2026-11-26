@@ -30,7 +30,7 @@ jobs:
                   echo "Checking for committed data files in protected directories..."
 
                   # Define the directories to check
-                  PROTECTED_DIRS=("data/rawdata" "data/procdata" "data/results")
+                  PROTECTED_DIRS=("data/rawdata" "data/procdata" "results")
                   FOUND_FILES=0
 
                   # Create a detailed markdown report

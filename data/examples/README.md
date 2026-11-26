@@ -14,7 +14,7 @@ The access categories in this file are *simulation labels*, not permissions to d
 Rscript scripts/MAR40_cohort_visualization.R
 ```
 
-The default input is `data/examples/MAR40_synthetic_sample_level.csv`. Generated files are written to `data/results/figures/`, which can remain excluded from Git. Pass alternative paths for approved local data:
+The default input is `data/examples/MAR40_synthetic_sample_level.csv`. Generated files are written to `results/visualization/example/`, which can remain excluded from Git. Pass alternative paths for approved local data:
 
 ```bash
 Rscript scripts/MAR40_cohort_visualization.R /approved/path/harmonized_sample_level.csv /approved/path/output/figures
