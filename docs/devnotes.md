@@ -1,55 +1,24 @@
-# Developer Notes
 
-## Purpose of This Section
+# MAR-40 Developer Notes
 
-This section is for documenting technical decisions, challenges, and solutions encountered during your project. These notes are valuable for:
+**Version:** 1.0  
+**Scope:** Technical decisions, implementation notes, and reproducibility considerations for MAR-40 data standardization and harmonization.
 
-- Future you (who will forget why certain decisions were made)
-- Collaborators who join the project later
-- People coming from your publication who want to reproduce your work
-- Anyone who might want to extend your research
+## Overview
 
-## What to Document
+This document records technical decisions and reproducibility considerations for the MAR-40 data harmonization repository. Detailed procedures are available in the [Data Curation SOP](data_curation_SOP.md), [Clinical Metadata Standardization](clinical_metadata_standardization.md), [Molecular Data Standardization](molecular_data_standardization.md), and [Quality Control](quality_control.md) guides.
 
-### Design Decisions
+## Workflow Scope
 
-Document important decisions about your project's architecture, algorithms, or methodologies:
+- **Snakemake:** Supports clinical and molecular data curation, preprocessing, standardization, harmonization, and quality control. Current examples include the ICB_Hwang and cohort visualization workflows.
 
-``` markdown
-## Choice of RNA-Seq Analysis Pipeline
+## Implementation Notes
 
-[2025-04-25] We chose the kallisto over STAR pipeline for the following reasons:
-    1. The CCLE dataset is very large, and kallisto is faster for quantifying large datasets
-    2. GDSC used kallisto, so we can compare our results with theirs
-```
+- **Clinical standards:** Clinical mappings are informed by mCODE and ICGC-ARGO. Document source-to-standard mappings and unresolved discrepancies.
+- **Molecular annotation:** Record reference genomes, gene identifiers, annotation versions, and assay-specific transformations. [AnnotationGx](https://github.com/bhklab/AnnotationGx) and [ICB_Common](https://github.com/BHKLAB-DataProcessing/ICB_Common) serve as reference resources; their integration and versions should be verified for each workflow.
+- **Reproducibility:** Pixi manages declared workflow tools. R/Bioconductor and external script dependencies require documented versions and validation.
+- **Data governance:** Keep restricted patient-level data in approved storage and share only authorized outputs.
 
-### Technical Challenges
+## Decision Log
 
-Record significant problems you encountered and how you solved them
-
-``` markdown
-## Sample Name Format Issue
-
-[2025-04-25] We encountered a problem with sample name formats between the CCLE and GDSC datasets.
-    The CCLE dataset uses "BRCA-XX-XXXX" format, while the GDSC dataset uses "BRCA-XX-XXXX-XX".
-    We had to write a script to remove the last two characters from the sample names in the GDSC dataset.
-```
-
-### Dependencies and Environment
-
-Document specific version requirements or compatibility issues:
-
-``` markdown
-## Critical Version Dependencies
-
-[2025-04-25] SimpleITK 2.4.1 introduced a bug that flips images, so we froze version 2.4.0
-```
-
-## Best Practices
-
-- Date your entries when appropriate
-- Link to relevant code files or external resources
-- Include small code snippets when helpful
-- Note alternatives you considered and why they were rejected
-- Document failed approaches to prevent others from repeating mistakes
-- Update notes when major changes are made to the approach
+Record significant changes to shared definitions, workflows, dependencies, or output formats, including the **date, decision, rationale, affected files, and validation status**.

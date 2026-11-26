@@ -2,8 +2,6 @@
 
 **Version:** 1.0  
 **Scope:** Clinical, sample, treatment, outcome, and molecular metadata curated by MAR-40 teams at UHN, UCL, McGill, and other authorized collaborating sites  
-**Repository location:** `docs/data_dictionary.md`  
-**Related documentation:** [Data Curation SOP](data_curation_SOP.md) · [Data Sources](data_sources.md) · [Quality Control](quality_control.md) · [Usage](usage.md)
 
 ## 1. Purpose and principles
 

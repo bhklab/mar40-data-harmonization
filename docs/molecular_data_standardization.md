@@ -1,44 +1,61 @@
-# Molecular Data Standardization and Annotation
 
-**Status:** MAR-40 working conventions and recommended checks. Local Hwang clinical/RNA processing is technically demonstrated; broader cohort-level RNA and DNA QC and cross-site validation are ongoing.
+# MAR-40 Molecular Data Standardization and Annotation
 
-## Scope and responsibilities
+**Version:** 1.0  
+**Scope:** RNA and DNA data preprocessing, annotation, harmonization, and quality control across MAR-40 cohorts.  
 
-Use **Snakemake for curation, preprocessing, standardization, and harmonization** of clinical/molecular datasets. UHN coordinates the RNA-focused workflows and UCL coordinates the DNA-focused workflows, while both institutional inventories may contain multiple assay types. **Nextflow is the planned framework for downstream analyses throughout MAR-40**, and should not be represented here as an implemented standardization pipeline.
+## Overview
 
-## Per-cohort molecular manifest
+This document describes molecular data standardization procedures for MAR-40. Snakemake supports reproducible data curation, preprocessing, harmonization, and quality control.
 
-For every assay record: cohort, patient and sample identifiers, specimen/timepoint, assay type (RNA-seq/WTS, targeted RNA, microarray, SNV/indel, CNA, WES/WGS, etc.), raw/processed availability, source file/version, genome build, annotation release, normalization/transform, units, software versions, QC status and access restrictions.
+UHN coordinates RNA-focused workflows, while UCL coordinates DNA-focused workflows. Both institutional inventories may include multiple molecular assay types.
 
-## RNA expression processing and harmonization
+Detailed workflow implementations and cohort-specific processing decisions should be documented alongside the relevant scripts and configurations.
 
-1. Record whether input is FASTQ, counts, TPM, FPKM, log-scale expression, microarray or targeted panel. **Never label different measurement scales as equivalent.**
-2. For raw RNA-seq, document reference genome/transcriptome, quantification method, feature lengths and import to gene level; retain the pipeline and annotation versions. Salmon/tximport may be used **only if selected and validated for that cohort**.
-3. For processed profiles, preserve the original assay scale and transformation; log2(TPM + 1) is a possible analysis representation, **not a universal default**.
-4. Harmonize gene identifiers using an agreed species/build/annotation release; preserve source IDs and a mapping audit (unmapped, ambiguous, duplicate identifiers). Do not assume all data share the same GENCODE version.
-5. Preserve assay platform distinctions (bulk RNA-seq, NanoString, microarray); record probe-to-gene mappings and platform-specific preprocessing.
-6. Match expression samples to clinical metadata using validated cohort/patient/sample keys; keep multiple timepoints/aliquots distinct.
-7. Record sample-level QC and feature filtering **per cohort**, without silently imposing an external study's expression threshold.
+## Molecular Data Inventory
 
-## DNA processing and harmonization
+For each cohort and assay, document:
 
-1. Document DNA assay scope (panel/WES/WGS), reference build, callable territory, variant caller, filters and originating format (VCF/MAF/gene matrix).
-2. Standardize gene and variant annotations with genome-build-aware mappings; preserve mutation consequences, raw calls, and provenance.
-3. Keep SNV/indel and copy-number representations distinct; document rules for deriving gene-level or binary alteration matrices.
-4. Record whether TMB is source-reported or derived, whether synonymous variants are excluded, assay territory and callable denominator; TMB comparisons require consistent measurement definitions.
-5. Document sample purity, coverage, tumor-normal status and assay-specific QC when available; mark unavailable QC honestly.
-6. Identify potential within-cohort and cross-cohort duplicates for scientific review; thresholds from earlier papers are **references**, not automatically MAR-40 QC policy.
+- Cohort, patient and sample identifiers, specimen type, and collection timepoint.
+- Molecular assay, data source, input format, and raw/processed data availability.
+- Reference genome, gene annotation release, and molecular feature identifiers.
+- Quantification or variant-calling method, normalization, and measurement units.
+- Software versions, data access restrictions, and QC status.
 
-## Annotation tools and reusable lab code
+## RNA Data Processing and Harmonization
 
-- **[AnnotationGx](https://github.com/bhklab/AnnotationGx):** BHK Lab resource for constructing/querying annotations. Assess the current interface and relevant reference sources before introducing it into MAR-40; pin a version or commit and record database releases and mapping outcomes.
-- **[ICB_Common](https://github.com/BHKLAB-DataProcessing/ICB_Common):** Shared scripts/conventions that can inform immune-checkpoint-blockade cohort formatting and annotations. Document which functions are imported, exact commit, inputs and outputs; avoid downloading unpinned code at runtime.
-- **GENCODE/HGNC/Ensembl or other reference sources:** Document reference genome, release and identifier crosswalk before applying any conversion. Do not assume feature identifiers from different releases are directly interchangeable.
+1. **Input data:** Identify FASTQ, raw counts, TPM, FPKM, log-transformed expression, microarray, or targeted expression profiles.
+2. **Expression quantification:** Document the reference transcriptome, quantification method, and gene-level summarization when processing raw RNA-seq data.
+3. **Expression standardization:** Preserve original measurement scales and transformations. Apply cohort-appropriate normalization and filtering procedures.
+4. **Gene annotation:** Harmonize gene identifiers using documented annotation references and releases, retaining source identifiers and mapping results.
+5. **Sample matching:** Link molecular profiles to clinical metadata using validated patient and sample identifiers, preserving distinct specimens and collection timepoints.
+6. **Quality control:** Assess sample and feature completeness, duplicate identifiers, annotation coverage, and assay-specific QC metrics.
 
-## Required quality-control evidence
+## DNA Data Processing and Harmonization
 
-Report per-cohort: input/output sample counts, clinical linkage rate, assay units, identifier mapping rate, missing/duplicate features, filtered samples/features, source and target genome/annotation versions, and exceptions. Separate **documented design**, **implemented workflow**, and **executed QC** in technical and milestone reporting.
+1. **Input data:** Document sequencing modality (panel, WES, or WGS), reference genome, variant-calling pipeline, and input format.
+2. **Variant annotation:** Standardize gene and variant identifiers, mutation consequences, and reference genome coordinates.
+3. **Genomic alterations:** Maintain consistent representations of SNVs, indels, and copy-number alterations, with documented rules for deriving gene-level features.
+4. **Tumor mutational burden:** Record whether TMB is source-reported or calculated, including mutation inclusion criteria, assay coverage, and callable territory.
+5. **Sample matching:** Verify patient and tumor sample identifiers and assess potential duplicate samples across cohorts.
+6. **Quality control:** Document sequencing coverage, tumor purity, variant filtering, and other assay-specific metrics when available.
 
-## Reproducibility and access
+## Annotation Tools and Reference Resources
 
-Record tool versions, reference checksums or immutable releases, Snakemake configuration, R/Bioconductor versions, upstream dependencies and QC outputs. Keep restricted patient-level files in authorized locations; commit only approved scripts, schemas, synthetic examples and shareable aggregate evidence.
+The following BHK Lab resources can guide molecular annotation and cohort processing:
+
+- **[AnnotationGx](https://github.com/bhklab/AnnotationGx):** Reference tools for molecular feature annotation and identifier mapping.
+- **[ICB_Common](https://github.com/BHKLAB-DataProcessing/ICB_Common):** Shared conventions and scripts for immunotherapy cohort processing and harmonization.
+
+Reference resources such as GENCODE, Ensembl, and HGNC should be documented with their release versions and identifier mappings.
+
+Any external scripts or annotation tools integrated into MAR-40 should be version-controlled and validated before use.
+
+## Quality Control and Reproducibility
+
+For each processed cohort, record input/output sample counts, molecular feature counts, clinical matching, annotation coverage, filtering decisions, and unresolved discrepancies.
+
+Preserve processing configurations, software versions, reference annotations, and provenance to support reproducibility and FAIR-aligned data management.
+
+Restricted patient-level molecular data must remain in approved institutional storage. Only authorized outputs, documentation, and code should be shared through the repository.
+

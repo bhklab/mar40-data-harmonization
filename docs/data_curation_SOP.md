@@ -1,12 +1,9 @@
+
 # MAR-40 Data Curation and Harmonization SOP
 
-**Version:** 1.0
-
-**Scope:** Participating MAR-40 teams curating clinical and molecular immuno-oncology cohorts
-
-**Document owner(s):** Farnoosh Abbas Aghababazadeh
-
-**Related documents:** [Clinical metadata](clinical_metadata_standardization.md) · [Molecular standardization](molecular_data_standardization.md) · [Data dictionary](data_dictionary.md) · [Data sources](data_sources.md) · [Quality control](quality_control.md) · [Usage](usage.md)
+**Version:** 1.0  
+**Scope:** Participating MAR-40 teams curating clinical and molecular immuno-oncology cohorts  
+**Document Owner:** Farnoosh Abbas Aghababazadeh
 
 ## 1. Purpose and expected outcome
 
