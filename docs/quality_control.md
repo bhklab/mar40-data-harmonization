@@ -2,6 +2,8 @@
 
 **Version:** 1.0  
 **Scope:** Clinical, sample, treatment, outcome, and molecular data curated by MAR-40 collaborating teams at UHN, UCL, McGill, and other authorized sites  
+**Repository location:** `docs/quality_control.md`  
+**Related documents:** [Data Curation SOP](data_curation_SOP.md) · [Data Dictionary](data_dictionary.md) · [Data Sources](data_sources.md) · [Usage](usage.md)
 
 ## 1. Purpose and guiding principles
 
@@ -32,7 +34,7 @@ The goal is to distinguish three questions:
 | **C. Integration QC** | Molecular assay files, sample mappings, optional SE/MAE objects | Sample linkage, feature IDs, annotation/build, matrix dimensions, assay provenance | Molecular/integration QC summary |
 | **D. Release review** | QC results, issues, manifests, outputs | Outstanding blocking findings, documented limitations, authorized destination | Cohort QC disposition and reviewer record |
 
-**Responsibilities:** The contributing site's curator executes and documents checks. Site scientific/data leads review clinically important ambiguities and access restrictions. 
+**Responsibilities:** The contributing site's curator executes and documents checks. Site scientific/data leads review clinically important ambiguities and access restrictions. The MAR-40 harmonization team maintains shared rules and evaluates cross-cohort comparability. Changes to the shared rules follow the SOP's version-control process.
 
 ## 3. QC finding severity and cohort dispositions
 
@@ -57,13 +59,13 @@ Do **not** set an arbitrary global missingness cutoff for all clinical variables
 | Rule ID | Check | Expected outcome | Default severity if violated |
 |---|---|---|---|
 | SRC-01 | Cohort recorded in the cohort registry and source manifest | Stable `cohort` identifier, source/provider, version, curator, and site | Error |
-| SRC-02 | Access status verified | Confirm file-level `Public`, `Controlled access`, or `Private` classification and supporting permissions; cohort-level `Mixed` requires component-level classification and `Unknown` requires review | Error / Review |
+| SRC-02 | Access status verified | `Public`, `Controlled access`, or `Private`, with supporting permission/agreements | Error |
 | SRC-03 | Inputs readable and traceable | Filenames/locations, source revision, format, and checksums when permitted | Error |
 | SRC-04 | Original data preserved | Source inputs not silently edited or overwritten | Error |
 | SRC-05 | Schema and record grain documented | Each table identifies whether rows are patients, samples, visits, treatments, or assays | Review |
 | SRC-06 | Approved execution and output destination | Restricted data remain in authorized institutional environments | Error |
 
-Record missing source documentation explicitly. Do not assert a version, license, approval, or source interpretation that cannot be verified. A cohort-level `Mixed` access classification is acceptable only when each component has a verified access status; `Unknown` must be resolved before authorizing release.
+Record missing source documentation explicitly. Do not assert a version, license, approval, or source interpretation that cannot be verified.
 
 ## 5. Clinical and sample metadata QC
 
@@ -78,7 +80,7 @@ Record missing source documentation explicitly. Do not assert a version, license
 | ID-05 | Treatment and assessment episodes | Distinct treatments/timepoints are not accidentally collapsed or counted as independent patients | Review |
 | ID-06 | Patient attributes across samples | Conflicting nonmissing age/sex/disease values are identified and assessed in context of timepoint and record meaning | Review |
 
-Patient counts must be reported using **distinct `(cohort, patientid)` keys**. Do not assume `patientid` is globally unique across cohorts without verified identity linkage. Apparent differences in treatment, response, or disease status across visits or sampling timepoints are not automatically patient-level conflicts; review them at the correct assessment or treatment-episode grain.
+Patient counts must be reported using **distinct `(cohort, patientid)` keys**. Do not assume `patientid` is globally unique across cohorts without verified identity linkage.
 
 ### 5.2 Missingness and valid values
 
@@ -120,20 +122,18 @@ Avoid treating a cohort's observed median time as Kaplan–Meier median survival
 
 ## 6. Molecular assay and annotation QC
 
-Core molecular metadata QC uses four fields: `rna` and `dna` report assay availability (`Yes`, `No`, or missing), while `rna_info` and `dna_info` describe the technology and processing information when available. A missing assay is not automatically a failed QC check, and `No` must be source-supported. Rules MOL-02 through MOL-08 apply only to relevant molecular data and do not add required core dictionary fields.
-
 | Rule ID | Check | Expected outcome | Default severity |
 |---|---|---|---|
 | MOL-01 | Assay inventory | RNA/DNA presence (`rna`, `dna`) separate from assay description (`rna_info`, `dna_info`) | Review |
 | MOL-02 | Assay identity | Sample IDs and assay IDs traceable to approved sample metadata | Error / Review |
 | MOL-03 | Molecular format and scale | Counts/TPM/microarray/variants/CNA data distinguished; normalization and transformations documented | Review |
-| MOL-04 | Reference and gene annotations | Genome build, gene ID scheme, and GENCODE or other annotation releases recorded or explicitly `Unknown` | Review |
+| MOL-04 | Reference and gene annotations | Genome build, gene ID scheme, and GENCODE/other annotation releases recorded or explicitly `Unknown` | Review |
 | MOL-05 | Feature and sample integrity | Matrix dimensions, duplicate feature/sample IDs, missing rows/columns, feature metadata and sample names checked | Error / Review |
 | MOL-06 | Cross-assay compatibility | Build/identifier/version differences explicitly reconciled; no implicit gene-ID or genome-build mixing | Review |
 | MOL-07 | Mutation/CNA representations | Variant type, reference build, caller/filter versions, CNA representation and binary-call rules traceable | Review |
 | MOL-08 | SE/MAE validation where used | `assay` dimensions align with `rowData`/`colData`; `sampleMap` maps assays to correct cohort-patients | Error / Review |
 
-**GENCODE policy:** For applicable published processed datasets, **GENCODE v19** is the historical MAR-40 harmonization reference; **do not assign GENCODE v19 when the true source annotation is unverified**. For available raw datasets that are reprocessed using MAR-40 standardized pipelines, prefer **GENCODE v40** with its compatible reference genome. Where a publication/provider specifies another release, retain the documented source version. Track the source release, genome build, pipeline, and any conversion or feature remapping. Different gene annotations or expression scales are not automatically comparable.
+**GENCODE policy:** For applicable published processed datasets, GENCODE **v19** is the historical MAR-40 harmonization reference; **do not assign v19 when the true source annotation is unverified**. For available raw datasets that are reprocessed using MAR-40 standardized pipelines, prefer **GENCODE v40** with its compatible reference genome. Where a publication/provider specifies another release, retain the documented source version. Track the source release, genome build, pipeline, and any conversion or feature remapping. Different gene annotations or expression scales are not automatically comparable.
 
 For microarrays, retain the source platform, normalization, probe mapping and annotation release; do not describe normalized microarray signals as TPM. Clinical-only cohorts do not need an artificial assay or MAE object.
 
@@ -165,8 +165,6 @@ Each cohort should generate or document the following artifacts **when applicabl
 ├── assay_manifest.tsv           # Assay types and processing/annotation provenance, if present
 └── run_manifest.txt             # Code/environment/input provenance
 ```
-
-These filenames define the **recommended full QC reporting contract**; they are not all outputs of the currently implemented workflow. The [Snakemake cohort visualization workflow](visualization_workflow.md) currently generates descriptive figures and reports, including `cohort_summary.csv`, `cohort_variable_missingness.csv`, and `patient_level_conflicts.csv`. Those outputs support cohort review but do not implement all rule IDs or replace source-level, molecular, and endpoint-specific QC.
 
 Additional recommended QC views may be produced from the same checks: `missingness_summary.tsv`, `patient_sample_validation.tsv`, `endpoint_completeness.tsv`, and `molecular_qc_summary.tsv`. Keep one canonical issue log, rather than conflicting copies with different statuses.
 
@@ -206,7 +204,7 @@ Record input source IDs and versions/checksums where permitted; workflow/script 
 2. **Inspect** every `Error` and clinically material `Review` finding; document fixes, scientific interpretation, or explicit limitations.
 3. **Re-run** affected checks after code, mapping, or data corrections; preserve the run/version history.
 4. **Assign a disposition** (`Pass`, `Pass with documented limitations`, or `Hold for review`) for the specific output and intended analysis.
-5. **Record the designated reviewer and decision**, including the output/dataset version, intended use, review date, unresolved limitations, and any restrictions; confirm that sharing and destination are authorized before any cross-site release.
+5. **Record the designated reviewer and decision** consistent with site responsibilities in the SOP; confirm that sharing and destination are authorized before any cross-site release.
 6. **Release only approved outputs** with their manifests and permissible QC summaries.
 
 A held cohort need not be discarded: the relevant issue may affect only a particular assay or endpoint. The release decision should specify what is usable, restricted, pending review, or excluded from a stated analysis.
@@ -234,4 +232,4 @@ Record changes in Git; preserve enough version information to reproduce earlier 
 
 | Version | Date | Status | Description |
 |---|---|---|---|
-| 1.0 | 2026-11-20 | Active | MAR-40 cross-site QC specification aligned with Data Curation SOP v1.0 and Data Dictionary v1.0; editorial clarifications to access handling, molecular metadata, reporting scope, and review decisions. |
+| 1.0 | 2026-11-20 | Active | Initial MAR-40 cross-site QC specification aligned with Data Curation SOP v1.0 and Data Dictionary v1.0. |

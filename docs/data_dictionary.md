@@ -1,7 +1,9 @@
 # MAR-40 Data Dictionary and Harmonization Guide
 
-**Version:** 1.0    
+**Version:** 1.0  
 **Scope:** Clinical, sample, treatment, outcome, and molecular metadata curated by MAR-40 teams at UHN, UCL, McGill, and other authorized collaborating sites  
+**Repository location:** `docs/data_dictionary.md`  
+**Related documentation:** [Data Curation SOP](data_curation_SOP.md) · [Data Sources](data_sources.md) · [Quality Control](quality_control.md) · [Usage](usage.md)
 
 ## 1. Purpose and principles
 
@@ -84,7 +86,7 @@ The SOP recognizes the main MAR-40 immunotherapy groupings. Preserve at least th
 
 | Treatment group | Interpretation | Key caution |
 |---|---|---|
-| `PD-1/PD-L1` | PD-1 or PD-L1-directed therapy when classified as a single-target group | Do not label a multi-agent regimen as monotherapy simply because it includes PD-1/PD-L1 blockade |
+| `PD-(L)1` | PD-1 or PD-L1-directed therapy when classified as a single-target group | Do not label a multi-agent regimen as monotherapy simply because it includes PD-(L)1 blockade |
 | `CTLA4` | CTLA-4-directed single-target therapy | Preserve exact drug and mechanism |
 | `IO+combo` | Immunotherapy combination not represented by a more specific selected category | Specify which components qualify; avoid overlap with `IO+chemo` or `IO+targeted` |
 | `IO+chemo` | Immunotherapy plus chemotherapy | Confirm concurrent/combined therapy and study definition |
@@ -111,30 +113,30 @@ Molecular metadata should distinguish **assay presence**, **modality**, **measur
 | `rna_info` | Sample / assay | Conditional | Source RNA technology/platform and processing description; use structured assay manifest for full details |
 | `dna` | Sample | Core | Availability status `Yes`, `No`, or missing |
 | `dna_info` | Sample / assay | Conditional | DNA modality (WES/WGS/panel/etc.) and processing summary |
-
-The four fields above form the **core molecular metadata table** for the harmonized clinical/sample-level export. `rna` and `dna` are core availability fields; `rna_info` and `dna_info` remain conditional descriptive fields, as defined above. Additional assay-level details are documented in the assay manifest or molecular objects, rather than added as mandatory columns to this table.
-
-**Assay documentation (separate from core table):** Where molecular data are available, preserve the source modality (RNA-seq, microarray, WES, WGS, targeted panel, SNV or CNA), input format and measurement scale, normalization or transformations, processing pipeline/version, sample/feature identifiers, reference genome, gene annotation version and relevant QC results. RNA-seq inputs may include FASTQ files or processed counts/TPM matrices, with transcript-level expression retained when provided; microarray values require their original platform and normalization. DNA data may include VCF/MAF variant calls, binary mutation matrices, CNA segments or gene-level CNA measurements. Do not label these different measurements as interchangeable.
-
-**RNA transformations:** Keep original expression values and measurement units traceable. For example, the existing IO curation guide uses `log2(TPM + 0.001)`, whereas the SOP describes `log2(TPM + 1)` as an illustrative option. Neither pseudocount should be imposed silently across cohorts; confirm the approved pipeline, whether values were already transformed, and record the exact formula. Similarly, deriving TPM from counts requires verified gene/transcript lengths and quantification assumptions.
+| `assay_id` | Assay | Conditional | Identifier linking assay entry with sample |
+| `assay_type` | Assay | Conditional | RNA-seq, microarray, WES, WGS, panel, SNV, CNA, etc. |
+| `measurement_type` | Assay | Conditional | Counts, TPM, normalized microarray signal, variant calls, segments, gene-level CNA, etc. |
+| `normalization` | Assay | Conditional | Algorithm, parameters, transformations and pseudocount (if any) |
+| `reference_genome` | Assay | Conditional | Genome assembly, e.g. GRCh37/hg19 or GRCh38/hg38, **verified from source/pipeline** |
+| `gencode_version` | RNA assay | Conditional | Verified GENCODE release; see §5.1 |
+| `gene_id_type` | Assay | Conditional | Ensembl gene ID, gene symbol, probe ID, etc.; record version suffix policy |
+| `annotation_version` | Assay | Conditional | Reference/annotation release, including non-GENCODE sources as applicable |
+| `processing_pipeline` | Assay | Conditional | Tool/workflow name, version, reference and parameters |
+| `processing_source` | Assay | Conditional | Published processed data, provided processed data, or MAR-40 raw-data reprocessing |
+| `feature_mapping_version` | Assay | Conditional | Gene/probe mapping resource and release |
+| `assay_qc_status` | Assay | Conditional | Pass / limitations / hold, as determined by QC procedure |
 
 ### 5.1 GENCODE annotation strategy
 
 MAR-40 uses the following **source-aware strategy**:
 
-1. **Published processed datasets:** **GENCODE v19** is the historical harmonization reference where applicable; however, **do not assign GENCODE v19 to a dataset solely because its true annotation is unknown**. If the publication/provider specifies a different release, retain the documented release. If not verifiable, record `Unknown` in assay provenance and flag for review.
-
+1. **Published processed datasets:** GENCODE **v19** is the historical harmonization reference where applicable; however, **do not assign v19 to a dataset solely because its true annotation is unknown**. If the publication/provider specifies a different release, retain the documented release. If not verifiable, record `Unknown` in assay provenance and flag for review.
 2. **Raw datasets available for standardized reprocessing:** Prefer **GENCODE v40**, with its compatible genome build and an explicitly documented quantification pipeline.
+3. **Source-declared versions:** When a publication or data provider identifies an annotation release, preserve that information even if it differs from v19 or v40.
 
-3. **Source-declared versions:** When a publication or data provider identifies an annotation release, preserve that information even if it differs from GENCODE v19 or GENCODE v40.
-
-Use source-matched annotation resources where available (for example, the established BHKLab annotation files for GENCODE v19 and GENCODE v40). When applicable, retain gene- and transcript-level feature annotations and transcript-to-gene mappings; selecting a mismatched release can lead to loss of features.
-
-Record GENCODE release (e.g., GENCODE v19 or GENCODE v40), genome build, gene ID type, quantification method, source reference and all conversions. **Do not treat different GENCODE releases or builds as interchangeable**, and do not label legacy expression measurements as reprocessed using GENCODE v40 unless actually reprocessed with that annotation.
+Record GENCODE release, genome build, gene ID type, quantification method, source reference and all conversions. **Do not treat different GENCODE releases or builds as interchangeable**, and do not label legacy expression measurements as reprocessed v40 unless actually reprocessed.
 
 ### 5.2 Multi-assay integration
-
-The existing IO curation workflow uses `SummarizedExperiment` and `RangedSummarizedExperiment` to store assays, with clinical metadata linked through `MultiAssayExperiment` (`MAE`). The final MAE structure should retain `experiments()`, `colData()`, and `sampleMap()` so that molecular samples are correctly associated with patients.
 
 When appropriate, build `SummarizedExperiment`, `RangedSummarizedExperiment`, or `MultiAssayExperiment` objects. Validate feature and sample dimensions, `rowData`, `colData`, and the patient/sample relationships represented by `sampleMap`. A clinical-only cohort can be curated without generating a fictitious molecular assay.
 
@@ -192,20 +194,20 @@ Follow [Quality Control](quality_control.md) and the [SOP](data_curation_SOP.md)
 
 The current MAR-40 synthetic sample-level visualization workflow uses fields including `cohort`, `patientid`, `sampleid`, `cancer_type`, `histo`, `stage`, `age`, `sex`, `treatment`, `target`, `sample_timing`, `recist`, `response`, `survival_time_os`, `event_occurred_os`, `survival_time_pfs`, `event_occurred_pfs`, `rna`, and `dna`. Some versions also include `regimen`, `sample_source`, and a source column named **`access type`**.
 
-**Naming policy:** Use **`access_type`** as the canonical dictionary field; accept legacy `access type` as an input alias through an explicit mapping/adapter. Do not silently change script dependencies. Similarly, distinguish `rna` / `dna` **availability** from `rna_info` / `dna_info` **assay descriptions**. Maintain a schema version for each exported dataset.
+**Naming policy:** Use **`access_type`** as the canonical dictionary field; accept legacy `access type` as an input alias through an explicit mapping/adapter. Do not silently change script dependencies. Similarly, distinguish `rna` / `dna` *availability* from `rna_info` / `dna_info` *assay descriptions*. Maintain a schema version for each exported dataset.
 
 Suggested locally generated cohort outputs (subject to source permissions):
 
 ```text
 <cohort_id>/
-├── source_manifest.tsv
-├── mapping_log.tsv
-├── clinical_harmonized.csv
-├── sample_metadata.csv
-├── assay_manifest.tsv
-├── qc_summary.tsv
-├── unresolved_issues.tsv
-└── run_manifest.txt
+  source_manifest.tsv
+  mapping_log.tsv
+  clinical_harmonized.csv
+  sample_metadata.csv
+  assay_manifest.tsv
+  qc_summary.tsv
+  unresolved_issues.tsv
+  run_manifest.txt
 ```
 
 The files and layout above describe an **output contract to implement**, not a claim that every file currently exists. Data protection and permitted sharing take precedence over repository convenience.

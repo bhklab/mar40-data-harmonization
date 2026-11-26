@@ -1,9 +1,12 @@
 # MAR-40 Data Curation and Harmonization SOP
 
-**Version:** 1.0    
+**Version:** 1.0
+
 **Scope:** Participating MAR-40 teams curating clinical and molecular immuno-oncology cohorts
+
 **Document owner(s):** Farnoosh Abbas Aghababazadeh
-**Related documents:** [Data dictionary](data_dictionary.md) · [Data sources](data_sources.md) · [Quality control](quality_control.md) · [Usage](usage.md)
+
+**Related documents:** [Clinical metadata](clinical_metadata_standardization.md) · [Molecular standardization](molecular_data_standardization.md) · [Data dictionary](data_dictionary.md) · [Data sources](data_sources.md) · [Quality control](quality_control.md) · [Usage](usage.md)
 
 ## 1. Purpose and expected outcome
 
@@ -133,6 +136,10 @@ Keep **RECIST best response** (`CR`, `PR`, `SD`, `PD`, or evaluability status wh
 - Verify the **time origin** (diagnosis, treatment initiation, randomization, etc.). Do not pool survival measurements with incompatible or unknown origins without explicit analytical justification.
 - Distinguish **metadata availability** (at least one nonmissing time **or** event field) from **analysis readiness** (a valid paired time/event record and a known endpoint definition).
 
+### 5.7 Alignment with oncology metadata standards
+
+MAR-40 harmonizes relevant clinical metadata using selected concepts from **mCODE** and **ICGC-ARGO**, adapted into the MAR-40 research data dictionary. This is a mapping reference and does not establish full implementation or certification against either specification. For response, survival, treatment and specimen timepoints, preserve source meanings and document every transformation; see [Clinical Metadata Standardization](clinical_metadata_standardization.md).
+
 ## 6. Molecular data curation
 
 ### 6.1 Inventory available assay data
@@ -163,6 +170,10 @@ Use consistent gene annotations across datasets where scientifically appropriate
 Record the annotation release, reference genome, gene identifier format, and processing method for each dataset. Any conversion between annotation versions, gene identifiers, or genome builds must be explicitly documented and traceable, including the mapping strategy and any unmapped or duplicated features.
 
 Established gene, drug, and tumor annotation resources should be used consistently, with the corresponding resource versions recorded.
+
+### 6.5 Molecular harmonization and reference implementations
+
+For detailed RNA expression scale/annotation handling, DNA SNV/CNA metadata, duplicate checks, and assay-specific QC, see [Molecular Data Standardization](molecular_data_standardization.md). **Snakemake is used for standardization/harmonization; Nextflow is planned for downstream MAR-40 analyses.** The BHK Lab [AnnotationGx](https://github.com/bhklab/AnnotationGx) and [ICB_Common](https://github.com/BHKLAB-DataProcessing/ICB_Common) repositories can guide annotation and ICB processing; adopted functions and reference versions must be explicitly documented and pinned. Their inclusion here does not imply full integration or validation in MAR-40.
 
 ## 7. Build harmonized objects and link clinical/molecular data
 
