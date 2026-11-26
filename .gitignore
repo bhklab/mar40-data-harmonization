@@ -411,6 +411,7 @@ site/
 # Generated results and local working files
 results/
 sandbox/
+resources/
 
 # ICB_Hwang original data and annotations
 data/examples/icb_hwang/download/
