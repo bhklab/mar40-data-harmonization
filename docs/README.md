@@ -63,8 +63,6 @@ metadata/                       # Project metadata
 pixi.toml, pixi.lock           # Workflow environment
 ```
 
-[Raw data conventions](../data/rawdata/README.md) · [Processed data conventions](../data/procdata/README.md)
-
 ## Reference implementations
 
 - [BHK Lab AnnotationGx](https://github.com/bhklab/AnnotationGx): an annotation resource/package to evaluate for reproducible feature-annotation steps. Verify functions, species, database releases and identifier mapping before adoption.
