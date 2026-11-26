@@ -59,11 +59,13 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Clinical Metadata Standardization</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#standards-alignment">Standards alignment</a>
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#source-to-standard-mapping-checklist">Source-to-standard mapping checklist</a>
+    <li class="toctree-l2"><a class="reference internal" href="#core-clinical-metadata">Core Clinical Metadata</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#special-considerations">Special considerations</a>
+    <li class="toctree-l2"><a class="reference internal" href="#source-to-standard-mapping">Source-to-Standard Mapping</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#special-considerations">Special Considerations</a>
     </li>
     </ul>
                   </li>
@@ -111,72 +113,77 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="clinical-metadata-standardization">Clinical Metadata Standardization</h1>
-<p><strong>Status:</strong> MAR-40 harmonization guidance. Source-to-target mappings require cohort-level review; this is not a claim of full mCODE or ICGC-ARGO compliance.</p>
-<h2 id="standards-alignment">Standards alignment</h2>
-<p>The MAR-40 clinical data dictionary is <strong>informed by selected common oncology data elements and definitions from mCODE and ICGC-ARGO</strong>. Adopt only variables that fit the available evidence and intended analyses. Retain source terms, transformation rules and mapping decisions.</p>
+                <h1 id="mar-40-clinical-metadata-standardization">MAR-40 Clinical Metadata Standardization</h1>
+<p><strong>Version:</strong> 1.0<br />
+<strong>Scope:</strong> Clinical metadata curation, standardization, harmonization, and validation across MAR-40 immunotherapy cohorts.  </p>
+<h2 id="overview">Overview</h2>
+<p>This document describes the clinical metadata standardization framework for MAR-40. The framework is informed by selected common oncology data elements and definitions from mCODE and ICGC-ARGO, adapted to the available clinical data and research objectives.</p>
+<p>Source variables, original definitions, transformation rules, and mapping decisions are preserved to support reproducibility and FAIR-aligned data management. This approach does not imply full compliance with either standard.</p>
+<h2 id="core-clinical-metadata">Core Clinical Metadata</h2>
 <table>
 <thead>
 <tr>
 <th>Domain</th>
 <th>Core information</th>
-<th>Critical validation</th>
+<th>Validation considerations</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Patient and sample</td>
 <td><code>cohort</code>, <code>patientid</code>, <code>sampleid</code>, specimen relationships</td>
-<td>Keep patient-, specimen-, sample- and assay-level records separate</td>
+<td>Distinguish patient-, specimen-, sample-, and assay-level records</td>
 </tr>
 <tr>
 <td>Disease</td>
-<td>Primary cancer type, histology/subtype, stage, metastatic status</td>
-<td>Document ontology/taxonomy version; do not infer from study title</td>
+<td>Cancer type, histology, stage, metastatic status</td>
+<td>Document classification standards; avoid inferring missing values</td>
 </tr>
 <tr>
 <td>Therapy</td>
-<td>Agents, PD-1/PD-L1/CTLA-4 targets, combinations, therapy line, exposure dates</td>
-<td>Distinguish regimen from molecular target and from subsequent therapies</td>
+<td>Treatment agents, drug targets, combinations, treatment line, exposure dates</td>
+<td>Distinguish treatment regimen, molecular target, and subsequent therapies</td>
 </tr>
 <tr>
 <td>Sampling</td>
-<td>Pre/on/post treatment, sample date/timepoint, tissue source</td>
-<td>Define time relative to an index exposure; preserve longitudinal records</td>
+<td>Pre-, on-, and post-treatment sampling, specimen source and timepoint</td>
+<td>Define timing relative to treatment and preserve longitudinal samples</td>
 </tr>
 <tr>
 <td>Response</td>
-<td>RECIST or study-defined response, R/NR mappings, assessment time</td>
-<td>Preserve original categories; derived binary outcomes must name criteria</td>
+<td>RECIST or study-defined criteria, response category, assessment time</td>
+<td>Preserve original response definitions and document derived R/NR classifications</td>
 </tr>
 <tr>
-<td>Outcomes</td>
-<td>OS/PFS time, event indicator, unit, time origin, censoring</td>
-<td>Validate event coding, time origin, handling of missing or competing data</td>
+<td>Survival</td>
+<td>OS/PFS time, event status, units, time origin, censoring</td>
+<td>Validate endpoint definitions and event coding</td>
 </tr>
 <tr>
-<td>Access/provenance</td>
-<td>Access class, study ID, publication, source file/version</td>
-<td>No patient-level restricted data in GitHub</td>
+<td>Data access and provenance</td>
+<td>Access classification, study identifier, data source and version</td>
+<td>Preserve provenance and comply with data access restrictions</td>
 </tr>
 </tbody>
 </table>
-<h2 id="source-to-standard-mapping-checklist">Source-to-standard mapping checklist</h2>
+<h2 id="source-to-standard-mapping">Source-to-Standard Mapping</h2>
+<p>For each cohort:</p>
 <ol>
-<li>Register source file/version, population, assay and record granularity.</li>
-<li>Record the original field name, allowed values and study definition.</li>
-<li>Map to a MAR-40 target variable with documented rule and reason.</li>
-<li>Preserve unrecognized values as unresolved rather than inferring them.</li>
-<li>Review patient/sample relationships and longitudinal timepoints.</li>
-<li>Validate units, endpoint definitions, missingness, duplicates and mapping exceptions.</li>
-<li>Export standardized tables and a versioned QC/mapping report as permissions allow.</li>
+<li>Document the source dataset, version, and clinical data structure.</li>
+<li>Identify original variable names, definitions, and permitted values.</li>
+<li>Map source variables to standardized MAR-40 fields using documented rules.</li>
+<li>Preserve missing, ambiguous, and unmapped values for review.</li>
+<li>Validate patient and sample identifiers, specimen relationships, and collection timepoints.</li>
+<li>Assess variable completeness, consistency, duplicates, and endpoint definitions.</li>
+<li>Generate standardized clinical tables and mapping/QC summaries.</li>
 </ol>
-<h2 id="special-considerations">Special considerations</h2>
+<h2 id="special-considerations">Special Considerations</h2>
 <ul>
-<li><strong>Response:</strong> Different trials may define response using RECIST, RANO, pathological response, or PFS-derived criteria. Do not treat these as interchangeable without a documented analysis-specific mapping.</li>
-<li><strong>Survival:</strong> Preserve event and time origin; do not impose a universal follow-up censoring time as part of raw harmonization.</li>
-<li><strong>Deduplication:</strong> Potential duplicates within and across institutional inventories need cohort/patient-level review. Site totals must not be summed as unique patients without linkage evidence.</li>
-<li><strong>FAIR:</strong> Use stable identifiers, controlled terms, versioned mappings and access descriptors. FAIR does not require open release of restricted patient-level data.</li>
+<li><strong>Treatment response:</strong> Response criteria may differ across cohorts, including RECIST, RANO, pathological response, and study-defined classifications. Original categories should be retained, with harmonized response definitions documented separately.</li>
+<li><strong>Survival outcomes:</strong> Preserve original time origins, units, event definitions, and censoring information. Analysis-specific censoring rules should not replace source metadata.</li>
+<li><strong>Patient and sample duplication:</strong> Evaluate potential duplicate patients or samples within and across cohorts before calculating combined patient totals.</li>
+<li><strong>Missing data:</strong> Distinguish missing, unavailable, and not applicable values. Missing clinical information should not be interpreted as a negative observation.</li>
+<li><strong>FAIR principles:</strong> Apply consistent identifiers, documented metadata definitions, provenance tracking, and controlled-access procedures to improve data findability, interoperability, and reuse.</li>
 </ul>
               
             </div>

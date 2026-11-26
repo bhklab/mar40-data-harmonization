@@ -77,19 +77,13 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Developer Notes</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#purpose-of-this-section">Purpose of This Section</a>
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#what-to-document">What to Document</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#design-decisions">Design Decisions</a>
+    <li class="toctree-l2"><a class="reference internal" href="#workflow-scope">Workflow Scope</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#technical-challenges">Technical Challenges</a>
+    <li class="toctree-l2"><a class="reference internal" href="#implementation-notes">Implementation Notes</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#dependencies-and-environment">Dependencies and Environment</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a>
+    <li class="toctree-l2"><a class="reference internal" href="#decision-log">Decision Log</a>
     </li>
     </ul>
                   </li>
@@ -119,47 +113,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="developer-notes">Developer Notes</h1>
-<h2 id="purpose-of-this-section">Purpose of This Section</h2>
-<p>This section is for documenting technical decisions, challenges, and solutions encountered during your project. These notes are valuable for:</p>
+                <h1 id="mar-40-developer-notes">MAR-40 Developer Notes</h1>
+<p><strong>Version:</strong> 1.0<br />
+<strong>Scope:</strong> Technical decisions, implementation notes, and reproducibility considerations for MAR-40 data standardization and harmonization.</p>
+<h2 id="overview">Overview</h2>
+<p>This document records technical decisions and reproducibility considerations for the MAR-40 data harmonization repository. Detailed procedures are available in the <a href="../data_curation_SOP/">Data Curation SOP</a>, <a href="../clinical_metadata_standardization/">Clinical Metadata Standardization</a>, <a href="../molecular_data_standardization/">Molecular Data Standardization</a>, and <a href="../quality_control/">Quality Control</a> guides.</p>
+<h2 id="workflow-scope">Workflow Scope</h2>
 <ul>
-<li>Future you (who will forget why certain decisions were made)</li>
-<li>Collaborators who join the project later</li>
-<li>People coming from your publication who want to reproduce your work</li>
-<li>Anyone who might want to extend your research</li>
+<li><strong>Snakemake:</strong> Supports clinical and molecular data curation, preprocessing, standardization, harmonization, and quality control. Current examples include the ICB_Hwang and cohort visualization workflows.</li>
 </ul>
-<h2 id="what-to-document">What to Document</h2>
-<h3 id="design-decisions">Design Decisions</h3>
-<p>Document important decisions about your project's architecture, algorithms, or methodologies:</p>
-<pre><code class="language-markdown">## Choice of RNA-Seq Analysis Pipeline
-
-[2025-04-25] We chose the kallisto over STAR pipeline for the following reasons:
-    1. The CCLE dataset is very large, and kallisto is faster for quantifying large datasets
-    2. GDSC used kallisto, so we can compare our results with theirs
-</code></pre>
-<h3 id="technical-challenges">Technical Challenges</h3>
-<p>Record significant problems you encountered and how you solved them</p>
-<pre><code class="language-markdown">## Sample Name Format Issue
-
-[2025-04-25] We encountered a problem with sample name formats between the CCLE and GDSC datasets.
-    The CCLE dataset uses &quot;BRCA-XX-XXXX&quot; format, while the GDSC dataset uses &quot;BRCA-XX-XXXX-XX&quot;.
-    We had to write a script to remove the last two characters from the sample names in the GDSC dataset.
-</code></pre>
-<h3 id="dependencies-and-environment">Dependencies and Environment</h3>
-<p>Document specific version requirements or compatibility issues:</p>
-<pre><code class="language-markdown">## Critical Version Dependencies
-
-[2025-04-25] SimpleITK 2.4.1 introduced a bug that flips images, so we froze version 2.4.0
-</code></pre>
-<h2 id="best-practices">Best Practices</h2>
+<h2 id="implementation-notes">Implementation Notes</h2>
 <ul>
-<li>Date your entries when appropriate</li>
-<li>Link to relevant code files or external resources</li>
-<li>Include small code snippets when helpful</li>
-<li>Note alternatives you considered and why they were rejected</li>
-<li>Document failed approaches to prevent others from repeating mistakes</li>
-<li>Update notes when major changes are made to the approach</li>
+<li><strong>Clinical standards:</strong> Clinical mappings are informed by mCODE and ICGC-ARGO. Document source-to-standard mappings and unresolved discrepancies.</li>
+<li><strong>Molecular annotation:</strong> Record reference genomes, gene identifiers, annotation versions, and assay-specific transformations. <a href="https://github.com/bhklab/AnnotationGx">AnnotationGx</a> and <a href="https://github.com/BHKLAB-DataProcessing/ICB_Common">ICB_Common</a> serve as reference resources; their integration and versions should be verified for each workflow.</li>
+<li><strong>Reproducibility:</strong> Pixi manages declared workflow tools. R/Bioconductor and external script dependencies require documented versions and validation.</li>
+<li><strong>Data governance:</strong> Keep restricted patient-level data in approved storage and share only authorized outputs.</li>
 </ul>
+<h2 id="decision-log">Decision Log</h2>
+<p>Record significant changes to shared definitions, workflows, dependencies, or output formats, including the <strong>date, decision, rationale, affected files, and validation status</strong>.</p>
               
             </div>
           </div><footer>
