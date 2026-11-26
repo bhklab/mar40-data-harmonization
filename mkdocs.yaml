@@ -2,6 +2,7 @@
 site_name: MAR-40 Data Harmonization and Standardization
 repo_url: https://github.com/bhklab/mar40-data-harmonization
 repo_name: bhklab/mar40-data-harmonization
+edit_uri: edit/main/docs/
 site_description: Documentation for MAR-40 data standardization, harmonization, SOPs, and reproducible workflows
 site_author: Farnoosh Abbas Aghababazadeh
 
