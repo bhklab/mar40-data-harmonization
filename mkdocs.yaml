@@ -1,3 +1,4 @@
+
 site_name: MAR-40 Data Harmonization and Standardization
 repo_url: https://github.com/bhklab/mar40-data-harmonization
 repo_name: bhklab/mar40-data-harmonization
@@ -21,11 +22,12 @@ nav:
 
   - Data Standardization:
       - Data Curation SOP: data_curation_SOP.md
+      - Clinical Metadata Standardization: clinical_metadata_standardization.md
+      - Molecular Data Standardization: molecular_data_standardization.md
       - Standardized Data Dictionary: data_dictionary.md
       - Quality Control: quality_control.md
 
   - Reproducible Workflows:
-      - Snakemake Overview: snakemake_workflow.md
       - Cohort Visualization: visualization_workflow.md
       - ICB_Hwang Clinical + RNA: icb_hwang_example.md
 
