@@ -83,6 +83,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#56-survival-endpoints">5.6 Survival endpoints</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#57-alignment-with-oncology-metadata-standards">5.7 Alignment with oncology metadata standards</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#6-molecular-data-curation">6. Molecular data curation</a>
@@ -94,6 +96,8 @@
     <li class="toctree-l3"><a class="reference internal" href="#63-mutation-and-copy-number-data">6.3 Mutation and copy-number data</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#64-annotation-versions">6.4 Annotation versions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#65-molecular-harmonization-and-reference-implementations">6.5 Molecular harmonization and reference implementations</a>
     </li>
         </ul>
     </li>
@@ -121,14 +125,20 @@
     </li>
     </ul>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_metadata_standardization/">Clinical Metadata Standardization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../molecular_data_standardization/">Molecular Data Standardization</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../data_dictionary/">Standardized Data Dictionary</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../quality_control/">Quality Control</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Reproducible Workflow</span></p>
+              <p class="caption"><span class="caption-text">Reproducible Workflows</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="" href="../snakemake_workflow.md">Snakemake Overview</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../visualization_workflow/">Cohort Visualization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../icb_hwang_example/">ICB_Hwang Clinical + RNA</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Development</span></p>
@@ -153,7 +163,7 @@
           <li class="breadcrumb-item">Data Standardization</li>
       <li class="breadcrumb-item active">Data Curation SOP</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/bhklab/mar-40-data-harmonization-and-standardization/edit/master/docs/data_curation_SOP.md">Edit on mar-40-data-harmonization-and-standardization</a>
+          <a href="https://github.com/bhklab/mar40-data-harmonization/edit/master/docs/data_curation_SOP.md">Edit on bhklab/mar40-data-harmonization</a>
     </li>
   </ul>
   <hr/>
@@ -162,10 +172,10 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="mar-40-data-curation-and-harmonization-sop">MAR-40 Data Curation and Harmonization SOP</h1>
-<p><strong>Version:</strong> 1.0  <br />
-<strong>Scope:</strong> Participating MAR-40 teams curating clinical and molecular immuno-oncology cohorts
-<strong>Document owner(s):</strong> Farnoosh Abbas Aghababazadeh
-<strong>Related documents:</strong> <a href="../data_dictionary/">Data dictionary</a> · <a href="../data_sources/">Data sources</a> · <a href="../quality_control/">Quality control</a> · <a href="../usage/">Usage</a></p>
+<p><strong>Version:</strong> 1.0</p>
+<p><strong>Scope:</strong> Participating MAR-40 teams curating clinical and molecular immuno-oncology cohorts</p>
+<p><strong>Document owner(s):</strong> Farnoosh Abbas Aghababazadeh</p>
+<p><strong>Related documents:</strong> <a href="../clinical_metadata_standardization/">Clinical metadata</a> · <a href="../molecular_data_standardization/">Molecular standardization</a> · <a href="../data_dictionary/">Data dictionary</a> · <a href="../data_sources/">Data sources</a> · <a href="../quality_control/">Quality control</a> · <a href="../usage/">Usage</a></p>
 <h2 id="1-purpose-and-expected-outcome">1. Purpose and expected outcome</h2>
 <p>Establish a transparent, reproducible procedure for acquiring, curating, harmonizing, validating, and documenting clinical and molecular data contributed to MAR-40. Apply common data definitions across institutions while retaining the meaning and provenance of the original source records.</p>
 <p>At the end of curation, each cohort should have, <strong>where the source data permit</strong>:</p>
@@ -357,6 +367,8 @@
 <li>Verify the <strong>time origin</strong> (diagnosis, treatment initiation, randomization, etc.). Do not pool survival measurements with incompatible or unknown origins without explicit analytical justification.</li>
 <li>Distinguish <strong>metadata availability</strong> (at least one nonmissing time <strong>or</strong> event field) from <strong>analysis readiness</strong> (a valid paired time/event record and a known endpoint definition).</li>
 </ul>
+<h3 id="57-alignment-with-oncology-metadata-standards">5.7 Alignment with oncology metadata standards</h3>
+<p>MAR-40 harmonizes relevant clinical metadata using selected concepts from <strong>mCODE</strong> and <strong>ICGC-ARGO</strong>, adapted into the MAR-40 research data dictionary. This is a mapping reference and does not establish full implementation or certification against either specification. For response, survival, treatment and specimen timepoints, preserve source meanings and document every transformation; see <a href="../clinical_metadata_standardization/">Clinical Metadata Standardization</a>.</p>
 <h2 id="6-molecular-data-curation">6. Molecular data curation</h2>
 <h3 id="61-inventory-available-assay-data">6.1 Inventory available assay data</h3>
 <p>The curation workflow covers processed RNA-seq counts/TPM, microarray expression, RNA-seq FASTQ, SNV mutation files, and CNA segment or matrix data. For each assay record the originating platform, sample IDs, reference genome, gene annotation, pipeline/tool versions, normalization, filtering, and quality metrics where available.</p>
@@ -382,6 +394,8 @@
 </ul>
 <p>Record the annotation release, reference genome, gene identifier format, and processing method for each dataset. Any conversion between annotation versions, gene identifiers, or genome builds must be explicitly documented and traceable, including the mapping strategy and any unmapped or duplicated features.</p>
 <p>Established gene, drug, and tumor annotation resources should be used consistently, with the corresponding resource versions recorded.</p>
+<h3 id="65-molecular-harmonization-and-reference-implementations">6.5 Molecular harmonization and reference implementations</h3>
+<p>For detailed RNA expression scale/annotation handling, DNA SNV/CNA metadata, duplicate checks, and assay-specific QC, see <a href="../molecular_data_standardization/">Molecular Data Standardization</a>. <strong>Snakemake is used for standardization/harmonization; Nextflow is planned for downstream MAR-40 analyses.</strong> The BHK Lab <a href="https://github.com/bhklab/AnnotationGx">AnnotationGx</a> and <a href="https://github.com/BHKLAB-DataProcessing/ICB_Common">ICB_Common</a> repositories can guide annotation and ICB processing; adopted functions and reference versions must be explicitly documented and pinned. Their inclusion here does not imply full integration or validation in MAR-40.</p>
 <h2 id="7-build-harmonized-objects-and-link-clinicalmolecular-data">7. Build harmonized objects and link clinical/molecular data</h2>
 <p>For R/Bioconductor workflows, supported integration objects include:</p>
 <ul>
@@ -487,7 +501,7 @@
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../data_sources/" class="btn btn-neutral float-left" title="Cohort Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../data_dictionary/" class="btn btn-neutral float-right" title="Standardized Data Dictionary">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../clinical_metadata_standardization/" class="btn btn-neutral float-right" title="Clinical Metadata Standardization">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -510,14 +524,14 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
         <span>
-          <a href="https://github.com/bhklab/mar-40-data-harmonization-and-standardization" class="fa fa-code-fork" style="color: #fcfcfc"> mar-40-data-harmonization-and-standardization</a>
+          <a href="https://github.com/bhklab/mar40-data-harmonization" class="fa fa-code-fork" style="color: #fcfcfc"> bhklab/mar40-data-harmonization</a>
         </span>
     
     
       <span><a href="../data_sources/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../data_dictionary/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../clinical_metadata_standardization/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

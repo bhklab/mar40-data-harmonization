@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Farnoosh Abbas Aghababazadeh" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Molecular Data Standardization - MAR-40 Data Harmonization and Standardization</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Molecular Data Standardization";
+        var mkdocs_page_input_path = "molecular_data_standardization.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> MAR-40 Data Harmonization and Standardization
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../usage/">Installation and Usage</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data Sources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_sources/">Cohort Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data Standardization</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../data_curation_SOP/">Data Curation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_metadata_standardization/">Clinical Metadata Standardization</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Molecular Data Standardization</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#scope-and-responsibilities">Scope and responsibilities</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#per-cohort-molecular-manifest">Per-cohort molecular manifest</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rna-expression-processing-and-harmonization">RNA expression processing and harmonization</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dna-processing-and-harmonization">DNA processing and harmonization</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#annotation-tools-and-reusable-lab-code">Annotation tools and reusable lab code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#required-quality-control-evidence">Required quality-control evidence</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reproducibility-and-access">Reproducibility and access</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data_dictionary/">Standardized Data Dictionary</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../quality_control/">Quality Control</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reproducible Workflows</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../visualization_workflow/">Cohort Visualization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../icb_hwang_example/">ICB_Hwang Clinical + RNA</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../devnotes/">Developer Notes</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">MAR-40 Data Harmonization and Standardization</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Data Standardization</li>
+      <li class="breadcrumb-item active">Molecular Data Standardization</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/bhklab/mar40-data-harmonization/edit/master/docs/molecular_data_standardization.md">Edit on bhklab/mar40-data-harmonization</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="molecular-data-standardization-and-annotation">Molecular Data Standardization and Annotation</h1>
+<p><strong>Status:</strong> MAR-40 working conventions and recommended checks. Local Hwang clinical/RNA processing is technically demonstrated; broader cohort-level RNA and DNA QC and cross-site validation are ongoing.</p>
+<h2 id="scope-and-responsibilities">Scope and responsibilities</h2>
+<p>Use <strong>Snakemake for curation, preprocessing, standardization, and harmonization</strong> of clinical/molecular datasets. UHN coordinates the RNA-focused workflows and UCL coordinates the DNA-focused workflows, while both institutional inventories may contain multiple assay types. <strong>Nextflow is the planned framework for downstream analyses throughout MAR-40</strong>, and should not be represented here as an implemented standardization pipeline.</p>
+<h2 id="per-cohort-molecular-manifest">Per-cohort molecular manifest</h2>
+<p>For every assay record: cohort, patient and sample identifiers, specimen/timepoint, assay type (RNA-seq/WTS, targeted RNA, microarray, SNV/indel, CNA, WES/WGS, etc.), raw/processed availability, source file/version, genome build, annotation release, normalization/transform, units, software versions, QC status and access restrictions.</p>
+<h2 id="rna-expression-processing-and-harmonization">RNA expression processing and harmonization</h2>
+<ol>
+<li>Record whether input is FASTQ, counts, TPM, FPKM, log-scale expression, microarray or targeted panel. <strong>Never label different measurement scales as equivalent.</strong></li>
+<li>For raw RNA-seq, document reference genome/transcriptome, quantification method, feature lengths and import to gene level; retain the pipeline and annotation versions. Salmon/tximport may be used <strong>only if selected and validated for that cohort</strong>.</li>
+<li>For processed profiles, preserve the original assay scale and transformation; log2(TPM + 1) is a possible analysis representation, <strong>not a universal default</strong>.</li>
+<li>Harmonize gene identifiers using an agreed species/build/annotation release; preserve source IDs and a mapping audit (unmapped, ambiguous, duplicate identifiers). Do not assume all data share the same GENCODE version.</li>
+<li>Preserve assay platform distinctions (bulk RNA-seq, NanoString, microarray); record probe-to-gene mappings and platform-specific preprocessing.</li>
+<li>Match expression samples to clinical metadata using validated cohort/patient/sample keys; keep multiple timepoints/aliquots distinct.</li>
+<li>Record sample-level QC and feature filtering <strong>per cohort</strong>, without silently imposing an external study's expression threshold.</li>
+</ol>
+<h2 id="dna-processing-and-harmonization">DNA processing and harmonization</h2>
+<ol>
+<li>Document DNA assay scope (panel/WES/WGS), reference build, callable territory, variant caller, filters and originating format (VCF/MAF/gene matrix).</li>
+<li>Standardize gene and variant annotations with genome-build-aware mappings; preserve mutation consequences, raw calls, and provenance.</li>
+<li>Keep SNV/indel and copy-number representations distinct; document rules for deriving gene-level or binary alteration matrices.</li>
+<li>Record whether TMB is source-reported or derived, whether synonymous variants are excluded, assay territory and callable denominator; TMB comparisons require consistent measurement definitions.</li>
+<li>Document sample purity, coverage, tumor-normal status and assay-specific QC when available; mark unavailable QC honestly.</li>
+<li>Identify potential within-cohort and cross-cohort duplicates for scientific review; thresholds from earlier papers are <strong>references</strong>, not automatically MAR-40 QC policy.</li>
+</ol>
+<h2 id="annotation-tools-and-reusable-lab-code">Annotation tools and reusable lab code</h2>
+<ul>
+<li><strong><a href="https://github.com/bhklab/AnnotationGx">AnnotationGx</a>:</strong> BHK Lab resource for constructing/querying annotations. Assess the current interface and relevant reference sources before introducing it into MAR-40; pin a version or commit and record database releases and mapping outcomes.</li>
+<li><strong><a href="https://github.com/BHKLAB-DataProcessing/ICB_Common">ICB_Common</a>:</strong> Shared scripts/conventions that can inform immune-checkpoint-blockade cohort formatting and annotations. Document which functions are imported, exact commit, inputs and outputs; avoid downloading unpinned code at runtime.</li>
+<li><strong>GENCODE/HGNC/Ensembl or other reference sources:</strong> Document reference genome, release and identifier crosswalk before applying any conversion. Do not assume feature identifiers from different releases are directly interchangeable.</li>
+</ul>
+<h2 id="required-quality-control-evidence">Required quality-control evidence</h2>
+<p>Report per-cohort: input/output sample counts, clinical linkage rate, assay units, identifier mapping rate, missing/duplicate features, filtered samples/features, source and target genome/annotation versions, and exceptions. Separate <strong>documented design</strong>, <strong>implemented workflow</strong>, and <strong>executed QC</strong> in technical and milestone reporting.</p>
+<h2 id="reproducibility-and-access">Reproducibility and access</h2>
+<p>Record tool versions, reference checksums or immutable releases, Snakemake configuration, R/Bioconductor versions, upstream dependencies and QC outputs. Keep restricted patient-level files in authorized locations; commit only approved scripts, schemas, synthetic examples and shareable aggregate evidence.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../clinical_metadata_standardization/" class="btn btn-neutral float-left" title="Clinical Metadata Standardization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../data_dictionary/" class="btn btn-neutral float-right" title="Standardized Data Dictionary">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/bhklab/mar40-data-harmonization" class="fa fa-code-fork" style="color: #fcfcfc"> bhklab/mar40-data-harmonization</a>
+        </span>
+    
+    
+      <span><a href="../clinical_metadata_standardization/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../data_dictionary/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

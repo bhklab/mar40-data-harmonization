@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Farnoosh Abbas Aghababazadeh" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Example 1 — ICB_Hwang (Clinical + RNA) - MAR-40 Data Harmonization and Standardization</title>
+    <title>ICB_Hwang Clinical + RNA - MAR-40 Data Harmonization and Standardization</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Example 1 \u2014 ICB_Hwang (Clinical + RNA)";
+        var mkdocs_page_name = "ICB_Hwang Clinical + RNA";
         var mkdocs_page_input_path = "icb_hwang_example.md";
         var mkdocs_page_url = null;
       </script>
@@ -57,14 +57,56 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../data_curation_SOP/">Data Curation SOP</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_metadata_standardization/">Clinical Metadata Standardization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../molecular_data_standardization/">Molecular Data Standardization</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../data_dictionary/">Standardized Data Dictionary</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../quality_control/">Quality Control</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Reproducible Workflow</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="" href="../snakemake_workflow.md">Snakemake Overview</a>
+              <p class="caption"><span class="caption-text">Reproducible Workflows</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../visualization_workflow/">Cohort Visualization</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">ICB_Hwang Clinical + RNA</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#source-and-attribution">Source and attribution</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#repository-structure">Repository structure</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#required-local-input-data">Required local input data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#processing-workflow">Processing workflow</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#geo-preprocessing-and-sample-mapping">GEO preprocessing and sample mapping</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#clinical-harmonization">Clinical harmonization</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#molecular-availability">Molecular availability</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rna-expression-harmonization">RNA expression harmonization</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#multiassayexperiment-construction">MultiAssayExperiment construction</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#software-dependencies">Software dependencies</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-from-the-repository-root">Run from the repository root</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#validated-local-execution">Validated local execution</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quality-control-and-planned-improvements">Quality control and planned improvements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mar-40-data-dictionary-considerations">MAR-40 data dictionary considerations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-sharing">Data sharing</a>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Development</span></p>
@@ -86,9 +128,10 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Example 1 — ICB_Hwang (Clinical + RNA)</li>
+          <li class="breadcrumb-item">Reproducible Workflows</li>
+      <li class="breadcrumb-item active">ICB_Hwang Clinical + RNA</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/bhklab/mar-40-data-harmonization-and-standardization/edit/master/docs/icb_hwang_example.md">Edit on mar-40-data-harmonization-and-standardization</a>
+          <a href="https://github.com/bhklab/mar40-data-harmonization/edit/master/docs/icb_hwang_example.md">Edit on bhklab/mar40-data-harmonization</a>
     </li>
   </ul>
   <hr/>
@@ -320,6 +363,10 @@ sampleMap(mae)
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../visualization_workflow/" class="btn btn-neutral float-left" title="Cohort Visualization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../devnotes/" class="btn btn-neutral float-right" title="Developer Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -341,10 +388,14 @@ sampleMap(mae)
   <span class="rst-current-version" data-toggle="rst-current-version">
     
         <span>
-          <a href="https://github.com/bhklab/mar-40-data-harmonization-and-standardization" class="fa fa-code-fork" style="color: #fcfcfc"> mar-40-data-harmonization-and-standardization</a>
+          <a href="https://github.com/bhklab/mar40-data-harmonization" class="fa fa-code-fork" style="color: #fcfcfc"> bhklab/mar40-data-harmonization</a>
         </span>
     
     
+      <span><a href="../visualization_workflow/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../devnotes/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

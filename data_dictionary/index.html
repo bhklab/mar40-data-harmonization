@@ -57,6 +57,10 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../data_curation_SOP/">Data Curation SOP</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_metadata_standardization/">Clinical Metadata Standardization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../molecular_data_standardization/">Molecular Data Standardization</a>
+                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Standardized Data Dictionary</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#1-purpose-and-principles">1. Purpose and principles</a>
@@ -110,9 +114,11 @@
                   <li class="toctree-l1"><a class="reference internal" href="../quality_control/">Quality Control</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Reproducible Workflow</span></p>
+              <p class="caption"><span class="caption-text">Reproducible Workflows</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="" href="../snakemake_workflow.md">Snakemake Overview</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../visualization_workflow/">Cohort Visualization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../icb_hwang_example/">ICB_Hwang Clinical + RNA</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Development</span></p>
@@ -137,7 +143,7 @@
           <li class="breadcrumb-item">Data Standardization</li>
       <li class="breadcrumb-item active">Standardized Data Dictionary</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/bhklab/mar-40-data-harmonization-and-standardization/edit/master/docs/data_dictionary.md">Edit on mar-40-data-harmonization-and-standardization</a>
+          <a href="https://github.com/bhklab/mar40-data-harmonization/edit/master/docs/data_dictionary.md">Edit on bhklab/mar40-data-harmonization</a>
     </li>
   </ul>
   <hr/>
@@ -146,8 +152,10 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="mar-40-data-dictionary-and-harmonization-guide">MAR-40 Data Dictionary and Harmonization Guide</h1>
-<p><strong>Version:</strong> 1.0  <br />
-<strong>Scope:</strong> Clinical, sample, treatment, outcome, and molecular metadata curated by MAR-40 teams at UHN, UCL, McGill, and other authorized collaborating sites  </p>
+<p><strong>Version:</strong> 1.0<br />
+<strong>Scope:</strong> Clinical, sample, treatment, outcome, and molecular metadata curated by MAR-40 teams at UHN, UCL, McGill, and other authorized collaborating sites<br />
+<strong>Repository location:</strong> <code>docs/data_dictionary.md</code><br />
+<strong>Related documentation:</strong> <a href="../data_curation_SOP/">Data Curation SOP</a> · <a href="../data_sources/">Data Sources</a> · <a href="../quality_control/">Quality Control</a> · <a href="../usage/">Usage</a></p>
 <h2 id="1-purpose-and-principles">1. Purpose and principles</h2>
 <p>This dictionary defines a <strong>focused MAR-40 research data model</strong>, not a conversion to OMOP. Its purpose is to support interpretable, reproducible harmonization of immuno-oncology datasets with different study designs, treatment regimens, response measures, and molecular assays. Map <strong>scientifically relevant variables</strong>, not every field in a source database.</p>
 <p>Use the same target field names across collaborating institutions, but <strong>do not assume fields with the same name have the same meaning</strong>. Each cohort must document original terminology, definitions, units, time origins, preprocessing, and any transformations. Preserve original records in their authorized storage environments; keep the harmonized version and mapping decisions traceable to those records.</p>
@@ -484,9 +492,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>PD-1/PD-L1</code></td>
+<td><code>PD-(L)1</code></td>
 <td>PD-1 or PD-L1-directed therapy when classified as a single-target group</td>
-<td>Do not label a multi-agent regimen as monotherapy simply because it includes PD-1/PD-L1 blockade</td>
+<td>Do not label a multi-agent regimen as monotherapy simply because it includes PD-(L)1 blockade</td>
 </tr>
 <tr>
 <td><code>CTLA4</code></td>
@@ -556,28 +564,89 @@
 <td>Conditional</td>
 <td>DNA modality (WES/WGS/panel/etc.) and processing summary</td>
 </tr>
+<tr>
+<td><code>assay_id</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Identifier linking assay entry with sample</td>
+</tr>
+<tr>
+<td><code>assay_type</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>RNA-seq, microarray, WES, WGS, panel, SNV, CNA, etc.</td>
+</tr>
+<tr>
+<td><code>measurement_type</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Counts, TPM, normalized microarray signal, variant calls, segments, gene-level CNA, etc.</td>
+</tr>
+<tr>
+<td><code>normalization</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Algorithm, parameters, transformations and pseudocount (if any)</td>
+</tr>
+<tr>
+<td><code>reference_genome</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Genome assembly, e.g. GRCh37/hg19 or GRCh38/hg38, <strong>verified from source/pipeline</strong></td>
+</tr>
+<tr>
+<td><code>gencode_version</code></td>
+<td>RNA assay</td>
+<td>Conditional</td>
+<td>Verified GENCODE release; see §5.1</td>
+</tr>
+<tr>
+<td><code>gene_id_type</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Ensembl gene ID, gene symbol, probe ID, etc.; record version suffix policy</td>
+</tr>
+<tr>
+<td><code>annotation_version</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Reference/annotation release, including non-GENCODE sources as applicable</td>
+</tr>
+<tr>
+<td><code>processing_pipeline</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Tool/workflow name, version, reference and parameters</td>
+</tr>
+<tr>
+<td><code>processing_source</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Published processed data, provided processed data, or MAR-40 raw-data reprocessing</td>
+</tr>
+<tr>
+<td><code>feature_mapping_version</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Gene/probe mapping resource and release</td>
+</tr>
+<tr>
+<td><code>assay_qc_status</code></td>
+<td>Assay</td>
+<td>Conditional</td>
+<td>Pass / limitations / hold, as determined by QC procedure</td>
+</tr>
 </tbody>
 </table>
-<p>The four fields above form the <strong>core molecular metadata table</strong> for the harmonized clinical/sample-level export. <code>rna</code> and <code>dna</code> are core availability fields; <code>rna_info</code> and <code>dna_info</code> remain conditional descriptive fields, as defined above. Additional assay-level details are documented in the assay manifest or molecular objects, rather than added as mandatory columns to this table.</p>
-<p><strong>Assay documentation (separate from core table):</strong> Where molecular data are available, preserve the source modality (RNA-seq, microarray, WES, WGS, targeted panel, SNV or CNA), input format and measurement scale, normalization or transformations, processing pipeline/version, sample/feature identifiers, reference genome, gene annotation version and relevant QC results. RNA-seq inputs may include FASTQ files or processed counts/TPM matrices, with transcript-level expression retained when provided; microarray values require their original platform and normalization. DNA data may include VCF/MAF variant calls, binary mutation matrices, CNA segments or gene-level CNA measurements. Do not label these different measurements as interchangeable.</p>
-<p><strong>RNA transformations:</strong> Keep original expression values and measurement units traceable. For example, the existing IO curation guide uses <code>log2(TPM + 0.001)</code>, whereas the SOP describes <code>log2(TPM + 1)</code> as an illustrative option. Neither pseudocount should be imposed silently across cohorts; confirm the approved pipeline, whether values were already transformed, and record the exact formula. Similarly, deriving TPM from counts requires verified gene/transcript lengths and quantification assumptions.</p>
 <h3 id="51-gencode-annotation-strategy">5.1 GENCODE annotation strategy</h3>
 <p>MAR-40 uses the following <strong>source-aware strategy</strong>:</p>
 <ol>
-<li>
-<p><strong>Published processed datasets:</strong> <strong>GENCODE v19</strong> is the historical harmonization reference where applicable; however, <strong>do not assign GENCODE v19 to a dataset solely because its true annotation is unknown</strong>. If the publication/provider specifies a different release, retain the documented release. If not verifiable, record <code>Unknown</code> in assay provenance and flag for review.</p>
-</li>
-<li>
-<p><strong>Raw datasets available for standardized reprocessing:</strong> Prefer <strong>GENCODE v40</strong>, with its compatible genome build and an explicitly documented quantification pipeline.</p>
-</li>
-<li>
-<p><strong>Source-declared versions:</strong> When a publication or data provider identifies an annotation release, preserve that information even if it differs from GENCODE v19 or GENCODE v40.</p>
-</li>
+<li><strong>Published processed datasets:</strong> GENCODE <strong>v19</strong> is the historical harmonization reference where applicable; however, <strong>do not assign v19 to a dataset solely because its true annotation is unknown</strong>. If the publication/provider specifies a different release, retain the documented release. If not verifiable, record <code>Unknown</code> in assay provenance and flag for review.</li>
+<li><strong>Raw datasets available for standardized reprocessing:</strong> Prefer <strong>GENCODE v40</strong>, with its compatible genome build and an explicitly documented quantification pipeline.</li>
+<li><strong>Source-declared versions:</strong> When a publication or data provider identifies an annotation release, preserve that information even if it differs from v19 or v40.</li>
 </ol>
-<p>Use source-matched annotation resources where available (for example, the established BHKLab annotation files for GENCODE v19 and GENCODE v40). When applicable, retain gene- and transcript-level feature annotations and transcript-to-gene mappings; selecting a mismatched release can lead to loss of features.</p>
-<p>Record GENCODE release (e.g., GENCODE v19 or GENCODE v40), genome build, gene ID type, quantification method, source reference and all conversions. <strong>Do not treat different GENCODE releases or builds as interchangeable</strong>, and do not label legacy expression measurements as reprocessed using GENCODE v40 unless actually reprocessed with that annotation.</p>
+<p>Record GENCODE release, genome build, gene ID type, quantification method, source reference and all conversions. <strong>Do not treat different GENCODE releases or builds as interchangeable</strong>, and do not label legacy expression measurements as reprocessed v40 unless actually reprocessed.</p>
 <h3 id="52-multi-assay-integration">5.2 Multi-assay integration</h3>
-<p>The existing IO curation workflow uses <code>SummarizedExperiment</code> and <code>RangedSummarizedExperiment</code> to store assays, with clinical metadata linked through <code>MultiAssayExperiment</code> (<code>MAE</code>). The final MAE structure should retain <code>experiments()</code>, <code>colData()</code>, and <code>sampleMap()</code> so that molecular samples are correctly associated with patients.</p>
 <p>When appropriate, build <code>SummarizedExperiment</code>, <code>RangedSummarizedExperiment</code>, or <code>MultiAssayExperiment</code> objects. Validate feature and sample dimensions, <code>rowData</code>, <code>colData</code>, and the patient/sample relationships represented by <code>sampleMap</code>. A clinical-only cohort can be curated without generating a fictitious molecular assay.</p>
 <h2 id="6-mapping-rules-and-statuses">6. Mapping rules and statuses</h2>
 <p>MAR-40 mapping is <strong>key-variable, meaning-driven harmonization</strong>. It does not require OMOP concept IDs or conversion to OMOP database tables.</p>
@@ -717,17 +786,17 @@
 <p><strong>Completeness ≠ comparability.</strong> For example, a cohort with a populated <code>response</code> column may still be incompatible with another cohort if response definitions differ. A heatmap cell of “Yes” signifies that at least one value was observed, not that all records are complete or analytically comparable.</p>
 <h2 id="8-example-export-conventions-and-compatibility">8. Example export conventions and compatibility</h2>
 <p>The current MAR-40 synthetic sample-level visualization workflow uses fields including <code>cohort</code>, <code>patientid</code>, <code>sampleid</code>, <code>cancer_type</code>, <code>histo</code>, <code>stage</code>, <code>age</code>, <code>sex</code>, <code>treatment</code>, <code>target</code>, <code>sample_timing</code>, <code>recist</code>, <code>response</code>, <code>survival_time_os</code>, <code>event_occurred_os</code>, <code>survival_time_pfs</code>, <code>event_occurred_pfs</code>, <code>rna</code>, and <code>dna</code>. Some versions also include <code>regimen</code>, <code>sample_source</code>, and a source column named <strong><code>access type</code></strong>.</p>
-<p><strong>Naming policy:</strong> Use <strong><code>access_type</code></strong> as the canonical dictionary field; accept legacy <code>access type</code> as an input alias through an explicit mapping/adapter. Do not silently change script dependencies. Similarly, distinguish <code>rna</code> / <code>dna</code> <strong>availability</strong> from <code>rna_info</code> / <code>dna_info</code> <strong>assay descriptions</strong>. Maintain a schema version for each exported dataset.</p>
+<p><strong>Naming policy:</strong> Use <strong><code>access_type</code></strong> as the canonical dictionary field; accept legacy <code>access type</code> as an input alias through an explicit mapping/adapter. Do not silently change script dependencies. Similarly, distinguish <code>rna</code> / <code>dna</code> <em>availability</em> from <code>rna_info</code> / <code>dna_info</code> <em>assay descriptions</em>. Maintain a schema version for each exported dataset.</p>
 <p>Suggested locally generated cohort outputs (subject to source permissions):</p>
 <pre><code class="language-text">&lt;cohort_id&gt;/
-├── source_manifest.tsv
-├── mapping_log.tsv
-├── clinical_harmonized.csv
-├── sample_metadata.csv
-├── assay_manifest.tsv
-├── qc_summary.tsv
-├── unresolved_issues.tsv
-└── run_manifest.txt
+  source_manifest.tsv
+  mapping_log.tsv
+  clinical_harmonized.csv
+  sample_metadata.csv
+  assay_manifest.tsv
+  qc_summary.tsv
+  unresolved_issues.tsv
+  run_manifest.txt
 </code></pre>
 <p>The files and layout above describe an <strong>output contract to implement</strong>, not a claim that every file currently exists. Data protection and permitted sharing take precedence over repository convenience.</p>
 <h2 id="9-cross-site-review-and-maintenance">9. Cross-site review and maintenance</h2>
@@ -754,7 +823,7 @@
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../data_curation_SOP/" class="btn btn-neutral float-left" title="Data Curation SOP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../molecular_data_standardization/" class="btn btn-neutral float-left" title="Molecular Data Standardization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../quality_control/" class="btn btn-neutral float-right" title="Quality Control">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -778,11 +847,11 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
         <span>
-          <a href="https://github.com/bhklab/mar-40-data-harmonization-and-standardization" class="fa fa-code-fork" style="color: #fcfcfc"> mar-40-data-harmonization-and-standardization</a>
+          <a href="https://github.com/bhklab/mar40-data-harmonization" class="fa fa-code-fork" style="color: #fcfcfc"> bhklab/mar40-data-harmonization</a>
         </span>
     
     
-      <span><a href="../data_curation_SOP/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../molecular_data_standardization/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../quality_control/" style="color: #fcfcfc">Next &raquo;</a></span>

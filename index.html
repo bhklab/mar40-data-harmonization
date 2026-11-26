@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Documentation for MAR-40 Milestone 1 - Data Standardization, Harmonization, SOPs, and Reproducible Workflows" /><meta name="author" content="Farnoosh Abbas Aghababazadeh" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Documentation for MAR-40 data standardization, harmonization, SOPs, and reproducible workflows" /><meta name="author" content="Farnoosh Abbas Aghababazadeh" />
       <link rel="shortcut icon" href="img/favicon.ico" />
     <title>MAR-40 Data Harmonization and Standardization</title>
     <link rel="stylesheet" href="css/theme.css" />
@@ -42,41 +42,21 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#set-up">Set Up</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#workflows">Workflows</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#clinical-cohort-visualization">Clinical cohort visualization</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#example-1-icb_hwang-clinical-rna">Example 1: ICB_Hwang — Clinical + RNA</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#data-curation-and-harmonization-workflow">Data Curation and Harmonization Workflow</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#repository-organization">Repository Organization</a>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#data-access-and-sharing">Data Access and Sharing</a>
+    <li class="toctree-l3"><a class="reference internal" href="#example-clinical-and-rna-cohort">Example: clinical and RNA cohort</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-cohort-characterization">Example: cohort characterization</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#reproducibility-and-fair-data-principles">Reproducibility and FAIR Data Principles</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#reproducibility">Reproducibility</a>
+    <li class="toctree-l2"><a class="reference internal" href="#repository-structure">Repository structure</a>
     </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#reference-implementations">Reference implementations</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#contributions">Contributions</a>
+    <li class="toctree-l2"><a class="reference internal" href="#data-governance-and-contributions">Data governance and contributions</a>
     </li>
     </ul>
                 </li>
@@ -95,14 +75,20 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="data_curation_SOP/">Data Curation SOP</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="clinical_metadata_standardization/">Clinical Metadata Standardization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="molecular_data_standardization/">Molecular Data Standardization</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="data_dictionary/">Standardized Data Dictionary</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="quality_control/">Quality Control</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Reproducible Workflow</span></p>
+              <p class="caption"><span class="caption-text">Reproducible Workflows</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="" href="snakemake_workflow.md">Snakemake Overview</a>
+                  <li class="toctree-l1"><a class="reference internal" href="visualization_workflow/">Cohort Visualization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="icb_hwang_example/">ICB_Hwang Clinical + RNA</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Development</span></p>
@@ -126,7 +112,7 @@
     <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
       <li class="breadcrumb-item active">Home</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/bhklab/mar-40-data-harmonization-and-standardization/edit/master/docs/README.md">Edit on mar-40-data-harmonization-and-standardization</a>
+          <a href="https://github.com/bhklab/mar40-data-harmonization/edit/master/docs/README.md">Edit on bhklab/mar40-data-harmonization</a>
     </li>
   </ul>
   <hr/>
@@ -135,186 +121,95 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="mar-40-data-harmonization-and-standardization">MAR-40 Data Harmonization and Standardization</h1>
-<p><strong>Author:</strong> <a href="https://github.com/RibaA">Farnoosh Abbas Aghababazadeh</a><br />
-<strong>Contact:</strong> <a href="mailto:farnoosh.abbasaghababazadeh@uhn.ca">farnoosh.abbasaghababazadeh@uhn.ca</a></p>
-<p><strong>Description:</strong> Standardized data curation, processing, and harmonization procedures, standard operating procedures (SOPs), quality control frameworks, and reproducible computational workflows for clinical and molecular data within the MAR-40 immuno-oncology research program.</p>
-<hr />
-<p><a href="https://github.com/prefix-dev/pixi"><img alt="Pixi" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/prefix-dev/pixi/main/assets/badge/v0.json&amp;style=flat-square" /></a>
-<a href="https://github.com/astral-sh/ruff"><img alt="Ruff" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&amp;style=flat-square" /></a>
-<a href="https://github.com/squidfunk/mkdocs-material"><img alt="Material for MkDocs" src="https://img.shields.io/badge/mkdocs--material-gray?logo=materialformkdocs&amp;style=flat-square" /></a>
-<a href="https://snakemake.github.io/"><img alt="Snakemake" src="https://img.shields.io/badge/workflow-Snakemake-blue?style=flat-square" /></a></p>
-<p><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bhklab/mar40-data-harmonization?style=flat-square" />
-<img alt="GitHub issues" src="https://img.shields.io/github/issues/bhklab/mar40-data-harmonization?style=flat-square" />
-<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/bhklab/mar40-data-harmonization?style=flat-square" />
-<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/bhklab/mar40-data-harmonization?style=flat-square" /></p>
-<h2 id="overview">Overview</h2>
-<p>MAR-40 is a collaborative immuno-oncology research program integrating heterogeneous clinical and molecular datasets across participating institutions, including the University Health Network (UHN), University College London (UCL), and McGill University.</p>
-<p>This repository provides a shared framework for consistent data curation, standardization, harmonization, quality control, and reproducible analyses across participating sites.</p>
-<p>The project aims to:</p>
-<ul>
-<li>Standardize clinical and molecular metadata using common data dictionaries and controlled vocabularies.</li>
-<li>Harmonize cohort-specific variables, including cancer type, treatment, response, survival outcomes, sampling timepoints, and molecular assays.</li>
-<li>Document source-to-standard mappings, provenance, quality-control decisions, and unresolved discrepancies.</li>
-<li>Develop reproducible computational workflows using <strong>Snakemake</strong> for cohort processing and visualization and <strong>Pixi</strong> for workflow environment management.</li>
-<li>Support consistent cohort characterization and downstream immuno-oncology biomarker research.</li>
-<li>Promote data management aligned with the <strong>FAIR principles</strong> (Findable, Accessible, Interoperable, and Reusable).</li>
-</ul>
-<h2 id="set-up">Set Up</h2>
-<h3 id="prerequisites">Prerequisites</h3>
-<p><a href="https://pixi.sh/latest/">Pixi</a> manages the project workflow environment. Follow the <a href="https://pixi.sh/latest/">Pixi installation instructions</a> if needed.</p>
-<p>The ICB_Hwang example also requires R with its scientific package dependencies. On the tested Windows system, Snakemake ran through Pixi and scientific processing used a locally installed <strong>R 4.5.2</strong>. The project Pixi environment should not be assumed to install R or Bioconductor packages automatically unless they are explicitly declared.</p>
-<h3 id="installation">Installation</h3>
-<ol>
-<li>Clone the repository and enter its root directory:</li>
-</ol>
-<p><code>bash
-   git clone https://github.com/bhklab/mar40-data-harmonization.git
-   cd mar40-data-harmonization</code></p>
-<ol>
-<li>Install the available Pixi environment:</li>
-</ol>
-<p><code>bash
-   pixi install</code></p>
-<ol>
-<li>Confirm Snakemake is available:</li>
-</ol>
-<p><code>bash
-   pixi run snakemake --version</code></p>
-<p>See the <a href="docs/usage.md">Usage Guide</a> for general setup and execution instructions.</p>
-<h2 id="workflows">Workflows</h2>
-<h3 id="clinical-cohort-visualization">Clinical cohort visualization</h3>
-<p>The visualization workflow produces descriptive cohort summaries and figures from harmonized MAR-40 sample-level clinical metadata. A synthetic dataset is provided to test this workflow without using restricted patient-level data.</p>
-<ul>
-<li><strong>Example input:</strong> <code>data/examples/MAR40_synthetic_sample_level.csv</code></li>
-<li><strong>Required identifiers:</strong> <code>cohort</code>, <code>patientid</code>, <code>sampleid</code></li>
-<li><strong>Configuration:</strong> <code>config/visualization.yaml</code></li>
-<li><strong>Rule file:</strong> <code>workflow/visualization/rules.smk</code></li>
-</ul>
-<p>From the repository root, preview the current visualization workflow:</p>
-<pre><code class="language-bash">pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1 --dry-run
-</code></pre>
-<p>Execute:</p>
-<pre><code class="language-bash">pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1
-</code></pre>
-<p>Outputs include cancer type and immunotherapy treatment distributions; clinical variable availability; sex and RECIST distributions; pre-, on-, and post-treatment sampling summaries; and supporting counts, missingness reports, conflict records, and run metadata.</p>
-<ul>
-<li><strong>Outputs:</strong> <code>results/visualization/example/</code></li>
-<li><strong>Execution log:</strong> <code>logs/visualization/example.log</code></li>
-</ul>
-<p>Collaborators can configure an approved local dataset in <code>config/visualization.yaml</code> without modifying the scientific visualization script. Descriptive outputs do not replace source-level validation or scientific approval.</p>
-<p>See the <a href="docs/visualization_workflow.md">Visualization Workflow Guide</a>.</p>
-<h3 id="example-1-icb_hwang-clinical-rna">Example 1: ICB_Hwang — Clinical + RNA</h3>
-<p>The Hwang immunotherapy cohort (<a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961">GEO GSE136961</a>) serves as a reproducible example of clinical and RNA data harmonization using <strong>R, Snakemake, and Pixi</strong>.</p>
-<p>The workflow integrates clinical metadata and RNA expression data into a <strong>MultiAssayExperiment (MAE)</strong>, with standardized sample identifiers and documented processing steps.</p>
-<p><strong>Validated output:</strong> 381 annotated genes, 21 RNA samples, and 21 matched clinical records.</p>
-<p><strong>Workflow:</strong> <code>workflow/icb_hwang/Snakefile</code><br />
-<strong>Configuration:</strong> <code>config/icb_hwang.yaml</code><br />
-<strong>Data directory:</strong> <code>data/examples/icb_hwang/</code></p>
-<p>Run from the repository root after configuring R and providing the required local inputs:</p>
-<pre><code class="language-bash">pixi run snakemake --snakefile workflow/icb_hwang/Snakefile --cores 1
-</code></pre>
-<p><strong>Status:</strong> Successfully executed locally. Automated QC is planned for a future update.</p>
-<p>For methodology, dependencies, and input requirements, see the <a href="docs/icb_hwang_example.md">ICB_Hwang Example Documentation</a>.</p>
+<p><strong>Scope:</strong> Clinical and molecular cohort curation, data standardization, QC, and reproducible preprocessing for MAR-40.</p>
+<p>MAR-40 integrates heterogeneous immuno-oncology cohorts from University Health Network (UHN), University College London (UCL), and Université de Montréal / CHUM. This repository provides shared standards, documentation, and local <strong>Snakemake</strong> workflows for preparing standardized datasets. <strong>Nextflow</strong> is planned for downstream analyses across the broader MAR-40 research program; this repository does not claim those workflows are implemented here.</p>
+<p>The framework promotes <strong>FAIR</strong> (Findable, Accessible, Interoperable, Reusable) practices while keeping restricted patient-level data in approved environments.</p>
 <h2 id="documentation">Documentation</h2>
-<p>The repository documentation describes shared standards, workflows, and procedures.</p>
 <table>
 <thead>
 <tr>
-<th>Document</th>
-<th>Purpose</th>
+<th>Guide</th>
+<th>Scope</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="docs/data_curation_SOP.md">Data Curation SOP</a></td>
-<td>Clinical and molecular curation, processing, and harmonization procedures.</td>
+<td><a href="data_curation_SOP/">Data Curation and Harmonization SOP</a></td>
+<td>Overall procedure, governance, processing and QC</td>
 </tr>
 <tr>
-<td><a href="docs/data_dictionary.md">Data Dictionary</a></td>
-<td>Standardized variables, definitions, units, and permitted values.</td>
+<td><a href="clinical_metadata_standardization/">Clinical Metadata Standardization</a></td>
+<td>mCODE/ICGC-ARGO-informed mappings, outcomes and provenance</td>
 </tr>
 <tr>
-<td><a href="docs/data_sources.md">Data Sources</a></td>
-<td>Cohort provenance, molecular availability, and access conditions.</td>
+<td><a href="molecular_data_standardization/">Molecular Data Standardization</a></td>
+<td>RNA and DNA data processing, identifiers, gene annotations and QC</td>
 </tr>
 <tr>
-<td><a href="docs/quality_control.md">Quality Control</a></td>
-<td>Validation principles, missingness, and consistency assessment.</td>
+<td><a href="data_dictionary/">Data Dictionary</a></td>
+<td>Target fields, source-to-target mappings and conventions</td>
 </tr>
 <tr>
-<td><a href="docs/usage.md">Usage Guide</a></td>
-<td>Running workflows and reproducing outputs.</td>
+<td><a href="data_sources/">Data Sources</a></td>
+<td>Cohort provenance and access</td>
 </tr>
 <tr>
-<td><a href="docs/visualization_workflow.md">Visualization Workflow</a></td>
-<td>Visualization workflow, figures, reports, and troubleshooting.</td>
+<td><a href="quality_control/">Quality Control</a></td>
+<td>Curation and release checks</td>
 </tr>
 <tr>
-<td><a href="docs/icb_hwang_example.md">ICB_Hwang Example</a></td>
-<td>Clinical + RNA data harmonization and MAE construction.</td>
+<td><a href="usage/">Usage Guide</a></td>
+<td>Local setup and execution</td>
 </tr>
 <tr>
-<td><a href="docs/devnotes.md">Development Notes</a></td>
-<td>Technical notes and development decisions.</td>
+<td><a href="visualization_workflow/">Clinical Visualization</a></td>
+<td>Cohort plots and reports</td>
+</tr>
+<tr>
+<td><a href="icb_hwang_example/">ICB_Hwang Example</a></td>
+<td>Clinical/RNA harmonization example</td>
+</tr>
+<tr>
+<td><a href="devnotes/">Development Notes</a></td>
+<td>Technical notes and decisions</td>
 </tr>
 </tbody>
 </table>
-<h2 id="data-curation-and-harmonization-workflow">Data Curation and Harmonization Workflow</h2>
-<p>The MAR-40 framework comprises six main stages, described in the <a href="docs/data_curation_SOP.md">Data Curation SOP</a>:</p>
-<ol>
-<li><strong>Data acquisition and provenance:</strong> Identify cohorts, publications, source datasets, versions, and access permissions.</li>
-<li><strong>Clinical metadata curation:</strong> Review patient and sample identifiers, demographics, cancer classifications, treatment, response, and survival variables.</li>
-<li><strong>Molecular data preparation:</strong> Document assay modalities, processing methods, annotations, and sample relationships.</li>
-<li><strong>Harmonization:</strong> Apply the shared data dictionary, controlled vocabularies, and documented source-to-standard mappings.</li>
-<li><strong>Quality control:</strong> Assess missingness, duplicates, conflicting fields, assay links, and unresolved mappings.</li>
-<li><strong>Reproducible outputs:</strong> Produce standardized tables, descriptive figures, QC summaries, and provenance records using version-controlled methods.</li>
-</ol>
-<p>Missing values should not be treated as negative observations. Patient-, sample-, treatment-, and timepoint-specific variables must remain distinguishable; longitudinal changes are not automatically conflicts.</p>
-<p>Follow the <a href="docs/data_curation_SOP.md">Data Curation SOP</a> and <a href="docs/quality_control.md">Quality Control Guide</a> for detailed procedures.</p>
-<h2 id="repository-organization">Repository Organization</h2>
-<pre><code class="language-text">mar40-data-harmonization/
-├── config/                    # Workflow configurations
-├── data/
-│   ├── examples/              # Synthetic and local cohort examples
-│   │   └── icb_hwang/         # Local Hwang input and output data
-│   ├── rawdata/               # Approved local source data
-│   └── procdata/              # Approved local processed data
-├── docs/                      # SOPs and workflow documentation
-├── metadata/                  # Project metadata
-├── resources/                 # Reference resources
-├── workflow/
-│   ├── icb_hwang/
-│   │   ├── Snakefile
-│   │   ├── rules.smk
-│   │   └── scripts/           # Five Hwang R processing scripts
-│   └── visualization/
-│       ├── Snakefile
-│       ├── rules.smk
-│       └── clinical_visualization.R
-├── results/                   # Generated outputs (ignored)
-├── logs/                      # Execution logs (ignored)
-├── pixi.toml                  # Environment specification
-└── pixi.lock                  # Resolved dependencies
+<h2 id="getting-started">Getting started</h2>
+<p><a href="https://pixi.sh/latest/">Pixi</a> supplies the workflow environment. The Hwang example additionally uses a separately installed R/Bioconductor environment (tested with R 4.5.2); Pixi is not assumed to install those dependencies automatically.</p>
+<pre><code class="language-bash">git clone https://github.com/bhklab/mar40-data-harmonization.git
+cd mar40-data-harmonization
+pixi install
+pixi run snakemake --version
 </code></pre>
-<p>See the <a href="data/rawdata/README.md">Raw Data README</a> and <a href="data/procdata/README.md">Processed Data README</a> for other directory conventions.</p>
-<h3 id="data-access-and-sharing">Data Access and Sharing</h3>
-<p>Dataset access is governed by source-specific permissions, institutional requirements, and applicable ethics and data-sharing agreements. Private or controlled-access patient-level datasets must <strong>not</strong> be committed to a public repository. Restricted data must remain in approved institutional storage.</p>
-<p>The repository shares code, standards, configurations, documentation, and synthetic or explicitly authorized example resources. Keeping data local does not prevent reproducible processing, provided sources, versions, and setup instructions are documented.</p>
-<h2 id="reproducibility-and-fair-data-principles">Reproducibility and FAIR Data Principles</h2>
-<p>MAR-40 supports transparent, reproducible, and <strong>FAIR (Findable, Accessible, Interoperable, and Reusable)</strong>-aligned management of clinical and molecular data. Standardized metadata, controlled vocabularies, documented mappings, and reproducible workflows promote interoperability and traceability while respecting governance requirements.</p>
-<h3 id="reproducibility">Reproducibility</h3>
-<p>The repository supports reproducible research through:</p>
+<h3 id="example-clinical-and-rna-cohort">Example: clinical and RNA cohort</h3>
+<pre><code class="language-bash">pixi run snakemake --snakefile workflow/icb_hwang/Snakefile --cores 1
+</code></pre>
+<p>The Hwang (GSE136961) example has been run locally (21 matched clinical/RNA records; 381 annotated genes in the output MAE). Automated QC and broader cohort validation remain ongoing. See the <a href="icb_hwang_example/">Hwang example guide</a>.</p>
+<h3 id="example-cohort-characterization">Example: cohort characterization</h3>
+<pre><code class="language-bash">pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1 --dry-run
+pixi run snakemake --snakefile workflow/visualization/Snakefile --cores 1
+</code></pre>
+<p>The visualization workflow supports standardized cohort summary outputs and a synthetic example. See the <a href="visualization_workflow/">visualization guide</a>.</p>
+<h2 id="repository-structure">Repository structure</h2>
+<pre><code class="language-text">config/                         # Workflow configuration
+workflow/icb_hwang/             # Snakemake example, clinical + RNA
+workflow/visualization/         # Snakemake characterization workflow
+docs/                           # Documentation and SOP
+data/examples/                  # Synthetic/authorized local examples
+data/rawdata/                   # Approved local source-data conventions
+data/procdata/                  # Approved local processed-data conventions
+metadata/                       # Project metadata
+pixi.toml, pixi.lock           # Workflow environment
+</code></pre>
+<h2 id="reference-implementations">Reference implementations</h2>
 <ul>
-<li><strong>Shared standards:</strong> Data dictionaries, controlled vocabularies, and documented harmonization decisions.</li>
-<li><strong>Version-controlled methods:</strong> Snakemake rules, scientific scripts, and workflow configurations.</li>
-<li><strong>Managed workflow environments:</strong> Pixi specifications and lockfiles for declared dependencies.</li>
-<li><strong>Traceable outputs:</strong> Cohort summaries, provenance, and available workflow logs.</li>
-<li><strong>Dependency-aware execution:</strong> Snakemake rebuilds outputs when relevant inputs or scripts change.</li>
+<li><a href="https://github.com/bhklab/AnnotationGx">BHK Lab AnnotationGx</a>: an annotation resource/package to evaluate for reproducible feature-annotation steps. Verify functions, species, database releases and identifier mapping before adoption.</li>
+<li><a href="https://github.com/BHKLAB-DataProcessing/ICB_Common">BHKLAB-DataProcessing ICB_Common</a>: shared ICB cohort-processing scripts and conventions used as a reference for cohort workflows. Pin the exact commit/version of any imported code.</li>
 </ul>
-<p>Full cross-site reproducibility also requires versioned R/Bioconductor and external ICB_Common dependencies; these remain ongoing improvements.</p>
-<h2 id="contributions">Contributions</h2>
-<p>Collaborators are encouraged to propose improvements to data standards, documentation, validation procedures, and reproducible workflows. Changes to shared clinical definitions, mappings, and reporting conventions should be reviewed across participating sites before adoption.</p>
-<p>Contributions must preserve provenance and comply with dataset access restrictions. Do not include private or controlled-access source data in pull requests, issues, or example files.</p>
+<p>See the <a href="molecular_data_standardization/">molecular standardization guide</a> for details. These references do <strong>not</strong> imply that all functions or QC rules have already been implemented in MAR-40.</p>
+<h2 id="data-governance-and-contributions">Data governance and contributions</h2>
+<p>Keep private/controlled patient-level data, credentials and restricted outputs out of this public repository. Use approved institutional storage and share only authorized code, metadata, synthetic examples or results. Document mappings, dependency versions, QC outcomes and scientific decisions in pull requests and approved project records.</p>
               
             </div>
           </div><footer>
@@ -342,7 +237,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
         <span>
-          <a href="https://github.com/bhklab/mar-40-data-harmonization-and-standardization" class="fa fa-code-fork" style="color: #fcfcfc"> mar-40-data-harmonization-and-standardization</a>
+          <a href="https://github.com/bhklab/mar40-data-harmonization" class="fa fa-code-fork" style="color: #fcfcfc"> bhklab/mar40-data-harmonization</a>
         </span>
     
     
@@ -367,5 +262,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-11-24 01:18:27.912487+00:00
+Build Date UTC : 2026-11-26 15:32:57.657026+00:00
 -->
