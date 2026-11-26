@@ -2,7 +2,7 @@
 
 **Scope:** Clinical and molecular cohort curation, data standardization, QC, and reproducible preprocessing for MAR-40.
 
-MAR-40 integrates heterogeneous immuno-oncology cohorts from University Health Network (UHN), University College London (UCL), and Université de Montréal / CHUM. This repository provides shared standards, documentation, and local **Snakemake** workflows for preparing standardized datasets. 
+MAR-40 integrates heterogeneous immuno-oncology cohorts from University Health Network (UHN), University College London (UCL), and McGill University. This repository provides shared standards, documentation, and local **Snakemake** workflows for preparing standardized datasets. 
 
 The framework promotes **FAIR** (Findable, Accessible, Interoperable, Reusable) practices while keeping restricted patient-level data in approved environments.
 
