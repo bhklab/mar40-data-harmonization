@@ -191,7 +191,7 @@ col_treatment <- c(
   "CTLA4"    = "#B7AC69",
   "IO+combo" = "#64A097",
   "IO+chemo" = "#D97B7B",
-  "Other"    = "#9F6589",
+  "IO+targeted" = "#9F6589",
   "Missing"  = missing_color
 )
 
